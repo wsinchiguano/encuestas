@@ -1,3 +1,16 @@
+$colors: (
+        "blue": #2196F3,
+        "green": #4caf50,
+        "yellow": #FBC02D,
+        "cyan": #00BCD4,
+        "pink": #E91E63,
+        "indigo": #3F51B5,
+        "teal": #009688,
+        "orange": #F57C00,
+        "bluegray": #607D8B,
+        "purple": #9C27B0
+);
+
 //shades
 $shade000:rgba(255,255,255,.87) !default;  //text color
 $shade100:rgba(255,255,255,.60) !default;  //text secondary color
@@ -93,6 +106,12 @@ $inputOverlayBg:$inputListBg !default;
 $inputOverlayHeaderBg:$inputListHeaderBg !default;
 $inputOverlayBorder:1px solid $shade600 !default;
 $inputOverlayShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+
+//password
+$passwordMeterBg:$shade600 !default;
+$passwordWeakBg:#F48FB1 !default;
+$passwordMediumBg:#FFE082 !default;
+$passwordStrongBg:#C5E1A5 !default;
 
 //button
 $buttonPadding:.5rem 1rem !default;

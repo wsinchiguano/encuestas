@@ -28,9 +28,10 @@ import {AppMainComponent} from './app.main.component';
 				<i class="pi pi-fw pi-chevron-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items" role="menu" [@children]="appMain.isSlim() ? (root ? appMain.isMobile()? 'visible':
+			<ul *ngIf="item.items" role="menu" [@children]="(appMain.isSlim() || appMain.isHorizontal()) ? (root ? appMain.isMobile()? 'visible':
 			slimClick ? (active  ? 'slimVisibleAnimated' : 'slimHiddenAnimated') : (active ? 'visible' : 'hidden') :
-			(active ? 'visible' : 'hidden')) : (root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">
+			appMain.isSlim() || appMain.isHorizontal() ? (active ? 'visibleAnimated' : 'hiddenAnimated') : (active ? 'visible' : 'hidden')) :
+			(root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
 				</ng-template>
@@ -39,7 +40,7 @@ import {AppMainComponent} from './app.main.component';
     `,
     host: {
         '[class.layout-root-menuitem]': 'root',
-        '[class.active-menuitem]': '(active && !root) || (active && appMain.isSlim())'
+        '[class.active-menuitem]': '(active && !root) || (active && (appMain.isSlim() || appMain.isHorizontal()))'
     },
     animations: [
         trigger('children', [
@@ -95,7 +96,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string;
 
-    slimClick = true;
+    slimClick = false;
 
     constructor(public appMain: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
@@ -111,7 +112,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(params => {
-                if (this.appMain.isSlim()) {
+                if (this.appMain.isSlim() || this.appMain.isHorizontal()) {
                     this.active = false;
                 } else {
                     if (this.item.routerLink) {
@@ -124,7 +125,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        if (!this.appMain.isSlim() && this.item.routerLink) {
+        if (!(this.appMain.isSlim() || this.appMain.isHorizontal()) && this.item.routerLink) {
             this.updateActiveStateFromRoute();
         }
 
@@ -171,7 +172,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             }
 
             // reset horizontal menu
-            if (this.appMain.isSlim()) {
+            if (this.appMain.isSlim() || this.appMain.isHorizontal()) {
                 this.menuService.reset();
                 this.appMain.menuHoverActive = false;
             }
@@ -182,14 +183,18 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     onMouseEnter() {
         // activate item on hover
-        if (this.root  && this.appMain.isSlim() && this.appMain.isDesktop()) {
+        if (this.root  && (this.appMain.isSlim() || this.appMain.isHorizontal()) && this.appMain.isDesktop()) {
             if (this.appMain.menuHoverActive) {
                 this.menuService.onMenuStateChange(this.key);
-                this.slimClick = false;
                 this.active = true;
+                if (this.appMain.isSlim()) {
+                    this.slimClick = false;
+                }
             }
             else {
-                this.slimClick = true;
+                if (this.appMain.isSlim()) {
+                    this.slimClick = true;
+                }
             }
         }
     }

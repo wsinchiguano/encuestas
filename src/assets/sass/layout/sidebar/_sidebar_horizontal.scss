@@ -1,9 +1,9 @@
 @media screen and (min-width: $tabletBreakpoint + 1) {
     .layout-wrapper {
-        &.layout-slim {
+        &.layout-horizontal {
             .topbar-left {
                 .horizontal-logo {
-                    display: none;
+                    height: 3rem;
                 }
 
                 .menu-button {
@@ -11,17 +11,19 @@
                 }
 
                 .topbar-separator {
-                    display: none;
+                    display: block;
                 }
             }
 
             .layout-sidebar {
-                width: $slimSidebarWidth;
+                width: 100%;
+                height: 3rem;
+                top: 4rem;
                 overflow: visible;
-                z-index: 999;
+                flex-direction: row;
 
-                .logo-image {
-                    margin-right: 0;
+                .logo {
+                    display: none;
                 }
 
                 .app-name {
@@ -30,14 +32,26 @@
 
                 .layout-menu-container {
                     overflow: visible;
+                    padding: 0;
                 }
             }
 
             .layout-content-wrapper {
-                margin-left: $slimSidebarWidth;
+                margin-left: 0;
+
+                .layout-content {
+                    padding-top: 5rem;
+                }
             }
 
             .layout-menu {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 100%;
+                margin: 0px 1rem;
+                padding-bottom: 0px;
+
                 ul {
                     display: none;
                 }
@@ -57,16 +71,16 @@
                     }
 
                     > a {
-                        display: block;
-                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        padding: .75rem;
                         border-radius: $borderRadius;
-                        padding: .5rem 0;
                         cursor: pointer;
                         outline: none;
                         transition: background-color $transitionDuration;
 
                         .layout-submenu-toggler {
-                            display: none;
+                            display: block;
                         }
 
                         .layout-menuitem-icon {
@@ -76,22 +90,20 @@
                         .layout-menuitem-text {
                             font-size: 0.875rem;
                             display: block;
-                            margin-top: .25rem;
+                            margin-left: .75rem;
+                            margin-right: .75rem;
                         }
                     }
 
                     > ul {
                         position: absolute;
-                        left: 5rem;
-                        top: 0;
+                        left: 0;
+                        top: 3rem;
                         min-width: 15rem;
                         border: $overlayBorder;
                         box-shadow: $overlayShadow;
-                        border-top-right-radius: $borderRadius;
-                        border-bottom-right-radius: $borderRadius;
                         padding: 1rem;
-                        animation-duration: $animationDuration;
-                        animation-timing-function: $animationTimingFunction;
+                        border-radius: $borderRadius;
                     }
                 }
             }

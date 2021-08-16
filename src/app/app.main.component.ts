@@ -61,7 +61,7 @@ export class AppMainComponent {
         }
 
         if (!this.menuClick) {
-            if (this.isSlim()) {
+            if (this.isSlim() || this.isHorizontal()) {
                 this.menuService.reset();
             }
 
@@ -162,6 +162,10 @@ export class AppMainComponent {
 
     isSlim() {
         return this.app.menuMode === 'slim';
+    }
+
+    isHorizontal() {
+        return this.app.menuMode === 'horizontal';
     }
 
     isOverlay() {

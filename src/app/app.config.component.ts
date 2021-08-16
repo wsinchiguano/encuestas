@@ -22,6 +22,10 @@ import { AppComponent } from './app.component';
                 <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode3"></p-radioButton>
                 <label for="mode3">Slim</label>
             </div>
+            <div class="p-field-radiobutton">
+                <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="mode4"></p-radioButton>
+                <label for="mode4">Horizontal</label>
+            </div>
 
             <hr />
 

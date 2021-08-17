@@ -1,6 +1,11 @@
 @media screen and (min-width: $tabletBreakpoint + 1) {
     .layout-wrapper {
         &.layout-static {
+            .layout-topbar {
+                width: calc(100% - 16rem);
+                margin-left: $sidebarWidth;
+            }
+
             .layout-content-wrapper {
                 margin-left: $sidebarWidth;
             }
@@ -19,6 +24,11 @@
                 transform: translateX(-100%);
             }
 
+            .layout-topbar {
+                width: 100%;
+                margin-left: 0;
+            }
+
             .layout-content-wrapper {
                 margin-left: 0;
             }
@@ -31,6 +41,11 @@
                         content: "\e901";
                     }
                 }    
+            }
+
+            .layout-topbar {
+                width: 100%;
+                margin-left: 0;
             }
 
             .layout-content-wrapper {

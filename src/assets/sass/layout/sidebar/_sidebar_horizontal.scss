@@ -61,6 +61,12 @@
                     > ul {
                         display: block;
                     }
+
+                    > a {
+                        .layout-submenu-toggler {
+                            transform: rotate(-180deg);
+                        }
+                    }
                 }
 
                 .layout-root-menuitem {
@@ -82,6 +88,8 @@
 
                         .layout-submenu-toggler {
                             display: block;
+                            margin-left: auto;
+                            transition: transform 0.2s;
                         }
 
                         .layout-menuitem-icon {

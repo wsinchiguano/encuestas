@@ -29,7 +29,7 @@ import {AppMainComponent} from './app.main.component';
 			</a>
 
 			<ul *ngIf="item.items" role="menu" [@children]="(appMain.isSlim() || appMain.isHorizontal()) ? (root ? appMain.isMobile()? 'visible':
-			slimClick ? (active  ? 'slimVisibleAnimated' : 'slimHiddenAnimated') : (active ? 'visible' : 'hidden') :
+			slimClick && !appMain.isHorizontal() ? (active  ? 'slimVisibleAnimated' : 'slimHiddenAnimated') : (active ? 'visible' : 'hidden') :
 			appMain.isSlim() || appMain.isHorizontal() ? (active ? 'visibleAnimated' : 'hiddenAnimated') : (active ? 'visible' : 'hidden')) :
 			(root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
@@ -179,6 +179,8 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
             this.appMain.unblockBodyScroll();
         }
+
+        this.removeActiveInk(event);
     }
 
     onMouseEnter() {
@@ -187,9 +189,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             if (this.appMain.menuHoverActive) {
                 this.menuService.onMenuStateChange(this.key);
                 this.active = true;
-                if (this.appMain.isSlim()) {
-                    this.slimClick = false;
-                }
+                this.slimClick = false;
             }
             else {
                 if (this.appMain.isSlim()) {
@@ -197,6 +197,20 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
                 }
             }
         }
+    }
+    removeActiveInk(event: Event) {
+        let currentTarget = (event.currentTarget as HTMLElement);
+        setTimeout(() => {
+            if (currentTarget) {
+                let activeInk = currentTarget.querySelector('.p-ink-active');
+                if (activeInk) {
+                    if (activeInk.classList)
+                        activeInk.classList.remove('p-ink-active');
+                    else
+                        activeInk.className = activeInk.className.replace(new RegExp('(^|\\b)' + 'p-ink-active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                }
+            }
+        }, 401);
     }
 
     ngOnDestroy() {

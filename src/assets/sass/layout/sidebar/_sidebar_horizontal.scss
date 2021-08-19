@@ -1,27 +1,50 @@
 @media screen and (min-width: $tabletBreakpoint + 1) {
     .layout-wrapper {
         &.layout-horizontal {
-            .topbar-left {
-                .horizontal-logo {
-                    height: 3rem;
+            .layout-topbar {
+                .topbar-left {
+                    .horizontal-logo {
+                        display: block;
+                        height: 2rem;
+                    }
+
+                    .menu-button {
+                        display: none;
+                    }
+
+                    .viewname {
+                        display: none;
+                    }
+
+                    .topbar-separator {
+                        display: block;
+                    }
                 }
 
-                .menu-button {
-                    display: none;
-                }
+                .topbar-right {
+                    display: flex;
+                    justify-content: flex-end;
+                    flex-grow: 1;
 
-                .topbar-separator {
-                    display: block;
+                    .topbar-menu {
+                        .profile-item {
+                            .profile-name {
+                                display: none;
+                            }
+                        }
+                    }
                 }
             }
 
             .layout-sidebar {
                 width: 100%;
-                height: 3rem;
-                top: 4rem;
+                top: 0;
+                z-index: 999;
                 overflow: visible;
                 flex-direction: row;
-                z-index: 999;
+                position: relative;
+                box-shadow: none;
+                border: 0 none;
 
                 .logo {
                     display: none;
@@ -40,8 +63,10 @@
             .layout-content-wrapper {
                 margin-left: 0;
 
-                .layout-content {
-                    padding-top: 9rem;
+                .viewname {
+                    padding-bottom: 1rem;
+                    display: block;
+                    font-weight: 600;
                 }
             }
 
@@ -50,8 +75,6 @@
                 flex-direction: row;
                 align-items: center;
                 height: 100%;
-                margin: 0px 1rem;
-                padding-bottom: 0px;
 
                 ul {
                     display: none;
@@ -101,6 +124,7 @@
                             display: block;
                             margin-left: .75rem;
                             margin-right: .75rem;
+                            white-space: nowrap;
                         }
                     }
 

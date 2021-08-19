@@ -1,13 +1,20 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {MenuService} from './app.menu.service';
-import {PrimeNGConfig} from 'primeng/api';
+import {MenuItem, PrimeNGConfig} from 'primeng/api';
 import {AppComponent} from './app.component';
+import {Subscription} from "rxjs";
+import {BreadcrumbService} from "./app.breadcrumb.service";
 
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html',
 })
-export class AppMainComponent {
+export class AppMainComponent  implements OnDestroy {
+
+    subscription: Subscription;
+
+    items: MenuItem[];
+
     overlayMenuActive: boolean;
 
     staticMenuDesktopInactive: boolean;
@@ -40,7 +47,11 @@ export class AppMainComponent {
 
     menuHoverActive = false;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) {
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig,
+                public app: AppComponent, public breadcrumbService: BreadcrumbService) {
+        this.subscription = breadcrumbService.itemsHandler.subscribe(response => {
+            this.items = response;
+        });
     }
 
     onLayoutClick() {
@@ -173,11 +184,11 @@ export class AppMainComponent {
     }
 
     isDesktop() {
-        return window.innerWidth > 991;
+        return window.innerWidth > 1091;
     }
 
     isMobile() {
-        return window.innerWidth <= 991;
+        return window.innerWidth <= 1091;
     }
 
     hideOverlayMenu() {
@@ -199,6 +210,12 @@ export class AppMainComponent {
         } else {
             document.body.className = document.body.className.replace(new RegExp('(^|\\b)' +
                 'blocked-scroll'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+    }
+
+    ngOnDestroy() {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
         }
     }
 }

@@ -29,6 +29,13 @@
 
                     .topbar-menu {
                         .profile-item {
+                            > a {
+                                padding: 0;
+
+                                img {
+                                    margin: 0;
+                                }
+                            }
                             .profile-name {
                                 display: none;
                             }

@@ -141,11 +141,16 @@ export class AppConfigComponent implements OnInit {
         }
         else {
             this.app.menuTheme = 'layout-sidebar-' + this.tempMenuColor;
-            if (this.tempLogoColor === 'white') {
+            if(this.app.colorScheme !== 'light') {
                 appLogoLink.src = 'assets/layout/images/logo-white.svg';
             }
             else {
-                appLogoLink.src = 'assets/layout/images/logo-dark.svg';
+                if (this.tempLogoColor === 'white') {
+                    appLogoLink.src = 'assets/layout/images/logo-white.svg';
+                }
+                else {
+                    appLogoLink.src = 'assets/layout/images/logo-dark.svg';
+                }
             }
         }
     }

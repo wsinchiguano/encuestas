@@ -12,15 +12,15 @@ import {AppMainComponent} from './app.main.component';
     /* tslint:enable:component-selector */
     template: `
 		<ng-container>
-            <div *ngIf="root" class="layout-menuitem-root-text">{{item.label}}</div>
-			<a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()"
+            <div *ngIf="root && item.visible !== false" class="layout-menuitem-root-text">{{item.label}}</div>
+			<a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="(!item.routerLink || item.items) && item.visible !== false" (mouseenter)="onMouseEnter()"
 			   (keydown.enter)="itemClick($event)" [ngClass]="item.class" pRipple
 			   [attr.target]="item.target" [attr.tabindex]="0">
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
 				<span class="layout-menuitem-text">{{item.label}}</span>
 				<i class="pi pi-fw layout-submenu-toggler" [ngClass]="!appMain.isHorizontal() ?'pi-chevron-down': 'pi-angle-down'" *ngIf="item.items"></i>
 			</a>
-			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
+			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="(item.routerLink && !item.items) && item.visible !== false"
 			   [routerLink]="item.routerLink" routerLinkActive="active-route" [ngClass]="item.class" pRipple
 			   [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0">
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
@@ -28,7 +28,7 @@ import {AppMainComponent} from './app.main.component';
 				<i class="pi pi-fw layout-submenu-toggler" [ngClass]="!appMain.isHorizontal() ?'pi-chevron-down': 'pi-angle-down'" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items" role="menu" [@children]="(appMain.isSlim() || appMain.isHorizontal()) ? (root ? appMain.isMobile()? 'visible':
+			<ul *ngIf="item.items && item.visible !== false" role="menu" [@children]="(appMain.isSlim() || appMain.isHorizontal()) ? (root ? appMain.isMobile()? 'visible':
 			slimClick && !appMain.isHorizontal() ? (active  ? 'slimVisibleAnimated' : 'slimHiddenAnimated') : (active ? 'visible' : 'hidden') :
 			appMain.isSlim() || appMain.isHorizontal() ? (active ? 'visibleAnimated' : 'hiddenAnimated') : (active ? 'visible' : 'hidden')) :
 			(root ? 'visible' :(active ? 'visibleAnimated' : 'hiddenAnimated'))">

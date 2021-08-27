@@ -3,6 +3,7 @@ import {MenuItem} from 'primeng/api';
 import {Product} from '../domain/product';
 import {ProductService} from '../service/productservice';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
+import {Chart} from "chart.js";
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -70,25 +71,27 @@ export class DashboardDemoComponent implements OnInit {
                     '#64B5F6',
                 ],
                 borderWidth: 3,
-                fill: true
+                fill: true,
+                tension: .4
             }]
         };
 
         this.ordersChartOptions = {
-            legend: {
-                display: true,
+            plugins: {
+                legend: {
+                    display: true,
+                }
             },
-            responsive: true,
             hover: {
                 mode: 'index'
             },
             scales: {
-                yAxes: [{
+                y: {
                     ticks: {
                         min: 0,
                         max: 20
                     }
-                }]
+                }
             }
         };
 
@@ -118,6 +121,7 @@ export class DashboardDemoComponent implements OnInit {
         this.ordersChart.datasets[0].label = event.currentTarget.getAttribute('data-label');
         this.ordersChart.datasets[0].borderColor = event.currentTarget.getAttribute('data-stroke');
         this.ordersChart.datasets[0].backgroundColor = event.currentTarget.getAttribute('data-fill');
+
     }
 
     recentSales(event) {
@@ -126,13 +130,5 @@ export class DashboardDemoComponent implements OnInit {
         } else {
             this.products = this.productsLastWeek;
         }
-    }
-
-    shuffle() {
-        for (let i = this.products.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [this.products[i], this.products[j]] = [this.products[j], this.products[i]];
-        }
-        return this.products;
     }
 }

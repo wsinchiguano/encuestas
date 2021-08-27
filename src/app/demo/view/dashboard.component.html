@@ -87,7 +87,7 @@
 					<div class="p-col-12">
 						<div id="order-tabs-container" class="p-grid order-tabs">
 							<div class="order-tab order-tab-new p-col-6 p-md-3"
-								 (click)="changeDataset($event); chart.refresh()"
+								 (click)="changeDataset($event); chart.reinit()"
 								 data-label="New Orders" data-index="0" data-stroke="#BBDEFB"
 								 data-fill="rgba(100, 181, 246, 0.2)">
 								<i class="pi pi-plus-circle"></i>
@@ -96,7 +96,7 @@
 								<img src="assets/demo/images/dashboard/graph-new.svg" alt="diamond-ng"/>
 							</div>
 							<div class="order-tab order-tab-completed p-col-6 p-md-3"
-								 (click)="changeDataset($event); chart.refresh()"
+								 (click)="changeDataset($event); chart.reinit()"
 								 data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9"
 								 data-fill="rgba(121, 134, 203, 0.2)">
 								<i class="pi pi-check-circle"></i>
@@ -105,7 +105,7 @@
 								<img src="assets/demo/images/dashboard/graph-completed.svg" alt="diamond-ng"/>
 							</div>
 							<div class="order-tab order-tab-refunded p-col-6 p-md-3"
-								 (click)="changeDataset($event); chart.refresh()"
+								 (click)="changeDataset($event); chart.reinit()"
 								 data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB"
 								 data-fill="rgba(224, 242, 241, 0.5)">
 								<i class="pi pi-refresh"></i>
@@ -114,7 +114,7 @@
 								<img src="assets/demo/images/dashboard/graph-refunded.svg" alt="diamond-ng"/>
 							</div>
 							<div class="order-tab order-tab-cancelled p-col-6 p-md-3"
-								 (click)="changeDataset($event); chart.refresh()"
+								 (click)="changeDataset($event); chart.reinit()"
 								 data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2"
 								 data-fill="rgba(224, 247, 250, 0.5)">
 								<i class="pi pi-times-circle"></i>
@@ -126,8 +126,7 @@
 					</div>
 					<div class="p-col-12">
 						<div class="overview-chart">
-							<p-chart #chart type="line" [data]="ordersChart" [options]="ordersChartOptions"
-									 id="order-chart"></p-chart>
+							<p-chart #chart type="line" [data]="ordersChart" [options]="ordersChartOptions" id="order-chart"></p-chart>
 						</div>
 					</div>
 				</div>
@@ -291,8 +290,8 @@
             <div class="card revenue">
                 <h4>Revenue Stream</h4>
                 <p>Comparison of your revenue sources.</p>
-                <div class="revenue-chart-container">
-                    <p-chart type="pie" id="revenue-chart" [data]="revenueChart"></p-chart>
+                <div class="revenue-chart-container p-d-flex p-justify-center">
+                    <p-chart type="pie" id="revenue-chart" [data]="revenueChart" [style]="{'width': '50%'}"></p-chart>
                 </div>
             </div>
 

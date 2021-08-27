@@ -144,7 +144,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         // avoid processing disabled items
         if (this.item.disabled) {
             event.preventDefault();
-            return true;
+            return;
         }
 
         // navigate with hover in horizontal mode

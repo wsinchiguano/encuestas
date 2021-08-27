@@ -3,7 +3,7 @@
         <div class="card docs no-margin">
 
             <h4>Current Version</h4>
-            <p>Angular 11 and PrimeNG 11</p>
+            <p>Angular 12 and PrimeNG 12</p>
 
             <h4>Dependencies</h4>
             <p>Diamond has no direct dependency other than PrimeNG. More information about dependencies is available at <a href="https://www.primefaces.org/why-primeng-templates/">Why PrimeNG Templates</a> article.</p>
@@ -57,6 +57,7 @@ Run 'ng help' for more options.
     'layout-overlay': app.menuMode === 'overlay',
     'layout-static': app.menuMode === 'static',
     'layout-slim': app.menuMode === 'slim',
+    'layout-horizontal': app.menuMode === 'horizontal',
     'layout-sidebar-dim': app.colorScheme === 'dim',
     'layout-sidebar-dark': app.colorScheme === 'dark',
     'layout-overlay-active': overlayMenuActive,
@@ -69,6 +70,11 @@ Run 'ng help' for more options.
         &lt;app-topbar&gt;&lt;/app-topbar&gt;
 
         &lt;div class=&quot;layout-content&quot;&gt;
+
+            &lt;ng-template ngFor let-item let-last=&quot;last&quot; [ngForOf]=&quot;items&quot;&gt;
+                &lt;span class=&quot;viewname&quot; style=&quot;text-transform: uppercase&quot;&gt;{{item.label}}&lt;/span&gt;
+            &lt;/ng-template&gt;
+
             &lt;router-outlet&gt;&lt;/router-outlet&gt;
         &lt;/div&gt;
 
@@ -77,13 +83,9 @@ Run 'ng help' for more options.
 
     &lt;app-config&gt;&lt;/app-config&gt;
 
-    &lt;app-menu&gt;&lt;/app-menu&gt;
-
     &lt;app-search&gt;&lt;/app-search&gt;
 
     &lt;app-rightmenu&gt;&lt;/app-rightmenu&gt;
-
-    &lt;div class=&quot;layout-mask modal-in&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </app-code>
 
@@ -1182,12 +1184,13 @@ $splitterGutterHandleBg:$shade300;
 </div>
 
             <h4>Menu Modes</h4>
-            <p>Menu has 3 modes, static, overlay and slim. Layout container element in app.component.html is used to define which mode to use by adding specific classes. List
+            <p>Menu has 4 modes, static, overlay, slim and horizontal. Layout container element in app.component.html is used to define which mode to use by adding specific classes. List
             below indicates the style classes for each mode. </p>
             <ul>
                 <li>Static: "layout-wrapper layout-static"</li>
                 <li>Overlay: "layout-wrapper layout-overlay"</li>
                 <li>Slim: "layout-wrapper layout-slim"</li>
+                <li>Horizontal: "layout-wrapper layout-horizontal"</li>
             </ul>
 
             <p>For example to create a horizontal menu, the div element should be in following form;</p>
@@ -1200,7 +1203,7 @@ $splitterGutterHandleBg:$shade300;
 
             <h4>Menu Themes</h4>
             <p>
-                In addition to layout options, menu offer themes when the general color scheme is light. Menu themes are only available in light mode
+                In addition to layout options, menu offer themes when the general color scheme is light. Menu themes are only available in light mode and static, slim, overlay menu modes
                 by design as large surfaces can emit too much brightness in dark mode. Available options for the menu themes are the following;</p>
             <ul>
                 <li>white</li>

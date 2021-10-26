@@ -11,19 +11,19 @@ import { AppComponent } from './app.component';
         <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <h5>Menu Type</h5>
             <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1" (onClick)="changeMenuMode('static')"></p-radioButton>
+                <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
                 <label for="mode1">Static</label>
             </div>
             <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="mode2" (onClick)="changeMenuMode('overlay')"></p-radioButton>
+                <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
                 <label for="mode2">Overlay</label>
             </div>
             <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode3" (onClick)="changeMenuMode('slim')"></p-radioButton>
+                <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode3"></p-radioButton>
                 <label for="mode3">Slim</label>
             </div>
             <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="mode4" (onClick)="changeMenuMode('horizontal')"></p-radioButton>
+                <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="mode4"></p-radioButton>
                 <label for="mode4">Horizontal</label>
             </div>
 
@@ -63,12 +63,12 @@ import { AppComponent } from './app.component';
             <hr />
 
             <h5>Menu Themes</h5>
-            <div class="layout-themes" *ngIf="app.colorScheme === 'light' && !appMain.isHorizontal()">
+            <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
                 <div *ngFor="let theme of menuThemes">
                     <a style="cursor: pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
-            <div *ngIf="app.colorScheme !== 'light' || appMain.isHorizontal()">
+            <div *ngIf="app.colorScheme !== 'light'">
                 <p>Menu themes are available in light mode and static, slim, overlay menu modes by design as large surfaces can emit too much brightness in dark mode.</p>
             </div>
 
@@ -126,58 +126,9 @@ export class AppConfigComponent implements OnInit {
         ];
     }
 
-    changeMenuMode(mode) {
-        const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
-
-        if (mode === 'horizontal') {
-            if (this.app.colorScheme === 'light') {
-                this.app.menuTheme = 'layout-sidebar-white';
-                appLogoLink.src = 'assets/layout/images/logo-dark.svg';
-            }
-            else {
-                this.app.menuTheme = 'layout-sidebar-' + this.app.colorScheme;
-                appLogoLink.src = 'assets/layout/images/logo-white.svg';
-            }
-        }
-        else {
-            this.app.menuTheme = 'layout-sidebar-' + this.tempMenuColor;
-            if(this.app.colorScheme !== 'light') {
-                appLogoLink.src = 'assets/layout/images/logo-white.svg';
-            }
-            else {
-                if (this.tempLogoColor === 'white') {
-                    appLogoLink.src = 'assets/layout/images/logo-white.svg';
-                }
-                else {
-                    appLogoLink.src = 'assets/layout/images/logo-dark.svg';
-                }
-            }
-        }
-    }
-
     changeColorScheme(scheme) {
         this.changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
         this.changeStyleSheetsColor('theme-css', 'theme-' + scheme + '.css', 1);
-
-        const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
-
-        if (scheme === 'light') {
-            if (this.appMain.isHorizontal()) {
-                this.app.menuTheme = 'layout-sidebar-white';
-                appLogoLink.src = 'assets/layout/images/logo-dark.svg';
-            }
-            else {
-                if (this.tempLogoColor === 'white') {
-                    appLogoLink.src = 'assets/layout/images/logo-white.svg';
-                }
-                else {
-                    appLogoLink.src = 'assets/layout/images/logo-dark.svg';
-                }
-            }
-        }
-        else {
-            appLogoLink.src = 'assets/layout/images/logo-white.svg';
-        }
     }
 
     changeMenuTheme(name, logoColor, componentTheme) {
@@ -187,11 +138,14 @@ export class AppConfigComponent implements OnInit {
         this.changeStyleSheetsColor('theme-css', componentTheme, 2);
 
         const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
+        const horizontalLogoLink: HTMLImageElement = document.getElementById('logo-horizontal') as HTMLImageElement;
 
         if (logoColor === 'dark') {
+            horizontalLogoLink.src = 'assets/layout/images/logo-dark.svg';
             appLogoLink.src = 'assets/layout/images/logo-dark.svg';
         }
         else {
+            horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
             appLogoLink.src = 'assets/layout/images/logo-white.svg';
         }
     }

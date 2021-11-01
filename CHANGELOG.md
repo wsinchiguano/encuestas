@@ -1,5 +1,15 @@
 # Changelog
 
+## 12.2.0
+**Migration Guide**
+- Update app.topbar.component.html.
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- Styles of new PrimeNG components
+- Added topbar color options for horizontal menu mode
+
 ## 12.0.0
 **Migration Guide**
 - Update your project to Angular 12.

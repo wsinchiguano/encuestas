@@ -1,6 +1,6 @@
 {
     "name": "diamond-ng",
-    "version": "12.0.1-SNAPSHOT",
+    "version": "12.2.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",

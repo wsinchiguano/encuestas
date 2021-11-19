@@ -140,12 +140,10 @@ export class AppConfigComponent implements OnInit {
                 horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
                 appLogoLink.src = 'assets/layout/images/logo-white.svg';
             }
-            console.log("aaa")
         }
         else {
             horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
             appLogoLink.src = 'assets/layout/images/logo-white.svg';
-            console.log("bbb")
         }
 
         this.changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);

@@ -127,6 +127,27 @@ export class AppConfigComponent implements OnInit {
     }
 
     changeColorScheme(scheme) {
+
+        const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
+        const horizontalLogoLink: HTMLImageElement = document.getElementById('logo-horizontal') as HTMLImageElement;
+
+        if (scheme === 'light') {
+            if (this.tempLogoColor === 'dark') {
+                horizontalLogoLink.src = 'assets/layout/images/logo-dark.svg';
+                appLogoLink.src = 'assets/layout/images/logo-dark.svg';
+            }
+            else {
+                horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
+                appLogoLink.src = 'assets/layout/images/logo-white.svg';
+            }
+            console.log("aaa")
+        }
+        else {
+            horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
+            appLogoLink.src = 'assets/layout/images/logo-white.svg';
+            console.log("bbb")
+        }
+
         this.changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
         this.changeStyleSheetsColor('theme-css', 'theme-' + scheme + '.css', 1);
     }

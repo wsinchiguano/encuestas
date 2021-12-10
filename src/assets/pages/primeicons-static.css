@@ -108,7 +108,7 @@
     content: "\e9a9";
 }
 
-.pi-file-o:before {
+.pi-file:before {
     content: "\e9a8";
 }
 
@@ -624,7 +624,7 @@
     content: "\e935";
 }
 
-.pi-star-o:before {
+.pi-star:before {
     content: "\e936";
 }
 

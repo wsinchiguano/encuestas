@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import { AppMainComponent } from './app.main.component';
-import { AppComponent } from './app.component';
-
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {AppMainComponent} from './app.main.component';
+import {AppComponent} from './app.component';
+import {ConfigService} from './demo/service/app.config.service';
+import {AppConfig} from './demo/domain/appconfig';
+import {Subscription} from 'rxjs';
 @Component({
     selector: 'app-config',
     template: `
@@ -83,7 +85,7 @@ import { AppComponent } from './app.component';
         </div>
     `
 })
-export class AppConfigComponent implements OnInit {
+export class AppConfigComponent implements OnInit, OnDestroy {
 
     menuThemes: any[];
 
@@ -93,9 +95,18 @@ export class AppConfigComponent implements OnInit {
 
     tempLogoColor = 'white';
 
-    constructor(public app: AppComponent, public appMain: AppMainComponent) {}
+    config: AppConfig;
+
+    subscription: Subscription;
+
+    constructor(public app: AppComponent, public appMain: AppMainComponent, public configService: ConfigService) {}
 
     ngOnInit() {
+        this.config = this.configService.config;
+        this.subscription = this.configService.configUpdate$.subscribe(config => {
+            this.config = config;
+        });
+
         this.componentThemes = [
             {name: 'blue', color: '#42A5F5'},
             {name: 'green', color: '#66BB6A'},
@@ -140,10 +151,12 @@ export class AppConfigComponent implements OnInit {
                 horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
                 appLogoLink.src = 'assets/layout/images/logo-white.svg';
             }
+            this.configService.updateConfig({...this.config, ...{dark:false}});
         }
         else {
             horizontalLogoLink.src = 'assets/layout/images/logo-white.svg';
             appLogoLink.src = 'assets/layout/images/logo-white.svg';
+            this.configService.updateConfig({...this.config, ...{dark:true}});
         }
 
         this.changeStyleSheetsColor('layout-css', 'layout-' + scheme + '.css', 1);
@@ -227,5 +240,11 @@ export class AppConfigComponent implements OnInit {
     onConfigCloseClick(event) {
         this.appMain.configActive = false;
         event.preventDefault();
+    }
+
+    ngOnDestroy() {
+        if(this.subscription){
+            this.subscription.unsubscribe();
+        }
     }
 }

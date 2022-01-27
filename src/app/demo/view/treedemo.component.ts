@@ -8,7 +8,6 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 })
 export class TreeDemoComponent implements OnInit {
 
-
     files1: TreeNode[];
 
     files2: TreeNode[];

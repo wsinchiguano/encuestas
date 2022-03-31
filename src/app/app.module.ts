@@ -87,9 +87,9 @@ import {TreeModule} from 'primeng/tree';
 import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
-import {AppCodeModule} from './blocks/app-code/app.code.component';
+import {AppCodeModule} from './components/primeblocks/app-code/app.code.component';
 import {AppComponent} from './app.component';
-import {AppMainComponent} from './app.main.component';
+import {AppLayoutComponent} from './app.layout.component';
 import {AppConfigComponent} from './app.config.component';
 import {AppRightmenuComponent} from './app.rightmenu.component';
 import {AppMenuComponent} from './app.menu.component';
@@ -97,48 +97,48 @@ import {AppMenuitemComponent} from './app.menuitem.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppSearchComponent} from './app.search.component';
 import {AppFooterComponent} from './app.footer.component';
-import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
-import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
-import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
-import {InvalidStateDemoComponent} from './demo/view/invalidstatedemo.component';
-import {InputDemoComponent} from './demo/view/inputdemo.component';
-import {ButtonDemoComponent} from './demo/view/buttondemo.component';
-import {TableDemoComponent} from './demo/view/tabledemo.component';
-import {ListDemoComponent} from './demo/view/listdemo.component';
-import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
-import {TreeDemoComponent} from './demo/view/treedemo.component';
-import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
-import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
-import {MediaDemoComponent} from './demo/view/mediademo.component';
-import {MenusComponent} from './demo/view/menus/menus.component';
-import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
-import {MiscDemoComponent} from './demo/view/miscdemo.component';
-import {EmptyDemoComponent} from './demo/view/emptydemo.component';
-import {ChartsDemoComponent} from './demo/view/chartsdemo.component';
-import {FileDemoComponent} from './demo/view/filedemo.component';
-import {DocumentationComponent} from './demo/view/documentation.component';
-import {IconsComponent} from './utilities/icons.component';
-import {AppCrudComponent} from './pages/app.crud.component';
-import {AppCalendarComponent} from './pages/app.calendar.component';
-import {AppInvoiceComponent} from './pages/app.invoice.component';
-import {AppHelpComponent} from './pages/app.help.component';
-import {AppNotfoundComponent} from './pages/app.notfound.component';
-import {AppErrorComponent} from './pages/app.error.component';
-import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
-import {BlocksComponent} from './blocks/blocks/blocks.component';
-import {BlockViewer} from './blocks/blockviewer/blockviewer.component';
+import {DashboardDemoComponent} from './components/dashboards/dashboarddemo.component';
+import {FormLayoutDemoComponent} from './components/uikit/formlayout/formlayoutdemo.component';
+import {FloatLabelDemoComponent} from './components/uikit/floatlabel/floatlabeldemo.component';
+import {InvalidStateDemoComponent} from './components/uikit/invalid/invalidstatedemo.component';
+import {InputDemoComponent} from './components/uikit/input/inputdemo.component';
+import {ButtonDemoComponent} from './components/uikit/button/buttondemo.component';
+import {TableDemoComponent} from './components/uikit/table/tabledemo.component';
+import {ListDemoComponent} from './components/uikit/list/listdemo.component';
+import {TreeDemoComponent} from './components/uikit/tree/treedemo.component';
+import {PanelsDemoComponent} from './components/uikit/panels/panelsdemo.component';
+import {OverlaysDemoComponent} from './components/uikit/overlays/overlaysdemo.component';
+import {MediaDemoComponent} from './components/uikit/media/mediademo.component';
+import {MenusComponent} from './components/uikit//menus/menus.component';
+import {MessagesDemoComponent} from './components/uikit/messages/messagesdemo.component';
+import {MiscDemoComponent} from './components/uikit/misc/miscdemo.component';
+import {ChartsDemoComponent} from './components/uikit/charts/chartsdemo.component';
+import {FileDemoComponent} from './components/uikit/file/filedemo.component';
+import {DocumentationComponent} from './components/start/documentation/documentation.component';
+import {IconsComponent} from './components/utilities/icons.component';
+import {AppCrudComponent} from './components/pages/crud/app.crud.component';
+import {AppCalendarComponent} from './components/pages/calendar/app.calendar.component';
+import {AppInvoiceComponent} from './components/pages/invoice/app.invoice.component';
+import {AppHelpComponent} from './components/pages/help/app.help.component';
+import {AppNotfoundComponent} from './components/pages/notfound/app.notfound.component';
+import {AppErrorComponent} from './components/pages/error/app.error.component';
+import {AppAccessdeniedComponent} from './components/pages/accessdenied/app.accessdenied.component';
+import {AppTimelineDemoComponent} from './components/pages/timeline/app.timelinedemo.component';
+import {EmptyDemoComponent} from './components/pages/empty/emptydemo.component';
+import {AppLoginComponent} from './components/pages/login/app.login.component';
+import {BlocksComponent} from './components/primeblocks/blocks/blocks.component';
+import {BlockViewer} from './components/primeblocks/blockviewer/blockviewer.component';
 
-import {CountryService} from './demo/service/countryservice';
-import {CustomerService} from './demo/service/customerservice';
-import {EventService} from './demo/service/eventservice';
-import {IconService} from './demo/service/iconservice';
-import {NodeService} from './demo/service/nodeservice';
-import {PhotoService} from './demo/service/photoservice';
-import {ProductService} from './demo/service/productservice';
-import {BreadcrumbService} from './app.breadcrumb.service';
+import {CountryService} from 'src/app/service/countryservice';
+import {CustomerService} from 'src/app/service/customerservice';
+import {EventService} from 'src/app/service/eventservice';
+import {IconService} from 'src/app/service/iconservice';
+import {NodeService} from 'src/app/service/nodeservice';
+import {PhotoService} from 'src/app/service/photoservice';
+import {ProductService} from 'src/app/service/productservice';
+import {BreadcrumbService} from 'src/app/service/app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
-import {ConfigService} from './demo/service/app.config.service';
+import {ConfigService} from 'src/app/service/app.config.service';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -241,7 +241,7 @@ FullCalendarModule.registerPlugins([
     ],
     declarations: [
         AppComponent,
-        AppMainComponent,
+        AppLayoutComponent,
         AppRightmenuComponent,
         AppMenuComponent,
         AppMenuitemComponent,

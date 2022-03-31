@@ -1,5 +1,5 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
-import {AppMainComponent} from './app.main.component';
+import {AppLayoutComponent} from './app.layout.component';
 import {animate, state, style, transition, trigger, AnimationEvent} from '@angular/animations';
 
 @Component({
@@ -33,7 +33,7 @@ export class AppSearchComponent {
 
     @ViewChild('input') inputElement: ElementRef;
 
-    constructor(public appMain: AppMainComponent) {}
+    constructor(public appMain: AppLayoutComponent) {}
 
     onAnimationEnd(event: AnimationEvent) {
         if (event.toState === 'visible') {

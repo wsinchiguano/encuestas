@@ -1,12 +1,17 @@
-import {Component} from '@angular/core';
-import { AppLayoutComponent } from 'src/app/app.layout.component';
+import {Component, OnInit} from '@angular/core';
+import { ConfigService } from 'src/app/service/app.config.service';
 
 @Component({
     selector: 'app-login',
-    templateUrl: './app.login.component.html',
+    templateUrl: './app.login.component.html'
 })
-export class AppLoginComponent {
+export class AppLoginComponent implements OnInit {
 
-    constructor(public appMain: AppLayoutComponent) {
+    dark: boolean = false;
+
+    constructor(public configService: ConfigService) { }
+
+    ngOnInit() {
+        this.dark = this.configService.getConfig().dark;
     }
 }

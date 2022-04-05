@@ -66,7 +66,7 @@ import {Subscription} from 'rxjs';
             <h5>Menu Themes</h5>
             <div class="layout-themes" *ngIf="appMain.colorScheme === 'light'">
                 <div *ngFor="let theme of menuThemes">
-                    <a style="cursor: pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [ngStyle]="{'background-color': theme.color}"></a>
+                    <a style="cursor:pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
             <div *ngIf="appMain.colorScheme !== 'light'">
@@ -78,7 +78,7 @@ import {Subscription} from 'rxjs';
             <h5>Component Themes</h5>
             <div class="layout-themes">
                 <div *ngFor="let theme of componentThemes">
-                    <a style="cursor: pointer" (click)="changeComponentTheme(theme.name)" [ngStyle]="{'background-color': theme.color}"></a>
+                    <a style="cursor:pointer" (click)="changeComponentTheme(theme.name)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
         </div>

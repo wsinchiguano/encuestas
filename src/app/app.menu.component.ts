@@ -68,9 +68,9 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']},
                     {label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']},
                     {label: 'Help', icon: 'pi pi-fw pi-question-circle', routerLink: ['/pages/help']},
-                    {label: 'Error', icon: 'pi pi-fw pi-times-circle', routerLink: ['/error']},
-                    {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/notfound']},
-                    {label: 'Access Denied', icon: 'pi pi-fw pi-lock', routerLink: ['/access']},
+                    {label: 'Error', icon: 'pi pi-fw pi-times-circle', routerLink: ['error']},
+                    {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['notfound']},
+                    {label: 'Access Denied', icon: 'pi pi-fw pi-lock', routerLink: ['access']},
                     {label: 'Empty', icon: 'pi pi-fw pi-circle-off', routerLink: ['/pages/empty']}
                 ]
             },

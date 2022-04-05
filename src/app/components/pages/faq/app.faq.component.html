@@ -1,0 +1,13 @@
+<div class="grid grid-nogutter" style="column-gap: 1.5rem; row-gap:1.5rem">
+    <div class="col-12 p-4 border-1 border-round surface-border">
+        <span class="text-900 font-bold text-xl block">Frequently Asked Questions</span>
+        <span class="text-600 mt-4">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</span>
+    </div>
+
+    <div class="col-3 border-1 border-round surface-border h-full">
+        <p-menu [model]="items" styleClass="w-full p-4"></p-menu>
+    </div>
+    <div class="col">
+        {{content}}
+    </div>
+</div>

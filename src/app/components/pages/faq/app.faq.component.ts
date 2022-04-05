@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { AppLayoutComponent } from 'src/app/app.layout.component';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { MenuItem } from 'primeng/api';
 
@@ -33,7 +32,7 @@ export class AppFaqComponent implements OnInit {
 
     activeIndex: number = 0;
 
-    constructor(private breadcrumbService: BreadcrumbService, public appMain: AppLayoutComponent) {
+    constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             {label: 'FAQ'}
         ]);

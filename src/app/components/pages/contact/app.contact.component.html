@@ -1,1 +1,45 @@
-<p>contact works!</p>
+<div class="grid surface-card grid-nogutter p-6 border-1 surface-border" style="column-gap: 2rem; row-gap: 2rem; border-radius: 6px;">
+    <div class="col-12">
+        <p class="text-900 font-bold">ContactUs</p>
+    </div>
+    <div class="col-12 mt-3 h-20rem border-1 surface-border p-0" style="border-radius: 6px;">
+        <p-gmap #gmap [style]="{'width':'100%','height':'100%'}" [options]="options" [overlays]="overlays"
+        (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)"></p-gmap>
+    </div>
+    <div class="col-12 mt-5">
+        <div class="grid grid-nogutter px-2 flex-column md:flex-row" style="column-gap: 2rem; row-gap: 2rem;">
+            <div *ngFor="let item of content" class="col flex flex-column justify-content-center align-items-center border-1 surface-border py-5 px-4" style="border-radius: 6px;">
+                <i class="pi pi-fw text-2xl text-primary" [class]="item.icon"></i>
+                <p class="text-900 font-bold mt-4">{{item.title}}</p>
+                <p class="text-indigo-300">{{item.info}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 mt-5">
+        <p class="text-900 font-bold">Send Us Email</p>
+        <div class="grid flex-column md:flex-row formgrid grid-nogutter mt-6" style="row-gap: 2rem; column-gap: 2rem;">
+            <div class="field col">
+                <label for="name" class="block text-indigo-300 font-bold">Name</label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon surface-card p-3"><i class="pi pi-user"></i></span>
+                    <input type="text" id="name" pInputText placeholder="Name" class="border-left-none p-3 text-900 font-bold" [(ngModel)]="name">         
+                </div>
+            </div>
+
+            <div class="field col">
+                <label for="email" class="block text-indigo-300 font-bold">Email Address</label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon surface-card p-3"><i class="pi pi-envelope"></i></span>
+                    <input type="text" id="email" pInputText placeholder="email" class="border-left-none p-3 text-900 font-bold" [(ngModel)]="email">         
+                </div>
+            </div>
+
+            <div class="field col-12 flex flex-column">
+                <label for="message" class="block text-indigo-300 font-bold">Message</label>
+                <textarea id="message" rows="5" pInputTextarea class="w-full surface-border p-4 text-900 font-bold" style="border-radius: 6px;" [(ngModel)]="message"></textarea>
+                <button pButton class="p-button-primary ml-auto mt-3" label="Send Message" style="border-radius: 6px;"></button>
+            </div>
+        </div>
+    </div>
+</div>

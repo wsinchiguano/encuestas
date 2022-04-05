@@ -1,0 +1,10 @@
+.pricing-card {
+    background-color: var(--surface-card);
+    transition: all .25s ease-in-out;
+
+    &:hover {
+        background-color: var(--surface-ground);
+        transform: scale(1.1);
+    }
+}
+

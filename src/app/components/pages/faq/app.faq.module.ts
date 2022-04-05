@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { AppFaqComponent } from './app.faq.component';
 import { AppFaqRoutingModule } from './app.faq-routing.module';
 import { MenuModule } from 'primeng/menu';
-import { AccordionModule } from 'primeng/accordion';
-
+import { RippleModule } from 'primeng/ripple';
 @NgModule({
   imports: [
     CommonModule,
     AppFaqRoutingModule,
     MenuModule,
-    AccordionModule
+    RippleModule,
   ],
   declarations: [AppFaqComponent]
 })

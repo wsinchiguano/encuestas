@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   imports: [RouterModule.forChild([
     {path: 'calendar', loadChildren: () => import('./calendar/app.calendar.module').then(m => m.AppCalendarModule)},
@@ -12,6 +11,7 @@ import { RouterModule } from '@angular/router';
     {path: 'timeline', loadChildren: () => import('./timeline/app.timelinedemo.module').then(m => m.AppTimelineDemoModule)},
     {path: 'faq', loadChildren: () => import('./faq/app.faq.module').then(m => m.AppFaqModule)},
     {path: 'contact', loadChildren: () => import('./contact/app.contact.module').then(m => m.AppContactModule)},
+    {path: 'wizard', loadChildren: () => import('./wizard/app.wizard.module').then(m => m.AppWizardModule)},
   ])],
   exports: [RouterModule]
 })

@@ -6,6 +6,19 @@ import { MenuItem } from 'primeng/api';
 @Component({
     selector: 'app-faq',
     templateUrl: './app.faq.component.html',
+    styles:[`
+        @media screen and (max-width: 992px) {
+            #menu {
+                height:auto;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            #menu {
+                height: 55rem;
+            }
+        }
+    `],
     animations: [
         trigger('tabContent', [
             state('hidden', style({

@@ -4,7 +4,7 @@
         <p class="text-indigo-300 mt-3 font-semibold block">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</p>
     </div>
 
-    <div class="col-12 md:col-4 lg:col-3 border-1 surface-border surface-card p-5 h-full" style="border-radius: 6px;">
+    <div class="col-12 md:col-4 lg:col-3 border-1 surface-border surface-card p-5" id="menu" style="border-radius: 6px;">
         <span class="text-indigo-300 block font-bold mt-3 mb-4">Categories</span>
         <ul class="list-none m-0 p-0">
             <li pRipple *ngFor="let item of items" class="cursor-pointer select-none p-4 mb-1 transition-duration-150" style="border-radius: 6px" [ngClass]="{'bg-primary' : activeIndex === items.indexOf(item)}" (click)="item.command($event, item)">

@@ -1,0 +1,27 @@
+<div class="grid grid-nogutter px-4 py-4 lg:px-8 lg:py-8 surface-card" style="border-radius: 6px; row-gap: 2rem; column-gap: 2rem;">
+    <div class="col-12">
+        <span class="text-900 font-bold">Search Results for:</span>
+        <span class="text-indigo-300 font-semibold ml-2">Search</span>
+    </div>
+    <div *ngFor="let result of searchResults; let i = index;" class="col flex flex-column p-0">
+        <img [src]="'assets/demo/images/search-results/' + result.image + '.png'" alt="search result" style="border-radius: 6px;">
+        <span class="text-900 font-semibold mt-3">{{result.title}}</span>
+        <span class="text-indigo-300 font-semibold mt-3" [innerHTML]="result.info"></span>
+    </div>
+    
+    <span class="text-900 font-bold block">Search Results Pages</span>
+    <div class="col-12 border-1 surface-border p-5" style="border-radius: 6px;">
+        <div *ngFor="let content of tabContent; let i = index;" class="surface-card" [ngClass]="{'border-1 surface-border': content.collapsed}" style="border-radius:6px;">
+            <div class="flex justify-content-between align-items-center px-5 py-4 cursor-pointer" [ngClass]="{'border-bottom-1 surface-border bg-primary': !content.collapsed}" (click)="content.collapsed = !content.collapsed" style="border-radius: 6px;">
+                <div class="flex align-items-center" [ngClass]="{'text-0': !content.collapsed, 'text-900': content.collapsed}">
+                    <i class="pi pi-fw pi-align-left mr-3 font-bold"></i>
+                    <div class="font-bold">{{content.header}}</div>
+                </div>
+                <i class="pi pi-fw cursor-pointer" [ngClass]="content.collapsed ? 'text-900 pi-chevron-up' : 'text-0 pi-chevron-down'"></i>
+            </div>
+            <div class="flex align-items-center px-6" [@tabContent]="!content.collapsed ? {value: 'visible', params: {transitionParams: transitionOptions }} : {value: 'hidden', params: {transitionParams: transitionOptions}}">
+                <i class="pi pi-circle-fill mr-3" style="font-size: 3px;"></i><span class="font-semibold py-4 text-900">{{content.text}}</span>
+            </div>
+        </div>
+    </div>
+</div>

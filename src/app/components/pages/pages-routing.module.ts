@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
     {path: 'contact', loadChildren: () => import('./contact/app.contact.module').then(m => m.AppContactModule)},
     {path: 'wizard', loadChildren: () => import('./wizard/app.wizard.module').then(m => m.AppWizardModule)},
     {path: 'search-results', loadChildren: () => import('./search-results/app.search-results.module').then(m => m.AppSearchResultsModule)},
+    {path: 'about', loadChildren: () => import('./overview/app.overview.module').then(m => m.AppOverviewModule)},
   ])],
   exports: [RouterModule]
 })

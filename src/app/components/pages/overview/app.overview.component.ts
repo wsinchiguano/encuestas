@@ -12,7 +12,7 @@ export class AppOverviewComponent {
     
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
-            {label: 'Pricing'}
+            {label: 'About Us'}
         ]);
     }
 }

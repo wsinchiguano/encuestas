@@ -67,6 +67,8 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
                     {label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']},
                     {label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']},
+                    {label: 'Pricing', icon: 'pi pi-fw pi-money-bill', routerLink: ['/pages/pricing']},
+                    {label: 'About Us', icon: 'pi pi-fw pi-user', routerLink: ['/pages/about']},
                     {label: 'Help', icon: 'pi pi-fw pi-question-circle', routerLink: ['/pages/help']},
                     {label: 'Error', icon: 'pi pi-fw pi-times-circle', routerLink: ['error']},
                     {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['notfound']},

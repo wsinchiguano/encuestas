@@ -14,15 +14,33 @@ import {AppLayoutComponent} from 'src/app/app.layout.component';
             }
         }
 
-        :host ::ng-deep .p-datatable.p-datatable-lg .p-datatable-footer {
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            padding: 0 !important;
-            border: none !important;
+        :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+            background: var(--indigo-50);
         }
 
-        :host ::ng-deep .p-datatable table > thead > tr {
-            background-color: black !important;
+        :host ::ng-deep .p-datatable .p-datatable-footer {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        
+        @media print{
+            
+            #print, #print * {
+                visibility: visible;
+            }
+
+            #print {
+                position: absolute;
+                height: 100vh;
+                top: 0;
+                bottom: 0;
+            }
+
+            #footer, #footer * { 
+                visibility: hidden !important;
+            }
         }
     `]
 })

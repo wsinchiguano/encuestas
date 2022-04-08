@@ -1,12 +1,12 @@
-<div class="px-6 py-4 border-1 surface-border surface-card" style="border-radius: 6px;">
+<div class="px-6 border-1 surface-border surface-card" style="border-radius: 6px;">
 	<div class="flex justify-content-between align-items-center my-4">
 		<span class="font-bold text-xl text-900">Invoice Details</span>
 		<div class="flex align-items-center">
-			<button pButton class="mr-0 mt-3 lg:mt-0 lg:mr-3" style="border-radius: 6px;" label="Preview" icon="pi pi-eye"></button>
-			<button pButton style="border-radius: 6px;" label="Download" icon="pi pi-download" (click)="print()"></button>
+			<button pButton class="mr-0 mt-3 lg:mt-0 lg:mr-3 p-button-secondary" style="border-radius: 6px;" label="Preview" icon="pi pi-eye"></button>
+			<button pButton style="border-radius: 6px;" class="p-button-primary" label="Download" icon="pi pi-download" (click)="print()"></button>
 		</div>
 	</div>
-	<div class="grid grid-nogutter surface-card border-1 surface-border my-6 py-4" style="border-radius: 6px;">
+	<div id="print" class="grid grid-nogutter surface-card border-1 surface-border my-6" style="border-radius: 6px;">
 		<div class="col-12 px-6 py-4 flex justify-content-between border-bottom-1 surface-border">
 			<img id="invoice-logo" class="logo-image" [src]="'assets/layout/images/logo-'+ (appMain.colorScheme === 'light' ? 'dark' : 'white') + '.svg'" alt="diamond-layout" />
 			<div class="flex align-items-center">
@@ -16,23 +16,23 @@
 		</div>
 
 		<div class="col-6 mt-4 px-6 py-4">
-			<span class="font-bold text-xl text-600 block">INVOICE FROM</span>
+			<span class="font-bold text-lg text-600 block mb-3">INVOICE FROM</span>
 			<ul class="list-none p-0 m-0">
-				<li class="mt-3 mb-3 font-bold text-900">Lucian Obrien</li>
-				<li class="mt-3 mb-3 font-bold text-900">1147 Rohan Drive Suite 819 - Burlington, VT / 82021</li>
-				<li class="mt-3 mb-3 font-bold text-900">Phone: 904-966-2836</li>
+				<li class="mb-2 font-bold text-900">Lucian Obrien</li>
+				<li class="mb-2 font-bold text-900">1147 Rohan Drive Suite 819 - Burlington, VT / 82021</li>
+				<li class="mb-2 font-bold text-900">Phone: 904-966-2836</li>
 			</ul>
 		</div>
 		<div class="col-6 mt-4 px-6 py-4">
-			<span class="font-bold text-xl text-600 block">INVOICE TO</span>
+			<span class="font-bold text-lg text-600 block mb-3">INVOICE TO</span>
 			<ul class="list-none p-0 m-0">
-				<li class="mt-3 mb-3 font-bold text-900">Deja Brady</li>
-				<li class="mt-3 mb-3 font-bold text-900">18605 Thompson Circle Apt. 086 - Idaho Falls, WV / 50337</li>
-				<li class="mt-3 mb-3 font-bold text-900">Phone: 904-966-2836</li>
+				<li class="mb-2 font-bold text-900">Deja Brady</li>
+				<li class="mb-2 font-bold text-900">18605 Thompson Circle Apt. 086 - Idaho Falls, WV / 50337</li>
+				<li class="mb-2 font-bold text-900">Phone: 904-966-2836</li>
 			</ul>
 		</div>
 
-		<div class="col-12 mt-4 px-6 py-4">
+		<div class="col-12 mt-4 px-6">
 			<p-table [value]="tableData" responsiveLayout="scroll" styleClass="p-datatable-lg">
 				<ng-template pTemplate="header">
 					<tr>
@@ -73,7 +73,7 @@
 			</p-table>
 		</div>
 
-		<div class="col-12 mt-4 px-6">
+		<div id="footer" class="col-12 my-4 px-6">
 			<div class="border-1 surface-border p-3" style="border-radius: 6px;">
 				<span class="block text-600 font-bold">Notes</span>
 				<span class="block text-900 font-bold mt-3">Please make sure you have the right bank registration number as I had issues before and make sure you guys cover transfer expenses.</span>

@@ -7,7 +7,7 @@
     <div class="col-12 md:col-4 lg:col-3 border-1 surface-border surface-card p-5" id="menu" style="border-radius: 6px;">
         <span class="text-indigo-300 block font-bold mt-3 mb-4">Categories</span>
         <ul class="list-none m-0 p-0">
-            <li pRipple *ngFor="let item of items" class="cursor-pointer select-none p-4 mb-1 transition-duration-150" style="border-radius: 6px" [ngClass]="{'bg-primary' : activeIndex === items.indexOf(item)}" (click)="item.command($event, item)">
+            <li pRipple *ngFor="let item of items" class="cursor-pointer select-none p-3 mb-1 transition-duration-150" style="border-radius: 6px" [ngClass]="{'bg-primary' : activeIndex === items.indexOf(item)}" (click)="item.command($event, item)">
                 <div class="flex align-items-center">
                     <i [class]="item.icon" class="mr-2 text-600 transition-duration-150 text-lg" [ngClass]="{'text-white' : activeIndex === items.indexOf(item)}"></i>
                     <span class="text-900 font-bold transition-duration-150" [ngClass]="{'text-white' : activeIndex === items.indexOf(item)}">{{item.label}}</span>

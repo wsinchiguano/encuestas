@@ -4,6 +4,7 @@ import { AppPricingRoutingModule } from './app.pricing-routing.module';
 import { AppPricingComponent } from './app.pricing.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
     AppPricingRoutingModule,
     CardModule,
     ButtonModule,
+    RippleModule
   ],
   declarations: [AppPricingComponent]
 })

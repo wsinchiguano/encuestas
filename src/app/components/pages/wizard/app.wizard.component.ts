@@ -8,7 +8,7 @@ import {BreadcrumbService} from 'src/app/service/app.breadcrumb.service';
     templateUrl: './app.wizard.component.html',
     styles: [`
       :host ::ng-deep .p-steps-number {
-        padding: 2rem 1.75rem;
+        padding: 1.50rem 1.25rem;
         font-weight: 700;
         border:1px solid var(--surface-border) !important;
         background: var(--surface-card) !important;
@@ -28,6 +28,20 @@ import {BreadcrumbService} from 'src/app/service/app.breadcrumb.service';
       :host ::ng-deep .p-menuitem-link-active .p-steps-title {
         color: var(--surface-900) !important;
         font-weight: 700 !important;
+      }
+
+      :host ::ng-deep .p-steps .p-steps-item:before {
+        content: " ";
+        width: 30%;
+        left: 85%;
+      }
+
+      :host ::ng-deep .p-steps .p-steps-item:last-child:before {
+        display: none;
+      }
+
+      :host ::ng-deep .p-steps .p-steps-item .p-menuitem-link .p-steps-title {
+        margin-top: 1rem;
       }
     `]
 })
@@ -53,9 +67,10 @@ export class AppWizardComponent implements OnInit {
     }
 
     navigate(direction) {
-      if (direction === 'next') {
+      if (direction === 'next' && this.activeIndex < 2) {
         this.activeIndex = this.activeIndex + 1;
-      } else {
+
+      } else if (this.activeIndex !== 0) {
         this.activeIndex = this.activeIndex - 1;
       }
       

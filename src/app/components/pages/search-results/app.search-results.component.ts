@@ -50,7 +50,9 @@ export class AppSearchResultsComponent implements OnInit {
       ];
 
       this.tabContent = [
-        {header: 'PrimeFlex', text: 'Search Flex', collapsed: false},
+        {icon: 'pi-align-left', header: 'PrimeFlex', text: 'Search Flex', collapsed: false},
+        {icon: 'pi-th-large', header: 'Table', text: 'Table Search', collapsed: false},
+        {icon: 'pi-search', header: 'Autocomplete', text: 'Search autocomplete', collapsed: false},
       ];
     }
 }

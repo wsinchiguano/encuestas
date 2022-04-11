@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
     {path: 'wizard', loadChildren: () => import('./wizard/app.wizard.module').then(m => m.AppWizardModule)},
     {path: 'search-results', loadChildren: () => import('./search-results/app.search-results.module').then(m => m.AppSearchResultsModule)},
     {path: 'about', loadChildren: () => import('./overview/app.overview.module').then(m => m.AppOverviewModule)},
+    {path: 'ecommerce', loadChildren: () => import('./ecommerce/app.ecommerce.module').then(m => m.AppEcommerceModule)},
   ])],
   exports: [RouterModule]
 })

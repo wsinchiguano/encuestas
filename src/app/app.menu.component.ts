@@ -38,7 +38,7 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Message', icon: 'pi pi-fw pi-comment', routerLink: ['/uikit/message']},
                     {label: 'File', icon: 'pi pi-fw pi-file', routerLink: ['/uikit/file']},
                     {label: 'Chart', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/uikit/charts']},
-                    {label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']}
+                    {label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']},
                 ]
             },
             {separator: true},
@@ -77,7 +77,12 @@ export class AppMenuComponent implements OnInit {
                     {label: 'FAQ', icon: 'pi pi-fw pi-question', routerLink: ['/pages/faq']},
                     {label: 'Contact Us', icon: 'pi pi-fw pi-phone', routerLink: ['/pages/contact']},
                     {label: 'Wizard', icon: 'pi pi-fw pi-bolt', routerLink: ['/pages/wizard']},
-                    {label: 'Search Results ', icon: 'pi pi-fw pi-search', routerLink: ['/pages/search-results']}
+                    {label: 'Search Results ', icon: 'pi pi-fw pi-search', routerLink: ['/pages/search-results']},
+                    {label: 'E-Commerce', icon: 'pi pi-fw pi-wallet',
+                        items: [
+                            {label: 'Product Overview', icon: 'pi pi-fw pi-image', routerLink: ['pages/ecommerce/productoverview']}
+                        ]
+                    }
                 ]
             },
             {separator: true},

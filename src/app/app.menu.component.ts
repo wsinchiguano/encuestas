@@ -80,7 +80,8 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Search Results ', icon: 'pi pi-fw pi-search', routerLink: ['/pages/search-results']},
                     {label: 'E-Commerce', icon: 'pi pi-fw pi-wallet',
                         items: [
-                            {label: 'Product Overview', icon: 'pi pi-fw pi-image', routerLink: ['pages/ecommerce/productoverview']}
+                            {label: 'Product Overview', icon: 'pi pi-fw pi-image', routerLink: ['pages/ecommerce/productoverview']},
+                            {label: 'Shop', icon: 'pi pi-fw pi-shopping-bag', routerLink: ['pages/ecommerce/shop']},
                         ]
                     }
                 ]

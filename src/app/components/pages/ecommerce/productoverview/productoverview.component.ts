@@ -24,6 +24,7 @@ export class ProductOverviewComponent implements OnInit {
         {label: 'Product Overview'},
       ]);
     }
+    
     ngOnInit(): void {
 
       this.images = [

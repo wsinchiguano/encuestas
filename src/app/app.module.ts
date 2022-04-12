@@ -12,6 +12,7 @@ import {RippleModule} from 'primeng/ripple';
 import {RadioButtonModule} from 'primeng/radiobutton'
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ShoppingCartModule} from './components/pages/ecommerce/shopping-cart/shopping-cart.module'
 
 import {AppComponent} from './app.component';
 import {AppLayoutComponent} from './app.layout.component';
@@ -47,6 +48,7 @@ import {ConfigService} from 'src/app/service/app.config.service';
         MenuModule,
         RippleModule,
         BrowserAnimationsModule,
+        ShoppingCartModule
     ],
     declarations: [
         AppComponent,

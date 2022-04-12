@@ -65,7 +65,7 @@ export class ShopComponent implements OnInit {
         {active: false, title:'Superturf Adventure X Atmos', price: '$321.00', discount: '%25', sale_price: '$123.00', image:'shop-2', rating: 3},
         {active: false, title:'Product Name', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-3'},
         {active: false, title:'2750 Cotu Classic Sneaker', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-4', rating: 5},
-        {active: false, title:'Product Name', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-5'},
+        {active: false, title:'Product Name', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-5', rating: 4},
         {active: false, title:'2750 Cotu Classic Sneaker', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-6', rating: 4},
         {active: false, title:'Product Name', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-1', rating: 5},
         {active: false, title:'Superturf Adventure X Atmos', price: '$321.00', discount: '%15', sale_price: '$123.00', image:'shop-2', rating: 5},

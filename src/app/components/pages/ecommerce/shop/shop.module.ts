@@ -10,6 +10,7 @@ import { RippleModule } from 'primeng/ripple';
 import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
 import { MenuModule } from 'primeng/menu';
+import { ShoppingCartModule } from '../shopping-cart/shopping-cart.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { MenuModule } from 'primeng/menu';
     ButtonModule,
     DropdownModule,
     MenuModule,
+    ShoppingCartModule,
     DataViewModule,
     RatingModule,
     RippleModule

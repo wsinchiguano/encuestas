@@ -51,7 +51,7 @@ export class ShopComponent implements OnInit {
 
     sortField: string;
 
-    items: MenuItem[];
+    filterVisible: boolean = false;
 
     constructor(private breadcrumbService: BreadcrumbService) {
       this.breadcrumbService.setItems([
@@ -121,12 +121,6 @@ export class ShopComponent implements OnInit {
       this.sortOptions = [
         {label: 'Price High to Low', value: '!price'},
         {label: 'Price Low to High', value: 'price'}
-      ];
-
-      this.items = [
-        {label: 'Color'},
-        {label: 'Size'},
-        {label: 'Price'}
       ];
     }
 

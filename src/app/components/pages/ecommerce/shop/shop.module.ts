@@ -9,8 +9,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RippleModule } from 'primeng/ripple';
 import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
-import { MenuModule } from 'primeng/menu';
 import { ShoppingCartModule } from '../shopping-cart/shopping-cart.module';
+import { FilterModule } from '../filter/filter.module';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { ShoppingCartModule } from '../shopping-cart/shopping-cart.module';
     FormsModule,
     ButtonModule,
     DropdownModule,
-    MenuModule,
+    FilterModule,
     ShoppingCartModule,
     DataViewModule,
     RatingModule,

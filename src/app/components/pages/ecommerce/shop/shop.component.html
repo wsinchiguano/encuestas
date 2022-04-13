@@ -1,16 +1,15 @@
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8 surface-border border-1" style="border-radius: 6px;">
     <p-dataView #dv [value]="products" [paginator]="true" [rows]="8" filterBy="title" [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
         <ng-template let-product pTemplate="header">
-            <div class="flex align-items-center justify-content-between w-full">
+            <div class="flex flex-column md:flex-row align-items-center justify-content-between w-full">
                 <span class="text-900 font-bold text-xl">Shop</span> 
-                <div class="flex align-items-center">
+                <div class="flex flex-column md:flex-row md:align-items-center mt-3 md:mt-0">
                     <span class="p-input-icon-right mb-2 md:mb-0 mr-0 md:mr-3">
                         <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($event.target.value)">
                         <i class="pi pi-search"></i>
                     </span>
-                    <button type="button" pButton icon="pi pi-fw pi-filter" label="Filters" class="p-button-primary mr-0 md:mr-3 font-semibold" (click)="menu.toggle($event)"></button>
-                    <p-menu #menu [popup]="true" [appendTo]="dv" [model]="items"></p-menu>
-                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>        
+                    <button type="button" pButton icon="pi pi-fw pi-filter" label="Filters" class="p-button-primary mr-0 md:mr-3 mb-3 md:mb-0 font-semibold" (click)="filterVisible = true"></button>
+                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions> 
                 </div>
             </div>
         </ng-template>
@@ -53,3 +52,4 @@
         </ng-template>
     </p-dataView>
 </div>
+<app-filter [display]="filterVisible" (onFilterClose)="filterVisible = $event"></app-filter>

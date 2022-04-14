@@ -3,9 +3,9 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 @Component({
     selector: 'app-productoverview',
-    templateUrl: './productoverview.component.html',
+    templateUrl: './app.productoverview.component.html',
 })
-export class ProductOverviewComponent implements OnInit {
+export class AppProductOverviewComponent implements OnInit {
     
     color: string = 'bluegray';
 

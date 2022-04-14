@@ -3,10 +3,10 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {path: 'productoverview', loadChildren: () => import('./productoverview/productoverview.module').then(m => m.ProductoverviewModule)},
-    {path: 'shop', loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)},
-    {path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule)},
-    {path: 'newproduct', loadChildren: () => import('./newproduct/newproduct.module').then(m => m.NewProductModule)},
+    {path: 'productoverview', loadChildren: () => import('./productoverview/app.productoverview.module').then(m => m.AppProductoverviewModule)},
+    {path: 'shop', loadChildren: () => import('./shop/app.shop.module').then(m => m.AppShopModule)},
+    {path: 'checkout', loadChildren: () => import('./checkout/app.checkout.module').then(m => m.AppCheckoutModule)},
+    {path: 'newproduct', loadChildren: () => import('./newproduct/app.newproduct.module').then(m => m.AppNewProductModule)},
   ])],
   exports: [RouterModule]
 })

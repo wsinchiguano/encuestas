@@ -3,10 +3,9 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 @Component({
     selector: 'app-checkout',
-    templateUrl: './checkout.component.html',
+    templateUrl: './app.checkout.component.html',
 })
-export class CheckoutComponent {
-
+export class AppCheckoutComponent {
 
     quantities: number[] = [1, 1, 1];
 

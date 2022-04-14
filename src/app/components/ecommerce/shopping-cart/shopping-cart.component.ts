@@ -5,14 +5,7 @@ import { Subscription } from 'rxjs';
 @Component({
     selector: 'app-shopping-cart',
     templateUrl: './shopping-cart.component.html',
-    styles: [`
-      :host ::ng-deep .p-sidebar-header {
-        display: none;
-      }
-      :host ::ng-deep .p-sidebar-content {
-        padding: 0;
-      }
-    `]
+    styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
 

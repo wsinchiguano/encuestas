@@ -18,10 +18,10 @@ interface Product{
 
 @Component({
     selector: 'app-newproduct',
-    templateUrl: './newproduct.component.html',
-    styleUrls: ['./newproduct.component.scss']
+    templateUrl: './app.newproduct.component.html',
+    styleUrls: ['./app.newproduct.component.scss']
 })
-export class NewProductComponent {
+export class AppNewProductComponent {
 
     @ViewChildren('buttonEl') buttonEl: QueryList<ElementRef>; 
 

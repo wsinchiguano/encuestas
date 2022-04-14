@@ -1,16 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styles: [`
-      :host ::ng-deep .p-sidebar-header {
-        display: none;
-      }
-      :host ::ng-deep .p-sidebar-content {
-        padding: 0;
-      }
-  `]
+    selector: 'app-filter',
+    templateUrl: './filter.component.html',
+    styleUrls: ['./filter.component.scss']
 })
 
 export class FilterComponent {
@@ -52,6 +45,5 @@ export class FilterComponent {
 
     onColorSelect(color){
       this.selectedFilters.indexOf(color) == -1 ? this.selectedFilters.push(color) : this.selectedFilters.splice(this.selectedFilters.indexOf(color), 1)
-
     }
 }

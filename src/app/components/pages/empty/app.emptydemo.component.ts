@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {BreadcrumbService} from 'src/app/service/app.breadcrumb.service';
 
 @Component({
-    templateUrl: './emptydemo.component.html'
+    templateUrl: './app.emptydemo.component.html'
 })
-export class EmptyDemoComponent {
+export class AppEmptyDemoComponent {
     
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([

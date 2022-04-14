@@ -4,40 +4,10 @@ import { MenuItem, SelectItem } from 'primeng/api';
 
 @Component({
     selector: 'app-shop',
-    templateUrl: './shop.component.html',
-    styles: [`
-      :host ::ng-deep  .p-button-icon-only {
-        height: 2.5rem;
-      }
-
-      :host ::ng-deep .p-dataview .p-dataview-header {
-        background: transparent;
-        border: 0 none;
-      }
-
-      :host ::ng-deep .p-paginator-bottom {
-        background: transparent;
-        border: 0 none;
-      }
-
-      :host ::ng-deep .p-dataview-content { 
-        background: transparent;
-      }
-
-      :host ::ng-deep .p-paginator-bottom {
-        margin-top: 2rem;
-      }
-
-      :host ::ng-deep .p-paginator-bottom > button {
-        border: 1px solid var(--surface-border);
-      }
-
-      :host ::ng-deep .p-paginator-pages > button {
-        border: 1px solid var(--surface-border) !important;
-      }
-    `]
+    templateUrl: './app.shop.component.html',
+    styleUrls: ['./app.shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class AppShopComponent implements OnInit {
 
     products: any[];
 

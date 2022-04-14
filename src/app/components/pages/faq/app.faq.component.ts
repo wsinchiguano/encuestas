@@ -6,19 +6,7 @@ import { MenuItem } from 'primeng/api';
 @Component({
     selector: 'app-faq',
     templateUrl: './app.faq.component.html',
-    styles:[`
-        @media screen and (max-width: 992px) {
-            #menu {
-                height:auto;
-            }
-        }
-
-        @media screen and (min-width: 992px) {
-            #menu {
-                height: 55rem;
-            }
-        }
-    `],
+    styleUrls: ['./app.faq.component.scss'],
     animations: [
         trigger('tabContent', [
             state('hidden', style({
@@ -29,7 +17,7 @@ import { MenuItem } from 'primeng/api';
                 height: '*'
             })),
             transition('visible <=> hidden', [style({overflow: 'hidden'}), animate('{{transitionParams}}')]),
-            transition('void => *', animate(0))
+            transition('void => *', animate('{{transitionParams}}'))
         ])
   ],
 })

@@ -8,6 +8,19 @@ declare var google: any;
     selector: 'app-contact',
     templateUrl: './app.contact.component.html',
     providers: [MessageService],
+    styles: [`
+        .addon-focus {
+            
+        }
+
+        .p-inputtext:enabled:focus {
+            box-shadow: none;
+        }
+
+        .box-shadow {
+            box-shadow: 0 0 0 0.2rem #a6d5fa;
+        }
+    `]
 
 })
 export class AppContactComponent implements OnInit {
@@ -98,5 +111,15 @@ export class AppContactComponent implements OnInit {
             ];
         }
     }
+
+    onFocus() {
+        this.focus = true;
+    }
+
+    onBlur() {
+        this.focus = false;
+    }
+
+    focus: boolean = false;
   
 }

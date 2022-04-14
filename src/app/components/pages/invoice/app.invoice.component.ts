@@ -4,45 +4,7 @@ import {AppLayoutComponent} from 'src/app/app.layout.component';
 
 @Component({
     templateUrl: './app.invoice.component.html',
-    styles: [`
-        :host ::ng-deep .p-datatable-lg table { 
-            border-collapse: separate !important;
-            border-spacing: 0 1rem !important;
-            
-            td, th {
-                border: none;
-            }
-        }
-
-        :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
-            background: var(--indigo-50);
-        }
-
-        :host ::ng-deep .p-datatable .p-datatable-footer {
-            background: transparent;
-            border: none;
-            padding: 0;
-            margin: 2rem 0;
-        }
-        
-        @media print{
-            
-            #print, #print * {
-                visibility: visible;
-            }
-
-            #print {
-                position: absolute;
-                height: 100vh;
-                top: 0;
-                bottom: 0;
-            }
-
-            #footer, #footer * { 
-                visibility: hidden !important;
-            }
-        }
-    `]
+    styleUrls: ['./app.invoice.component.scss']
 })
 export class AppInvoiceComponent {
 

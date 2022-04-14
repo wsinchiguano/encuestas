@@ -1,0 +1,27 @@
+:host ::ng-deep .p-datatable-lg table { 
+    border-collapse: separate !important;
+    border-spacing: 0 1rem !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-footer {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+@media print{
+    #print, #print * {
+        visibility: visible;
+    }
+
+    #print {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+    }
+
+    #footer, #footer * { 
+        visibility: hidden !important;
+    }
+}

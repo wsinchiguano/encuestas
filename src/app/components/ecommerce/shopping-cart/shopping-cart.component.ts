@@ -31,7 +31,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     constructor(private router: Router) {
       this.subscription = this.router.events.subscribe((event:Event) => {
         if (event instanceof NavigationEnd ) {
-          console.log(event.url)
           if (event.url.toString().indexOf('ecommerce') !== -1) {
             this.buttonVisible = true;
           } else { 

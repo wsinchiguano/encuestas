@@ -8,10 +8,10 @@
     </div>
     <div class="col-12 mt-5">
         <div class="grid grid-nogutter px-2 flex-column md:flex-row" style="column-gap: 2rem; row-gap: 2rem;">
-            <div *ngFor="let item of content" class="col flex flex-column justify-content-center align-items-center border-1 surface-border py-5 px-4" style="border-radius: 6px;">
+            <div *ngFor="let item of content" class="col flex flex-column justify-content-center text-center align-items-center border-1 surface-border py-5 px-4" style="border-radius: 6px;">
                 <i class="pi pi-fw text-2xl text-primary" [class]="item.icon"></i>
                 <span class="text-900 font-bold mt-4 mb-1">{{item.title}}</span>
-                <span class="text-indigo-300">{{item.info}}</span>
+                <span class="text-500">{{item.info}}</span>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 <label for="name" class="block text-indigo-300 font-bold">Name</label>
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon text-indigo-300 surface-card p-3"><i class="pi pi-user"></i></span>
-                    <input type="text" id="name" pInputText placeholder="Name" class="border-left-none p-3 text-900 font-bold" [(ngModel)]="name">         
+                    <input type="text" id="name" pInputText placeholder="Name" class="border-left-none p-3 text-900 font-semibold" [(ngModel)]="name">         
                 </div>
             </div>
 
@@ -31,13 +31,13 @@
                 <label for="email" class="block text-indigo-300 font-bold">Email Address</label>
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon text-indigo-300 surface-card p-3"><i class="pi pi-envelope"></i></span>
-                    <input type="text" id="email" pInputText placeholder="email" class="border-left-none p-3 text-900 font-bold" [(ngModel)]="email">         
+                    <input type="text" id="email" pInputText placeholder="email" class="border-left-none p-3 text-900 font-semibold" [(ngModel)]="email">         
                 </div>
             </div>
 
             <div class="field col-12 flex flex-column">
                 <label for="message" class="block text-indigo-300 font-bold">Message</label>
-                <textarea id="message" rows="5" pInputTextarea class="w-full surface-border p-4 text-900 font-bold" style="border-radius: 6px;" [autoResize]="true" [(ngModel)]="message"></textarea>
+                <textarea id="message" rows="5" pInputTextarea class="w-full surface-border p-4 text-900 font-semibold" style="border-radius: 6px;" [autoResize]="true" [(ngModel)]="message"></textarea>
                 <button pButton class="p-button-primary ml-auto mt-3" label="Send Message" style="border-radius: 6px;"></button>
             </div>
         </div>

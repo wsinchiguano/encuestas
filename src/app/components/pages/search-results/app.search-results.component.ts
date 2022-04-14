@@ -1,23 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
     selector: 'app-search-results',
-    templateUrl: './app.search-results.component.html',
-    animations: [
-      trigger('tabContent', [
-          state('hidden', style({
-              height: '0',
-              overflow: 'hidden'
-          })),
-          state('visible', style({
-              height: '*'
-          })),
-          transition('visible <=> hidden', [style({overflow: 'hidden'}), animate('{{transitionParams}}')]),
-          transition('void => *', animate(0))
-      ])
-  ],
+    templateUrl: './app.search-results.component.html'
 })
 export class AppSearchResultsComponent implements OnInit {
 

@@ -12,7 +12,7 @@ import {RippleModule} from 'primeng/ripple';
 import {RadioButtonModule} from 'primeng/radiobutton'
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {CheckboxModule} from 'primeng/checkbox';
-import {ShoppingCartModule} from './components/pages/ecommerce/shopping-cart/shopping-cart.module'
+import {ShoppingCartModule} from './components/ecommerce/shopping-cart/shopping-cart.module'
 
 import {AppComponent} from './app.component';
 import {AppLayoutComponent} from './app.layout.component';

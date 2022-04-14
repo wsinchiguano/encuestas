@@ -78,14 +78,16 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Contact Us', icon: 'pi pi-fw pi-phone', routerLink: ['/pages/contact']},
                     {label: 'Wizard', icon: 'pi pi-fw pi-bolt', routerLink: ['/pages/wizard']},
                     {label: 'Search Results ', icon: 'pi pi-fw pi-search', routerLink: ['/pages/search-results']},
-                    {label: 'E-Commerce', icon: 'pi pi-fw pi-wallet', 
-                        items: [
-                            {label: 'Product Overview', icon: 'pi pi-fw pi-image', routerLink: ['pages/ecommerce/productoverview']},
-                            {label: 'Shop', icon: 'pi pi-fw pi-shopping-bag', routerLink: ['pages/ecommerce/shop']},
-                            {label: 'Checkout', icon: 'pi pi-fw pi-shopping-cart', routerLink: ['pages/ecommerce/checkout']},
-                            {label: 'New Product', icon: 'pi pi-fw pi-plus', routerLink: ['pages/ecommerce/newproduct']},
-                        ]
-                    }
+                ]
+            },
+            {separator: true},
+            {
+                label: 'E-Commerce', icon: 'pi pi-fw pi-wallet', 
+                items: [
+                    {label: 'Product Overview', icon: 'pi pi-fw pi-image', routerLink: ['ecommerce/productoverview']},
+                    {label: 'Shop', icon: 'pi pi-fw pi-shopping-bag', routerLink: ['ecommerce/shop']},
+                    {label: 'Checkout', icon: 'pi pi-fw pi-shopping-cart', routerLink: ['ecommerce/checkout']},
+                    {label: 'New Product', icon: 'pi pi-fw pi-plus', routerLink: ['ecommerce/newproduct']},
                 ]
             },
             {separator: true},

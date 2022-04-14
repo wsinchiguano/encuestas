@@ -2,11 +2,11 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {BreadcrumbService} from 'src/app/service/app.breadcrumb.service';
 
 @Component({
-    templateUrl: './app.overview.component.html',
-    styleUrls: ['./app.overview.scss'],
+    templateUrl: './app.about.component.html',
+    styleUrls: ['./app.about.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class AppOverviewComponent {
+export class AppAboutComponent {
 
     visibleMember: number = null;
     

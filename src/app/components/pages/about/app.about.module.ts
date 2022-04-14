@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppOverviewRoutingModule } from './app.overview-routing.module';
-import { AppOverviewComponent } from './app.overview.component';
+import { AppAboutRoutingModule } from './app.about-routing.module';
+import { AppAboutComponent } from './app.about.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
@@ -9,11 +9,11 @@ import { RippleModule } from 'primeng/ripple';
 @NgModule({
   imports: [
     CommonModule,
-    AppOverviewRoutingModule,
+    AppAboutRoutingModule,
     CardModule,
     ButtonModule,
     RippleModule
   ],
-  declarations: [AppOverviewComponent]
+  declarations: [AppAboutComponent]
 })
-export class AppOverviewModule { }
+export class AppAboutModule { }

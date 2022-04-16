@@ -11,6 +11,10 @@
     border-color: transparent;
 }
 
+:host ::ng-deep .p-fileupload {
+    padding: 0;
+}
+
 :host ::ng-deep .p-fileupload-buttonbar {
     display: none;
 }

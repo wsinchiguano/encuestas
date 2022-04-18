@@ -21,6 +21,11 @@ import {AppLayoutComponent} from './app.layout.component';
             {path: 'access', loadChildren: () => import('./components/pages/accessdenied/app.accessdenied.module').then(m => m.AppAccessdeniedModule)},
             {path: 'login', loadChildren: () => import('./components/pages/login/app.login.module').then(m => m.AppLoginModule)},
             {path: 'forgotpassword', loadChildren: () => import('./components/pages/forgotpassword/app.forgotpassword.module').then(m => m.AppForgotPasswordModule)},
+            {path: 'register', loadChildren: () => import('./components/pages/register/app.register.module').then(m => m.AppRegisterModule)},
+            {path: 'newpassword', loadChildren: () => import('./components/pages/newpassword/app.newpassword.module').then(m => m.AppNewPasswordModule)},
+            {path: 'email-verification', loadChildren: () => import('./components/pages/emailverification/app.emailverification.module').then(m => m.AppEmailverificationModule)},
+            {path: 'two-step-verification', loadChildren: () => import('./components/pages/two-stepverification/app.two-step-verification.module').then(m => m.AppTwoStepVerificationModule)},
+            {path: 'lockscreen', loadChildren: () => import('./components/pages/lockscreen/app.lockscreen.module').then(m => m.AppLockScreenModule)},
             {path: 'notfound', loadChildren: () => import('./components/pages/notfound/app.notfound.module').then(m => m.AppNotfoundModule)},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})

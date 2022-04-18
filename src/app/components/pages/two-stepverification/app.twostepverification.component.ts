@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-app.two-step-verification',
-  templateUrl: './app.two-step-verification.component.html'
+  selector: 'app-app.twostepverification',
+  templateUrl: './app.twostepverification.component.html'
 })
 export class AppTwoStepVerificationComponent {
   val1: number = 2;

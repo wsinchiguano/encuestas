@@ -78,6 +78,12 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Contact Us', icon: 'pi pi-fw pi-phone', routerLink: ['/pages/contact']},
                     {label: 'Wizard', icon: 'pi pi-fw pi-bolt', routerLink: ['/pages/wizard']},
                     {label: 'Search Results ', icon: 'pi pi-fw pi-search', routerLink: ['/pages/search-results']},
+                    {label: 'Register', icon: 'pi pi-fw pi-user-plus', routerLink: ['/register']},
+                    {label: 'Forgot Password', icon: 'pi pi-fw pi-question', routerLink: ['/forgotpassword']},
+                    {label: 'New Password', icon: 'pi pi-fw pi-cog', routerLink: ['/newpassword']},
+                    {label: 'Email Verification', icon: 'pi pi-fw pi-envelope', routerLink: ['/emailverification']},
+                    {label: 'Two-Step Verification', icon: 'pi pi-fw pi-phone', routerLink: ['/twostepverification']},
+                    {label: 'Lock Screen', icon: 'pi pi-fw pi-eye-slash', routerLink: ['/lockscreen']},
                 ]
             },
             {separator: true},

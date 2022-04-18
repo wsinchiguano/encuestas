@@ -124,6 +124,13 @@
     }
 }
 
+.forgot-container {
+    background-image: url("../../layout/images/pages/bg-auth.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 @media(min-width:993px) {
     .login-body {
         .login-wrapper {

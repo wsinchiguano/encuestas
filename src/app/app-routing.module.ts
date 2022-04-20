@@ -12,6 +12,7 @@ import {AppLayoutComponent} from './app.layout.component';
                     {path: 'uikit', loadChildren: () => import('./components/uikit/uikit.module').then(m => m.UIkitModule)},
                     {path: 'utilities', loadChildren: () => import('./components/utilities/utilities.module').then(m => m.UtilitiesModule)},
                     {path: 'pages', loadChildren: () => import('./components/pages/pages.module').then(m => m.PagesModule)},
+                    {path: 'profile', loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)},
                     {path: 'documentation', loadChildren: () => import('./components/start/start.module').then(m => m.StartModule)},
                     {path: 'blocks', loadChildren: () => import('./components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule)},
                     {path: 'ecommerce', loadChildren: () => import('./components/ecommerce/app.ecommerce.module').then(m => m.AppEcommerceModule)},

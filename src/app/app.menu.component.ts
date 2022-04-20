@@ -105,6 +105,13 @@ export class AppMenuComponent implements OnInit {
             },
             {separator: true},
             {
+                label: 'Profile', icon: 'pi pi-fw pi-user', 
+                items: [
+                    {label: 'Create', icon: 'pi pi-fw pi-plus', routerLink: ['profile/create']}
+                ]
+            },
+            {separator: true},
+            {
                 label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {

@@ -15,6 +15,7 @@ import {AppLayoutComponent} from './app.layout.component';
                     {path: 'documentation', loadChildren: () => import('./components/start/start.module').then(m => m.StartModule)},
                     {path: 'blocks', loadChildren: () => import('./components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule)},
                     {path: 'ecommerce', loadChildren: () => import('./components/ecommerce/app.ecommerce.module').then(m => m.AppEcommerceModule)},
+                    {path: 'ecommerce-admin', loadChildren: () => import('./components/ecommerce-admin/app.ecommerce-admin.module').then(m => m.AppEcommerceAdminModule)},
                 ]
             },
             {path: 'error', loadChildren: () => import('./components/pages/error/app.error.module').then(m => m.AppErrorModule)},

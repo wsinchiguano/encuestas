@@ -98,6 +98,13 @@ export class AppMenuComponent implements OnInit {
             },
             {separator: true},
             {
+                label: 'E-Commerce Admin', icon: 'pi pi-fw pi-shield',
+                items: [
+                    {label: 'Product List', icon: 'pi pi-fw pi-list', routerLink: ['ecommerce-admin/productlist']},
+                ]
+            },
+            {separator: true},
+            {
                 label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {

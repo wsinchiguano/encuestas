@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from 'src/app/api/product';
 import {ProductService} from 'src/app/service/productservice';
 import {ConfirmationService, MessageService} from 'primeng/api';
+import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 @Component({
     templateUrl: './app.crud.component.html',
@@ -30,14 +31,17 @@ export class AppCrudComponent implements OnInit {
 
     rowsPerPageOptions = [5, 10, 20];
 
-    constructor(private productService: ProductService, private messageService: MessageService,
-                private confirmationService: ConfirmationService) {}
+    constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService, private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Crud'}
+        ]);
+    }
 
    ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
 
         this.cols = [
-            {field: 'name', header: 'Name'},
+            {field: 'product', header: 'Product'},
             {field: 'price', header: 'Price'},
             {field: 'category', header: 'Category'},
             {field: 'rating', header: 'Reviews'},

@@ -35,4 +35,11 @@ export class ProductService {
         .then(res => res.data as Product[])
         .then(data => data);
     }
+
+    getProductsWithOrdersLarge() {
+        return this.http.get<any>('assets/demo/data/products-orders.json')
+        .toPromise()
+        .then(res => res.data as Product[])
+        .then(data => data); 
+    }
 }

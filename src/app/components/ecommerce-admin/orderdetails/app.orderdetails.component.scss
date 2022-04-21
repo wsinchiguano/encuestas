@@ -1,17 +1,9 @@
-:host ::ng-deep .p-rating .p-rating-icon.pi-star-fill {
-    color: var(--yellow-500);
-}
-
 :host ::ng-deep .p-datatable {
-    tr {
-        background: transparent;
-    }
-
     table {
         border-collapse: separate !important;
         border-spacing: 0 1rem !important;
     }
-    
+
     .p-datatable-header {
         border-radius: 6px;
         background: transparent;
@@ -34,16 +26,9 @@
         border: none;
     }
 
-    .p-paginator {
-        background: transparent;
-    }
-
-    .p-paginator-bottom {
-        border: 0 none;
-        margin-top: 2rem;
-    }
-
     .p-datatable-tbody > tr {
+        background: transparent;
+
         td:first-child {
             border-top-left-radius: 6px;
             border-bottom-left-radius: 6px;
@@ -68,5 +53,19 @@
             border-top-right-radius: 6px;
             border-bottom-right-radius: 6px;
         }
-    }    
+    }
+
+    .p-datatable-footer {
+        margin-top: 2rem;
+    }
+}
+
+:host ::ng-deep {
+    .p-progressbar {
+        height: 0.5rem;
+        
+        .p-progressbar-value {
+            border-radius: 6px;
+        }
+    }
 }

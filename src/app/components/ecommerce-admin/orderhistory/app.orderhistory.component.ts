@@ -4,33 +4,31 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { ProductService } from 'src/app/service/productservice';
 
 @Component({
-    selector: 'app-app.orderdetails',
-    templateUrl: './app.orderdetails.component.html',
-    styleUrls: ['./app.orderdetails.component.scss']
+    selector: 'app-app.orderhistory',
+    templateUrl: './app.orderhistory.component.html',
+    styleUrls: ['./app.orderhistory.component.scss']
 })
-export class AppOrderDetailsComponent implements OnInit {
-
+export class AppOrderHistoryComponent implements OnInit {
+    
     products: Product[];
-
+    
     cols: any[];
 
     events: any[];
 
     constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
       this.breadcrumbService.setItems([
-        { label: 'Order Details' }
+        { label: 'Order History' }
       ]);
     }
 
-    ngOnInit(): void {
-      this.productService.getProductsWithOrdersLarge().then(data => this.products = data.filter(i => i.quantity !== 0).map(item => ({...item, total: item.quantity * item.price})).slice(0,6));
+    ngOnInit() {
+      this.productService.getProductsWithOrdersLarge().then(data => this.products = data.filter(i => i.quantity !== 0).map((el,index) => ({...el, total: el.quantity * el.price, paymentMethod: index % 2 === 0 ? 'Visa' : 'Mastercard', verified: index % 2 === 0 ? 'Yes' : 'No', status: index % 2 === 0 ? 'Completed' : 'Cancelled', date: '28/02/2022'})));
 
       this.cols = [
-        {field: 'porduct', header: 'Product'},
-        {field: 'price', header: 'Price'},
-        {field: 'quantity', header: 'Quantity'},
-        {field: 'Total', header: 'Total'},
         {field: 'date', header: 'Date'},
+        {field: 'comment', header: 'Comment'},
+        {field: 'status', header: 'Status'}
       ];
 
       this.events = [

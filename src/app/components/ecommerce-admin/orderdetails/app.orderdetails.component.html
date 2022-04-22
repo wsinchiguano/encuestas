@@ -16,30 +16,8 @@
 
                             <span class="text-900 font-bold mr-2">21 April 2022</span>
                         </div>
-                        <div class="col-12 hidden md:block">
-                            <p-progressBar value="25" [showValue]="false"></p-progressBar>
-                            <ul class="w-full list-none flex p-0 justify-content-between">
-                                <li class="text-700 font-bold">Ordered</li>
-                                <li class="text-900 font-bold">Processing</li>
-                                <li class="text-700 font-bold">Preparing to Shipping</li>
-                                <li class="text-700 font-bold">Sent</li>
-                                <li class="text-700 font-bold">Delivered</li>
-                            </ul>
-                        </div>
-                        <div class="col-12 block md:hidden">
-                            <p-timeline [value]="events">
-                                <ng-template pTemplate="marker" let-event>
-
-                                        <i class="pi pi-fw" [ngClass]="{'pi-circle-fill text-primary': event.completed, 'pi-circle text-700': !event.completed}"></i>
-
-                                </ng-template>
-                                <ng-template pTemplate="content" let-event>
-                                    <span class="font-semibold" [ngClass]="{'text-900': event.completed, 'text-700': !event.completed}">{{event.date}}</span>
-                                </ng-template>
-                                <ng-template pTemplate="opposite" let-event>
-                                    <span class="font-bold" [ngClass]="{'text-900': event.completed, 'text-700': !event.completed}">{{event.status}}</span>
-                                </ng-template>
-                            </p-timeline>
+                        <div class="col-12">
+                            <app-progress [events]="events"></app-progress>
                         </div>
                     </div>
                     <div class="grid grid-nogutter flex-nowrap flex-column md:flex-row" style="gap: 2rem;">

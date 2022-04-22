@@ -1,0 +1,21 @@
+<div class="grid grid-nogutter w-full">
+    <div class="col-12 hidden md:block">
+        <p-progressBar value="25" [showValue]="false"></p-progressBar>
+        <ul class="w-full list-none flex p-0 justify-content-between">
+            <li *ngFor="let event of events" class="text-700 font-bold" [ngClass]="{'text-900': event.current}">{{event.status}}</li>
+        </ul>
+    </div>
+    <div class="col-12 block md:hidden">
+        <p-timeline [value]="events">
+            <ng-template pTemplate="marker" let-event>
+                <i class="pi pi-fw" [ngClass]="{'pi-circle-fill text-primary': event.completed, 'pi-circle text-700': !event.completed}"></i>
+            </ng-template>
+            <ng-template pTemplate="content" let-event>
+                <span class="font-semibold" [ngClass]="{'text-900': event.completed, 'text-700': !event.completed}">{{event.date}}</span>
+            </ng-template>
+            <ng-template pTemplate="opposite" let-event>
+                <span class="font-bold" [ngClass]="{'text-900': event.completed, 'text-700': !event.completed}">{{event.status}}</span>
+            </ng-template>
+        </p-timeline>
+    </div>
+</div>

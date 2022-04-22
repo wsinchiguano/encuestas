@@ -101,6 +101,7 @@ export class AppMenuComponent implements OnInit {
                 label: 'E-Commerce Admin', icon: 'pi pi-fw pi-shield',
                 items: [
                     {label: 'Product List', icon: 'pi pi-fw pi-list', routerLink: ['ecommerce-admin/productlist']},
+                    {label: 'Orders', icon: 'pi pi-fw pi-dollar', routerLink: ['ecommerce-admin/orders']},
                     {label: 'Order Details', icon: 'pi pi-fw pi-history', routerLink: ['ecommerce-admin/orderdetails']},
                 ]
             },

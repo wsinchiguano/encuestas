@@ -4,10 +4,10 @@
             <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
                 <ng-template pTemplate="caption">
                     <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center mb-5">
-                        <span class="block text-900 font-bold text-lg mb-4 lg:mb-0">Order Details</span>
+                        <span class="block text-900 font-bold text-lg mb-4 lg:mb-0">Orders</span>
                         <div class="flex align-items-center">
                             <span class="block p-input-icon-right mr-3 w-20rem">
-                                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search Products" class="w-full"/>
+                                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search Order" class="w-full"/>
                                 <i class="pi pi-search"></i>
                             </span>
                             <p-dropdown [options]="statuses" [(ngModel)]="selectedStatus" optionLabel="value" placeholder="Status" (onChange)="dt.filterGlobal($event.value.value,'contains')" [showClear]="true" (onClear)="dt.clear()" ></p-dropdown>

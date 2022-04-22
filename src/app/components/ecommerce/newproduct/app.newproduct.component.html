@@ -1,18 +1,18 @@
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8 surface-border border-1">
     <span class="block text-900 font-bold text-xl mb-4">Create Product</span>
     <div class="grid grid-nogutter flex-wrap" style="column-gap: 1rem; row-gap: 1rem;">
-        <div class="col-12 md:col-8">
+        <div class="col-12 lg:col-8">
             <div class="grid formgrid">
                 <div class="col-12 field">
                     <input pInputText type="text" placeholder="Product Name" label="Product Name" [(ngModel)]="product.name" class="inputfield w-full p-3 text-900 font-semibold">
                 </div>
-                <div class="col-12 md:col-4 field">
+                <div class="col-12 lg:col-4 field">
                     <input pInputText type="text" placeholder="Price" label="Price" [(ngModel)]="product.price" class="inputfield w-full p-3 text-900 font-semibold">
                 </div>
-                <div class="col-12 md:col-4 field">
+                <div class="col-12 lg:col-4 field">
                     <input pInputText type="text" placeholder="Product Code" label="Product Code" [(ngModel)]="product.code" class="inputfield w-full p-3 text-900 font-semibold">
                 </div>
-                <div class="col-12 md:col-4 field">
+                <div class="col-12 lg:col-4 field">
                     <input pInputText type="text" placeholder="Product SKU" label="SKU" [(ngModel)]="product.sku" class="inputfield w-full p-3 text-900 font-semibold">
                 </div>
                 <div class="col-12 field">
@@ -35,7 +35,6 @@
                             </div>
                         </ng-template>
                     </p-fileUpload>
-
                 </div>
             </div>
         </div>
@@ -54,10 +53,10 @@
             
             <div class="border-1 surface-border" style="border-radius: 6px;">
                 <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Tags</span>
-                <div class="p-3">
-                    <p-chip *ngFor="let tag of product.tags; let i = index;" (click)="onChipRemove(tag)" styleClass="mr-2 py-2 px-3 text-900 font-bold surface-card border-1 surface-border" [style]="{'border-radius':'20px'}">
+                <div class="p-3 flex" style="gap: 0.5rem;">
+                    <p-chip *ngFor="let tag of product.tags; let i = index;" styleClass="mr-2 py-2 px-3 text-900 font-bold surface-card border-1 surface-border" [style]="{'border-radius':'20px'}">
                         <span class="mr-3">{{tag}}</span>
-                        <span class="chip-remove-icon flex align-items-center justify-content-center border-1 surface-border bg-gray-100 border-circle">
+                        <span class="chip-remove-icon flex align-items-center justify-content-center border-1 surface-border bg-gray-100 border-circle cursor-pointer" (click)="onChipRemove(tag)">
                             <i class="pi pi-fw pi-times text-black-alpha-60"></i>
                         </span>
                     </p-chip>

@@ -6,7 +6,7 @@ import { ProductService } from 'src/app/service/productservice';
 @Component({
     selector: 'app-app.orderedit',
     templateUrl: './app.orderedit.component.html',
-    styleUrls: ['./app.orderedit.component.scss', '../../../../assets/demo/badges.scss']
+    styleUrls: ['../ecommerce-admin.table.scss', '../../../../assets/demo/badges.scss']
 })
 export class AppOrderEditComponent implements OnInit {
       
@@ -40,6 +40,24 @@ export class AppOrderEditComponent implements OnInit {
         {field: 'name', header: 'Product'},
         {field: 'price', header: 'Price'},
         {field: 'status', header: 'Status'}
+      ];
+      
+      this.paymentMethods = [
+        {name: 'Visa'},
+        {name: 'Mastercard'},
+        {name: 'Amex'}
+      ];
+
+      this.shippingMethods = [
+        {name: 'Air'},
+        {name: 'Sea'},
+        {name: 'Land'},
+      ];
+
+      this.orderDates = [
+        {date: '15/04/22'},
+        {date: '16/04/22'},
+        {date: '17/04/22'},
       ];
     }
 }

@@ -7,7 +7,7 @@ import { MenuItem } from 'primeng/api';
 @Component({
     selector: 'app-app.productlist',
     templateUrl: './app.productlist.component.html',
-    styleUrls: ['./app.productlist.component.scss', '../../../../assets/demo/badges.scss']
+    styleUrls: ['../ecommerce-admin.table.scss', '../../../../assets/demo/badges.scss']
 })
 export class AppProductListComponent implements OnInit {
     

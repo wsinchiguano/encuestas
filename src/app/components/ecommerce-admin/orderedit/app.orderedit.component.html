@@ -4,7 +4,7 @@
             <span class="block text-900 font-bold w-full text-lg mb-4 lg:mb-0">Edit Order</span>
         </div>
         <div class="col">
-            <p-dropdown [options]="paymentMethods" [(ngModel)]="selectedPayment" optionLabel="name" placeholder="Payment Method" [showClear]="true" styleClass="w-full" panelStyleClass="w-full"></p-dropdown>
+            <p-dropdown [options]="paymentMethods" [(ngModel)]="selectedPayment" [required]="true" optionLabel="name" placeholder="Payment Method" [showClear]="true" styleClass="w-full" panelStyleClass="w-full"></p-dropdown>
         </div>
         <div class="col">
             <p-dropdown [options]="shippingMethods" [(ngModel)]="selectedShipping" optionLabel="name" placeholder="Shipping Method" [showClear]="true" styleClass="w-full" panelStyleClass="w-full"></p-dropdown>

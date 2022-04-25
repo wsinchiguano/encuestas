@@ -57,19 +57,17 @@
 
     .p-datatable-footer {
         margin-top: 2rem;
+        background: transparent;
+        border: none;
+        padding: 0;
     }
 
     .p-paginator-bottom {
         border: 0 none;
+        background: transparent;
     }
 }
 
-:host ::ng-deep {
-    .p-progressbar {
-        height: 0.5rem;
-        
-        .p-progressbar-value {
-            border-radius: 6px;
-        }
-    }
+:host ::ng-deep .p-rating .p-rating-icon.pi-star-fill {
+    color: var(--yellow-500);
 }

@@ -15,16 +15,16 @@
     </div>
     <div class="grid flex-column mt-4" style="gap: 1rem;">
         <div class="p-2 flex-auto">
-            <div class="p-2 flex flex-column lg:flex-row flex-wrap lg:align-items-center">
-                <img src="assets/demo/images/ecommerce/shop/shop-1.png" class="w-8rem h-8rem mb-3 lg:mb-0 flex-shrink-0" style="border-radius: 6px;" alt="product"/>
-                <div class="flex-auto lg:ml-3">
+            <div class="p-2 flex flex-column md:flex-row flex-wrap md:align-items-center">
+                <img src="assets/demo/images/ecommerce/shop/shop-1.png" class="w-8rem h-8rem mb-3 md:mb-0 flex-shrink-0" style="border-radius: 6px;" alt="product"/>
+                <div class="flex-auto md:ml-3">
                     <div class="flex align-items-center justify-content-between mb-3">
                         <span class="text-900 font-bold">Product Name</span>
                         <span class="text-900 font-bold">$123.00</span>
                     </div>
                     <div class="text-600 text-sm mb-3">White | 42</div>
                     <div class="flex flex-auto justify-content-between align-items-center">
-                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" min="0" inputStyleClass="w-2rem text-center p-0 border-none surface-50" [(ngModel)]="quantities1[0]" 
+                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" min="0" inputStyleClass="w-2rem text-center p-0 border-none outline-none surface-50 shadow-none" [(ngModel)]="quantities1[0]" 
                         class="border-1 surface-border border-round" decrementButtonClass="surface-50 p-button-text text-600 hover:text-primary" incrementButtonClass="p-button-text surface-50 text-600 hover:text-primary py-1 px-1" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
                         <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-secondary p-button-text"></button>
                     </div>
@@ -32,16 +32,16 @@
             </div>
         </div>
         <div class="p-2 flex-auto">
-            <div class="p-2 flex flex-column lg:flex-row flex-wrap lg:align-items-center">
-                <img src="assets/demo/images/ecommerce/shop/shop-2.png" class="w-8rem h-8rem mb-3 lg:mb-0 flex-shrink-0" style="border-radius: 6px;" alt="product"/>
-                <div class="flex-auto lg:ml-3">
+            <div class="p-2 flex flex-column md:flex-row flex-wrap md:align-items-center">
+                <img src="assets/demo/images/ecommerce/shop/shop-2.png" class="w-8rem h-8rem mb-3 md:mb-0 flex-shrink-0" style="border-radius: 6px;" alt="product"/>
+                <div class="flex-auto md:ml-3">
                     <div class="flex align-items-center justify-content-between mb-3">
                         <span class="text-900 font-bold">Product Name</span>
                         <span class="text-900 font-bold">$123.00</span>
                     </div>
                     <div class="text-600 text-sm mb-3">Black | 42</div>
                     <div class="flex flex-auto justify-content-between align-items-center">
-                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" min="0" inputStyleClass="w-2rem text-center p-0 border-none surface-50" [(ngModel)]="quantities1[0]" 
+                        <p-inputNumber [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" min="0" inputStyleClass="w-2rem text-center p-0 border-none surface-50 shadow-none" [(ngModel)]="quantities1[0]" 
                         class="border-1 surface-border border-round" decrementButtonClass="surface-50 p-button-text text-600 hover:text-primary" incrementButtonClass="p-button-text surface-50 text-600 hover:text-primary py-1 px-1" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
                         <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-secondary p-button-text"></button>
                     </div>
@@ -78,19 +78,19 @@
                             <span class="p-column-title">Product</span>
                             <div class="flex align-items-center">
                                 <img [src]="'assets/demo/images/product/' + product.image" class="w-4rem h-4rem mr-3 shadow-1" style="border-radius: 6px;" alt="">
-                                <span class="font-bold text-600">{{product.name}}</span>
+                                <span class="font-semibold text-900">{{product.name}}</span>
                             </div>
                         </td>
                         <td style="width:15%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Category</span>
-                            <span class="text-900 font-bold">{{product.category}}</span>
+                            <span class="text-900 font-semibold">{{product.category}}</span>
                         </td>
                         <td style="width:10%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Price</span>
-                            <span class="text-900 font-bold">{{product.price | currency:'USD'}}</span>
+                            <span class="text-900 font-semibold">{{product.price | currency:'USD'}}</span>
                         </td>
                         <td style="width:10%; height:5rem; min-width:10rem;"><span class="p-column-title">Status</span>
-                            <span class="font-bold" [ngClass]="'product-badge-text status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+                            <span class="font-semibold" [ngClass]="'product-badge-text status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
                         </td>
                     </tr>
                 </ng-template>

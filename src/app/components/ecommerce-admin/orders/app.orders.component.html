@@ -1,7 +1,7 @@
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8 border-1 surface-border" style="border-radius: 6px;">
     <div class="grid">
         <div class="col-12">
-            <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
+            <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','code','total','paymentMethod']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">
                 <ng-template pTemplate="caption">
                     <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center mb-5">
                         <span class="block text-900 font-bold text-lg mb-4 lg:mb-0">Orders</span>
@@ -18,7 +18,7 @@
                     <tr>
                         <th style="width: 3rem"><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
                         <th class="font-bold" pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-                        <th class="font-bold" pSortableColumn="price">Order ID <p-sortIcon field="price"></p-sortIcon></th>
+                        <th class="font-bold" pSortableColumn="code">Order ID <p-sortIcon field="code"></p-sortIcon></th>
                         <th class="font-bold" pSortableColumn="total">Total <p-sortIcon field="total"></p-sortIcon></th>
                         <th class="font-bold" pSortableColumn="paymentMethod">Payment Method <p-sortIcon field="paymentMethod"></p-sortIcon></th>
                         <th class="font-bold" pSortableColumn="verified">Verified <p-sortIcon field="verified"></p-sortIcon></th>
@@ -33,7 +33,7 @@
                             <span class="p-column-title">Name</span>
                             <div class="flex align-items-center">
                                 <p-avatar [image]="'assets/demo/images/product/'  + product.image" styleClass="mr-3 shadow-1" size="large" shape="circle"></p-avatar>
-                                <span class="font-bold text-600">{{product.name}}</span>
+                                <span class="font-bold text-900">{{product.name}}</span>
                             </div>
                         </td>
                         <td style="width:15%; height:5rem; min-width:10rem;">

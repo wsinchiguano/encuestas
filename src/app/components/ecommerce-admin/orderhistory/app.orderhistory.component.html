@@ -31,14 +31,14 @@
                     <tr>
                         <td style="width:20%; height:5rem; min-width:8rem;">
                             <span class="p-column-title">Product</span>
-                            <span class="font-bold text-600">{{product.date}}</span>
+                            <span class="font-semibold text-900">{{product.date}}</span>
                         </td>
                         <td style="width:70%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Comment</span>
-                            <span class="text-900 font-bold">{{product.description}}</span>
+                            <span class="text-900 font-semibold">{{product.description}}</span>
                         </td>
                         <td style="width:10%; height:5rem; min-width:10rem;"><span class="p-column-title">Status</span>
-                            <span class="font-bold" [ngClass]="{'text-green-500': product.status === 'Completed', 'text-pink-500': product.status === 'Cancelled'}">{{product.status}}</span>
+                            <span class="font-semibold" [ngClass]="{'text-green-500': product.status === 'Completed', 'text-pink-500': product.status === 'Cancelled'}">{{product.status}}</span>
                         </td>
                     </tr>
                 </ng-template>

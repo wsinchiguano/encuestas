@@ -2,7 +2,7 @@
     <div class="col-12 hidden md:block">
         <p-progressBar value="25" [showValue]="false" styleClass="mt-3"></p-progressBar>
         <ul class="w-full list-none flex p-0 justify-content-between">
-            <li *ngFor="let event of events" class="text-700 font-bold" [ngClass]="{'text-900': event.current}">{{event.status}}</li>
+            <li *ngFor="let event of events" class="text-500 font-bold" [ngClass]="{'text-900': event.current, 'text-primary': !event.current && event.completed}">{{event.status}}</li>
         </ul>
     </div>
     <div class="col-12 block md:hidden">

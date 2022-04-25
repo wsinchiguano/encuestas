@@ -54,19 +54,19 @@
                             <span class="p-column-title">Product</span>
                             <div class="flex align-items-center">
                                 <img [src]="'assets/demo/images/product/' + product.image" [alt]="product.name" style="border-radius: 6px;" class="w-4rem h-4rem mr-4 shadow-1">
-                                <span class="font-bold text-900">{{product.name}}</span>
+                                <span class="font-semibold text-900">{{product.name}}</span>
                             </div>
                         </td>
                         <td style="width:14%; height:5rem; min-width:8rem;">
                             <span class="p-column-title">Price</span>
-                            <span class="text-900 font-bold">{{product.price | currency:'USD'}}</span>
+                            <span class="text-900 font-semibold">{{product.price | currency:'USD'}}</span>
                         </td>
                         <td style="width:14%; height:5rem; min-width:10rem;"><span class="p-column-title">Quantity</span>
-                            <span class="text-900 font-bold">{{product.quantity}}</span>
+                            <span class="text-900 font-semibold">{{product.quantity}}</span>
                         </td>
                         <td style="width:14%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Total</span>
-                            <span class="text-900 font-bold">{{product.total | currency:'USD'}}</span>
+                            <span class="text-900 font-semibold">{{product.total | currency:'USD'}}</span>
                         </td>
                         <td style="width:14%; height:5rem; min-width: 7rem;">
                             <div class="flex flex-nowrap align-items-center">

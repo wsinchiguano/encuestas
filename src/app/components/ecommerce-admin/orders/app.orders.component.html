@@ -33,28 +33,28 @@
                             <span class="p-column-title">Name</span>
                             <div class="flex align-items-center">
                                 <p-avatar [image]="'assets/demo/images/product/'  + product.image" styleClass="mr-3 shadow-1" size="large" shape="circle"></p-avatar>
-                                <span class="font-bold text-900">{{product.name}}</span>
+                                <span class="font-semibold text-900">{{product.name}}</span>
                             </div>
                         </td>
                         <td style="width:15%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Order ID</span>
-                            <span class="text-900 font-bold">{{product.code}}</span>
+                            <span class="text-900 font-semibold">{{product.code}}</span>
                         </td>
                         <td style="width:15%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Total</span>
-                            <span class="text-900 font-bold">{{product.total | currency:'USD'}}</span>
+                            <span class="text-900 font-semibold">{{product.total | currency:'USD'}}</span>
                         </td>
                         <td style="width:15%; height:5rem; min-width:14rem;">
                             <span class="p-column-title">Payment Method</span>
-                            <span class="text-900 font-bold flex align-items-center"><i class="pi pi-fw pi-credit-card mr-2 text-600"></i>{{product.paymentMethod}}</span>
+                            <span class="text-900 font-semibold flex align-items-center"><i class="pi pi-fw pi-credit-card mr-2 text-600"></i>{{product.paymentMethod}}</span>
                         </td>
                         <td style="width:15%; height:5rem; min-width:10rem;">
                             <span class="p-column-title">Verified</span>
-                            <span class="text-900 font-bold">{{product.verified}}</span>
+                            <span class="text-900 font-semibold">{{product.verified}}</span>
                         </td>
                         <td style="width:15%; height:5rem; min-width:8rem;">
                             <span class="p-column-title">Status</span>
-                            <span class="text-900 font-bold" [ngClass]="{'text-green-500': product.status == 'Completed', 'text-pink-500': product.status === 'Cancelled'}">{{product.status}}</span>
+                            <span class="text-900 font-semibold" [ngClass]="{'text-green-500': product.status == 'Completed', 'text-pink-500': product.status === 'Cancelled'}">{{product.status}}</span>
                         </td>
                         <td>
                             <button pButton pRipple icon="pi pi-ellipsis-v" class="p-button-text" (click)="menu.toggle($event)"></button>

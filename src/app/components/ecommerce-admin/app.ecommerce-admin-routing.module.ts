@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
     {path: 'orderdetails', loadChildren: () => import('./orderdetails/app.orderdetails.module').then(m => m.AppOrderDetailsModule)},
     {path: 'orders', loadChildren: () => import('./orders/app.orders.module').then(m => m.AppOrdersModule)},
     {path: 'orderhistory', loadChildren: () => import('./orderhistory/app.orderhistory.module').then(m => m.AppOrderHistoryModule)},
+    {path: 'editorder', loadChildren: () => import('./orderedit/app.orderedit.module').then(m => m.AppOrderEditModule)}
   ])],
   exports: [RouterModule]
 })

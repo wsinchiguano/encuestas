@@ -2,90 +2,108 @@
     <div class="col-12">
         <div class="card p-4">
             <div>
-                <h6>Create User</h6>
-                <div class="grid formgrid">
-                    <div class="col-6">
-                        <label for="name">Name</label>
+                <h6 class="font-semibold">Create User</h6>
+                <div class="grid formgrid    ">
+                    <div class="col-2">
+                        <label class="text-600 font-semibold" for="uploadFoto"></label>
+                        <div class="p-input-icon-left mt-2">
+                            <i class="pi pi-pencil"></i>
+                            <input class="w-15rem h-16rem" style="border-radius: 6px;" id="photo" type="text" pInputText
+                                value="UPLOAD PHOTO" />
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="grid formgrid">
+                            <div class="col-6">
+                                <label class="text-600 font-semibold" font-bold for="name">Name</label>
+                                <div class="p-input-icon-left w-full mt-2">
+                                    <i class="pi pi-user ml-2"></i>
+                                    <input class="w-full h-4rem" style="border-radius: 6px;" id="name" type="text"
+                                        pInputText value="Jane Cooper" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="text-600 font-semibold" for="email">Email Adress</label>
+                                <div class="p-input-icon-left w-full mt-2">
+                                    <i class="pi pi-envelope ml-2"></i>
+                                    <input class="w-full h-4rem" style="border-radius: 6px;" id="email" type="text"
+                                        pInputText value="janecooper@gmail.com" />
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mt-3">
+                                    <label class="text-600 font-semibold" for="biography">Biography</label>
+                                    <textarea rows="5" class="w-full mt-2 " style="border-radius: 6px;" id="biography"
+                                        pInputTextarea>I specialise in UI/UX design.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid p-formgrid gridp-fluid mt-4">
+                    <div class="col-6 md:col-6">
+                        <label class="text-600 font-semibold" for="phoneNumber">Phone Number</label>
                         <div class="p-input-icon-left w-full mt-2">
-                            <i class="pi pi-user"></i>
-                            <input id="name" type="text" class="w-full" pInputText value="Jane Cooper" />
+                            <i class="pi pi-phone ml-2"></i>
+                            <input class="w-full h-4rem" style="border-radius: 6px;" id="phoneNumber" type="text"
+                                pInputText value="31 20 779 8986" />
                         </div>
                     </div>
                     <div class="col-6">
-                        <label for="email">Email Adress</label>
+                        <label class="text-600 font-semibold" for="address">Address</label>
                         <div class="p-input-icon-left w-full mt-2">
-                            <i class="pi pi-envelope"></i>
-                            <input id="email" type="text" class="w-full" pInputText value="janecooper@gmail.com" />
+                            <i class="pi pi-map-marker ml-2"></i>
+                            <input class="w-full h-4rem" style="border-radius: 6px;" id="address" type="text" pInputText
+                                value="Relax plus" />
                         </div>
                     </div>
                 </div>
-                <div class="grid formgrid mt-3">
-                    <div class="col-12">
-                        <label for="biography">Biography</label>
-                        <textarea rows="5" class="w-full mt-2" id="biography"
-                            pInputTextarea>I’m Product Designer based in Turkey, I specialise in UI/UX design.</textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="grid formgrid mt-4">
-                <div class="col-6">
-                    <label for="phoneNumber">Phone Number</label>
-                    <div class="p-input-icon-left w-full mt-2 ">
-                        <i class="pi pi-phone"></i>
-                        <input id="phoneNumber" type="text" class="w-full" pInputText value="0 543 293 12 53" />
-                    </div>
-                </div>
-                <div class="col-6">
-                    <label for="address">Address</label>
-                    <div class="p-input-icon-left w-full mt-2">
-                        <i class="pi pi-map-marker"></i>
-                        <input id="address" type="text" class="w-full" pInputText value="Relax plus" />
-                    </div>
-                </div>
-            </div>
-            <div class="grid formgrid mt-4">
-                <div class="col-6">
-                    <label for="state/region">State/Region</label>
-                    <div class="p-input-icon-left w-full mt-2">
-                        <i class="pi pi-map-marker"></i>
-                        <input id="state/region" type="text" class="w-full" pInputText value="Ankara" />
-                    </div>
-                </div>
-                <div class="col-6">
-                    <label for="country">Country</label>
-                    <div class="p-input-icon-left w-full mt-2">
-                        <i class="pi pi-map-marker"></i>
-                        <input id="country" type="text" class="w-full" pInputText value="Turkey" />
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4">
-                <label for="account">Account</label>
-                <div class="grid formgrid w-full mt-2 flex justify-content-between mx-0">
-                    <div class="col-4 pl-0">
-                        <div class="flex justify-content-between align-items-center border-1 surface-border p-2"
-                            style="border-radius: 6px;">
-                            <span class="text-600 font-bold p-3">Push Notifacitons</span>
-                            <p-inputSwitch [(ngModel)]="pushNotifacitons"></p-inputSwitch>
+                <div class="grid formgrid mt-4">
+                    <div class="col-6">
+                        <label class="text-600 font-semibold" for="state/region">State/Region</label>
+                        <div class="p-input-icon-left w-full mt-2">
+                            <i class="pi pi-map-marker ml-2"></i>
+                            <input class="w-full h-4rem" style="border-radius: 6px;" id="state/region" type="text"
+                                pInputText value="Amsterdam" />
                         </div>
                     </div>
-                    <div class="col-4 ">
-                        <div class="flex justify-content-between align-items-center border-1 surface-border p-2"
-                            style="border-radius: 6px;">
-                            <span class="text-600 font-bold p-3">Push Notifacitons</span>
-                            <p-inputSwitch [(ngModel)]="pushNotifacitons"></p-inputSwitch>
-                        </div>
-                    </div>
-                    <div class="col-4 pr-0">
-                        <div class="flex justify-content-between align-items-center border-1 surface-border p-2"
-                            style="border-radius: 6px;">
-                            <span class="text-600 font-bold p-3">SMS Notifications</span>
-                            <p-inputSwitch [(ngModel)]="smsNotifications"></p-inputSwitch>
+                    <div class="col-6">
+                        <label class="text-600 font-semibold" for="country">Country</label>
+                        <div class="p-input-icon-left w-full mt-2">
+                            <i class="pi pi-map-marker ml-2"></i>
+                            <input class="w-full h-4rem" style="border-radius: 6px;" id="country" type="text" pInputText
+                                value="Netherlands" />
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-content-end">
-                    <button class="mt-4" pButton label="Create User"></button>
+                <div class="mt-4">
+                    <label class="text-600 font-semibold" for="account">Account</label>
+                    <div class="grid p-fluid w-full mt-2 flex justify-content-between mx-0">
+                        <div class="field col-4 pl-0 md:col-4">
+                            <div class="flex justify-content-between align-items-center border-1 surface-border p-2"
+                                style="border-radius: 6px;">
+                                <span class="text-600 font-bold p-3">Push Notifacitons</span>
+                                <p-inputSwitch [(ngModel)]="pushNotifacitons"></p-inputSwitch>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="flex justify-content-between align-items-center border-1 surface-border p-2"
+                                style="border-radius: 6px;">
+                                <span class="text-600 font-bold p-3">Email Notifacitons</span>
+                                <p-inputSwitch [(ngModel)]="pushNotifacitons"></p-inputSwitch>
+                            </div>
+                        </div>
+                        <div class="col-4 pr-0">
+                            <div class="flex justify-content-between align-items-center border-1 surface-border p-2"
+                                style="border-radius: 6px;">
+                                <span class="text-600 font-bold p-3">SMS Notifications</span>
+                                <p-inputSwitch [(ngModel)]="smsNotifications"></p-inputSwitch>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-content-end">
+                        <button class="mt-4" pButton label="Create User"></button>
+                    </div>
                 </div>
             </div>
         </div>

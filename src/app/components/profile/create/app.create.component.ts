@@ -10,9 +10,9 @@ interface Create {
 })
 export class AppCreateComponent {
 
-    pushNotifacitons;
-    inStock;
-    smsNotifications;
+    pushNotifacitons: boolean =false;
+    emailNotifications: boolean =false;
+    smsNotifications: boolean =false;
 
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([

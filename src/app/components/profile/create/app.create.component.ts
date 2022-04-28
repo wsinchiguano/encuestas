@@ -11,7 +11,9 @@ interface Create {
 export class AppCreateComponent {
 
     pushNotifacitons: boolean =false;
+    
     emailNotifications: boolean =false;
+
     smsNotifications: boolean =false;
 
     constructor(private breadcrumbService: BreadcrumbService) {

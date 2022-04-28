@@ -21,6 +21,7 @@ import { RatingModule } from 'primeng/rating';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SliderModule } from 'primeng/slider';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { AvatarModule } from 'primeng/avatar';
 import { FormsModule } from '@angular/forms';
 
 
@@ -47,6 +48,7 @@ import { FormsModule } from '@angular/forms';
     SelectButtonModule,
     CheckboxModule,
     ButtonModule,
+    AvatarModule,
     FormsModule,
   ],
   declarations: [AppCreateComponent]

@@ -133,17 +133,17 @@ export class AppLayoutComponent  implements OnInit, OnDestroy {
         event.preventDefault();
     }
 
-    onSearchClick(event) {
+    onSearchClick() {
         this.search = !this.search;
         this.searchClick = !this.searchClick;
     }
 
-    onSearchHide(event) {
+    onSearchHide() {
         this.search = false;
         this.searchClick = false;
     }
 
-    onMenuClick($event) {
+    onMenuClick() {
         this.menuClick = true;
         this.resetMenu = false;
     }
@@ -177,7 +177,6 @@ export class AppLayoutComponent  implements OnInit, OnDestroy {
 
     onRippleChange(event) {
         this.ripple = event.checked;
-        this.primengConfig = event.checked;
     }
 
     onConfigClick(event) {

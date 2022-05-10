@@ -46,7 +46,7 @@ export class AppSearchComponent {
 
         // escape, tab and enter
         if (key === 27 || key === 9 || key === 13) {
-            this.appMain.onSearchHide(event);
+            this.appMain.onSearchHide();
         }
     }
 }

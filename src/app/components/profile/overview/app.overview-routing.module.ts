@@ -6,7 +6,8 @@ import { AppOverviewComponent } from './app.overview.component';
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {path: '', component: AppOverviewComponent}
+    {path: '', component: AppOverviewComponent},
+
   ])],
   exports: [RouterModule]
 })

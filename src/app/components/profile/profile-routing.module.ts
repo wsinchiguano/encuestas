@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile.component';
         ]},
         { path: 'create', loadChildren: () => import('./create/app.create.module').then(m => m.AppCreateModule) },
         { path: 'profilelist', loadChildren: () => import('./profilelist/app.profilelist.module').then(m => m.AppProfileListModule) },
+        { path: 'security', loadChildren: () => import('./security/app.security.module').then(m => m.AppSecurityModule) },
     ])],
     exports: [RouterModule]
 })

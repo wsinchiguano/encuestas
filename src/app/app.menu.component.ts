@@ -335,6 +335,19 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             { separator: true },
+            { 
+                label: 'Apps',
+                icon: 'pi-th-large',
+                items: [
+                    {
+                        label: 'Calendar',
+                        icon: 'pi pi-fw pi-calendar',
+                        routerLink:['apps/calendar']
+
+                    }
+              ]
+            },
+            { separator: true },
             {
                 label: 'Profile',
                 icon: 'pi pi-fw pi-user',

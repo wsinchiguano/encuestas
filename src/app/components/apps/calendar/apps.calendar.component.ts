@@ -28,7 +28,7 @@ export class AppsCalendarComponent implements OnInit {
 
     showDialog: boolean;
 
-    clickedEvent: EventApi;
+    clickedEvent = null;
 
     dateClicked: boolean;
 
@@ -37,6 +37,8 @@ export class AppsCalendarComponent implements OnInit {
     tags: any[];
 
     view: string;
+    
+    changedEvent: any;
 
     constructor(private eventService: EventService, public breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
@@ -54,6 +56,7 @@ export class AppsCalendarComponent implements OnInit {
         });
       
         this.calendarOptions = {
+            height: 650,
             initialDate: this.today,
             headerToolbar: {
                 left: 'prev,next today',
@@ -64,33 +67,41 @@ export class AppsCalendarComponent implements OnInit {
             selectable: true,
             selectMirror: true,
             dayMaxEvents: true,
-            eventClick: this.onEventClick.bind(this),
-            select: this.onDateSelect.bind(this)
+            eventClick: (e) => this.onEventClick(e),
+            select: (e) => this.onDateSelect(e)
         };
-
     }
 
-    onEventClick(arg) {
+    onEventClick(e) {
+        this.clickedEvent = e.event;
+        let plainEvent = e.event.toPlainObject({collapseExtendedProps: true, collapseColor: true});
         this.view = 'display';
         this.showDialog = true;
-        this.clickedEvent = arg.event.toPlainObject({collapseExtendedProps: true, collapseColor: true});
-        console.log(this.clickedEvent)
+
+        this.changedEvent = {...plainEvent, ...this.clickedEvent};
+        this.changedEvent.start = this.clickedEvent.start;
+        this.changedEvent.end = this.clickedEvent.end;
+        console.log(this.changedEvent)
     }
 
-    onDateSelect(arg) {
+    onDateSelect(e) {
         this.view = 'new'
         this.showDialog = true;
-        this.clickedEvent = {...arg, title: null, description: null, location: null, backgroundColor: null, borderColor: null, textColor: null, tag: {color: null, name: null}}
+        this.changedEvent = {...e, title: null, description: null, location: null, backgroundColor: null, borderColor: null, textColor: null, tag: {color: null, name: null}}
     }
 
     handleSave() {
+        let id = Math.floor(Math.random() * 10000);
         this.showDialog = false;
-        console.log('save event')
+
+        this.clickedEvent = {id: id, ...this.changedEvent, backgroundColor: this.changedEvent.tag.color, borderColor: this.changedEvent.tag.color, textColor: '#212121'};
+        this.events = [...this.events, this.clickedEvent];
+        this.calendarOptions = {...this.calendarOptions, ...{events: this.events}};
+        this.clickedEvent = null;
     }
 
     onEditClick() {
         this.view = 'edit';
-
     }
 
     reset() {
@@ -98,13 +109,8 @@ export class AppsCalendarComponent implements OnInit {
     }
 
     delete() {
-      
-    }
-
-    closeDialog() {
+        this.events = this.events.filter(i => i.id.toString() !== this.clickedEvent.id.toString());
+        this.calendarOptions = {...this.calendarOptions, ...{events: this.events}};
         this.showDialog = false;
-        this.dateClicked = false;
-        this.edit = false;
-        this.view = null;
     }
 }

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppSecurityComponent } from './app.security.component';
+import { AppOverviewComponent } from './app.overview.component';
 
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', component: AppSecurityComponent }
-
+        { path: '', component: AppOverviewComponent },
     ])],
     exports: [RouterModule]
 })
-export class AppSecurityRoutingModule { }
+export class AppOverviewRoutingModule {
+}

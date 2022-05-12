@@ -33,9 +33,10 @@ export class AppProfileListComponent implements OnInit {
 
     statuses: any[];
 
+
     constructor(private productService: ProductService, private breadcrumbService: BreadcrumbService) {
       this.breadcrumbService.setItems([
-        { label: 'Orders' }
+        { label: 'Profile List' }
       ]);
     }
 

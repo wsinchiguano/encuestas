@@ -7,11 +7,13 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 })
 export class AppOverviewComponent {
+    week: any[];
 
-  constructor(private breadcrumbService: BreadcrumbService) { 
+
+  constructor(private breadcrumbService: BreadcrumbService) {
     this.breadcrumbService.setItems([
       { label: 'Overview' }
     ]);
   }
-  
+
 }

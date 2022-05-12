@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AppSettingsComponent } from './app.settings/app.settings.component';
 import { AppFollowersComponent } from './followers/app.followers.component';
 import { AppOverviewComponent } from './overview/app.overview.component';
 import { ProfileComponent } from './profile.component';
@@ -10,10 +11,11 @@ import { ProfileComponent } from './profile.component';
             { path: '', redirectTo:'overview', pathMatch:'full'},
             { path: 'overview', component: AppOverviewComponent},
             { path: 'followers', component: AppFollowersComponent},
+            { path: 'settings', component: AppSettingsComponent},
         ]},
         { path: 'create', loadChildren: () => import('./create/app.create.module').then(m => m.AppCreateModule) },
         { path: 'profilelist', loadChildren: () => import('./profilelist/app.profilelist.module').then(m => m.AppProfileListModule) },
-        { path: 'security', loadChildren: () => import('./security/app.security.module').then(m => m.AppSecurityModule) },
+
     ])],
     exports: [RouterModule]
 })

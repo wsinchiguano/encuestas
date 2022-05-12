@@ -1,85 +1,89 @@
 <div class="surface-card shadow-2 border-round p-4">
-    <div class="flex md:flex-row md:align-items-center border-none surface-border border-none p-3 mb-3 mt-2"
+    <div class="flex justify-content-between flex-column md:flex-row md:align-items-center surface-border border-none p-3 mb-3 mt-2"
         style="border-radius: 6px">
-        <div class="flex align-items-center mr-4">
+        <div class="flex align-items-center mr-4 align-self-center md:align-self-auto" >
             <p-avatar image="assets/demo/images/avatar/profile.jpg" size="xlarge" shape="circle"></p-avatar>
             <div>
-                <span class="font-semibold">Jane Cooper</span>
-                <p class="font-semibold mt-0 mb-0 text-sm">UI/UX Designer</p>
+                <span class="font-semibold white-space-nowrap ml-3">Jane Cooper</span>
+                <p class="font-semibold mt-0 mb-0 text-sm ml-3 text-500">UI/UX Designer</p>
             </div>
         </div>
-        <div class="flex">
-            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0"
+        <div class="flex flex-row align-self-center md:align-self-auto md:mt-0 mt-3">
+        <div class="flex flex-column md:flex-row md:mt-0 mt-3">
+            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0 m-3"
                 style="border-radius: 6px">
                 <i class="pi pi-dollar"></i>
             </div>
-            <div>
+            <div class="text-sm font-semibold md:mt-0 mt-2 ">
                 <span>$6200</span>
-                <p>Revenue</p>
+                <p class="text-500 font-semibold">Revenue</p>
             </div>
-            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0"
+            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0 m-3"
                 style="border-radius: 6px">
                 <i class="pi pi-euro"></i>
             </div>
-            <div>
+            <div class="text-sm font-semibold md:mt-0 mt-2">
                 <span>$6200</span>
-                <p>Revenue</p>
+                <p class="text-500 font-semibold">Expenses</p>
             </div>
-            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0"
+        </div>
+        <div>
+            <div class="flex flex-column md:flex-row md:mt-0 mt-3">
+            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0 m-3"
                 style="border-radius: 6px">
                 <i class="pi pi-thumbs-up"></i>
             </div>
-            <div>
+            <div class="text-sm font-semibold md:mt-0 mt-2 ">
                 <span>$6200</span>
-                <p>Revenue</p>
+                <p class="text-500 font-semibold">Success Rate</p>
             </div>
-            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0"
+            <div class="border-1 surface-border p-3 inline-flex align-items-center mt-0 mb-0 m-3"
                 style="border-radius: 6px">
                 <i class="pi pi-euro"></i>
             </div>
-            <div>
+            <div class="text-sm font-semibold md:mt-0 mt-2">
                 <span>$6200</span>
-                <p>Revenue</p>
+                <p class="text-500 font-semibold">Expenses</p>
             </div>
         </div>
+        </div>
+        </div>
     </div>
-    <ul class="p-2 m-0 list-none flex">
-        <li class="mr-2">
+    <div class="flex flex-column md:flex-row align-items-center">
+        <div class="list-none flex flex-row  ">
             <a
-                class="cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150">
+                class="cursor-pointer flex-start w-8rem px-4 h py-3 flex  hover:surface-100 border-round transition-colors transition-duration-150">
                 <a routerLink="overview">Overview</a>
             </a>
-        </li>
-        <li class="mr-2">
             <a
-                class="cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150">
-                <a href="/">Notifications</a>
+                class="cursor-pointer flex-start w-8rem px-4 py-3 flex  hover:surface-100 border-round transition-colors transition-duration-150">
+                <a routerLink="/">Notifications</a>
             </a>
-        </li>
-        <li class="mr-2">
+
+        </div>
+        <div class=" list-none flex flex-row  align-items-center">
             <a
-                class="cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150">
-                <a href="/">Security</a>
+                class="cursor-pointer flex-start w-8rem px-4 py-3 flex  hover:surface-100 border-round transition-colors transition-duration-150">
+                <a routerLink="settings">Settings</a>
             </a>
-        </li>
-        <li class="mr-2">
             <a
-                class="cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150">
-                <a href="/">Sales</a>
+                class="cursor-pointer flex-start w-8rem px-4 py-3 flex  hover:surface-100 border-round transition-colors transition-duration-150">
+                <a routerLink="/">Sales</a>
             </a>
-        </li>
-        <li>
+        </div>
+        <div class=" list-none flex flex-row  align-items-center">
             <a
-                class="cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150">
-                <a href="/">Plan</a>
+                class="cursor-pointer flex-start w-8rem px-4 py-3 flex hover:surface-100 border-round transition-colors transition-duration-150">
+                <a routerLink="/">Plan</a>
             </a>
-        </li>
-        <li>
             <a
-                class="cursor-pointer px-4 py-3 flex align-items-center hover:surface-100 border-round transition-colors transition-duration-150">
+                class="cursor-pointer  flex-start w-8rem
+
+                px-4 py-3 flex  hover:surface-100 border-round transition-colors transition-duration-150">
                 <a routerLink="followers">Followers</a>
             </a>
-        </li>
-    </ul>
-</div>
-<router-outlet></router-outlet>
+
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+

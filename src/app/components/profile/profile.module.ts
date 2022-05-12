@@ -24,6 +24,14 @@ import { ButtonModule } from 'primeng/button';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { AppOverviewComponent } from './overview/app.overview.component';
+import { AppSettingsComponent } from './app.settings/app.settings.component';
+import { RippleModule } from 'primeng/ripple';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { AppFollowersComponent } from './followers/app.followers.component';
+import { MenuModule } from 'primeng/menu';
+import { TableModule } from 'primeng/table';
+import { ChipsModule } from 'primeng/chips';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   imports: [
@@ -49,8 +57,25 @@ import { AppOverviewComponent } from './overview/app.overview.component';
     ToggleButtonModule,
     AvatarModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    CommonModule,
+    ButtonModule,
+    RippleModule,
+    SplitButtonModule,
+    ToggleButtonModule,
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    ChipModule,
+    ChartModule,
+    CheckboxModule,
+    ChipModule,
+    ChipsModule,
+    MenuModule,
+    TableModule,
+    RippleModule,
+
   ],
-  declarations: [ProfileComponent, AppOverviewComponent]
+  declarations: [ProfileComponent, AppOverviewComponent, AppSettingsComponent, AppFollowersComponent]
 })
 export class ProfileModule { }

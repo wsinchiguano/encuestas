@@ -7,7 +7,7 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 })
 export class AppFollowersComponent implements OnInit {
 
-  constructor(private breadcrumbService: BreadcrumbService) { 
+  constructor(private breadcrumbService: BreadcrumbService) {
     this.breadcrumbService.setItems([
       { label: 'Followers' }
     ]);
@@ -15,5 +15,6 @@ export class AppFollowersComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

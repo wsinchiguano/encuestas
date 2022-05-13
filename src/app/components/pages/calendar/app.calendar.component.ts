@@ -67,7 +67,6 @@ export class AppCalendarComponent implements OnInit {
                 this.changedEvent.title = this.clickedEvent.title;
                 this.changedEvent.start = this.clickedEvent.start;
                 this.changedEvent.end = this.clickedEvent.end;
-                console.log(this.changedEvent)
             }
         };
 

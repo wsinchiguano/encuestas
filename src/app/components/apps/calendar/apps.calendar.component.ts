@@ -79,8 +79,6 @@ export class AppsCalendarComponent implements OnInit {
         this.changedEvent = {...plainEvent, ...this.clickedEvent};
         this.changedEvent.start = this.clickedEvent.start;
         this.changedEvent.end = this.clickedEvent.end ? this.clickedEvent.end : this.clickedEvent.start;
-
-        console.log(this.changedEvent)
     }
 
     onDateSelect(e) {

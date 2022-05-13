@@ -344,7 +344,13 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-calendar',
                         routerLink:['apps/calendar']
 
-                    }
+                    },
+                    {
+                        label: 'Task List',
+                        icon: 'pi pi-fw pi-check-square',
+                        routerLink:['apps/tasklist']
+
+                    },
               ]
             },
             { separator: true },

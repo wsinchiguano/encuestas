@@ -67,14 +67,14 @@
                                 <label for="start" class="block text-900 font-bold">Start Date</label>
                                 <span class="p-input-icon-left w-full" style="height: 3.5rem;">
                                     <i class="pi pi-clock z-1" style="left: 1.5rem;"></i>
-                                    <p-calendar [appendTo]="dd" dateFormat="mm-dd-yy" [showTime]="true" inputId="start" inputStyleClass="w-full pl-7 text-900 font-semibold" [inputStyle]="{'height':'3.5rem'}" [(ngModel)]="changedEvent.start"></p-calendar>
+                                    <p-calendar [appendTo]="dd" dateFormat="mm-dd-yy" [maxDate]="changedEvent.end" [showTime]="true" [required]="true" inputId="start" inputStyleClass="w-full pl-7 text-900 font-semibold" [inputStyle]="{'height':'3.5rem'}" [(ngModel)]="changedEvent.start"></p-calendar>
                                 </span>
                             </div>
                             <div class="col-12 md:col-6 field">
                                 <label for="end" class="block text-900 font-bold">End Date</label>
                                 <span class="p-input-icon-left w-full" style="height: 3.5rem;">
                                     <i class="pi pi-clock z-1" style="left: 1.5rem;"></i>
-                                    <p-calendar [appendTo]="dd" dateFormat="mm-dd-yy" [showTime]="true" inputId="end" inputStyleClass="w-full pl-7 text-900 font-semibold" [inputStyle]="{'height':'3.5rem'}" [(ngModel)]="changedEvent.end"></p-calendar>
+                                    <p-calendar [appendTo]="dd" dateFormat="mm-dd-yy" [minDate]="changedEvent.start" [showTime]="true" [required]="true" inputId="end" inputStyleClass="w-full pl-7 text-900 font-semibold" [inputStyle]="{'height':'3.5rem'}" [(ngModel)]="changedEvent.end"></p-calendar>
                                 </span>
                             </div>
                             <div class="col-12">
@@ -100,7 +100,6 @@
                 </ng-template>
 
                 <ng-template pTemplate="footer">
-                    <button pButton [label]="view !== 'display' ? 'Reset' : 'Delete'" [icon]="view !== 'display' ? 'pi pi-refresh' : 'pi pi-trash'" class="p-button-secondary" (click)="delete()"></button>
                     <button pButton *ngIf="view === 'display'" label="Edit" icon="pi pi-pencil" class="p-button-primary" (click)="onEditClick()"></button>
                     <button pButton *ngIf="view === 'new' || view === 'edit'" label="Save" icon="pi pi-check" class="p-button-primary" (click)="handleSave()"></button>
                 </ng-template>

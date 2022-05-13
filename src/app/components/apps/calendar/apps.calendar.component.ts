@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/service/eventservice';
 import { BreadcrumbService } from '../../../service/app.breadcrumb.service';
-import { CalendarOptions, EventApi } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/angular';
 
 @Component({
     selector: 'app-apps.calendar',
@@ -23,8 +23,6 @@ export class AppsCalendarComponent implements OnInit {
     calendarOptions: CalendarOptions = {
       initialView: 'dayGridMonth'
     };
-
-    header: any;
 
     showDialog: boolean;
 
@@ -80,32 +78,33 @@ export class AppsCalendarComponent implements OnInit {
 
         this.changedEvent = {...plainEvent, ...this.clickedEvent};
         this.changedEvent.start = this.clickedEvent.start;
-        this.changedEvent.end = this.clickedEvent.end;
+        this.changedEvent.end = this.clickedEvent.end ? this.clickedEvent.end : this.clickedEvent.start;
+
         console.log(this.changedEvent)
     }
 
     onDateSelect(e) {
         this.view = 'new'
         this.showDialog = true;
-        this.changedEvent = {...e, title: null, description: null, location: null, backgroundColor: null, borderColor: null, textColor: null, tag: {color: null, name: null}}
+        this.changedEvent = {...e, title: null, description: null, location: null, backgroundColor: null, borderColor: null, textColor: null, tag: {color: null, name: null}};
     }
 
     handleSave() {
-        let id = Math.floor(Math.random() * 10000);
         this.showDialog = false;
+        this.clickedEvent = {...this.changedEvent, backgroundColor: this.changedEvent.tag.color, borderColor: this.changedEvent.tag.color, textColor: '#212121'};
+        
+        if(this.clickedEvent.hasOwnProperty('id')) {
+            this.events = this.events.map(i => i.id.toString() === this.clickedEvent.id.toString() ? i = this.clickedEvent : i);
+        } else {
+            this.events = [...this.events, {...this.clickedEvent, id: Math.floor(Math.random() * 10000)}];    
+        }
 
-        this.clickedEvent = {id: id, ...this.changedEvent, backgroundColor: this.changedEvent.tag.color, borderColor: this.changedEvent.tag.color, textColor: '#212121'};
-        this.events = [...this.events, this.clickedEvent];
         this.calendarOptions = {...this.calendarOptions, ...{events: this.events}};
         this.clickedEvent = null;
     }
 
     onEditClick() {
         this.view = 'edit';
-    }
-
-    reset() {
-
     }
 
     delete() {

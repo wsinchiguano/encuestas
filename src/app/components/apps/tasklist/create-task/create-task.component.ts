@@ -1,20 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Member } from 'src/app/api/member';
+import { Task } from 'src/app/api/task';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { MemberService } from 'src/app/service/memberservice';
-
-interface Task {
-    id: number;
-    name: string;
-    description: string;
-    startDate?: Date;
-    endDate?: Date;
-    startStr?: string;
-    endStr?: string;
-    members?: string[];
-    completed: boolean;
-}
 
 @Component({
     selector: 'app-create-task',
@@ -58,14 +47,12 @@ export class CreateTaskComponent implements OnInit {
     save() {
         let id = Math.floor(Math.random() * 1000);
         this.task.id = id;
-        this.task.startStr = this.task.startDate.toISOString().slice(0,10);
-        this.task.endStr = this.task.endDate.toISOString().slice(0,10);
         this.task.completed = false;
 
         this.messageService.add({severity: 'success', summary: 'Success', detail: `Task "${this.task.name}" created successfully.`});
     }
 
     resetTask() {
-        this.task = {id: null, name: '', description: '', startDate: null, endDate: null, startStr: '', endStr: '', members: [], completed: false};
+        this.task = {id: null, name: '', description: '', startDate: null, endDate: null, members: [], completed: false};
     }
 }

@@ -15,6 +15,10 @@ import { ListboxModule } from 'primeng/listbox';
 import { AvatarModule } from 'primeng/avatar';
 import { MenuModule } from 'primeng/menu';
 import { BadgeModule } from 'primeng/badge';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { CheckboxModule } from 'primeng/checkbox';
+import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
+import { TaskCardComponent } from './task-card/task-card.component';
 
 @NgModule({
   imports: [
@@ -30,9 +34,12 @@ import { BadgeModule } from 'primeng/badge';
     AutoCompleteModule,
     ListboxModule,
     AvatarModule,
+    AvatarGroupModule,
+    CheckboxModule,
+    TriStateCheckboxModule,
     MenuModule,
     BadgeModule
   ],
-  declarations: [AppsTaskListComponent, CreateTaskComponent]
+  declarations: [AppsTaskListComponent, CreateTaskComponent, TaskCardComponent]
 })
 export class AppsTaskListModule { }

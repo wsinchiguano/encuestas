@@ -19,6 +19,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { TaskCardComponent } from './task-card/task-card.component';
+import { TaskService } from 'src/app/service/taskservice';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { TaskCardComponent } from './task-card/task-card.component';
     MenuModule,
     BadgeModule
   ],
-  declarations: [AppsTaskListComponent, CreateTaskComponent, TaskCardComponent]
+  declarations: [AppsTaskListComponent, CreateTaskComponent, TaskCardComponent],
+  providers: [TaskService]
 })
 export class AppsTaskListModule { }

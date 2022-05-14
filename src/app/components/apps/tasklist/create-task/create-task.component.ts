@@ -4,6 +4,7 @@ import { Member } from 'src/app/api/member';
 import { Task } from 'src/app/api/task';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { MemberService } from 'src/app/service/memberservice';
+import { TaskService } from 'src/app/service/taskservice';
 
 @Component({
     selector: 'app-create-task',
@@ -19,7 +20,7 @@ export class CreateTaskComponent implements OnInit {
     
     filteredMembers: Member[];
     
-    constructor(public breadcrumbService: BreadcrumbService, private memberService: MemberService, private messageService: MessageService) {
+    constructor(public breadcrumbService: BreadcrumbService, private memberService: MemberService, private messageService: MessageService, private taskService: TaskService) {
         this.breadcrumbService.setItems([
             {label: 'Create Task'}
         ]);
@@ -45,14 +46,13 @@ export class CreateTaskComponent implements OnInit {
     }
 
     save() {
-        let id = Math.floor(Math.random() * 1000);
-        this.task.id = id;
-        this.task.completed = false;
-
+        const id = Math.floor(Math.random() * 1000);
+        this.task = {...this.task, id};
+        this.taskService.addTask(this.task)
         this.messageService.add({severity: 'success', summary: 'Success', detail: `Task "${this.task.name}" created successfully.`});
     }
 
     resetTask() {
-        this.task = {id: null, name: '', description: '', startDate: null, endDate: null, members: [], completed: false};
+        this.task = {id: null, name: '', description: '', startDate: null, endDate: null, members: [], completed: null, status: 'Waiting'};
     }
 }

@@ -19,7 +19,7 @@
                 </p-avatarGroup>
                 <p-badge [value]="task.status" styleClass="mr-3 w-6rem h-2rem flex align-items-center justify-content-center border-2 surface-border surface-section text-900 text-base" [style]="{'border-radius': '6px;'}"></p-badge>
                 <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text z-3" (click)="menu.toggle($event)"></button>
-                <p-menu [appendTo]="listbox" #menu [popup]="true" [model]="menuItems"></p-menu>
+                <p-menu [appendTo]="listbox" #menu [popup]="true" [model]="menuItems" styleClass="w-8rem"></p-menu>
             </div>
         </div>
     </ng-template>

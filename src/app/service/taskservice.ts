@@ -27,13 +27,8 @@ export class TaskService {
         this.taskSource.next(this.tasks);
     }
 
-    removeTask(id: number) {
+    removeTask(id: Number) {
         this.tasks = this.tasks.filter(t => t.id !== id);
-        this.taskSource.next(this.tasks);
-    }
-
-    updateTask(task: Task) {
-        this.tasks = this.tasks.map(t => t.id === task.id ? t = task : t);
         this.taskSource.next(this.tasks);
     }
 }

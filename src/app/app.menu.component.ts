@@ -343,13 +343,16 @@ export class AppMenuComponent implements OnInit {
                         label: 'Calendar',
                         icon: 'pi pi-fw pi-calendar',
                         routerLink:['apps/calendar']
-
                     },
                     {
                         label: 'Task List',
                         icon: 'pi pi-fw pi-check-square',
                         routerLink:['apps/tasklist']
-
+                    },
+                    {
+                        label: 'Chat',
+                        icon: 'pi pi-fw pi-comments',
+                        routerLink:['apps/chat']
                     },
               ]
             },

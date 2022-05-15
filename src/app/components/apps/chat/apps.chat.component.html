@@ -1,2 +1,14 @@
-<p>apps.chat works!</p>
-<chat-sidebar></chat-sidebar>
+<div class="grid flex-column md:flex-row gap-6 p-4 justify-content-between">
+    <div class="col-3 border-1 surface-border surface-section p-0" style="border-radius: 6px;">
+        <chat-sidebar></chat-sidebar>
+    </div>
+    <div class="col border-1 surface-border surface-section p-0" style="border-radius: 6px;">
+        <chat-box [user]="activeUser"></chat-box>
+        <div class="p-6 flex align-items-center">
+            <input id="message" type="text" pInputText placeholder="Type a message" class="w-full px-3 text-900 font-semibold mr-3 h-3rem" [(ngModel)]="textContent" style="border-radius: 6px;" (keydown.enter)="sendMessage()"/>
+            <button pButton icon="pi pi-image" class="p-button-secondary mr-3 w-4rem h-3rem" style="border-radius: 6px;"></button>
+            <button pButton icon="pi pi-paperclip" class="p-button-secondary mr-3 w-4rem h-3rem" style="border-radius: 6px;"></button>
+            <button pButton label="Submit" icon="pi pi-send font-semibold" class="w-9rem h-3rem font-semibold" style="border-radius: 6px;" (click)="sendMessage()"></button>
+        </div>
+    </div>
+</div>

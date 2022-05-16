@@ -45,7 +45,6 @@ export class ChatBoxComponent implements OnInit {
           this.textContent = '';
         }
 
-
     }
 
     parseDate(timestamp) {

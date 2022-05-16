@@ -54,7 +54,7 @@ export class AppsCalendarComponent implements OnInit {
         });
       
         this.calendarOptions = {
-            height: 650,
+            height: 720,
             initialDate: this.today,
             headerToolbar: {
                 left: 'prev,next today',

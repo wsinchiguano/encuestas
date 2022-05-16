@@ -25,7 +25,11 @@ export class AppSettingsComponent implements OnInit {
     subscribeToNewsletter: boolean = false;
     monthlyProductUpdates: boolean = false;
     messages: boolean = false;
-    emailNotifications: boolean = false;
+    emailNotifacitons: boolean = false;
+    lightMode: boolean = false;
+    phoneNumber: boolean = false;
+
+
 
 
 }

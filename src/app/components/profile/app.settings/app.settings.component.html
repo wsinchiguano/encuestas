@@ -1,70 +1,62 @@
 <div class="grid">
     <div class="col-12 md:col-6">
         <div class="card p-fluid">
-            <h6 class="font-semibold">Basic Details</h6>
-            <div class="flex flex-column sm:flex-row mt-2 sm:mt-4">
-                <div class="flex flex-grow-1 flex-column mr-0 mt-2 sm:mr-3 sm:mt-0">
-                    <label class="mb-2 text-600 font-semibold mt-2" for="name">Name</label>
-                    <div class="p-input-icon-left">
-                        <i class="pi pi-user"></i>
-                        <input class="pl-5 h-3rem" style="border-radius: 6px;" id="name" type="text" pInputText
-                            value="Amsterdam" />
-                    </div>
+            <h6 class="font-bold ml-3">Basic Details</h6>
+            <div class="flex flex-column sm:flex-row ">
+                <div class="field col mb-0">
+                    <label for="email" class="block font-bold">Name</label>
+                    <span class="p-input-icon-left ">
+                        <i class="pi pi-user" style="left: 1.5rem;"></i>
+                        <input type="text" pInputText placeholder="User" class="w-full px-7  text-900 font-semibold" />
+                    </span>
                 </div>
-                <div class="flex flex-grow-1 flex-column mt-2 sm:mt-0">
-                    <label class="mb-2 text-600 font-semibold mt-2" for="email">Email Adress</label>
-                    <div class="p-input-icon-left">
-                        <i class="pi pi-envelope"></i>
-                        <input class="pl-5 h-3rem" style="border-radius: 6px;" id="email" type="text" pInputText
-                            value="janecooper@gmail.com" />
-                    </div>
+                <div class="field col mb-0">
+                    <label for="email" class="block  font-bold">Email Address</label>
+                    <span class="p-input-icon-left ">
+                        <i class="pi pi-envelope" style="left: 1.5rem;"></i>
+                        <input type="text" pInputText placeholder="Email" class="w-full px-7  text-900 font-semibold" />
+                    </span>
                 </div>
             </div>
-            <div class="field">
-                <div class="mt-2 sm:mt-4 p-fluid">
-                    <div class="flex flex-column sm:flex-row">
-                        <div class="flex flex-grow-1 flex-column mr-0 mt-2 sm:mr-3 sm:mt-0">
-                            <label class="mb-2 text-600 font-semibold" for="phoneNumber">Phone Number</label>
-                            <div class="p-input-icon-left">
-                                <i class="pi pi-phone"></i>
-                                <input class="pl-5 h-3rem" style="border-radius: 6px;" id="phoneNumber" type="text"
-                                    pInputText value="31 20 779 8986" />
-                            </div>
-                        </div>
-                        <div class="flex flex-grow-1 flex-column mt-2 sm:mt-0">
-                            <label class="mb-2 text-600 font-semibold" for="address">Address</label>
-                            <div class="p-input-icon-left">
-                                <i class="pi pi-map-marker"></i>
-                                <input class="pl-5 h-3rem" style="border-radius: 6px;" id="address" type="text"
-                                    pInputText value="Jacob Obrechtstraat 5, 1071 KC " />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-column sm:flex-row mt-2 sm:mt-4">
-                        <div class="flex flex-grow-1 flex-column mr-0 mt-2 sm:mr-3 sm:mt-0">
-                            <label class="mb-2 text-600 font-semibold" for="state/region">State/Region</label>
-                            <div class="p-input-icon-left">
-                                <i class="pi pi-map-marker"></i>
-                                <input class="pl-5 h-3rem" style="border-radius: 6px;" id="state/region" type="text"
-                                    pInputText value="Amsterdam" />
-                            </div>
-                        </div>
-                        <div class="flex flex-grow-1 flex-column mt-2 sm:mt-0">
-                            <label class="mb-2 text-600 font-semibold" for="country">Country</label>
-                            <div class="p-input-icon-left">
-                                <i class="pi pi-map-marker"></i>
-                                <input class="pl-5 h-3rem" style="border-radius: 6px;" id="country" type="text"
-                                    pInputText value="Netherlands" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-column mt-2 md:mt-2 sm:mt-4">
-                        <label class="mb-2 text-600 font-semibold" for="biography">Biography</label>
-                        <textarea rows="5" style="border-radius: 6px;" id="biography"
-                            pInputTextarea>I specialise in UI/UX design.</textarea>
-                    </div>
+            <div class="flex flex-column sm:flex-row mb-0">
+                <div class="field col mb-0">
+                    <label for="email" class="block font-bold ">Phone Number</label>
+                    <span class="p-input-icon-left ">
+                        <i class="pi pi-map-marker" style="left: 1.5rem;"></i>
+                        <input type="text" pInputText placeholder="0 543 293 12 53" class="w-full px-7  text-900 font-semibold" />
+                    </span>
+                </div>
+                <div class="field col mb-0">
+                    <label for="email" class="block  font-bold">Address</label>
+                    <span class="p-input-icon-left ">
+                        <i class="pi pi-map-marker" style="left: 1.5rem;"></i>
+                        <input type="text" pInputText placeholder="Relax plus" class="w-full px-7  text-900 font-semibold" />
+                    </span>
                 </div>
             </div>
+            <div class="flex flex-column sm:flex-row mb-0">
+                <div class="field col mb-0">
+                    <label for="email" class="block font-bold ">State/Region</label>
+                    <span class="p-input-icon-left ">
+                        <i class="pi pi-map-marker" style="left: 1.5rem;"></i>
+                        <input type="text" pInputText placeholder="Ankara" class="w-full px-7  text-900 font-semibold" />
+                    </span>
+                </div>
+                <div class="field col mb-0">
+                    <label for="email" class="block  font-bold">Country</label>
+                    <span class="p-input-icon-left ">
+                        <i class="pi pi-map-marker" style="left: 1.5rem;"></i>
+                        <input type="text" pInputText placeholder="Turkey" class="w-full px-7  text-900 font-semibold" />
+                    </span>
+                </div>
+            </div>
+            <div class="field col mb-0">
+            <div class="flex flex-column  mb-0">
+                <label class="mb-2  font-bold" for="biography">Biography</label>
+                <textarea rows="5" style="border-radius: 6px;" id="biography"
+                    pInputTextarea>I specialise in UI/UX design.</textarea>
+            </div>
+        </div>
             <div class="flex justify-content-end ">
                 <button class="mt-4 w-auto" pButton label="Save Changes"></button>
             </div>
@@ -72,43 +64,42 @@
     </div>
     <div class="col-12 md:col-6">
         <div class="card p-fluid">
-            <h6 class="font-semibold">Basic Details</h6>
-            <div class="mt-2 sm:mt-4">
-                <label class="text-600 font-semibold" for="account">Account</label>
-                <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between md:mr-2">
-                    <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 md:mr-2"
-                        style="border-radius: 6px;">
-                        <span  class="text-600 font-semibold " >Push Notifacitons</span>
-                        <p-inputSwitch [(ngModel)]="pushNotifacitons"></p-inputSwitch>
-                    </div>
+            <h6 class="font-bold">Notifications</h6>
+            <div class="field">
+                <div class="mt-2 sm:mt-4 p-fluid">
+                    <div class="mt-2 sm:mt-4">
+                        <label class="font-bold" for="account">Account</label>
+                        <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between ">
+                            <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 md:mr-2"
+                                style="border-radius: 6px;">
+                                <span class="text-600 font-semibold ">Push Notifacitons</span>
+                                <p-inputSwitch [(ngModel)]="onlyDownload"></p-inputSwitch>
+                            </div>
                     <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 mt-2 md:ml-2 md:mt-0"
                         style="border-radius: 6px;">
                         <span class="text-600 font-semibold"> SMS Notifications</span>
                         <p-inputSwitch [(ngModel)]="smsNotifications"></p-inputSwitch>
                     </div>
                 </div>
-
             </div>
             <div class="field">
                 <div class="mt-2 sm:mt-4 p-fluid">
                     <div class="mt-2 sm:mt-4">
-                        <label class="text-600 font-semibold" for="account">Mailing</label>
+                        <label class="font-bold" for="account">Mailing</label>
                         <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between ">
                             <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 md:mr-2"
                                 style="border-radius: 6px;">
                                 <span class="text-600 font-semibold ">Only Download</span>
                                 <p-inputSwitch [(ngModel)]="onlyDownload"></p-inputSwitch>
                             </div>
-                            <div
-                                class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 mt-2 md:ml-2 md:mt-0"
+                            <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 mt-2 md:ml-2 md:mt-0"
                                 style="border-radius: 6px;">
                                 <span class="text-600 font-semibold ">Dark Mode</span>
                                 <p-inputSwitch [(ngModel)]="darkMode"></p-inputSwitch>
-
                             </div>
                         </div>
                         <div class="mt-2 sm:mt-4">
-                            <label class="text-600 font-semibold" for="account">Profile</label>
+                            <label class="font-bold" for="account">Profile</label>
                             <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between">
                                 <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border md:mr-2 p-2"
                                     style="border-radius: 6px;">
@@ -122,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="mt-2 sm:mt-4">
-                                <label class="text-600 font-semibold" for="account">Theme</label>
+                                <label class="font-bold" for="account">Theme</label>
                                 <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between">
                                     <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border md:mr-2 p-2"
                                         style="border-radius: 6px;">
@@ -134,29 +125,31 @@
                                         <span class="text-600 font-semibold"> Dark Mode</span>
                                         <p-inputSwitch [(ngModel)]="darkMode"></p-inputSwitch>
                                     </div>
-                                    </div>
                                 </div>
-                                <div class="">
-                                    <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between">
-                                        <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border md:mr-2 p-2"
-                                            style="border-radius: 6px;">
-                                            <span class="text-600 font-semibold ">Email Notifications</span>
-                                            <p-inputSwitch [(ngModel)]="pushNotifacitons"></p-inputSwitch>
-                                        </div>
-                                        <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 mt-2 md:ml-2 md:mt-0"
-                                            style="border-radius: 6px;">
-                                            <span class="text-600 font-semibold ">Dark Mode</span>
-                                            <p-inputSwitch [(ngModel)]="darkMode"></p-inputSwitch>
-                                        </div>
+                            </div>
+                            <div class="">
+                                <div class="w-full mt-2 flex flex-column md:flex-row justify-content-between">
+                                    <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border md:mr-2 p-2"
+                                        style="border-radius: 6px;">
+                                        <span class="text-600 font-semibold ">Email Notifications</span>
+                                        <p-inputSwitch [(ngModel)]="emailNotifacitons"></p-inputSwitch>
+                                    </div>
+                                    <div class="flex flex-1 justify-content-between align-items-center border-1 surface-border p-2 mt-2 md:ml-2 md:mt-0"
+                                        style="border-radius: 6px;">
+                                        <span class="text-600 font-semibold ">Light Mode</span>
+                                        <p-inputSwitch [(ngModel)]="lightMode"></p-inputSwitch>
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex justify-content-end ">
-                                <button class="mt-4 w-auto" pButton label="Save Changes"></button>
-                            </div>
+                        </div>
+                        <div class="flex justify-content-end ">
+                            <button class="mt-5 w-auto" pButton label="Save Changes"></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+

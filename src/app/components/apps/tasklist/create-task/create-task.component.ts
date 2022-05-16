@@ -9,7 +9,7 @@ import { TaskService } from 'src/app/service/taskservice';
 @Component({
     selector: 'app-create-task',
     templateUrl: './create-task.component.html',
-    styleUrls: ['./create-task.component.scss'],
+    styleUrls: ['./create-task.component.scss', '../../../../../assets/demo/editor.scss'],
     providers: [MessageService, MemberService]
 })
 export class CreateTaskComponent implements OnInit {

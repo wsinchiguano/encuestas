@@ -19,7 +19,7 @@ interface Product{
 @Component({
     selector: 'app-newproduct',
     templateUrl: './app.newproduct.component.html',
-    styleUrls: ['./app.newproduct.component.scss']
+    styleUrls: ['./app.newproduct.component.scss','../../../../assets/demo/editor.scss']
 })
 export class AppNewProductComponent {
 

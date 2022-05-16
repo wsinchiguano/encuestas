@@ -11,8 +11,6 @@ import { User } from 'src/app/api/user';
 })
 export class AppsChatComponent implements OnInit, OnDestroy {
 
-    textContent: string;
-
     subscription: Subscription;
 
     activeUser: User;
@@ -30,16 +28,5 @@ export class AppsChatComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
-    }
-
-    sendMessage() {
-        let message = {
-            text: this.textContent,
-            ownerId: 123,
-            createdAt: new Date().getTime(),
-        }
-
-        this.chatService.sendMessage(message)
-        this.textContent = '';
     }
 }

@@ -32,6 +32,7 @@ import { MenuModule } from 'primeng/menu';
 import { TableModule } from 'primeng/table';
 import { ChipsModule } from 'primeng/chips';
 import { ChartModule } from 'primeng/chart';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   imports: [
@@ -74,7 +75,7 @@ import { ChartModule } from 'primeng/chart';
     MenuModule,
     TableModule,
     RippleModule,
-
+    DividerModule
   ],
   declarations: [ProfileComponent, AppOverviewComponent, AppSettingsComponent, AppFollowersComponent]
 })

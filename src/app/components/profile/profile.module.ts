@@ -24,7 +24,6 @@ import { ButtonModule } from 'primeng/button';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { AppOverviewComponent } from './overview/app.overview.component';
-import { AppSettingsComponent } from './app.settings/app.settings.component';
 import { RippleModule } from 'primeng/ripple';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { AppFollowersComponent } from './followers/app.followers.component';
@@ -33,6 +32,7 @@ import { TableModule } from 'primeng/table';
 import { ChipsModule } from 'primeng/chips';
 import { ChartModule } from 'primeng/chart';
 import { DividerModule } from 'primeng/divider';
+import { AppSettingsComponent } from './settings/app.settings.component';
 
 @NgModule({
   imports: [

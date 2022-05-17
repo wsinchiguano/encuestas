@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppSettingsComponent } from './app.settings/app.settings.component';
+
 import { AppFollowersComponent } from './followers/app.followers.component';
 import { AppOverviewComponent } from './overview/app.overview.component';
 import { ProfileComponent } from './profile.component';
+import { AppSettingsComponent } from './settings/app.settings.component';
 
 @NgModule({
     imports: [RouterModule.forChild([

@@ -4,8 +4,8 @@
         <p-dropdown [options]="week" [(ngModel)]="selectedWeek" placeholder="Week" optionLabel="name"
             [style]="{ 'min-width': '10rem' }"></p-dropdown>
     </div>
-    <div class="flex md:flex-row flex-column flex-wrap card-container">
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:mr-2 my-2"
+    <div class="flex md:flex-row flex-column flex-wrap">
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:mr-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 1" [ngClass]="selectedDate === 1 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 1 ? 'text-900' : ''">Sunday</span>
@@ -14,7 +14,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:mx-2 my-2"
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:mx-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 2" [ngClass]="selectedDate === 2 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 2 ? 'text-900' : ''">Monday</span>
@@ -23,7 +23,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:mx-2 my-2"
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:mx-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 3" [ngClass]="selectedDate === 3 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 3 ? 'text-900' : ''">Tuesday</span>
@@ -32,7 +32,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:mx-2 my-2"
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:mx-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 4" [ngClass]="selectedDate === 4 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 4 ? 'text-900' : ''">Wednesday</span>
@@ -41,7 +41,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:mx-2 my-2"
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:mx-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 5" [ngClass]="selectedDate === 5 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 5 ? 'text-900' : ''">Thursday</span>
@@ -50,7 +50,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:mx-2 my-2"
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:mx-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 6" [ngClass]="selectedDate === 6 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 6 ? 'text-900' : ''">Friday</span>
@@ -59,7 +59,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border md:ml-2 my-2"
+        <div class="flex align-items-center justify-content-center md:flex-1 h-6rem font-semibold border-1 surface-border cursor-pointer select-none md:ml-2 my-2"
             style="border-radius: 6px" (click)="selectedDate = 7" [ngClass]="selectedDate === 7 ? 'bg-primary' : ''">
             <div class="flex align-items-center justify-content-center flex-column font-semibold text-lg">
                 <span [ngClass]="selectedDate !== 7 ? 'text-900' : ''">Saturday</span>

@@ -1,35 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 @Component({
     selector: 'app-app.settings',
-    templateUrl: './app.settings.component.html',
+    templateUrl: './app.settings.component.html'
 
 })
-export class AppSettingsComponent implements OnInit {
+export class AppSettingsComponent {
 
+    pushNotifacitons: boolean = false;
+
+    onlyDownload: boolean = true;
+
+    smsNotifications: boolean = false;
+
+    darkMode: boolean = false;
+
+    subscribeToNewsletter: boolean = true;
+
+    monthlyProductUpdates: boolean = true;
+
+    messages: boolean = false;
+
+    emailNotifacitons: boolean = false;
+
+    lightMode: boolean = false;
+
+    phoneNumber: boolean = true;
+
+    sound: boolean = false;
 
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Settings' }
         ]);
     }
-
-
-    ngOnInit() {
-    }
-    pushNotifacitons: boolean = false;
-    onlyDownload: boolean = false;
-    smsNotifications: boolean = false;
-    darkMode: boolean = false;
-    subscribeToNewsletter: boolean = false;
-    monthlyProductUpdates: boolean = false;
-    messages: boolean = false;
-    emailNotifacitons: boolean = false;
-    lightMode: boolean = false;
-    phoneNumber: boolean = false;
-
-
-
-
 }

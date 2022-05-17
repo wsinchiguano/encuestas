@@ -8,7 +8,7 @@
                 <p class="text-900 font-bold text-lg mt-2">Name</p>
                 <span class="p-input-icon-left h-3rem w-full">
                     <i class="pi pi-user" style="left: 1.5rem;"></i>
-                    <input type="text" pInputText placeholder="Email"
+                    <input type="text" pInputText placeholder="Name"
                         class="w-full pl-7 text-900 font-semibold h-3rem" />
                 </span>
             </div>
@@ -79,12 +79,12 @@
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Push Notifications</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="pushNotifacitons" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">SMS Notifications</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="smsNotifications" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
         </div>
 
@@ -98,7 +98,7 @@
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Dark Mode</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="darkMode" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
         </div>
 
@@ -107,12 +107,12 @@
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Subscribe to newsletter</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="subscribeToNewsletter" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Monthly product updates</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="monthlyProductUpdates" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
         </div>
 
@@ -121,24 +121,24 @@
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Messages</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="messages" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Dark Mode</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="darkMode" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
         </div>
         <div class="grid gap-5 grid-nogutter mt-4 flex-column sm:flex-row">
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Email Notifications</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="emailNotifacitons" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
             <div class="col flex justify-content-between align-items-center border-1 surface-border p-2 px-3"
                 style="border-radius: 6px;">
                 <span class="text-700 font-bold">Light Mode</span>
-                <p-inputSwitch [(ngModel)]="onlyDownload" [style]="{'margin-top': '5px'}"></p-inputSwitch>
+                <p-inputSwitch [(ngModel)]="lightMode" [style]="{'margin-top': '5px'}"></p-inputSwitch>
             </div>
         </div>
         <div class="flex justify-content-end ">
@@ -147,3 +147,6 @@
 
     </div>
 </div>
+
+
+

@@ -330,26 +330,26 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             { separator: true },
-            { 
+            {
                 label: 'Apps',
                 icon: 'pi-th-large',
                 items: [
                     {
                         label: 'Calendar',
                         icon: 'pi pi-fw pi-calendar',
-                        routerLink:['apps/calendar']
+                        routerLink: ['apps/calendar']
                     },
                     {
                         label: 'Task List',
                         icon: 'pi pi-fw pi-check-square',
-                        routerLink:['apps/tasklist']
+                        routerLink: ['apps/tasklist']
                     },
                     {
                         label: 'Chat',
                         icon: 'pi pi-fw pi-comments',
-                        routerLink:['apps/chat']
+                        routerLink: ['apps/chat']
                     },
-              ]
+                ]
             },
             { separator: true },
             {
@@ -357,9 +357,10 @@ export class AppMenuComponent implements OnInit {
                 icon: 'pi pi-fw pi-user',
                 items: [
                     {
-                        label: 'Create',
-                        icon: 'pi pi-fw pi-plus',
-                        routerLink: ['profile/create'],
+                        label: 'Profile Overview',
+                        icon: 'pi pi-fw pi-image',
+                        routerLink: ['profile/overview'],
+
                     },
                     {
                         label: 'Profile List',
@@ -367,9 +368,11 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['profile/profilelist'],
                     },
                     {
-                        label: 'Profile Overview',
-                        icon: 'pi pi-fw pi-image',
-                        routerLink: ['profile/overview'],
+
+
+                        label: 'Create',
+                        icon: 'pi pi-fw pi-plus',
+                        routerLink: ['profile/create'],
                     },
                 ],
             },

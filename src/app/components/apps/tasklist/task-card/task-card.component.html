@@ -3,9 +3,9 @@
         <span class="text-900 font-semibold text-xl py-3">{{title}}</span>
     </ng-template>
     <ng-template let-task pTemplate="item">
-        <div class="grid grid-nogutter align-items-center justify-content-center md:justify-content-start w-full">
-            <div class="col flex-grow-1 flex align-items-center mb-5 md:mb-0">
-                <p-checkbox [value]="task" [name]="task.name" [label]="task.name" [(ngModel)]="selectedTasks" [inputId]="task.id" styleClass="z-3" labelStyleClass="font-semibold text-lg text-900"></p-checkbox>
+        <div class="grid grid-nogutter justify-content-center lg:justify-content-start align-items-center w-full">
+            <div class="col flex-grow-1 flex justify-content-start align-items-center mb-5 md:mb-0">
+                <p-checkbox [value]="task" [name]="task.name" [label]="task.name" [(ngModel)]="selectedTasks" [inputId]="task.id" styleClass="z-3" labelStyleClass="font-semibold text-lg text-900 white-space-nowrap"></p-checkbox>
             </div>
             <div class="col flex-grow-0 flex align-items-center mr-0 mb-5 md:mb-0 md:mr-3">
                 <span *ngIf="task.comments" class="flex align-items-center text-700 font-bold mr-3"><i class="pi pi-comment mr-2"></i>{{task.comments}}</span>

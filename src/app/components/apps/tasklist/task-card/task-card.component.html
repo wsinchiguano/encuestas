@@ -3,7 +3,7 @@
         <span class="text-900 font-semibold text-xl py-3">{{title}}</span>
     </ng-template>
     <ng-template let-task pTemplate="item">
-        <div class="grid grid-nogutter justify-content-center lg:justify-content-start align-items-center w-full">
+        <div class="grid grid-nogutter flex-column md:flex-row justify-content-center lg:justify-content-start align-items-center w-full">
             <div class="col flex-grow-1 flex justify-content-start align-items-center mb-5 md:mb-0">
                 <p-checkbox [value]="task" [name]="task.name" [label]="task.name" [(ngModel)]="selectedTasks" [inputId]="task.id" styleClass="z-3" labelStyleClass="font-semibold text-lg text-900 white-space-nowrap"></p-checkbox>
             </div>

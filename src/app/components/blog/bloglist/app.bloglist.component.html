@@ -1,17 +1,17 @@
 <div class="surface-section px-4 py-4 md:px-6 lg:px-5 lg:py-5 border-1 surface-border" style="border-radius: 6px;">
     <div class="flex flex-column sm:flex-row justify-content-between align-items-center mb-4 ">
         <span class="text-xl text-900 font-semibold mb-2 md:mb-0">Blog List</span>
-        <p-dropdown [options]="sort" [(ngModel)]="selectedSort" placeholder="Sort by" optionLabel="name"
-            [style]="{ 'min-width': '10rem' }"></p-dropdown>
+        <p-dropdown [options]="sort" [(ngModel)]="selectedSort" placeholder="Sort by" optionLabel="name" [style]="{ 'min-width': '10rem' }"></p-dropdown>
     </div>
     <div class="grid">
         <div *ngFor="let blog of paginatedBlogs" class="col-12 md:col-6 xl:col-4 p-3">
-            <div class="surface-section border-1 surface-border relative z-index" style="border-radius: 6px">
-                <img [src]="blog.image" class="mb-3 w-full" />
-                <img [src]="blog.profile" class="flex absolute w-6rem h-6rem " style="top: 160px; right: 18px;">
-                <div class="flex justify-content-between align-items-start">
+            <div class="surface-section border-1 surface-border z-index" style="border-radius: 6px">
+                <div class="relative">
+                    <img [src]="blog.image" class="w-full" style="min-width: 10rem"/>
+                    <img [src]="blog.profile" class="flex absolute w-4rem h-4rem" style="bottom: -15px; right: 30px;">
                 </div>
-                <div class="list-none m-0 p-3">
+
+                <div class="m-0 p-3">
                     <div class="px-0 py-2 flex justify-content-between align-items-center">
                         <p class="text-900 font-bold text-md">{{blog.title}}</p>
                     </div>
@@ -38,4 +38,4 @@
         </div>
     </div>
     <p-paginator [rows]="rowCount" [totalRecords]="totalBlogs.length" (onPageChange)="paginate($event)" [showFirstLastIcon]="false"></p-paginator>
-
+</div>

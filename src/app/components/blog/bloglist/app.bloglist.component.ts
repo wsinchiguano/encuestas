@@ -4,13 +4,19 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 @Component({
     selector: 'app-app.bloglist',
     templateUrl: './app.bloglist.component.html',
+    styleUrls: ['./bloglist.component.scss']
 
 })
 export class AppBloglistComponent implements OnInit {
+
     selectedSort: any;
+
     sort: any[];
+
     rowCount = 6;
+
     paginatedBlogs = [];
+
     totalBlogs = [
         {
             image: "assets/layout/images/Rectangle 45.svg",
@@ -104,19 +110,15 @@ export class AppBloglistComponent implements OnInit {
             { label: 'Blog List' }
         ]);
 
-        this.sort = [
-            { name: 'Name' },
-            { name: 'Description' },
-
-        ];
     }
-
-
-
-
 
     ngOnInit(): void {
         this.paginatedBlogs = this.totalBlogs.slice(0, this.rowCount);
+        
+        this.sort = [
+            { name: 'Name' },
+            { name: 'Description' },
+        ];
     }
 
     paginate(event) {

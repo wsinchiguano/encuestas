@@ -8,9 +8,6 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 export class ProfileComponent implements OnInit {
 
 
-
-
-
   constructor(private breadcrumbService: BreadcrumbService) {
     this.breadcrumbService.setItems([
       { label: 'Profile' }

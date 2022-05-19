@@ -9,10 +9,15 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 })
 
 export class AppOverviewComponent {
+
     selectedDate:number;
+
     days: any[];
+
     selectedDay: any;
+
     selectedWeek: any;
+
     week: any[];
 
     constructor(private breadcrumbService: BreadcrumbService) {

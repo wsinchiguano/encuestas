@@ -5,5 +5,6 @@ import { Component, Input } from '@angular/core';
     templateUrl: './bloglistcard.component.html',
 })
 export class BloglistcardComponent {
+    
     @Input() blog: any;
 }

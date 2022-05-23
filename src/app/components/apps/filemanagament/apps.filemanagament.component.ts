@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppConfig } from 'src/app/api/appconfig';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
@@ -15,10 +15,12 @@ interface File {
     selector: 'app-apps.filemanagament',
     templateUrl: './apps.filemanagament.component.html',
     styleUrls: ['./apps.filemanagament.scss']
-
-
 })
 export class AppsFilemanagamentComponent {
+
+    countryChart: any;
+
+    countryChartOptions: any;
 
     @ViewChildren('buttonEl') buttonEl: QueryList<ElementRef>;
     files: File[] = [
@@ -70,7 +72,7 @@ export class AppsFilemanagamentComponent {
         { field: 'file size', header: 'File Size' },
         { field: 'status', header: 'Status' },
 
-    ];;
+    ];
 
     events: any[];
 
@@ -79,54 +81,54 @@ export class AppsFilemanagamentComponent {
 
             name: "Miami 2022",
             icon: "pi pi-folder",
-            type: "12 Item"
+            size: "12"
         }, {
 
             name: "Protoype",
             icon: "pi pi-folder",
-            type: "1 Item"
+            size: "1"
         },
         {
 
             name: "Other Files",
             icon: "pi pi-folder",
-            type: "53 Item"
+            size: "53"
         },
         {
 
             name: "Antalya Holiday",
             icon: "pi pi-folder",
-            type: "1 Item"
+            size: "1"
         },
         {
 
             name: "Studio Photograpy",
             icon: "pi pi-folder",
-            type: "3 Item"
+            size: "3"
         },
         {
 
             name: "Server Backup",
             icon: "pi pi-folder-open",
-            type: "9 Item"
+            size: "9"
         },
         {
 
             name: "Document Files",
             icon: "pi pi-folder",
-            type: "53 Item"
+            size: "53"
         },
         {
 
             name: "Vocals",
             icon: "pi pi-image",
-            type: "0"
+            size: "0"
         },
         {
 
             name: "Volces",
             icon: "pi pi-folder-open",
-            type: "6 Item"
+            size: "6"
         },
 
 
@@ -147,6 +149,48 @@ export class AppsFilemanagamentComponent {
         this.breadcrumbService.setItems([
             { label: 'File Managament' }
         ]);
+    }
+
+    ngOnInit() {
+        this.countryChart = {
+            labels: ['RUS', 'Other', 'IND', 'AUS', 'JPN', 'USA', 'CHN'],
+            datasets: [
+                {
+                    data: [30, 18, 36, 54, 61, 90, 72],
+                    backgroundColor: [
+                        '#0F8BFD',
+                        '#545C6B',
+                        '#EC4DBC',
+                        '#EEE500',
+                        '#FC6161',
+                        '#00D0DE',
+                        '#873EFE',
+                    ],
+                    hoverBackgroundColor: [
+                        '#0F8BFD',
+                        '#545C6B',
+                        '#EC4DBC',
+                        '#EEE500',
+                        '#FC6161',
+                        '#00D0DE',
+                        '#873EFE',
+                    ],
+                    borderColor: 'transparent',
+                    fill: true
+                }
+            ]
+        };
+
+        this.countryChartOptions = {
+            cutout:100,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ebedef'
+                    }
+                }
+            }
+        };
     }
 
     onUpload(event) {

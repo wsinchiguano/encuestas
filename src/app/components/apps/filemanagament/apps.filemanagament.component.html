@@ -71,8 +71,7 @@
         <div class="card widget-tasks">
             <h4>Tasks</h4>
             <div>
-                <p-chart type="doughnut" [data]="data" [responsive]="true" height="250" width="400">
-                </p-chart>
+                <p-chart type="doughnut" id="country-chart" [data]="countryChart" [options]="countryChartOptions" [style]="{'width': '75%'}"></p-chart>
                 <div class="p-3 mt-2 border-1 surface-border flex align-items-center surface-card"
                     style="border-radius: 6px">
                     <div style="width:48px;height:32px;border-radius:10px"
@@ -169,7 +168,7 @@
                                 <span class="text-900 text-xl font-medium mb-2">{{folder.name}}</span>
                             </div>
                             <div class="ml-auto">
-                                <span class="text-600 text-lg font-semibold">{{folder.type}}</span>
+                                <span class="text-600 text-lg font-semibold">{{folder.size}}</span>
                             </div>
                         </div>
                     </div>

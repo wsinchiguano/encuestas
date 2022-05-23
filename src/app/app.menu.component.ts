@@ -349,6 +349,11 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-comments',
                         routerLink: ['apps/chat']
                     },
+                    {
+                        label: 'File Managament',
+                        icon: 'pi pi-fw pi-comments',
+                        routerLink: ['apps/filemanagament']
+                    },
                 ]
             },
             { separator: true },

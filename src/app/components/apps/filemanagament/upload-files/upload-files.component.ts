@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
-  selector: 'app-upload-files',
-  templateUrl: './upload-files.component.html',
+    selector: 'app-upload-files',
+    templateUrl: './upload-files.component.html',
 })
 export class UploadFilesComponent  {
 

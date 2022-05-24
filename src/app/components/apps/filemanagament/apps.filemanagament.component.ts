@@ -192,7 +192,7 @@ export class AppsFilemanagamentComponent {
 
     cols = [
         { field: 'name', header: 'Name' },
-        { field: 'price', header: 'Price' },
+        { field: 'date', header: 'Date' },
         { field: 'file size', header: 'File Size' },
         { field: 'status', header: 'Status' },
     ];

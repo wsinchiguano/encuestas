@@ -9,9 +9,9 @@ export class ChartComponent implements OnInit {
 
     @Input() accounts:any;
 
-    accountChart: any;
+    fileChart: any;
 
-    accountChartOptions: any;
+    fileChartOptions: any;
 
     chartPlugins: any;
 
@@ -48,7 +48,7 @@ export class ChartComponent implements OnInit {
             }
         }]
 
-        this.accountChart = {
+        this.fileChart = {
 
             datasets: [
                 {
@@ -67,7 +67,7 @@ export class ChartComponent implements OnInit {
             ]
         };
 
-        this.accountChartOptions = {
+        this.fileChartOptions = {
             cutout: '90%',
             plugins: {
                 legend: {

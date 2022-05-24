@@ -351,7 +351,7 @@ export class AppMenuComponent implements OnInit {
                     },
                     {
                         label: 'File Managament',
-                        icon: 'pi pi-fw pi-comments',
+                        icon: 'pi pi-fw pi-folder',
                         routerLink: ['apps/filemanagament']
                     },
                 ]

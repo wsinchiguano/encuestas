@@ -334,10 +334,11 @@ export class AppMenuComponent implements OnInit {
                 label: 'Apps',
                 icon: 'pi-th-large',
                 items: [
+
                     {
-                        label: 'Calendar',
-                        icon: 'pi pi-fw pi-calendar',
-                        routerLink: ['apps/calendar']
+                        label: 'File Managament',
+                        icon: 'pi pi-fw pi-folder',
+                        routerLink: ['apps/filemanagament']
                     },
                     {
                         label: 'Task List',
@@ -350,10 +351,11 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['apps/chat']
                     },
                     {
-                        label: 'File Managament',
-                        icon: 'pi pi-fw pi-folder',
-                        routerLink: ['apps/filemanagament']
+                        label: 'Calendar',
+                        icon: 'pi pi-fw pi-calendar',
+                        routerLink: ['apps/calendar']
                     },
+
                 ]
             },
             { separator: true },

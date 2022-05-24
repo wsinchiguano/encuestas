@@ -9,9 +9,9 @@ export class ChartComponent implements OnInit {
 
     @Input() accounts:any;
 
-    countryChart: any;
+    accountChart: any;
 
-    countryChartOptions: any;
+    accountChartOptions: any;
 
     chartPlugins: any;
 
@@ -31,15 +31,15 @@ export class ChartComponent implements OnInit {
                 ctx.restore();
                 ctx.font = fontSize + "rem sans-serif";
                 ctx.textBaseline = "middle";
-                
+
                 let text = "Free Space";
                 let text2 = 50 + "GB / " + 80 + "GB";
                 let textX = Math.round((width - ctx.measureText(text).width) / 2);
                 let textY = (height + chart.chartArea.top) / 2.25;
-     
+
                 let text2X = Math.round((width - ctx.measureText(text).width) / 2.10);
                 let text2Y = (height + chart.chartArea.top) / 1.75;
-        
+
                 ctx.fillStyle = chart.config.data.datasets[0].backgroundColor[0];
                 ctx.fillText(text, textX, textY);
                 ctx.fillText(text2, text2X, text2Y);
@@ -48,7 +48,7 @@ export class ChartComponent implements OnInit {
             }
         }]
 
-        this.countryChart = {
+        this.accountChart = {
 
             datasets: [
                 {
@@ -67,7 +67,7 @@ export class ChartComponent implements OnInit {
             ]
         };
 
-        this.countryChartOptions = {
+        this.accountChartOptions = {
             cutout: '90%',
             plugins: {
                 legend: {

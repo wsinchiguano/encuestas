@@ -1,6 +1,4 @@
 import { Component, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AppConfig } from 'src/app/api/appconfig';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 
@@ -14,15 +12,62 @@ interface File {
 @Component({
     selector: 'app-apps.filemanagament',
     templateUrl: './apps.filemanagament.component.html',
-    styleUrls: ['./apps.filemanagament.scss']
+    styleUrls: ['./apps.filemanagament.scss', '../../ecommerce-admin/ecommerce-admin.table.scss']
 })
 export class AppsFilemanagamentComponent {
 
-    countryChart: any;
+    cards = [
+        {
+            title: "Cloud Storage",
+            icon: "pi pi-ellipsis-v",
+            fieldColor: "bg-yellow-500",
+            color: "bg-yellow-100",
+            files: "123,232 Files",
+            fileSize: "1.5GB",
+            items: [
+                { label: 'Cloud Storage' },
+            ]
 
-    countryChartOptions: any;
+        },
+        {
+            title: "Dropbox Storage",
+            icon: "pi pi-ellipsis-v",
+            fieldColor: "bg-pink-500",
+            color: "bg-pink-100",
+            files: "123,232 Files",
+            fileSize: "4.1GB",
+            items: [
+                { label: 'Dropbox Storage' },
+            ]
 
-    @ViewChildren('buttonEl') buttonEl: QueryList<ElementRef>;
+        },
+        {
+            title: "Google Drive Storage",
+            icon: "pi pi-ellipsis-v",
+            fieldColor: "bg-green-500",
+            color: "bg-green-100",
+            files: "123,232 Files",
+            fileSize: "1.3GB",
+            items: [
+                { label: 'Google Drive Storage'},
+            ]
+
+        },
+        {
+            title: "Internal Storage",
+            icon: "pi pi-ellipsis-v",
+            fieldColor: "bg-indigo-500",
+            color: "bg-indigo-100",
+            files: "123,232 Files",
+            fileSize: "5.3GB",
+            items: [
+                { label: 'Internal Storage'},
+            ]
+
+        }
+
+    ];
+
     files: File[] = [
         {
             name: "Jing Lee.jpeg",
@@ -62,19 +107,32 @@ export class AppsFilemanagamentComponent {
         }
     ];
 
-    uploadedFiles = [];
+    accounts = [
+        {
 
-    showRemove: boolean = false;
+            name: "Document Files",
+            icon: "pi pi-folder",
+            size: "1.8 GB"
+        }, {
 
-    cols = [
-        { field: 'name', header: 'Name' },
-        { field: 'price', header: 'Price' },
-        { field: 'file size', header: 'File Size' },
-        { field: 'status', header: 'Status' },
+            name: "Document Files",
+            icon: "pi pi-images",
+            size: "23 GB"
+        },
+        {
 
+            name: "Other Files",
+            icon: "pi pi-folder-open",
+            size: "1.8 GB"
+        },
+        {
+
+            name: "Unknown Files",
+            icon: "pi pi-folder-open",
+            size: "16 GB"
+        },
     ];
 
-    events: any[];
 
     folders = [
         {
@@ -130,89 +188,19 @@ export class AppsFilemanagamentComponent {
             icon: "pi pi-folder-open",
             size: "6"
         },
-
-
     ];
 
-    data = {
-        datasets: [
-            {
-                data: [300, 100],
-                backgroundColor: [
-                    "#1F2ED0",
-                    "#495057"
-                ]
-            }]
-    };
+    cols = [
+        { field: 'name', header: 'Name' },
+        { field: 'price', header: 'Price' },
+        { field: 'file size', header: 'File Size' },
+        { field: 'status', header: 'Status' },
+    ];
 
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'File Managament' }
         ]);
-    }
-
-    ngOnInit() {
-        this.countryChart = {
-            labels: ['RUS', 'Other', 'IND', 'AUS', 'JPN', 'USA', 'CHN'],
-            datasets: [
-                {
-                    data: [30, 18, 36, 54, 61, 90, 72],
-                    backgroundColor: [
-                        '#0F8BFD',
-                        '#545C6B',
-                        '#EC4DBC',
-                        '#EEE500',
-                        '#FC6161',
-                        '#00D0DE',
-                        '#873EFE',
-                    ],
-                    hoverBackgroundColor: [
-                        '#0F8BFD',
-                        '#545C6B',
-                        '#EC4DBC',
-                        '#EEE500',
-                        '#FC6161',
-                        '#00D0DE',
-                        '#873EFE',
-                    ],
-                    borderColor: 'transparent',
-                    fill: true
-                }
-            ]
-        };
-
-        this.countryChartOptions = {
-            cutout:100,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ebedef'
-                    }
-                }
-            }
-        };
-    }
-
-    onUpload(event) {
-        for (let file of event.files) {
-            this.uploadedFiles.push(file);
-        }
-    }
-
-    onImageMouseOver(file) {
-        this.buttonEl.toArray().forEach(el => {
-            el.nativeElement.id === file.name ? el.nativeElement.style.display = 'flex' : null;
-        })
-    }
-
-    onImageMouseLeave(file) {
-        this.buttonEl.toArray().forEach(el => {
-            el.nativeElement.id === file.name ? el.nativeElement.style.display = 'none' : null;
-        })
-    }
-
-    removeImage(file) {
-        this.uploadedFiles = this.uploadedFiles.filter(i => i !== file);
     }
 
 }

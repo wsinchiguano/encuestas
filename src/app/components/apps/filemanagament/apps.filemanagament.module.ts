@@ -17,6 +17,11 @@ import { AvatarModule } from 'primeng/avatar';
 import { TableModule } from 'primeng/table';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ChartModule } from 'primeng/chart';
+import { MenuModule } from 'primeng/menu';
+import { FolderComponent } from './folder/folder.component';
+import { CardComponent } from './card/card.component';
+import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -38,8 +43,9 @@ import { ChartModule } from 'primeng/chart';
     AvatarModule,
     TableModule,
     FileUploadModule,
-    ChartModule
+    ChartModule,
+    MenuModule
   ],
-  declarations: [AppsFilemanagamentComponent]
+  declarations: [AppsFilemanagamentComponent, FolderComponent, CardComponent, UploadFilesComponent, ChartComponent]
 })
 export class AppsFileManagamentModule { }

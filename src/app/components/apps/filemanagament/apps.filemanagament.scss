@@ -5,26 +5,10 @@
 :host ::ng-deep .p-fileupload-row {
     display: none;
 }
+
 :host ::ng-deep .p-progressbar{
     display: none;
 }
-:host ::ng-deep .p-datatable {
-
-    .p-datatable-footer {
-        background: transparent;
-        border: none;
-        padding: 0;
-    }
-
-    .p-datatable-tbody > tr > td {
-        border: none;
-    }
-
-    .p-datatable-thead > tr > th {
-        border: none;
-    }
-}
-
 
 :host ::ng-deep {
     .p-fileupload {
@@ -33,6 +17,6 @@
 
     .p-fileupload-buttonbar {
         display: none;
-    }    
-    
+    }
+
 }

@@ -1,4 +1,4 @@
-<div class="p-3">
+<div class="p-3 cursor-pointer" (click)="navigateToDetail()">
     <div class="surface-100 z-index" style="border-radius: 6px">
         <div class="relative">
             <img [src]="blog.image" class="w-full" style="min-width: 10rem" />
@@ -6,7 +6,7 @@
                 style="bottom: -15px; right: 30px;">
         </div>
         <div class="m-0 p-3 px-4">
-            <div (click)="navigateToDetail()">
+            <div>
             <div class="px-0 py-2 flex justify-content-between align-items-center">
                 <p class="text-900 font-semibold text-xl">{{blog.title}}</p>
             </div>

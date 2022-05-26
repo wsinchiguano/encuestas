@@ -151,7 +151,7 @@ export class AppBloglistComponent {
         this.primengConfig.ripple = true;
     }
 
-    onSortChange(event) {
+    onSortChange(event): void {
         let value = event.value;
 
         if (value.indexOf('!') === 0) {
@@ -162,4 +162,6 @@ export class AppBloglistComponent {
             this.sortField = value;
         }
     }
+
+
 }

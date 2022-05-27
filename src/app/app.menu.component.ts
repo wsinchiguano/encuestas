@@ -334,7 +334,6 @@ export class AppMenuComponent implements OnInit {
                 label: 'Apps',
                 icon: 'pi-th-large',
                 items: [
-
                     {
                         label: 'File Managament',
                         icon: 'pi pi-fw pi-folder',
@@ -355,6 +354,27 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-calendar',
                         routerLink: ['apps/calendar']
                     },
+                    {
+                        label: 'Mail',
+                        icon:'pi pi-envelope',
+                        items: [
+                            {
+                                label: 'Inbox',
+                                icon: 'pi pi-fw pi-inbox',
+                                routerLink: ['apps/mail/inbox']
+                            },
+                            {
+                                label: 'Compose',
+                                icon: 'pi pi-fw pi-pencil',
+                                routerLink: ['apps/mail/compose']
+                            },
+                            {
+                                label: 'Mail Detail',
+                                icon: 'pi pi-fw pi-comment',
+                                routerLink: ['apps/mail/detail']
+                            },
+                        ]
+                    }
 
                 ]
             },

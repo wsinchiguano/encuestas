@@ -1,24 +1,20 @@
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8 border-1 surface-border" style="border-radius: 6px;">
-    <div class="flex justify-content-between md:flex-row flex-column align-items-center">
+    <div class="flex justify-content-between md:flex-row flex-column-reverse align-items-center" >
         <div>
-            <div class="text-xl text-900 mb-6 font-semibold">Admin Panel - How To Get Started Tutorial. Create a
+            <div class="text-xl text-900 mb-4 font-semibold sm:text-center">Admin Panel - How To Get Started Tutorial. Create a
                 customizable
                 SaaS Based applications and solutions
             </div>
-            <div class="flex flex-column sm:flex-row mb-4 pr-3 ">
-                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 px-3 py-2 font-bold  border-1 surface-border mr-2"
-                    style="border-radius: 6px;"><i class="pi pi-clock mr-1"></i>06 April 2021</div>
-                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 px-3 py-2 font-bold  border-1 surface-border mr-2"
-                    style="border-radius: 6px;">
-                    <i class="pi pi-comments mr-1"></i>
-                    <span>24 Comments</span>
-                </div>
-                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 px-3 py-2 font-bold  border-1 surface-border mr-2"
-                    style="border-radius: 6px;"> <i class="pi pi-eye mr-1"></i>
-                    124 Views</div>
+            <div class="flex flex-column sm:flex-row mb-4 pr-3 md:justify-content-start justify-content-center ">
+                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 p-3 font-bold  border-1 surface-border mr-3"
+                    style="border-radius: 6px;"><i class="pi pi-clock text-primary mr-2"></i><span class="text-900 font-semibold">06 April 2021</span></div>
+                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 p-3 font-bold  border-1 surface-border mr-3"
+                    style="border-radius: 6px;"><i class="pi pi-comments text-primary mr-2"></i><span class="text-900 font-semibold">24 Comments</span></div>
+                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 p-3 font-bold  border-1 surface-border mr-3"
+                    style="border-radius: 6px;"> <i class="pi pi-eye text-primary mr-2"></i><span class="text-900 font-semibold">124 Views</span></div>
             </div>
         </div>
-        <div class="flex flex-column align-items-center justify-content-center  border-1 surface-border mb-4 px-3 py-2"
+        <div class="flex flex-column align-items-center justify-content-center  border-1 surface-border mb-3 md:mb-1 p-3"
             style="border-radius: 6px">
             <img class="w-3rem h-3rem" src="assets/demo/images/5.svg" />
             <span class="mt-3 font-bold text-900 text-center white-space-nowrap">Jane Cooper</span>
@@ -58,13 +54,13 @@
         <li>Scelerisque ultricies tincidunt lectus faucibus non morbi sed nibh varius. Quam a, habitasse egestas
             eleifend.</li>
     </ul>
-    <div class="flex w-full mt-8 flex-column sm:flex-row">
-        <div class="flex">
-            <button class="mr-2" pButton pRipple icon="pi pi-fw pi-twitter" label="Twitter"></button>
-            <button pButton pRipple icon="pi pi-fw pi-facebook" label="Facebook"></button>
+    <div class="flex justify-content-between flex-wrap w-full mt-8 ">
+        <div class="flex sm:mt-0 mt-2">
+            <button pButton pRipple icon="pi pi-fw pi-twitter" class="mr-2 p-button-secondary"  label="Twitter"></button>
+            <button pButton pRipple icon="pi pi-fw pi-facebook" class="mr-2 p-button-secondary "  label="Facebook"></button>
         </div>
-        <div class="flex w-full justify-content-start sm:justify-content-end sm:mt-0 mt-2">
-            <button pButton pRipple icon="pi pi-fw pi-pencil" label="Edit Post"></button>
+        <div class="flex sm:mt-0 mt-2">
+            <button pButton pRipple icon="pi pi-fw pi-pencil" class="mr-2 p-button-primary" label="Edit Post"></button>
         </div>
     </div>
     <app-blog-comments-list [comments]="comments"></app-blog-comments-list>

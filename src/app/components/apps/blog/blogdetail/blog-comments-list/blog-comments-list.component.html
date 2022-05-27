@@ -7,15 +7,15 @@
     <ng-template let-comment pTemplate="gridItem">
         <div class="col-12 py-2">
             <div class="flex p-3 mb-3 w-full  border-1 surface-border" style="border-radius: 6px">
-                <span class="inline-flex justify-content-center align-items-center mr-4">
-                    <img [src]="comment.image" class="mr-3 w-5rem" />
+                <span class="inline-flex justify-content-center mr-3">
+                    <img [src]="comment.image" class="w-3rem h-3rem" />
                 </span>
                 <div>
                     <span class="font-semibold text-900">{{comment.name}}</span>
                     <p class="font-semibold text-600 mt-0 text-sm">
                         {{comment.date}}
                     </p>
-                    <p class="font-semibold text-900 mb-0 text-sm">
+                    <p class="font-semibold text-900 mb-0">
                         {{comment.description}}
                     </p>
                 </div>

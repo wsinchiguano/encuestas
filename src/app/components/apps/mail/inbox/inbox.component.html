@@ -1,4 +1,4 @@
-<p-table #dt [value]="mails" [columns]="cols"  [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedMails" selectionMode="multiple" [rowHover]="true" dataKey="id" tableStyleClass="xl:border-1 xl:surface-border px-3">
+<p-table #dt [value]="mails" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedMails" selectionMode="multiple" [rowHover]="true" dataKey="id" tableStyleClass="xl:border-1 xl:surface-border px-3">
     <ng-template pTemplate="caption">
         <div class="flex justify-content-between align-items-center">
             <div class="flex gap-2 align-items-center">
@@ -42,9 +42,9 @@
                     {{mail.title}}
                 </span>
             </td>
-            <td style="width: 10%; min-width: 5rem;">
+            <td style="width: 10%; min-width: 8rem;">
                 <div class="flex justify-content-end w-full px-0">
-                    <span #date class="text-700 font-semibold">
+                    <span #date class="text-700 font-semibold white-space-nowrap">
                         {{mail.date}}
                     </span>
                     <div class="column-gap-2" style="display: none" #options>

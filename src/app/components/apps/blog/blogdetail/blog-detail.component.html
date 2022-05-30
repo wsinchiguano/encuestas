@@ -9,7 +9,7 @@
                 <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 p-3 font-bold  border-1 surface-border" style="border-radius: 6px;">
                     <i class="pi pi-comments text-primary mr-2"></i><span class="text-900 font-semibold">24 Comments</span>
                 </div>
-                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 p-3 font-bold  border-1 surface-border" style="border-radius: 6px;"> 
+                <div class="flex align-items-center justify-content-start sm:mt-0 mt-2 p-3 font-bold  border-1 surface-border" style="border-radius: 6px;">
                     <i class="pi pi-eye text-primary mr-2"></i><span class="text-900 font-semibold">124 Views</span>
                 </div>
             </div>
@@ -58,7 +58,7 @@
     <div class="flex flex-column sm:flex-row flex-wrap mt-8 w-full gap-3">
         <button pButton pRipple icon="pi pi-fw pi-twitter" class="p-button-secondary" label="Twitter"></button>
         <button pButton pRipple icon="pi pi-fw pi-facebook" class="p-button-secondary" label="Facebook"></button>
-        <button pButton pRipple icon="pi pi-fw pi-pencil" class="sm:ml-auto p-button-primary" label="Edit Post"></button>
+        <button [routerLink]="['/blog/edit']" pButton pRipple icon="pi pi-fw pi-pencil" class="sm:ml-auto p-button-primary" label="Edit Post"></button>
     </div>
     <app-blog-comments-list [comments]="comments"></app-blog-comments-list>
     <app-blog-comments></app-blog-comments>

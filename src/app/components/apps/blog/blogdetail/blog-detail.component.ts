@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 
 @Component({
     selector: 'app-blog-detail',
@@ -34,7 +35,11 @@ export class BlogDetailComponent implements OnInit {
         },
     ];
 
-    constructor() { }
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            { label: 'Blog Detail' },
+        ]);
+    }
 
     ngOnInit() {
     }

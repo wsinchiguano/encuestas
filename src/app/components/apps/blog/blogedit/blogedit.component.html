@@ -3,7 +3,7 @@
     <div class="grid grid-nogutter flex-wrap gap-4">
         <div class="col-12 lg:col-8">
             <div class="grid gap-4 formgrid">
-                <div class="col-12 ">
+                <div class="col-12">
                     <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" [customUpload]="true"
                         multiple="multiple" (onSelect)="onUpload($event)" accept="image/*" [showUploadButton]="true"
                         [showCancelButton]="false" [auto]="true" styleClass="border-1 surface-border p-1 surface-card"
@@ -69,10 +69,10 @@
                 </div>
             </div>
             <div class="border-1 surface-border" style="border-radius: 6px;">
-                <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Meta</span>
+                <span class="text-900 font-bold block border-bottom-1 surface-border p-4">Meta</span>
                 <div class="p-3">
                     <div class="flex align-items-center">
-                        <input type="text" pInputText placeholder="Post Title" class="w-full text-900 font-semibold h-3rem pl-3" />
+                        <input type="text" pInputText placeholder="Meta Title" class="w-full text-900 font-semibold h-3rem pl-3" />
                     </div>
                 </div>
                 <div class="p-3">

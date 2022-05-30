@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AppsMailRoutingModule } from './apps.mail-routing.module';
 import { AppsMailComponent } from './apps.mail.component';
 import { InboxComponent } from './inbox/inbox.component';
@@ -16,10 +17,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RatingModule } from 'primeng/rating';
 import { AvatarModule } from 'primeng/avatar';
+import { EditorModule } from 'primeng/editor';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     AppsMailRoutingModule,
     MenuModule,
     ButtonModule,
@@ -29,7 +33,9 @@ import { AvatarModule } from 'primeng/avatar';
     InputTextModule,
     CheckboxModule,
     RatingModule,
-    AvatarModule
+    AvatarModule,
+    EditorModule,
+    FileUploadModule,
   ],
   declarations: [AppsMailComponent, InboxComponent, ComposeComponent, DetailComponent, SidebarComponent],
   providers: [MailService]

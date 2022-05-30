@@ -19,7 +19,7 @@
     <ng-template pTemplate="body" let-mail>
         <tr (mouseenter)="toggleOptions($event, options, date)" (mouseleave)="toggleOptions($event, options, date)" class="cursor-pointer">
             <td style="width: 5%; min-width: 2rem;">
-                <p-tableCheckbox [value]="mail" [(ngModel)]="tableCheckbox"></p-tableCheckbox>
+                <p-tableCheckbox [value]="mail"></p-tableCheckbox>
             </td>
             <td style="width: 5%; min-width: 2rem;">
                 <span (click)="mail.starred = !mail.starred" class="cursor-pointer">

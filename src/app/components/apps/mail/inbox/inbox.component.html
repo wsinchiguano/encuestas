@@ -1,1 +1,60 @@
-<p>inbox works!</p>
+<p-table #dt [value]="mails" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedMails" selectionMode="multiple" [rowHover]="true" dataKey="id" tableStyleClass="border-1 surface-border">
+    <ng-template pTemplate="caption">
+        <div class="flex justify-content-between align-items-center">
+            <div class="flex gap-2 align-items-center">
+                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px;">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </div>
+                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px;">
+                    <i class="pi pi-refresh text-lg text-900"></i>
+                </div>
+                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px;">
+                    <i class="pi pi-ellipsis-v text-lg text-900"></i>
+                </div>
+            </div>
+            
+            <span class="block mt-2 md:mt-0 p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search Mail" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="body" let-mail>
+        <tr (mouseenter)="options.style.visibility='visible' && date.style.visibility='hidden'" (mouseleave)="options.style.visibility='hidden' && date.style.visibility='visible'" class="cursor-pointer">
+            <td style="width: 5%; min-width: 2rem;">
+                <p-tableCheckbox [value]="mail" [(ngModel)]="tableCheckbox"></p-tableCheckbox>
+            </td>
+            <td style="width: 5%; min-width: 2rem;">
+                <span (click)="mail.starred = !mail.starred" class="cursor-pointer">
+                    <i class="pi pi-fw" [ngClass]="{'pi-star-fill': mail.starred, 'pi-star': !mail.starred}"></i>
+                </span>
+            </td>
+            <td style="width: 5%; min-width: 2rem;">
+                <span (click)="mail.important = !mail.important" class="cursor-pointer">
+                    <i class="pi pi-fw" [ngClass]="{'pi-bookmark-fill': mail.important, 'pi-bookmark': !mail.important}"></i>
+                </span>
+            </td>
+            <td style="width: 10%; min-width: 2rem;">
+                <p-avatar [image]="'assets/demo/images/avatar/' + mail.image"></p-avatar>
+            </td>
+            <td style="width: 10%; min-width: 10rem;" class="text-900 font-semibold">
+                {{mail.from}}
+            </td>
+            <td style="width: 45%; min-width: 10rem">
+                <span style="min-width: 10rem;" class="text-700 font-semibold white-space-nowrap overflow-hidden text-overflow-ellipsis block w-11">
+                    {{mail.title}}
+                </span>
+            </td>
+            <td style="width: 10%; min-width: 8rem;">
+                <span #date class="hidden">
+                    {{mail.date | date: "dd/mm/yy"}}
+                </span>
+                <div class="flex gap-2 hidden" #options>
+                    <button pButton pRipple icon="pi pi-inbox"></button>
+                    <button pButton pRipple icon="pi pi-eye-slash"></button>
+                    <button pButton pRipple icon="pi pi-trash"></button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

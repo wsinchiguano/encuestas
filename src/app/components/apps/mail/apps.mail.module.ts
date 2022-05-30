@@ -8,7 +8,14 @@ import { DetailComponent } from './detail/detail.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button'
-import { RippleModule } from 'primeng/ripple'
+import { RippleModule } from 'primeng/ripple';
+import { MailService } from 'src/app/service/mailservice';
+import { TableModule } from 'primeng/table';
+import { ToolbarModule } from 'primeng/toolbar';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RatingModule } from 'primeng/rating';
+import { AvatarModule } from 'primeng/avatar';
 
 @NgModule({
   imports: [
@@ -16,8 +23,15 @@ import { RippleModule } from 'primeng/ripple'
     AppsMailRoutingModule,
     MenuModule,
     ButtonModule,
-    RippleModule
+    RippleModule,
+    TableModule,
+    ToolbarModule,
+    InputTextModule,
+    CheckboxModule,
+    RatingModule,
+    AvatarModule
   ],
-  declarations: [AppsMailComponent, InboxComponent, ComposeComponent, DetailComponent, SidebarComponent]
+  declarations: [AppsMailComponent, InboxComponent, ComposeComponent, DetailComponent, SidebarComponent],
+  providers: [MailService]
 })
 export class AppsMailModule { }

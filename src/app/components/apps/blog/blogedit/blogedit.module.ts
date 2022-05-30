@@ -28,7 +28,6 @@ import { BlogeditComponent } from "./blogedit.component";
         EditorModule,
         ChipModule
 
-
     ],
     declarations: [BlogeditComponent]
   })

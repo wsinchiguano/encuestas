@@ -44,8 +44,7 @@ export class BlogeditComponent {
 
     onChipRemove(item) {
         this.blog.tags = this.blog.tags.filter(i => i !== item);
-    }
-
+      }
 
     onUpload(event) {
         for (let file of event.files) {

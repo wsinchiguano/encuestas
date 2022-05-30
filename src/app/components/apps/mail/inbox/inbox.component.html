@@ -1,16 +1,13 @@
-<p-table #dt [value]="mails" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedMails" selectionMode="multiple" [rowHover]="true" dataKey="id" tableStyleClass="border-1 surface-border">
+<p-table #dt [value]="mails" [columns]="cols"  [rows]="10" [globalFilterFields]="['name','country.name','representative.name','status']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedMails" selectionMode="multiple" [rowHover]="true" dataKey="id" tableStyleClass="xl:border-1 xl:surface-border px-3">
     <ng-template pTemplate="caption">
         <div class="flex justify-content-between align-items-center">
             <div class="flex gap-2 align-items-center">
-                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px;">
+                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px; margin-left: 0.75rem;">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </div>
-                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px;">
-                    <i class="pi pi-refresh text-lg text-900"></i>
-                </div>
-                <div class="flex w-3rem h-3rem p-2 border-1 surface-border flex align-items-center justify-content-center" style="border-radius: 6px;">
-                    <i class="pi pi-ellipsis-v text-lg text-900"></i>
-                </div>
+                <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem"></button>
+                <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem" (click)="menu.toggle($event)"></button>
+                <p-menu #menu [model]="menuItems" [appendTo]="dt" [popup]="true"></p-menu>
             </div>
             
             <span class="block mt-2 md:mt-0 p-input-icon-left">
@@ -20,39 +17,41 @@
         </div>
     </ng-template>
     <ng-template pTemplate="body" let-mail>
-        <tr (mouseenter)="options.style.visibility='visible' && date.style.visibility='hidden'" (mouseleave)="options.style.visibility='hidden' && date.style.visibility='visible'" class="cursor-pointer">
+        <tr (mouseenter)="toggleOptions($event, options, date)" (mouseleave)="toggleOptions($event, options, date)" class="cursor-pointer">
             <td style="width: 5%; min-width: 2rem;">
                 <p-tableCheckbox [value]="mail" [(ngModel)]="tableCheckbox"></p-tableCheckbox>
             </td>
             <td style="width: 5%; min-width: 2rem;">
                 <span (click)="mail.starred = !mail.starred" class="cursor-pointer">
-                    <i class="pi pi-fw" [ngClass]="{'pi-star-fill': mail.starred, 'pi-star': !mail.starred}"></i>
+                    <i class="pi pi-fw text-xl" [ngClass]="{'pi-star-fill': mail.starred, 'pi-star': !mail.starred}"></i>
                 </span>
             </td>
             <td style="width: 5%; min-width: 2rem;">
                 <span (click)="mail.important = !mail.important" class="cursor-pointer">
-                    <i class="pi pi-fw" [ngClass]="{'pi-bookmark-fill': mail.important, 'pi-bookmark': !mail.important}"></i>
+                    <i class="pi pi-fw text-xl" [ngClass]="{'pi-bookmark-fill': mail.important, 'pi-bookmark': !mail.important}"></i>
                 </span>
             </td>
-            <td style="width: 10%; min-width: 2rem;">
+            <td style="width: 5%; min-width: 2rem;">
                 <p-avatar [image]="'assets/demo/images/avatar/' + mail.image"></p-avatar>
             </td>
             <td style="width: 10%; min-width: 10rem;" class="text-900 font-semibold">
                 {{mail.from}}
             </td>
-            <td style="width: 45%; min-width: 10rem">
-                <span style="min-width: 10rem;" class="text-700 font-semibold white-space-nowrap overflow-hidden text-overflow-ellipsis block w-11">
+            <td style="width: 58%; min-width: 10rem">
+                <span class="text-700 font-semibold white-space-nowrap overflow-hidden text-overflow-ellipsis block w-11">
                     {{mail.title}}
                 </span>
             </td>
-            <td style="width: 10%; min-width: 8rem;">
-                <span #date class="hidden">
-                    {{mail.date | date: "dd/mm/yy"}}
-                </span>
-                <div class="flex gap-2 hidden" #options>
-                    <button pButton pRipple icon="pi pi-inbox"></button>
-                    <button pButton pRipple icon="pi pi-eye-slash"></button>
-                    <button pButton pRipple icon="pi pi-trash"></button>
+            <td style="width: 10%; min-width: 5rem;">
+                <div class="flex justify-content-end w-full px-0">
+                    <span #date class="text-700 font-semibold">
+                        {{mail.date}}
+                    </span>
+                    <div class="column-gap-2" style="display: none" #options>
+                        <button pButton pRipple icon="pi pi-inbox" class="h-2rem w-2rem"></button>
+                        <button pButton pRipple icon="pi pi-eye-slash" class="h-2rem w-2rem"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="h-2rem w-2rem"></button>
+                    </div>
                 </div>
             </td>
         </tr>

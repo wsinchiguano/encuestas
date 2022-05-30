@@ -64,9 +64,15 @@
     }
 
     .p-paginator-bottom {
+        margin-top: 2rem;
         border: 0 none;
         background: transparent;
     }
+
+    .p-datatable-tbody > tr > td {
+        padding: .5rem !important;
+    }
+
 }
 
 :host ::ng-deep .p-rating .p-rating-icon.pi-star-fill {

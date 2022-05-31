@@ -6,7 +6,7 @@ import { ProductService } from 'src/app/service/productservice';
 @Component({
     selector: 'app-app.orderedit',
     templateUrl: './app.orderedit.component.html',
-    styleUrls: ['../ecommerce-admin.table.scss', '../../../../assets/demo/badges.scss']
+    styleUrls: ['../../../../assets/demo/table.scss', '../../../../assets/demo/badges.scss']
 })
 export class AppOrderEditComponent implements OnInit {
       

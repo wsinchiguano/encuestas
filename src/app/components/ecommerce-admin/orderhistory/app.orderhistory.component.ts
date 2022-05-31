@@ -6,7 +6,7 @@ import { ProductService } from 'src/app/service/productservice';
 @Component({
     selector: 'app-app.orderhistory',
     templateUrl: './app.orderhistory.component.html',
-    styleUrls: ['../ecommerce-admin.table.scss']
+    styleUrls: ['../../../../assets/demo/table.scss']
 })
 export class AppOrderHistoryComponent implements OnInit {
     

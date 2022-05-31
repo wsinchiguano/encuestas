@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppsMailRoutingModule } from './apps.mail-routing.module';
 import { AppsMailComponent } from './apps.mail.component';
-import { InboxComponent } from './inbox/inbox.component';
-import { ComposeComponent } from './compose/compose.component';
-import { DetailComponent } from './detail/detail.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { MailInboxComponent } from './mail-inbox/mail-inbox.component';
+import { MailComposeComponent } from './mail-compose/mail-compose.component';
+import { MailDetailComponent } from './mail-detail/mail-detail.component';
+import { MailReplyComponent } from './mail-reply/mail-reply.component';
+import { MailSidebarComponent } from './mail-sidebar/mail-sidebar.component';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button'
 import { RippleModule } from 'primeng/ripple';
@@ -19,6 +20,9 @@ import { RatingModule } from 'primeng/rating';
 import { AvatarModule } from 'primeng/avatar';
 import { EditorModule } from 'primeng/editor';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -35,9 +39,11 @@ import { FileUploadModule } from 'primeng/fileupload';
     RatingModule,
     AvatarModule,
     EditorModule,
+    ToastModule,
     FileUploadModule,
+    DialogModule
   ],
-  declarations: [AppsMailComponent, InboxComponent, ComposeComponent, DetailComponent, SidebarComponent],
-  providers: [MailService]
+  declarations: [AppsMailComponent, MailInboxComponent, MailComposeComponent, MailDetailComponent, MailSidebarComponent, MailReplyComponent],
+  providers: [MailService, MessageService]
 })
 export class AppsMailModule { }

@@ -17,17 +17,17 @@
         </div>
     </ng-template>
     <ng-template pTemplate="body" let-mail>
-        <tr (mouseenter)="toggleOptions($event, options, date)" (mouseleave)="toggleOptions($event, options, date)" class="cursor-pointer">
+        <tr (mouseenter)="toggleOptions($event, options, date)" (mouseleave)="toggleOptions($event, options, date)" (click)="onRowSelect(mail.id)" class="cursor-pointer">
             <td style="width: 5%; min-width: 2rem;">
-                <p-tableCheckbox [value]="mail"></p-tableCheckbox>
+                <p-tableCheckbox [value]="mail" (click)="$event.stopPropagation()"></p-tableCheckbox>
             </td>
             <td style="width: 5%; min-width: 2rem;">
-                <span (click)="mail.starred = !mail.starred" class="cursor-pointer">
+                <span (click)="$event.stopPropagation(); mail.starred = !mail.starred" class="cursor-pointer">
                     <i class="pi pi-fw text-xl" [ngClass]="{'pi-star-fill': mail.starred, 'pi-star': !mail.starred}"></i>
                 </span>
             </td>
             <td style="width: 5%; min-width: 2rem;">
-                <span (click)="mail.important = !mail.important" class="cursor-pointer">
+                <span (click)="$event.stopPropagation(); mail.important = !mail.important" class="cursor-pointer">
                     <i class="pi pi-fw text-xl" [ngClass]="{'pi-bookmark-fill': mail.important, 'pi-bookmark': !mail.important}"></i>
                 </span>
             </td>
@@ -48,12 +48,16 @@
                         {{mail.date}}
                     </span>
                     <div class="column-gap-2" style="display: none" #options>
-                        <button pButton pRipple icon="pi pi-inbox" class="h-2rem w-2rem"></button>
-                        <button pButton pRipple icon="pi pi-eye-slash" class="h-2rem w-2rem"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="h-2rem w-2rem"></button>
+                        <button pButton pRipple icon="pi pi-inbox" class="h-2rem w-2rem" (click)="archive($event, mail.id)" ></button>
+                        <button pButton pRipple icon="pi pi-reply" class="h-2rem w-2rem" (click)="reply($event, mail)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="h-2rem w-2rem" (click)="delete($event, mail.id)"></button>
                     </div>
                 </div>
             </td>
         </tr>
     </ng-template>
 </p-table>
+
+<p-dialog [(visible)]="dialogVisible" (onHide)="dialogVisible = false" [closable]="true" header="New Message" [modal]="true" styleClass="sm:w-full md:w-8 lg:w-6">
+    <mail-reply [content]="mail" (hide)="dialogVisible = false"></mail-reply>
+</p-dialog>

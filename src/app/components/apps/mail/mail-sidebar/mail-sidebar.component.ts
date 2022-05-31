@@ -3,10 +3,10 @@ import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 @Component({
     selector: 'mail-sidebar',
-    templateUrl: './sidebar.component.html',
-    styleUrls: ['./sidebar.component.scss']
+    templateUrl: './mail-sidebar.component.html',
+    styleUrls: ['./mail-sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class MailSidebarComponent implements OnInit {
     
     activeIndex: number = 0;
 

@@ -21,7 +21,7 @@ export class TaskCardComponent implements OnInit {
 
     menuItems: MenuItem[];
 
-    clickedTaskId: Number = null;
+    clickedTaskId: number = null;
 
     constructor(private taskService: TaskService) { }
 
@@ -41,7 +41,7 @@ export class TaskCardComponent implements OnInit {
         this.taskService.removeTask(this.clickedTaskId);
     }
 
-    toggleMenu(event: Event, id: Number){
+    toggleMenu(event: Event, id: number){
         this.clickedTaskId = id;
         this.menu.toggle(event);
     }

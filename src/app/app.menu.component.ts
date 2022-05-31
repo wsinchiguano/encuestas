@@ -371,7 +371,7 @@ export class AppMenuComponent implements OnInit {
                             {
                                 label: 'Mail Detail',
                                 icon: 'pi pi-fw pi-comment',
-                                routerLink: ['apps/mail/detail']
+                                routerLink: ['apps/mail/detail/1000']
                             },
                         ]
                     }

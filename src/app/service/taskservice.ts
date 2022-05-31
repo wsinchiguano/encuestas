@@ -27,7 +27,7 @@ export class TaskService {
         this.taskSource.next(this.tasks);
     }
 
-    removeTask(id: Number) {
+    removeTask(id: number) {
         this.tasks = this.tasks.filter(t => t.id !== id);
         this.taskSource.next(this.tasks);
     }

@@ -4,7 +4,7 @@ import {AppLayoutComponent} from 'src/app/app.layout.component';
 
 @Component({
     templateUrl: './app.invoice.component.html',
-    styleUrls: ['./app.invoice.component.scss']
+    styleUrls: ['./app.invoice.component.scss', '../../../../assets/demo/table.scss']
 })
 export class AppInvoiceComponent {
 

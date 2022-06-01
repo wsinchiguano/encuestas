@@ -18,9 +18,7 @@ import {AppLayoutComponent} from './app.layout.component';
                     {path: 'ecommerce', loadChildren: () => import('./components/ecommerce/app.ecommerce.module').then(m => m.AppEcommerceModule)},
                     {path: 'blog', loadChildren: () => import('./components/apps/blog/blog.module').then(m => m.BlogModule)},
                     {path: 'ecommerce-admin', loadChildren: () => import('./components/ecommerce-admin/app.ecommerce-admin.module').then(m => m.AppEcommerceAdminModule)},
-                    {path: 'apps', loadChildren: () => import('./components/apps/apps.module').then(m => m.AppsModule)},
-
-
+                    {path: 'apps', loadChildren: () => import('./components/apps/apps.module').then(m => m.AppsModule)}
                 ]
             },
             {path: 'error', loadChildren: () => import('./components/pages/error/app.error.module').then(m => m.AppErrorModule)},

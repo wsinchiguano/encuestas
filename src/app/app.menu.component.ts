@@ -374,7 +374,18 @@ export class AppMenuComponent implements OnInit {
                                 routerLink: ['apps/mail/detail/1000']
                             },
                         ]
-                    }
+                    },
+                    {
+                        label: 'Kanban',
+                        icon:'pi pi-envelope',
+                        items: [
+                            {
+                                label: 'Board',
+                                icon: 'pi pi-fw pi-th-large',
+                                routerLink: ['apps/kanban']
+                            },
+                        ]
+                    },
 
                 ]
             },

@@ -3,8 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 @Component({
     selector: 'mail-sidebar',
-    templateUrl: './mail-sidebar.component.html',
-    styleUrls: ['./mail-sidebar.component.scss']
+    templateUrl: './mail-sidebar.component.html'
 })
 export class MailSidebarComponent implements OnInit {
     

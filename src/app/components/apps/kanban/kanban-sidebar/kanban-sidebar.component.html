@@ -1,1 +1,105 @@
-<p>kanban-sidebar works!</p>
+<p-sidebar #sidebar [(visible)]="parent.sidebar.visible" position="right" [baseZIndex]="10000" styleClass="w-8 md:w-6 lg:w-4" [showCloseIcon]="false">
+    <div class="grid flex-column gap-2 h-full">
+        <div class="col-12 p-4 border-bottom-1 surface-border flex align-items-center justify-content-between">
+            <p-inplace closable="closable">
+                <ng-template pTemplate="display">
+                    <span class="block text-900 font-semibold text-lg">{{card.title}}</span>
+                </ng-template>
+                <ng-template pTemplate="content">
+                    <input type="text" [value]="card.title" pInputText class="w-20rem">
+                </ng-template>
+            </p-inplace>
+
+            <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-secondary" (click)="close()"></button>
+        </div>
+
+        <div class="col-12 field">
+            <label for="start" class="block text-900 font-semibold">Description</label>
+            <textarea id="description" type="text" pInputTextarea [rows]="5" [(ngModel)]="card.description" style="resize: none" class="w-full"></textarea>
+        </div>
+        <div class="col-12 p-4 flex gap-5">
+            <div class="flex flex-column field">
+                <label for="start" class="block text-900 font-semibold">Start Date</label>
+                <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                    <i class="pi pi-clock z-1" style="left: 1.5rem;"></i>
+                    <p-calendar [appendTo]="sidebar" dateFormat="mm-dd-yy" [showTime]="true" [required]="true" inputId="start" inputStyleClass="w-full pl-7 text-900 font-semibold" [inputStyle]="{'height':'3.5rem'}" [(ngModel)]="card.startDate"></p-calendar>
+                </span>
+            </div>
+            <div class="flex flex-column field">
+                <label for="due" class="block text-900 font-semibold">Due Date</label>
+                <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                    <i class="pi pi-clock z-1" style="left: 1.5rem;"></i>
+                    <p-calendar [appendTo]="sidebar" dateFormat="mm-dd-yy"  [showTime]="true" [required]="true" inputId="due" inputStyleClass="w-full pl-7 text-900 font-semibold" [inputStyle]="{'height':'3.5rem'}" [(ngModel)]="card.dueDate"></p-calendar>
+                </span>
+            </div>
+            <div class="flex flex-column field">
+                <label for="start" class="block text-900 font-semibold">Priority</label>
+                <p-dropdown [appendTo]="sidebar" [showClear]="false" [style]="{'height': '3.5rem'}" [options]="priorities" [(ngModel)]="card.priority" optionLabel="name">
+                    <ng-template pTemplate="selectedItem">
+                        <div *ngIf="card.priority.name" class="flex align-items-center" style="padding: 0.5rem;">
+                           <div class="w-1rem h-1rem mr-2" style="border-radius: 50px;" [style.backgroundColor]="card.priority.color"></div>
+                            <div>{{card.priority.name}}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-priority pTemplate="item">
+                        <div class="flex align-items-center">
+                            <div class="w-1rem h-1rem mr-2" style="border-radius: 50px;" [style.backgroundColor]="priority.color"></div>
+                            <div>{{priority.name}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+        </div>
+
+        <div class="col-12 flex flex-column field">
+            <div class="flex justify-content-between mb-3">
+                <span class="text-900 font-semibold">Progress</span>
+                <span class="text-900 font-semibold">80%</span>
+            </div>
+            <p-progressBar [value]="80" [showValue]="false"></p-progressBar>
+        </div>
+        <div class="col-12 flex flex-column field">
+            <label for="assignees" class="block text-900 font-semibold mb-3">Assignees</label>
+            <p-autoComplete [appendTo]="sidebar" [(ngModel)]="card.assignees" [suggestions]="filteredAssignees" (completeMethod)="filterAssignees($event)" field="name" [multiple]="true" [showEmptyMessage]="true" emptyMessage="No results found" placeholder="Choose assignees" [inputStyle]="{'height': '2.5rem'}">
+                <ng-template let-assignee pTemplate="selectedItem">
+                    <div class="flex align-items-center" style="border-radius: 6px;">
+                        <img src="assets/demo/images/avatar/{{assignee.image}}" [alt]="assignee.name" class="h-2rem w-2rem border-2 border-circle surface-border mr-2">
+                        <span class="text-900 font-semibold">{{assignee.name}}</span>
+                    </div>
+                </ng-template>
+                <ng-template let-assignee pTemplate="item">
+                    <div class="flex align-items-center" style="border-radius: 6px;">
+                        <img src="assets/demo/images/avatar/{{assignee.image}}" [alt]="assignee.name" class="h-2rem w-2rem border-2 border-circle surface-border mr-2">
+                        <span class="text-900 font-semibold">{{assignee.name}}</span>
+                    </div>
+                </ng-template>
+            </p-autoComplete>
+        </div>
+
+        <div class="col-12 flex flex-column gap-4">
+            <span class="block text-900 font-semibold">Comments</span>
+            <div class="flex align-items-center">
+                <p-avatar icon="pi pi-user" class="mr-3" shape="circle" size="large"></p-avatar>
+                <textarea type="text" pInputTextarea [(ngModel)]="comment" style="resize: none" class="w-full" placeholder="Write a comment..." (keydown.enter)="onComment($event)"></textarea>
+            </div>
+            <div *ngFor="let comment of card.comments" class="flex align-items-center" style="border-radius: 6px;">
+                <p-avatar *ngIf="comment.image" image="assets/demo/images/avatar/{{comment.image}}" class="mb-4" shape="circle" size="large"></p-avatar>
+                <p-avatar *ngIf="!comment.image" icon="pi pi-user" class="mb-4" shape="circle" size="large"></p-avatar>
+                <div class="ml-3 w-full">
+                    <div class="flex justify-content-between mb-2">
+                        <span class="block text-900 font-semibold">{{comment.name}}</span>
+                        <span class="block text-700 font-semibold">1 Jun 17:58 pm</span>
+                    </div>
+                    <span class="block text-900 font-semibold border-1 surface-ground surface-border p-2" style="border-radius: 6px; word-break: break-all;">{{comment.text}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex w-full justify-content-end border-top-1 surface-border pt-5 pr-5 mt-auto gap-3">
+            <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem" (click)="menu.toggle($event)"></button>
+            <button pButton pRipple type="button" icon="pi pi-paperclip" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem"></button>
+            <button pButton pRipple type="button" icon="pi pi-trash" label="Delete" class="p-button-secondary h-3rem"></button>
+            <p-menu #menu [model]="menuItems" [appendTo]="sidebar" [popup]="true"></p-menu>
+        </div>
+    </div>
+</p-sidebar>

@@ -1,0 +1,12 @@
+:host ::ng-deep {
+    
+    .p-button-label {
+        flex: 0;
+        white-space: nowrap;
+    }
+
+    .scrollable {
+        scroll-behavior: smooth;
+        max-height: 70vh;
+    }
+}

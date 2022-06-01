@@ -7,11 +7,11 @@ import { CalendarOptions } from '@fullcalendar/angular';
     selector: 'app-apps.calendar',
     templateUrl: './apps.calendar.component.html',
     styles: [`
-      :host ::ng-deep {
-        .p-dialog-header {
-          border-bottom: 1px solid var(--surface-border);
+        :host ::ng-deep {
+            .p-dialog-header {
+                border-bottom: 1px solid var(--surface-border);
+            }
         }
-      }
     `]
 })
 export class AppsCalendarComponent implements OnInit {
@@ -21,7 +21,7 @@ export class AppsCalendarComponent implements OnInit {
     today: string;
 
     calendarOptions: CalendarOptions = {
-      initialView: 'dayGridMonth'
+        initialView: 'dayGridMonth'
     };
 
     showDialog: boolean;

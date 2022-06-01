@@ -1,4 +1,4 @@
-<div class="surface-section px-4 py-8 md:px-6 lg:px-8 surface-border border-1" style="border-radius: 6px;">
+<div class="surface-section px-6 py-6 surface-border border-1" style="border-radius: 6px;">
     <span class="block text-900 font-bold text-xl mb-4">Create Product</span>
     <div class="grid grid-nogutter flex-wrap" style="column-gap: 1rem; row-gap: 1rem;">
         <div class="col-12 lg:col-8">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-1 surface-border" style="border-radius: 6px;">
                 <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Tags</span>
                 <div class="p-3 flex" style="gap: 0.5rem;">
@@ -72,7 +72,7 @@
 
             <div class="border-1 surface-border" style="border-radius: 6px;">
                 <span class="text-900 font-bold block border-bottom-1 surface-border p-3">Colors</span>
-                <div class="p-3 flex">                    
+                <div class="p-3 flex">
                     <div *ngFor="let color of colorOptions" class="w-2rem h-2rem mr-2 border-1 surface-border border-circle cursor-pointer flex justify-content-center align-items-center" [class]="color.background" (click)="onColorSelect(color.name)">
                         <i class="pi pi-check text-sm text-white" *ngIf="product.colors.indexOf(color.name) !== -1"></i>
                     </div>

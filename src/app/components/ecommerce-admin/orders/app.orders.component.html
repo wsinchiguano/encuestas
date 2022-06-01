@@ -1,4 +1,4 @@
-<div class="surface-section px-4 py-8 md:px-6 lg:px-8 border-1 surface-border" style="border-radius: 6px;">
+<div class="surface-section px-6 py-6 border-1 surface-border" style="border-radius: 6px;">
     <div class="grid">
         <div class="col-12">
             <p-table #dt [value]="products" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['name','code','total','paymentMethod']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" [(selection)]="selectedProducts" selectionMode="multiple" [rowHover]="true" dataKey="id">

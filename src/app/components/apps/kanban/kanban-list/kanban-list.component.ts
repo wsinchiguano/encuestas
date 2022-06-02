@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { KanbanCard } from 'src/app/api/kanban';
+import { KanbanCard, KanbanList } from 'src/app/api/kanban';
+import { KanbanService } from 'src/app/service/kanbanservice';
 import { AppsKanbanComponent } from '../apps.kanban.component';
 
 @Component({
@@ -10,49 +11,43 @@ import { AppsKanbanComponent } from '../apps.kanban.component';
 })
 export class KanbanListComponent implements OnInit {
 
-    @Input() title: string = 'backlog';
+    @Input() list: KanbanList;
 
     menuItems: MenuItem[];
 
-    cardContent: KanbanCard;
+    title: string;
 
-    constructor(public parent: AppsKanbanComponent) { }
+    constructor(public parent: AppsKanbanComponent, private kanbanService: KanbanService) { }
 
     ngOnInit(): void {
         this.menuItems = [
             {label:'List actions',  items: [
                 {separator: true},
-                {label:'Copy list'},
-                {label:'Copy list'},
-                {label:'Move list'},
+                {label:'Copy list',  command: () => this.onCopy(this.list)},
+                {label:'Remove list', command: () => this.onDelete(this.list.listId)},
             ]}
         ];
-
-        this.cardContent = {
-            title: 'Qualitative resarch planning',
-            description: 'Hey there, we’re just writing to let you know',
-            startDate:"2022-05-18",
-            dueDate:"2022-05-18",
-            completed: false,
-            progress: 0,
-            assignees: [
-              {name: 'Ioni Bowcher', image: 'ionibowcher.png'},
-              {name: 'Amy Elsner', image: 'amyelsner.png'},
-            ],
-            comments: [
-              {name: 'Ioni Bowcher', image: 'ionibowcher.png', message: 'How likely are you to recommend our company'},
-              {name: 'Amy Elsner', image: 'amyelsner.png', message: 'Ok thanks!'},
-            ],
-            priority: {color: '#3b82f6', title: 'Medium'},
-            attachments: 4
-        }
     };
 
 
     toggleSidebar() {
-        this.parent.sidebar = {
-            visible: true,
-            content: 0
-        }
+        this.parent.sidebarVisible = true;
+    }
+
+    onDelete(id) {
+        this.kanbanService.deleteList(id);
+    }
+
+    onCopy(list) {
+        this.kanbanService.copyList(list);
+    }
+
+    onCardClick(card) {
+        this.kanbanService.onCardSelect(card, this.list.listId);
+        this.parent.sidebarVisible = true;
+    }
+
+    insertCard() {
+        this.kanbanService.addCard(this.list.listId);
     }
 }

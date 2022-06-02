@@ -1,18 +1,34 @@
 :host ::ng-deep {
-    .p-inplace-content {
-        .p-inputtext {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+    .p-inplace {
+
+        .p-inplace-content {
+            padding-left: 0.5rem;
+            
+            .p-inputtext {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+
+            }
+    
+            .p-button {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                height: 3rem;
+                width: 3rem;
+            }
         }
 
-        .p-button {
-            border-top-left-radius: 0px;
-            border-bottom-left-radius: 0px;
+        .p-inplace-display {
+            padding: 0;
         }
     }
 
     .p-autocomplete {
         display: block;
+
+        .p-autocomplete-multiple-container {
+            gap: 0.5rem;
+        }
     }
 
     .p-progressbar {
@@ -24,8 +40,14 @@
     }
 
     .p-sidebar {
+
+        .p-sidebar-header {
+            display: none;
+        }
+
         .p-sidebar-content {
             height: 100vh;
+            padding: 0;
         }
     }
 }

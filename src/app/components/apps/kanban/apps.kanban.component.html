@@ -1,7 +1,7 @@
-<div class="grid grid-nogutter p-5 w-full flex-nowrap gap-5 overflow-y-hidden overflow-x-auto" style="height: 87vh">
-    <kanban-list title="backlog"></kanban-list>
-    <div class="px-3 mb-3 w-25rem">
-        <button pButton pRipple label="New List" icon="pi pi-plus font-semibold" class="py-3 justify-content-center font-semibold w-full" style="border-radius: 6px;" (click)="toggleSidebar()"></button>
+<div class="grid grid-nogutter p-5 w-full flex-nowrap gap-5 overflow-y-hidden overflow-x-auto" style="max-height: 83vh">
+    <kanban-list *ngFor="let list of lists" [list]="list"></kanban-list>
+    <div class="px-3 mb-3 w-25rem flex-shrink-0">
+        <button pButton pRipple label="New List" icon="pi pi-plus font-semibold" class="py-3 justify-content-center font-semibold w-full" style="border-radius: 6px;" (click)="addList()"></button>
     </div>
     <kanban-sidebar></kanban-sidebar>
 </div>

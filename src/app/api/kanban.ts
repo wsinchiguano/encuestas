@@ -1,4 +1,5 @@
 export interface KanbanCard {
+    id?: string;
     title?: string;
     description?: string;
     progress?: number;
@@ -12,12 +13,13 @@ export interface KanbanCard {
 }
 
 export interface KanbanList {
+    listId?: string;
     title?: string;
-    content?: KanbanCard[];
+    cards?: KanbanCard[];
 }
 
 export interface Comment {
-    id: number;
+    id: string;
     name: string;
     image?: string;
     text: string;

@@ -21,6 +21,9 @@ import { MenuModule } from 'primeng/menu';
 import { InplaceModule } from 'primeng/inplace';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { MemberService } from 'src/app/service/memberservice';
+import { KanbanService } from 'src/app/service/kanbanservice';
+import { TooltipModule } from 'primeng/tooltip';
+import { TieredMenuModule } from 'primeng/tieredmenu';
 
 @NgModule({
   imports: [
@@ -40,7 +43,9 @@ import { MemberService } from 'src/app/service/memberservice';
     SidebarModule,
     MenuModule,
     InplaceModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    TooltipModule,
+    TieredMenuModule
   ],
   declarations: [
     AppsKanbanComponent,
@@ -48,6 +53,6 @@ import { MemberService } from 'src/app/service/memberservice';
     KanbanSidebarComponent,
     KanbanCardComponent
   ],
-  providers: [MemberService]
+  providers: [MemberService, KanbanService]
 })
 export class AppsKanbanModule { }

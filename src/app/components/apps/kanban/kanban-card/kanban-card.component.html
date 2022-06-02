@@ -1,27 +1,24 @@
-<div class="flex flex-column w-full border-1 surface-border p-3 gap-5 hover:surface-ground cursor-pointer" style="border-radius: 6px;">
+<div id="card.id" class="flex flex-column w-full border-1 surface-border p-3 gap-5 hover:surface-ground cursor-pointer" style="border-radius: 6px;">
     <div class="flex justify-content-between align-items-center">
-        <span class="text-900 font-semibold">{{content.title}}</span>
+        <span class="text-900 font-semibold">{{card.title ? card.title : 'Untitled'}}</span>
         <div>
             <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-secondary" (click)="menu.toggle($event)"></button>
-            <p-menu #menu [model]="menuItems" [popup]="true"></p-menu>
+            <p-tieredMenu #menu [model]="menuItems" [popup]="true"></p-tieredMenu>
         </div>
     </div>
-    <div class="text-700 ">{{content.description}}</div>
-    <p-progressBar [value]="80" [showValue]="false"></p-progressBar>
+    <div *ngIf="card.description" class="text-700 ">{{card.description}}</div>
+    <p-progressBar [value]="card.progress" [showValue]="false"></p-progressBar>
     
     <div class="flex align-items-center justify-content-between">
         <div>
-            <p-avatarGroup label="P">
-                <p-avatar label="P" shape="circle"></p-avatar>
-                <p-avatar icon="pi pi-search" shape="circle"></p-avatar>
-                <p-avatar label="user.png" shape="circle"></p-avatar>
-                <p-avatar label="+2" shape="circle"></p-avatar>
+            <p-avatarGroup>
+                <p-avatar *ngFor="let assignee of card.assignees;"  image="assets/demo/images/avatar/{{assignee.image}}" shape="circle"></p-avatar>
             </p-avatarGroup>
         </div>
 
-        <div class="flex align-items-center gap-3">
-            <span class="text-900 font-semibold"><i class="pi pi-paperclip text-700 mr-2"></i>{{content.attachments}}</span>
-            <span class="text-900 font-semibold"><i class="pi pi-clock text-700 mr-2"></i>{{parseDate(content.dueDate)}}</span>
+        <div *ngIf="card.attachments || card.dueDate" class="flex align-items-center gap-3">
+            <span class="text-900 font-semibold"><i class="pi pi-paperclip text-700 mr-2"></i>{{card.attachments}}</span>
+            <span class="text-900 font-semibold"><i class="pi pi-clock text-700 mr-2"></i>{{parseDate(card.dueDate)}}</span>
         </div>
     </div>
 </div>

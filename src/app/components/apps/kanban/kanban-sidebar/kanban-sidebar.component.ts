@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { KanbanCard, Comment } from 'src/app/api/kanban';
 import { Member } from 'src/app/api/member';
 import { AppsKanbanComponent } from '../apps.kanban.component';
 import { MemberService } from 'src/app/service/memberservice';
-import { MenuItem } from 'primeng/api';
+import { KanbanService } from 'src/app/service/kanbanservice';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'kanban-sidebar',
     templateUrl: './kanban-sidebar.component.html',
     styleUrls: ['./kanban-sidebar.component.scss']
 })
-export class KanbanSidebarComponent implements OnInit {
-
-    visible = true;
+export class KanbanSidebarComponent implements OnInit, OnDestroy {
 
     card: KanbanCard;
+
+    listId: string;
 
     priorities: Object[];
 
@@ -26,37 +27,26 @@ export class KanbanSidebarComponent implements OnInit {
 
     comment: string = '';
 
-    menuItems: MenuItem[];
+    cardSubscription: Subscription;
+    
+    listSubscription: Subscription;
 
-    constructor(public parent: AppsKanbanComponent, private memberService: MemberService) { 
+    timeout = null;
+
+    @ViewChild('inputEl') inputEl: ElementRef;
+
+    constructor(public parent: AppsKanbanComponent, private memberService: MemberService, private kanbanService: KanbanService) { 
         this.memberService.getMembers().then(members => this.assignees = members);
+
+        this.cardSubscription = this.kanbanService.selectedCard$.subscribe(data => this.card = data);
+        this.listSubscription = this.kanbanService.selectedListId$.subscribe(data => this.listId = data);
     }
 
     ngOnInit(): void {
-
         this.newComment = {
-            id: 123,
+            id: "123",
             name: 'Jane Cooper',
             text: '',
-        };
-
-        this.card = {
-            title: 'Qualitative resarch planning',
-            description: 'Hey there, we’re just writing to let you know',
-            startDate: "2022-05-25T16:00:00",
-            dueDate: "2022-05-25T16:00:00",
-            completed: false,
-            progress: 0,
-            assignees: [
-                {id: 1000, name: 'Ioni Bowcher', image: 'ionibowcher.png'},
-                {id: 1001, name: 'Amy Elsner', image: 'amyelsner.png'},
-            ],
-            comments: [
-                {id: 1000, name: 'Ioni Bowcher', image: 'ionibowcher.png', text: 'How likely are you to recommend our company'},
-                {id: 1001, name: 'Amy Elsner', image: 'amyelsner.png', text: 'Ok thanks!'},
-            ],
-            priority: {color: '#3b82f6', name: 'Medium'},
-            attachments: 4
         };
 
         this.priorities = [
@@ -64,22 +54,16 @@ export class KanbanSidebarComponent implements OnInit {
             {color: "#FFC7E8", name: "Medium"},
             {color: "#D2D6FF", name: "Low"}
         ];
+    }
 
-        this.menuItems = [
-            {label:'Actions',  items: [
-                {separator: true},
-                {label:'Copy list'},
-                {label:'Copy list'},
-                {label:'Move list'},
-            ]}
-          ];
+    ngOnDestroy() {
+        this.cardSubscription.unsubscribe();
+        this.listSubscription.unsubscribe();
+        clearTimeout(this.timeout);
     }
 
     close(){
-        this.parent.sidebar = {
-            visible: false,
-            content: null
-        };
+        this.parent.sidebarVisible = false;
     }
 
     filterAssignees(event) {
@@ -99,8 +83,21 @@ export class KanbanSidebarComponent implements OnInit {
     onComment(event){
         event.preventDefault();
         this.newComment.text = this.comment;
-        this.card.comments.push(this.newComment);
+        this.card.comments.unshift(this.newComment);
         this.comment = null;
+    }
+
+    onSave() {
+        this.parent.sidebarVisible = false;
+    }
+
+    onDelete() {
+        this.kanbanService.deleteCard(this.card.id, this.listId);
+        this.parent.sidebarVisible = false;
+    }
+
+    focus() {
+        this.timeout = setTimeout(() => this.inputEl.nativeElement.focus(), 1);
     }
 
 }

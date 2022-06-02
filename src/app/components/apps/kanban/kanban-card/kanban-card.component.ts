@@ -1,29 +1,31 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { KanbanCard } from 'src/app/api/kanban';
+import { KanbanService } from 'src/app/service/kanbanservice';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'kanban-card',
     templateUrl: './kanban-card.component.html',
     styleUrls: ['./kanban-card.component.scss']
 })
-export class KanbanCardComponent implements OnInit {
+export class KanbanCardComponent implements OnInit, OnDestroy {
 
-    @Input() content: KanbanCard;
+    @Input() card: KanbanCard;
+
+    @Input() listId: string;
 
     menuItems: MenuItem[];
 
-    constructor() { }
+    subscription: Subscription;
+
+    constructor(private kanbanService: KanbanService) { }
 
     ngOnInit(): void {
-        this.menuItems = [
-          {label:'List actions',  items: [
-              {separator: true},
-              {label:'Copy list'},
-              {label:'Copy list'},
-              {label:'Move list'},
-          ]}
-        ];
+        this.subscription = this.kanbanService.lists$.subscribe(data => {
+            let subMenu = data.map(d => ({id: d.listId, label: d.title, command: () => this.onMove(d.listId)}));
+            this.generateMenu(subMenu);
+        })
     }
 
 
@@ -31,4 +33,32 @@ export class KanbanCardComponent implements OnInit {
         return new Date(timestamp).toDateString().split(' ').slice(1,3).join(' ');
     }
 
+    onDelete() {
+        this.kanbanService.deleteCard(this.card.id, this.listId);
+    }
+
+    onCopy() {
+        this.kanbanService.copyCard(this.card, this.listId);
+    }
+
+    onMove(listId) {
+        this.kanbanService.moveCard(this.card, listId, this.listId);
+    }
+
+    generateMenu(subMenu) {
+        this.menuItems = [
+            {
+                label:'Card actions',  
+                items: [
+                    {label:'Copy card', command: () => this.onCopy()},
+                    {label:'Move to another list', items: subMenu },
+                    {label:'Delete card', command: () => this.onDelete()}
+                ]
+            }
+        ];
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
 }

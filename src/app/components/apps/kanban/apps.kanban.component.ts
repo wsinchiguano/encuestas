@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { KanbanList } from 'src/app/api/kanban';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
+import { KanbanService } from 'src/app/service/kanbanservice';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-apps.kanban',
@@ -7,24 +10,31 @@ import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 })
 export class AppsKanbanComponent implements OnInit {
 
-    sidebar = {
-        visible: false,
-        content: null,
-    };
+    sidebarVisible: boolean;
 
-    constructor(private breadcrumbService: BreadcrumbService) { 
+    lists: KanbanList[];
+
+    subscription = new Subscription();
+
+    constructor(private breadcrumbService: BreadcrumbService, private kanbanService: KanbanService) { 
         this.breadcrumbService.setItems([
             {label: 'Kanban'}
         ]);
+
+        this.subscription = this.kanbanService.lists$.subscribe(data => {this.lists = data; console.log(data)});
     }
 
     ngOnInit(): void {
+
+        console.log(this.lists);
+
     }
 
     toggleSidebar() {
-        this.sidebar = {
-            visible: true,
-            content: 1
-        }
+        this.sidebarVisible = true;
+    }
+
+    addList() {
+        this.kanbanService.addList();
     }
 }

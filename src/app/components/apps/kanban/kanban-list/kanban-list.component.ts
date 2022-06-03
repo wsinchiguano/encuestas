@@ -1,23 +1,29 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { KanbanCard, KanbanList } from 'src/app/api/kanban';
+import { KanbanList } from 'src/app/api/kanban';
 import { KanbanService } from 'src/app/service/kanbanservice';
 import { AppsKanbanComponent } from '../apps.kanban.component';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'kanban-list',
     templateUrl: './kanban-list.component.html',
-    styleUrls: ['./kanban-list.component.scss']
+    styleUrls: ['./kanban-list.component.scss'],
+    host: {
+        'class' : 'p-kanban-list'
+    }
 })
 export class KanbanListComponent implements OnInit {
 
     @Input() list: KanbanList;
 
+    @Input() listIds: string[];
+
     menuItems: MenuItem[];
 
     title: string;
 
-    constructor(public parent: AppsKanbanComponent, private kanbanService: KanbanService) { }
+    constructor(public parent: AppsKanbanComponent, private kanbanService: KanbanService) {}
 
     ngOnInit(): void {
         this.menuItems = [
@@ -28,7 +34,6 @@ export class KanbanListComponent implements OnInit {
             ]}
         ];
     };
-
 
     toggleSidebar() {
         this.parent.sidebarVisible = true;
@@ -49,5 +54,13 @@ export class KanbanListComponent implements OnInit {
 
     insertCard() {
         this.kanbanService.addCard(this.list.listId);
+    }
+
+    dropCard(event: CdkDragDrop<string[]>): void {
+        if (event.previousContainer === event.container) {
+          moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        } else {
+            transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+        }
     }
 }

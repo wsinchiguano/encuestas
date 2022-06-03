@@ -19,15 +19,14 @@ export class KanbanCardComponent implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
-    constructor(private kanbanService: KanbanService) { }
-
-    ngOnInit(): void {
+    constructor(private kanbanService: KanbanService) { 
         this.subscription = this.kanbanService.lists$.subscribe(data => {
             let subMenu = data.map(d => ({id: d.listId, label: d.title, command: () => this.onMove(d.listId)}));
             this.generateMenu(subMenu);
         })
     }
 
+    ngOnInit(): void {}
 
     parseDate(timestamp) {
         return new Date(timestamp).toDateString().split(' ').slice(1,3).join(' ');

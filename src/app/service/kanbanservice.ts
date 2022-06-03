@@ -39,7 +39,7 @@ export class KanbanService {
         const listId = this.generateId();
         const title = "Untitled List";
         const newList = {
-            id: listId,
+            listId: listId,
             title: title,
             cards:[]
         };

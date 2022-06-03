@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppsKanbanRoutingModule } from './apps.kanban-routing.module';
 import { AppsKanbanComponent } from './apps.kanban.component';
 import { KanbanListComponent } from './kanban-list/kanban-list.component';
@@ -29,6 +30,7 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
   imports: [
     CommonModule,
     FormsModule,
+    DragDropModule,
     AppsKanbanRoutingModule,
     ButtonModule,
     RippleModule,

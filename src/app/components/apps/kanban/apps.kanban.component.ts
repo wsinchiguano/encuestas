@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { KanbanList } from 'src/app/api/kanban';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { KanbanService } from 'src/app/service/kanbanservice';
 import { Subscription } from 'rxjs';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-apps.kanban',
     templateUrl: './apps.kanban.component.html',
+    styleUrls: ['./apps.kanban.component.scss']
 })
-export class AppsKanbanComponent implements OnInit {
+export class AppsKanbanComponent implements OnInit, OnDestroy {
 
     sidebarVisible: boolean;
 
     lists: KanbanList[];
+
+    listIds: string[];
 
     subscription = new Subscription();
 
@@ -21,14 +25,13 @@ export class AppsKanbanComponent implements OnInit {
             {label: 'Kanban'}
         ]);
 
-        this.subscription = this.kanbanService.lists$.subscribe(data => {this.lists = data; console.log(data)});
+        this.subscription = this.kanbanService.lists$.subscribe(data => {
+            this.lists = data
+            this.listIds = data.map(l => l.listId);
+        });
     }
 
-    ngOnInit(): void {
-
-        console.log(this.lists);
-
-    }
+    ngOnInit(): void {}
 
     toggleSidebar() {
         this.sidebarVisible = true;
@@ -36,5 +39,13 @@ export class AppsKanbanComponent implements OnInit {
 
     addList() {
         this.kanbanService.addList();
+    }
+
+    dropList(event: CdkDragDrop<KanbanList[]>){
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 }

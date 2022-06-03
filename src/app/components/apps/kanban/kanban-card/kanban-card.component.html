@@ -1,9 +1,9 @@
-<div id="card.id" class="flex surface-card flex-column w-full border-1 surface-border p-3 gap-5 hover:surface-ground cursor-pointer" style="border-radius: 6px;">
+<div [id]="card.id" class="flex surface-card flex-column w-full border-1 surface-border p-3 gap-5 hover:surface-ground cursor-pointer" style="border-radius: 6px;">
     <div class="flex justify-content-between align-items-center">
         <span class="text-900 font-semibold">{{card.title ? card.title : 'Untitled'}}</span>
         <div>
             <button pButton pRipple type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-secondary" (click)="$event.stopPropagation(); menu.toggle($event)"></button>
-            <p-tieredMenu #menu [model]="menuItems" [appendTo]="card" [popup]="true"></p-tieredMenu>
+            <p-tieredMenu #menu [model]="menuItems" [popup]="true"></p-tieredMenu>
         </div>
     </div>
     <div *ngIf="card.description" class="text-700 ">{{card.description}}</div>
@@ -17,8 +17,8 @@
         </div>
 
         <div *ngIf="card.attachments || card.dueDate" class="flex align-items-center gap-3">
-            <span class="text-900 font-semibold"><i class="pi pi-paperclip text-700 mr-2"></i>{{card.attachments}}</span>
-            <span class="text-900 font-semibold"><i class="pi pi-clock text-700 mr-2"></i>{{parseDate(card.dueDate)}}</span>
+            <span class="text-900 font-semibold" *ngIf="card.attachments"><i class="pi pi-paperclip text-700 mr-2"></i>{{card.attachments}}</span>
+            <span class="text-900 font-semibold" *ngIf="card.dueDate"><i class="pi pi-clock text-700 mr-2"></i>{{parseDate(card.dueDate)}}</span>
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { KanbanCard, KanbanList } from '../api/kanban';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { KanbanCard, KanbanList, ListName } from '../api/kanban';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -15,11 +15,15 @@ export class KanbanService {
 
     private lists = new BehaviorSubject<KanbanList[]>(this._lists);
 
+    private listNames = new Subject<any[]>();
+
     lists$ = this.lists.asObservable();
 
     selectedCard$ = this.selectedCard.asObservable();
 
     selectedListId$ = this.selectedListId.asObservable();
+    
+    listNames$ = this.listNames.asObservable();
 
     constructor(private http: HttpClient) {
         this.http.get<any>('assets/demo/data/kanban.json')
@@ -32,6 +36,9 @@ export class KanbanService {
 
     private updateLists(data) {
         this._lists = data;
+        let small = data.map(l => ({listId: l.listId, title: l.title}));
+        
+        this.listNames.next(small)
         this.lists.next(data);
     }
 

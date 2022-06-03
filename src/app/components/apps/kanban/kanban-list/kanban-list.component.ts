@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { KanbanList } from 'src/app/api/kanban';
 import { KanbanService } from 'src/app/service/kanbanservice';
@@ -22,6 +22,12 @@ export class KanbanListComponent implements OnInit {
     menuItems: MenuItem[];
 
     title: string;
+
+    timeout = null;
+
+    @ViewChild('inputEl') inputEl: ElementRef;
+
+    @ViewChild('listEl') listEl: ElementRef;
 
     constructor(public parent: AppsKanbanComponent, private kanbanService: KanbanService) {}
 
@@ -62,5 +68,9 @@ export class KanbanListComponent implements OnInit {
         } else {
             transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
         }
+    }
+
+    focus() {
+        this.timeout = setTimeout(() => this.inputEl.nativeElement.focus(), 1);
     }
 }

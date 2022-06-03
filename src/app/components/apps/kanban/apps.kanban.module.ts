@@ -25,6 +25,7 @@ import { MemberService } from 'src/app/service/memberservice';
 import { KanbanService } from 'src/app/service/kanbanservice';
 import { TooltipModule } from 'primeng/tooltip';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
     InplaceModule,
     AutoCompleteModule,
     TooltipModule,
-    TieredMenuModule
+    TieredMenuModule,
+    OverlayPanelModule
   ],
   declarations: [
     AppsKanbanComponent,

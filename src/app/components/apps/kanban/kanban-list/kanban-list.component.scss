@@ -11,15 +11,27 @@
 }
 
 :host ::ng-deep {
-    .p-inplace-content {
-        .p-inputtext {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+    .p-inplace {
+
+        .p-inplace-content {
+            padding-left: 0.5rem;
+            
+            .p-inputtext {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+
+            }
+    
+            .p-button {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                width: 3rem;
+                height: 3rem;
+            }
         }
 
-        .p-button {
-            border-top-left-radius: 0px;
-            border-bottom-left-radius: 0px;
+        .p-inplace-display {
+            padding: 0;
         }
     }
 }

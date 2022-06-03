@@ -24,3 +24,8 @@ export interface Comment {
     image?: string;
     text: string;
 }
+
+export interface ListName {
+    listId?: string;
+    title: string;
+}

@@ -1,15 +1,25 @@
 <p-sidebar *ngIf="card" #sidebar [(visible)]="parent.sidebarVisible" position="right" [baseZIndex]="10000" styleClass="w-8 md:w-6 lg:w-4" [showCloseIcon]="false">
-    <div class="px-4 py-6 border-bottom-1 surface-border flex align-items-center justify-content-between h-4rem">
+    <div  class="px-4 py-6 border-bottom-1 surface-border flex align-items-center justify-content-between h-4rem">
         <p-inplace #inplace closable="closable" closeIcon="pi pi-check" styleClass="h-3rem" (onActivate)="focus()">
             <ng-template pTemplate="display">
-                <span class="block text-900 font-semibold text-lg mt-4 pl-2">{{card.title ? card.title : 'Untitled'}}</span>
+                <span class="block text-900 font-semibold text-lg mt-4 pl-2" pTooltip="Click to edit">{{card.title ? card.title : 'Untitled'}}</span>
             </ng-template>
             <ng-template pTemplate="content">
                 <input #inputEl type="text" [(ngModel)]="card.title" pInputText class="w-20rem h-3rem text-900 text-lg" (keydown.enter)="inplace.deactivate()">
             </ng-template>
         </p-inplace>
-
-        <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-secondary" (click)="close()"></button>
+        <div class="relative">
+            <button pButton pRipple type="button" icon="pi pi-cog" class="p-button-rounded p-button-text p-button-secondary" (click)="op.toggle($event)"></button>
+            <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-text p-button-secondary" (click)="close()" pTooltip="Card actions" tooltipPosition="left"></button>
+            <p-overlayPanel #op>
+                <ng-template pTemplate>
+                    <div class="flex flex-column gap-2 w-15rem">
+                        <span class="text-900 font-semibold block w-full border-bottom-1 surface-border pb-3 mb-2">Move to...</span>
+                        <span class="text-700 block font-semibold p-2 cursor-pointer hover:surface-ground" *ngFor="let list of listNames" (click)="onMove(list.listId)" style="border-radius:6px;">{{list.title}}</span>
+                    </div>
+                </ng-template>
+            </p-overlayPanel>
+        </div>
     </div>
     <div class="grid grid-nogutter gap-5 pt-5 flex-wrap" style="height:82vh; overflow-y: auto;">
         <div class="col-12 field px-5">

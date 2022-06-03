@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { KanbanCard, Comment } from 'src/app/api/kanban';
+import { KanbanCard, Comment, ListName } from 'src/app/api/kanban';
 import { Member } from 'src/app/api/member';
 import { AppsKanbanComponent } from '../apps.kanban.component';
 import { MemberService } from 'src/app/service/memberservice';
 import { KanbanService } from 'src/app/service/kanbanservice';
 import { Subscription } from 'rxjs';
+import { MenuItem } from 'primeng/api';
 
 @Component({
     selector: 'kanban-sidebar',
@@ -17,8 +18,6 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
 
     listId: string;
 
-    priorities: Object[];
-
     filteredAssignees: Member[];
 
     assignees: Member[];
@@ -27,11 +26,17 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
 
     comment: string = '';
 
+    timeout = null;
+
+    menuItems: MenuItem[];
+
+    listNames: ListName[];
+
     cardSubscription: Subscription;
     
     listSubscription: Subscription;
 
-    timeout = null;
+    listNameSubscription: Subscription;
 
     @ViewChild('inputEl') inputEl: ElementRef;
 
@@ -40,6 +45,7 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
 
         this.cardSubscription = this.kanbanService.selectedCard$.subscribe(data => this.card = data);
         this.listSubscription = this.kanbanService.selectedListId$.subscribe(data => this.listId = data);
+        this.listNameSubscription = this.kanbanService.listNames$.subscribe(data => this.listNames = data);
     }
 
     ngOnInit(): void {
@@ -48,17 +54,12 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
             name: 'Jane Cooper',
             text: '',
         };
-
-        this.priorities = [
-            {color: "#FFB6B6", name: "High"},
-            {color: "#FFC7E8", name: "Medium"},
-            {color: "#D2D6FF", name: "Low"}
-        ];
     }
 
     ngOnDestroy() {
         this.cardSubscription.unsubscribe();
         this.listSubscription.unsubscribe();
+        this.listNameSubscription.unsubscribe();
         clearTimeout(this.timeout);
     }
 
@@ -89,6 +90,10 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
 
     onSave() {
         this.parent.sidebarVisible = false;
+    }
+
+    onMove(listId) {
+        this.kanbanService.moveCard(this.card, listId, this.listId);
     }
 
     onDelete() {

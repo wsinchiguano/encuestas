@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChildren, QueryList } from '@angular/core';
 import { KanbanList } from 'src/app/api/kanban';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { KanbanService } from 'src/app/service/kanbanservice';
 import { Subscription } from 'rxjs';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { KanbanListComponent } from './kanban-list/kanban-list.component';
 
 @Component({
     selector: 'app-apps.kanban',
@@ -19,6 +20,10 @@ export class AppsKanbanComponent implements OnInit, OnDestroy {
     listIds: string[];
 
     subscription = new Subscription();
+
+    listElements;
+
+    @ViewChildren('listEl') listEl: QueryList<KanbanListComponent>;
 
     constructor(private breadcrumbService: BreadcrumbService, private kanbanService: KanbanService) { 
         this.breadcrumbService.setItems([
@@ -47,5 +52,21 @@ export class AppsKanbanComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
+    }
+
+    onDragStart() {
+        this.listElements = this.listEl.toArray();
+
+        for(let i = 0; i < this.listElements.length; i++) {
+            let el = this.listElements[i];
+            el.listEl.nativeElement.style.minHeight = "10rem";
+        }
+    }
+
+    onDragEnd() {        
+        for(let i = 0; i < this.listElements.length; i++) {
+            let el = this.listElements[i];
+            el.listEl.nativeElement.style.minHeight = "";
+        }
     }
 }

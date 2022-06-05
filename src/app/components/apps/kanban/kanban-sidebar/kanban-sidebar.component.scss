@@ -1,13 +1,9 @@
 :host ::ng-deep {
     .p-inplace {
-
         .p-inplace-content {
-            padding-left: 0.5rem;
-            
             .p-inputtext {
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
-
             }
     
             .p-button {
@@ -28,6 +24,11 @@
 
         .p-autocomplete-multiple-container {
             gap: 0.5rem;
+
+            .p-autocomplete-token {
+                background: var(--surface-ground);
+                border: 1px solid var(--surface-border);
+            }
         }
     }
 
@@ -40,7 +41,6 @@
     }
 
     .p-sidebar {
-
         .p-sidebar-header {
             display: none;
         }

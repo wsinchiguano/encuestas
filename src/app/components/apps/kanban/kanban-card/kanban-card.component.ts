@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './kanban-card.component.html',
     styleUrls: ['./kanban-card.component.scss']
 })
-export class KanbanCardComponent implements OnInit, OnDestroy {
+export class KanbanCardComponent implements OnDestroy{
 
     @Input() card: KanbanCard;
 
@@ -25,8 +25,6 @@ export class KanbanCardComponent implements OnInit, OnDestroy {
             this.generateMenu(subMenu);
         })
     }
-
-    ngOnInit(): void {}
 
     parseDate(timestamp) {
         return new Date(timestamp).toDateString().split(' ').slice(1,3).join(' ');
@@ -55,6 +53,12 @@ export class KanbanCardComponent implements OnInit, OnDestroy {
                 ]
             }
         ];
+    }
+
+    generateTaskInfo() {
+        let total = this.card.taskList.tasks.length;
+        let completed = this.card.taskList.tasks.filter(t => t.completed).length;
+        return `${completed} / ${total}`;
     }
 
     ngOnDestroy() {

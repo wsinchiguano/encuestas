@@ -16,12 +16,17 @@
                         {"name": "Ioni Bowcher", "image": "ionibowcher.png"},
                         {"name": "Amy Elsner", "image": "amyelsner.png"}
                     ],
-                    "comments   ": [
+                    "comments": [
                         {"name": "Ioni Bowcher", "image": "ionibowcher.png", "text": "How likely are you to recommend our company"},
                         {"name": "Amy Elsner", "image": "amyelsner.png", "text": "Ok thanks!"}
                     ],
                     "priority": {"color": "#3b82f6", "title": "Medium"},
-                    "attachments": 4
+                    "attachments": 4,
+                    "taskList" : {
+                        "id" : "1234",
+                        "title": "Tasklist",
+                        "tasks" : []
+                    }
                 },
                 {
                     "id": "12",
@@ -40,7 +45,12 @@
                         {"name": "Xuxue Feng", "image": "xuxuefeng.png", "text": "Ut enim ad minim veniam"}
                     ],
                     "priority": {"color": "#3b82f6", "title": "Medium"},
-                    "attachments": 3
+                    "attachments": 3,
+                    "taskList" : {
+                        "id" : "12345",
+                        "title": "Tasklist",
+                        "tasks" : []
+                    }
                 },
                 {
                     "id": "13",
@@ -59,7 +69,12 @@
                         {"name": "Xuxue Feng", "image": "xuxuefeng.png", "text": "Ut enim ad minim veniam"}
                     ],
                     "priority": {"color": "#3b82f6", "title": "Medium"},
-                    "attachments": 12
+                    "attachments": 12,
+                    "taskList" : {
+                        "id" : "1245",
+                        "title": "Tasklist",
+                        "tasks" : []
+                    }
                 },
                 {
                     "id": "14",
@@ -77,7 +92,12 @@
                         {"name": "Ivan Magalhaes", "image": "ivanmagalhaes.png", "text": "Sed do eiusmod tempor"}
                     ],
                     "priority": {"color": "#3b82f6", "title": "Medium"},
-                    "attachments": 2
+                    "attachments": 2,
+                    "taskList" : {
+                        "id" : "1345",
+                        "title": "Tasklist",
+                        "tasks" : []
+                    }
                 }
             ]
         },
@@ -92,7 +112,7 @@
                     "startDate":"2022-05-18",
                     "dueDate":"2022-05-22",
                     "completed": false,
-                    "progress": 14,
+                    "progress": 50,
                     "assignees": [
                         {"name": "Ioni Bowcher", "image": "ionibowcher.png"}
                     ],
@@ -101,7 +121,29 @@
                         {"name": "Amy Elsner", "image": "amyelsner.png", "text": "Quis nostrud exercitation ullamco laboris"}
                     ],
                     "priority": {"color": "#3b82f6", "title": "Medium"},
-                    "attachments": 8
+                    "attachments": 8,
+                    "taskList" : {
+                        "id" : "123",
+                        "title": "Tasklist",
+                        "tasks" : [
+                            {
+                                "text": "Lorem ipsum dolor sit amet",
+                                "completed": false
+                            },
+                            {
+                                "text": "Consectetur adipiscing elit",
+                                "completed": true
+                            },
+                            {
+                                "text": "Lorem ipsum dolor sit amet",
+                                "completed": false
+                            },
+                            {
+                                "text": "Consectetur adipiscing elit",
+                                "completed": true
+                            }
+                        ]
+                    }
                 },
                 {
                     "id": "22",
@@ -110,7 +152,7 @@
                     "startDate":"2022-05-20",
                     "dueDate":"2022-05-26",
                     "completed": false,
-                    "progress": 72,
+                    "progress": 25,
                     "assignees": [
                         {"name": "Onyama Limba", "image": "onyamalimba.png"},
                         {"name": "Ivan Magalhaes", "image": "ivanmagalhaes.png"},
@@ -123,8 +165,31 @@
                         {"name": "Amy Elsner", "image": "amyelsner.png", "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"}
                     ],
                     "priority": {"color": "#3b82f6", "title": "Medium"},
-                    "attachments": 12
+                    "attachments": 12,
+                    "taskList" : {
+                        "id" : "2341",
+                        "title": "Tasklist",
+                        "tasks" : [
+                            {
+                                "text": "Lorem ipsum dolor sit amet",
+                                "completed": false
+                            },
+                            {
+                                "text": "Consectetur adipiscing elit",
+                                "completed": true
+                            },
+                            {
+                                "text": "Lorem ipsum dolor sit amet",
+                                "completed": false
+                            },
+                            {
+                                "text": "Consectetur adipiscing elit",
+                                "completed": false
+                            }
+                        ]
+                    }
                 }
+                
             ]
         }
     ]

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnDestroy, ViewChildren, QueryList } from '@angular/core';
 import { KanbanList } from 'src/app/api/kanban';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { KanbanService } from 'src/app/service/kanbanservice';
@@ -11,7 +11,7 @@ import { KanbanListComponent } from './kanban-list/kanban-list.component';
     templateUrl: './apps.kanban.component.html',
     styleUrls: ['./apps.kanban.component.scss']
 })
-export class AppsKanbanComponent implements OnInit, OnDestroy {
+export class AppsKanbanComponent implements OnDestroy {
 
     sidebarVisible: boolean;
 
@@ -36,8 +36,6 @@ export class AppsKanbanComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnInit(): void {}
-
     toggleSidebar() {
         this.sidebarVisible = true;
     }
@@ -48,10 +46,6 @@ export class AppsKanbanComponent implements OnInit, OnDestroy {
 
     dropList(event: CdkDragDrop<KanbanList[]>){
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    }
-
-    ngOnDestroy(): void {
-        this.subscription.unsubscribe();
     }
 
     onDragStart() {
@@ -68,5 +62,9 @@ export class AppsKanbanComponent implements OnInit, OnDestroy {
             let el = this.listElements[i];
             el.listEl.nativeElement.style.minHeight = "";
         }
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 }

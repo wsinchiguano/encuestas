@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { KanbanCard, Comment, ListName } from 'src/app/api/kanban';
+import { KanbanCard, Comment, ListName, Task } from 'src/app/api/kanban';
 import { Member } from 'src/app/api/member';
 import { AppsKanbanComponent } from '../apps.kanban.component';
 import { MemberService } from 'src/app/service/memberservice';
@@ -24,9 +24,15 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
 
     newComment: Comment;
 
+    newTask: Task;
+
     comment: string = '';
 
+    taskContent: string = '';
+
     timeout = null;
+
+    showTaskContainer: boolean;
 
     menuItems: MenuItem[];
 
@@ -39,6 +45,8 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
     listNameSubscription: Subscription;
 
     @ViewChild('inputEl') inputEl: ElementRef;
+
+    @ViewChild('inputEl2') inputEl2: ElementRef;
 
     constructor(public parent: AppsKanbanComponent, private memberService: MemberService, private kanbanService: KanbanService) { 
         this.memberService.getMembers().then(members => this.assignees = members);
@@ -54,6 +62,11 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
             name: 'Jane Cooper',
             text: '',
         };
+
+        this.newTask = {
+            text: '',
+            completed: false
+        }
     }
 
     ngOnDestroy() {
@@ -101,8 +114,39 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
         this.parent.sidebarVisible = false;
     }
 
-    focus() {
-        this.timeout = setTimeout(() => this.inputEl.nativeElement.focus(), 1);
+    addTaskList() {
+        this.showTaskContainer = !this.showTaskContainer;
+
+        if(!this.showTaskContainer) {
+            return;
+        } 
+        else if (!this.card.taskList) {
+            let id = this.kanbanService.generateId();
+            this.card = {...this.card, taskList: {id: id, tasks:[]}};
+        }
+    }
+
+    addTask(event) {
+        event.preventDefault();
+        this.newTask = { text: this.taskContent, completed: false };
+        this.card.taskList.tasks.unshift(this.newTask);
+        this.taskContent = null;
+
+        this.calculateProgress();
+    }
+
+    focus(arg) {
+        if (arg == 1) {
+            this.timeout = setTimeout(() => this.inputEl.nativeElement.focus(), 1);
+        } 
+        if (arg == 2) {
+            this.timeout = setTimeout(() => this.inputEl2.nativeElement.focus(), 1);
+        } 
+    }
+
+    calculateProgress(){
+        let completed = this.card.taskList.tasks.filter(t => t.completed).length;
+        this.card.progress = Math.round(100 * (completed / this.card.taskList.tasks.length));
     }
 
 }

@@ -10,6 +10,7 @@ export interface KanbanCard {
     dueDate?: string;
     completed?: boolean;
     priority?: Object;
+    taskList?: TaskList;
 }
 
 export interface KanbanList {
@@ -28,4 +29,15 @@ export interface Comment {
 export interface ListName {
     listId?: string;
     title: string;
+}
+
+export interface TaskList {
+    id?: string;
+    title?: string;
+    tasks: Task[];
+}
+
+export interface Task {
+    text: string;
+    completed: boolean;
 }

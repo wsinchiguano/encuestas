@@ -14,14 +14,14 @@ export class AppMenuComponent implements OnInit {
         this.model = [
             {
                 label: 'Favorites',
-                icon: 'pi pi-home',
+                icon: 'pi pi-fw pi-home',
                 items: [
                     {
                         label: 'Dashboard',
                         icon: 'pi pi-fw pi-home',
                         routerLink: ['/'],
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
@@ -110,8 +110,8 @@ export class AppMenuComponent implements OnInit {
                         label: 'Misc',
                         icon: 'pi pi-fw pi-circle-off',
                         routerLink: ['/uikit/misc'],
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
@@ -129,8 +129,8 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-globe',
                         url: ['https://www.primefaces.org/primeblocks-ng'],
                         target: '_blank',
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
@@ -148,8 +148,8 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-desktop',
                         url: ['https://www.primefaces.org/primeflex/'],
                         target: '_blank',
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
@@ -267,8 +267,8 @@ export class AppMenuComponent implements OnInit {
                         label: 'Lock Screen',
                         icon: 'pi pi-fw pi-eye-slash',
                         routerLink: ['/lockscreen'],
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
@@ -294,8 +294,8 @@ export class AppMenuComponent implements OnInit {
                         label: 'New Product',
                         icon: 'pi pi-fw pi-plus',
                         routerLink: ['ecommerce/newproduct'],
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
@@ -326,13 +326,13 @@ export class AppMenuComponent implements OnInit {
                         label: 'Edit Order',
                         icon: 'pi pi-fw pi-pencil',
                         routerLink: ['ecommerce-admin/editorder'],
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
                 label: 'Apps',
-                icon: 'pi-th-large',
+                icon: 'pi pi-fw pi-th-large',
                 items: [
                     {
                         label: 'File Managament',
@@ -342,7 +342,18 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Task List',
                         icon: 'pi pi-fw pi-check-square',
-                        routerLink: ['apps/tasklist']
+                        items: [
+                            {
+                                label: 'Overview',
+                                icon: 'pi pi-fw pi-list',
+                                routerLink: ['apps/tasklist']
+                            },
+                            {
+                                label: 'Create Task',
+                                icon: 'pi pi-fw pi-plus',
+                                routerLink: ['apps/tasklist/create-task']
+                            }
+                        ]
                     },
                     {
                         label: 'Chat',
@@ -356,7 +367,7 @@ export class AppMenuComponent implements OnInit {
                     },
                     {
                         label: 'Mail',
-                        icon:'pi pi-envelope',
+                        icon:'pi pi-fw pi-envelope',
                         items: [
                             {
                                 label: 'Inbox',
@@ -372,21 +383,20 @@ export class AppMenuComponent implements OnInit {
                                 label: 'Mail Detail',
                                 icon: 'pi pi-fw pi-comment',
                                 routerLink: ['apps/mail/detail/1000']
-                            },
+                            }
                         ]
                     },
                     {
                         label: 'Kanban',
-                        icon:'pi pi-envelope',
+                        icon:'pi pi-fw pi-th-large',
                         items: [
                             {
                                 label: 'Board',
-                                icon: 'pi pi-fw pi-th-large',
+                                icon: 'pi pi-fw pi-table',
                                 routerLink: ['apps/kanban']
-                            },
+                            }
                         ]
-                    },
-
+                    }
                 ]
             },
             { separator: true },
@@ -409,13 +419,13 @@ export class AppMenuComponent implements OnInit {
                         label: 'Create',
                         icon: 'pi pi-fw pi-plus',
                         routerLink: ['profile/create'],
-                    },
-                ],
+                    }
+                ]
             },
             { separator: true },
             {
                 label: 'Blog',
-                icon: 'pi pi-fw pi-user',
+                icon: 'pi pi-fw pi-comment',
                 items: [
                     {
                         label: 'Blog List',
@@ -423,7 +433,19 @@ export class AppMenuComponent implements OnInit {
                         routerLink: ['blog/list'],
 
                     },
-                ],
+                    {
+                        label: 'Blog Detail',
+                        icon: 'pi pi-fw pi-list',
+                        routerLink: ['blog/detail'],
+
+                    },
+                    {
+                        label: 'Blog Edit',
+                        icon: 'pi pi-fw pi-pencil',
+                        routerLink: ['blog/edit'],
+
+                    }
+                ]
             },
             { separator: true },
             {
@@ -462,7 +484,7 @@ export class AppMenuComponent implements OnInit {
                                     },
                                 ],
                             },
-                        ],
+                        ]
                     },
                     {
                         label: 'Submenu 2',
@@ -480,7 +502,7 @@ export class AppMenuComponent implements OnInit {
                                         label: 'Submenu 2.1.2',
                                         icon: 'pi pi-fw pi-align-left',
                                     },
-                                ],
+                                ]
                             },
                             {
                                 label: 'Submenu 2.2',
@@ -490,11 +512,11 @@ export class AppMenuComponent implements OnInit {
                                         label: 'Submenu 2.2.1',
                                         icon: 'pi pi-fw pi-align-left',
                                     },
-                                ],
-                            },
-                        ],
-                    },
-                ],
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             { separator: true },
             {
@@ -510,9 +532,9 @@ export class AppMenuComponent implements OnInit {
                         label: 'Documentation',
                         icon: 'pi pi-fw pi-info-circle',
                         routerLink: ['/documentation'],
-                    },
-                ],
-            },
+                    }
+                ]
+            }
         ];
     }
 }

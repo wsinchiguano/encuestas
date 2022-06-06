@@ -23,6 +23,7 @@ import {AppMenuitemComponent} from './app.menuitem.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppSearchComponent} from './app.search.component';
 import {AppFooterComponent} from './app.footer.component';
+import { BlocksAdComponent } from './app.blocks-ad.component';
 
 import {CountryService} from 'src/app/service/countryservice';
 import {CustomerService} from 'src/app/service/customerservice';
@@ -59,7 +60,8 @@ import {ConfigService} from 'src/app/service/app.config.service';
         AppConfigComponent,
         AppTopBarComponent,
         AppSearchComponent,
-        AppFooterComponent
+        AppFooterComponent,
+        BlocksAdComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

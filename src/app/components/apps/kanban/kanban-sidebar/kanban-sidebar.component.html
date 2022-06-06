@@ -61,7 +61,7 @@
             <div class="h-4rem -mb-4">
                 <p-inplace #inplace2 closable="closable" closeIcon="pi pi-check" styleClass="h-3rem" (onActivate)="focus(2)">
                     <ng-template pTemplate="display">
-                        <span class="block text-900 font-semibold text-lg mt-4" pTooltip="Click to edit">{{card.taskList.title ? card.taskList.title : 'Untitled Task List'}}</span>
+                        <span class="block text-900 font-semibold text-lg mt-4" pTooltip="Click to edit" tooltipPosition="left">{{card.taskList.title ? card.taskList.title : 'Untitled Task List'}}</span>
                     </ng-template>
                     <ng-template pTemplate="content">
                         <input #inputEl2 type="text" [(ngModel)]="card.taskList.title" pInputText class="w-20rem h-3rem text-900 mt-2 text-lg" (keydown.enter)="inplace2.deactivate()">

@@ -1,24 +1,4 @@
 :host ::ng-deep {
-    .p-inplace {
-        .p-inplace-content {
-            .p-inputtext {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-    
-            .p-button {
-                border-top-left-radius: 0px;
-                border-bottom-left-radius: 0px;
-                height: 3rem;
-                width: 3rem;
-            }
-        }
-
-        .p-inplace-display {
-            padding: 0;
-        }
-    }
-
     .p-autocomplete {
         display: block;
 
@@ -29,14 +9,6 @@
                 background: var(--surface-ground);
                 border: 1px solid var(--surface-border);
             }
-        }
-    }
-
-    .p-progressbar {
-        height: 0.5rem;
-        
-        .p-progressbar-value {
-            border-radius: 6px;
         }
     }
 

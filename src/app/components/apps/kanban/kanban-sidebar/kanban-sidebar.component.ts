@@ -117,7 +117,7 @@ export class KanbanSidebarComponent implements OnInit, OnDestroy {
     addTaskList() {
         this.showTaskContainer = !this.showTaskContainer;
 
-        if(!this.showTaskContainer) {
+        if (!this.showTaskContainer) {
             return;
         } 
         else if (!this.card.taskList) {

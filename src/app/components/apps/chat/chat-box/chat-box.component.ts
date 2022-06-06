@@ -21,7 +21,7 @@ export class ChatBoxComponent implements OnInit {
     constructor(private chatService: ChatService) {}
 
     setMessage() {
-        if(this.user) {
+        if (this.user) {
           let filteredMessages = this.user.messages.filter(m => m.ownerId !== this.defaultUserId);
           this.message = filteredMessages[filteredMessages.length -1];
         }
@@ -32,9 +32,10 @@ export class ChatBoxComponent implements OnInit {
     }
 
     sendMessage() {
-        if(this.textContent == '' || this.textContent === ' ') {
+        if (this.textContent == '' || this.textContent === ' ') {
           return;
-        } else {
+        } 
+        else {
           let message = {
               text: this.textContent,
               ownerId: 123,

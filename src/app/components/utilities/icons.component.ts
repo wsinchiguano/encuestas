@@ -27,12 +27,15 @@ export class IconsComponent implements OnInit {
 
             let icons = data;
             icons.sort((icon1, icon2) => {
-                if(icon1.properties.name < icon2.properties.name)
+                if (icon1.properties.name < icon2.properties.name) {
                     return -1;
-                else if(icon1.properties.name < icon2.properties.name)
+                }
+                else if (icon1.properties.name < icon2.properties.name) {
                     return 1;
-                else
+                } 
+                else {
                     return 0;
+                }
             });
 
             this.icons = icons;
@@ -47,7 +50,7 @@ export class IconsComponent implements OnInit {
             this.filteredIcons = this.icons;
         }
         else {
-            this.filteredIcons = this.icons.filter( it => {
+            this.filteredIcons = this.icons.filter(it => {
                 return it.icon.tags[0].includes(searchText);
             });
         }

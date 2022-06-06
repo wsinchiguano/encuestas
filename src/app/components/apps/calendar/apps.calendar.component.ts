@@ -91,9 +91,10 @@ export class AppsCalendarComponent implements OnInit {
         this.showDialog = false;
         this.clickedEvent = {...this.changedEvent, backgroundColor: this.changedEvent.tag.color, borderColor: this.changedEvent.tag.color, textColor: '#212121'};
         
-        if(this.clickedEvent.hasOwnProperty('id')) {
+        if (this.clickedEvent.hasOwnProperty('id')) {
             this.events = this.events.map(i => i.id.toString() === this.clickedEvent.id.toString() ? i = this.clickedEvent : i);
-        } else {
+        }
+        else {
             this.events = [...this.events, {...this.clickedEvent, id: Math.floor(Math.random() * 10000)}];    
         }
 

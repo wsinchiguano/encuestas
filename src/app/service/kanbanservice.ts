@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { KanbanCard, KanbanList, ListName } from '../api/kanban';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { KanbanCard, KanbanList } from '../api/kanban';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable()
 export class KanbanService {
@@ -79,10 +79,10 @@ export class KanbanService {
     deleteCard(cardId, listId) {
         let lists = [];
 
-        for(let i = 0; i < this._lists.length; i++) {
+        for (let i = 0; i < this._lists.length; i++) {
             let list = this._lists[i];
 
-            if(list.listId === listId) {
+            if (list.listId === listId) {
                 list.cards = list.cards.filter(c => c.id !== cardId);
             }
 
@@ -95,10 +95,10 @@ export class KanbanService {
     copyCard(card, listId) {
         let lists = [];
 
-        for(let i = 0; i < this._lists.length; i++) {
+        for (let i = 0; i < this._lists.length; i++) {
             let list = this._lists[i];
 
-            if(list.listId === listId) {
+            if (list.listId === listId) {
                 let cardIndex = list.cards.indexOf(card);
                 let newId = this.generateId();
                 let newCard = {...card, id: newId};

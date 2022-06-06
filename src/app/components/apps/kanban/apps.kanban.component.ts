@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChildren, QueryList } from '@angular/core';
 import { KanbanList } from 'src/app/api/kanban';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { KanbanService } from 'src/app/service/kanbanservice';
@@ -11,7 +11,7 @@ import { KanbanListComponent } from './kanban-list/kanban-list.component';
     templateUrl: './apps.kanban.component.html',
     styleUrls: ['./apps.kanban.component.scss']
 })
-export class AppsKanbanComponent implements OnDestroy {
+export class AppsKanbanComponent implements OnInit, OnDestroy {
 
     sidebarVisible: boolean;
 
@@ -22,6 +22,8 @@ export class AppsKanbanComponent implements OnDestroy {
     subscription = new Subscription();
 
     listElements;
+
+    style: HTMLStyleElement;
 
     @ViewChildren('listEl') listEl: QueryList<KanbanListComponent>;
 
@@ -34,6 +36,10 @@ export class AppsKanbanComponent implements OnDestroy {
             this.lists = data
             this.listIds = data.map(l => l.listId);
         });
+    }
+
+    ngOnInit() {
+        this.removeLayoutResponsive();
     }
 
     toggleSidebar() {
@@ -64,7 +70,19 @@ export class AppsKanbanComponent implements OnDestroy {
         }
     }
 
+    removeLayoutResponsive() {
+        this.style = document.createElement('style');
+        this.style.innerHTML = `
+                .layout-content {
+                        margin: auto;
+                        width: 100%;
+                }
+            `;
+        document.head.appendChild(this.style);
+    }
+
     ngOnDestroy(): void {
         this.subscription.unsubscribe();
+        document.head.removeChild(this.style)
     }
 }

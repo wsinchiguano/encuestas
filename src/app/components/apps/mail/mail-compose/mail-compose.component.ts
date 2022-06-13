@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { MessageService } from 'primeng/api';
-import { MailService } from 'src/app/service/mailservice';
+import { MailService } from 'src/app/service/mail.service';
 
 @Component({
     selector: 'mail-compose',

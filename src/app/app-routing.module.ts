@@ -12,11 +12,11 @@ import {AppLayoutComponent} from './app.layout.component';
                     {path: 'uikit', loadChildren: () => import('./components/uikit/uikit.module').then(m => m.UIkitModule)},
                     {path: 'utilities', loadChildren: () => import('./components/utilities/utilities.module').then(m => m.UtilitiesModule)},
                     {path: 'pages', loadChildren: () => import('./components/pages/pages.module').then(m => m.PagesModule)},
-                    {path: 'profile', loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)},
+                    {path: 'profile', loadChildren: () => import('./components/profile/app.profile.module').then(m => m.AppProfileModule)},
                     {path: 'documentation', loadChildren: () => import('./components/start/start.module').then(m => m.StartModule)},
                     {path: 'blocks', loadChildren: () => import('./components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule)},
                     {path: 'ecommerce', loadChildren: () => import('./components/ecommerce/app.ecommerce.module').then(m => m.AppEcommerceModule)},
-                    {path: 'blog', loadChildren: () => import('./components/apps/blog/blog.module').then(m => m.BlogModule)},
+                    {path: 'blog', loadChildren: () => import('./components/apps/blog/apps.blog.module').then(m => m.AppsBlogModule)},
                     {path: 'ecommerce-admin', loadChildren: () => import('./components/ecommerce-admin/app.ecommerce-admin.module').then(m => m.AppEcommerceAdminModule)},
                     {path: 'apps', loadChildren: () => import('./components/apps/apps.module').then(m => m.AppsModule)}
                 ]

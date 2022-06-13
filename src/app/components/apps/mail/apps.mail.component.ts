@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MailService } from 'src/app/service/mailservice';
+import { MailService } from 'src/app/service/mail.service';
 import { animate, style, transition, trigger, animation, useAnimation } from "@angular/animations";
 
 const showAnimation = animation([

@@ -337,7 +337,7 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'File Managament',
                         icon: 'pi pi-fw pi-folder',
-                        routerLink: ['apps/filemanagament']
+                        routerLink: ['apps/filemanagement']
                     },
                     {
                         label: 'Task List',
@@ -413,12 +413,17 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Profile List',
                         icon: 'pi pi-fw pi-list',
-                        routerLink: ['profile/profilelist'],
+                        routerLink: ['profile/profile-list'],
                     },
                     {
                         label: 'Create',
                         icon: 'pi pi-fw pi-plus',
                         routerLink: ['profile/create'],
+                    },
+                    {
+                        label: 'Settings',
+                        icon: 'pi pi-fw pi-cog',
+                        routerLink: ['profile/settings'],
                     }
                 ]
             },

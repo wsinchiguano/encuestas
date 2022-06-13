@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
+
 @Component({
     selector: 'mail-sidebar',
-    templateUrl: './mail-sidebar.component.html'
+    templateUrl: './mail-sidebar.component.html',
 })
+
 export class MailSidebarComponent implements OnInit {
     
     activeIndex: number = 0;
 
     items: MenuItem[];
 
-    constructor(private router: Router) { }
+    constructor(private router: Router) {}
 
     ngOnInit(): void {
         this.items = [

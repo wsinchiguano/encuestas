@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'src/app/service/app.breadcrumb.service';
 import { MessageService } from 'primeng/api';
+import { MailService } from 'src/app/service/mailservice';
 
 @Component({
     selector: 'mail-compose',
@@ -9,7 +10,9 @@ import { MessageService } from 'primeng/api';
 })
 export class MailComposeComponent implements OnInit {
 
-    constructor(private breadcrumbService: BreadcrumbService, private messageService: MessageService) { 
+    sidebarClosed: boolean = false;
+
+    constructor(private breadcrumbService: BreadcrumbService, private messageService: MessageService, private mailService: MailService) { 
         this.breadcrumbService.setItems([
           {label: 'Mail Compose'},
         ]);
@@ -20,5 +23,10 @@ export class MailComposeComponent implements OnInit {
 
     sendMail() {
         this.messageService.add({severity:'success', summary: 'Success', detail: 'Mail sent'});
+    }
+
+    toggleSidebar() {
+        this.mailService.toggleSidebar();
+        this.sidebarClosed = !this.sidebarClosed;
     }
 }

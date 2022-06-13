@@ -1,6 +1,6 @@
 <div class="flex flex-column md:flex-row align-items-center justify-content-between">
     <div class="flex md:hidden">
-        <button pButton pRipple type="button" icon="pi pi-chevron-left" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem mr-3"></button>
+        <button pButton pRipple type="button" [icon]="sidebarClosed ? 'pi pi-chevron-right' : 'pi pi-chevron-left'" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem mr-3" (click)="toggleSidebar()"></button>
         <div class="flex align-items-center gap-3">
             <span class="text-900 font-semibold">{{mail?.date}}</span>
             <button pButton pRipple type="button" icon="pi pi-reply" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem"></button>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="align-items-center hidden md:flex">
-        <button pButton pRipple type="button" icon="pi pi-chevron-left" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem mr-3"></button>
+        <button pButton pRipple type="button" [icon]="sidebarClosed ? 'pi pi-chevron-right' : 'pi pi-chevron-left'" class="p-button-outlined p-button-secondary surface-border text-900 w-3rem h-3rem mr-3" (click)="toggleSidebar()"></button>
         <p-avatar *ngIf="mail" [image]="'assets/demo/images/avatar/' + mail.image" size="large" shape="circle" styleClass="border-2 surface-border"></p-avatar>
         <div class="flex flex-column ml-3">
             <span class="block text-900 font-bold text-lg">{{mail?.from}}</span>

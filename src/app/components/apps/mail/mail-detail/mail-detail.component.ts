@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -11,24 +11,34 @@ import { MailService } from 'src/app/service/mailservice';
     templateUrl: './mail-detail.component.html',
     styleUrls: ['../../../../../assets/demo/editor.scss']
 })
-export class MailDetailComponent implements OnInit, OnDestroy {
-
-    subscription: Subscription;
-
+export class MailDetailComponent implements OnDestroy {
+    
     mail: Mail;
 
-    constructor(private route: ActivatedRoute, private mailService: MailService, private breadcrumbService: BreadcrumbService) { }
+    subscription: Subscription;
+    
+    sidebarSubscription: Subscription;
 
-    ngOnInit(): void {
+    sidebarClosed: boolean = false;
+
+    constructor(private route: ActivatedRoute, private mailService: MailService, private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Mail Detail'},
+        ]);
+
         this.subscription = this.route.params.pipe(
-          switchMap(params => {
-            return this.mailService.getMail(params.id)
-          })
+            switchMap(params => {
+              return this.mailService.getMail(params.id)
+            })
         ).subscribe(d => this.mail = d);
+    }
+
+    toggleSidebar() {
+        this.mailService.toggleSidebar();
+        this.sidebarClosed = !this.sidebarClosed;
     }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
-
 }

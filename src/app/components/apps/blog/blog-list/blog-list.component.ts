@@ -7,6 +7,7 @@ import { Blog } from 'src/app/api/blog';
 @Component({
     selector: 'blog-list',
     templateUrl: './blog-list.component.html',
+    styleUrls: ['../apps.blog.component.scss']
 
 })
 export class BlogListComponent implements OnInit{

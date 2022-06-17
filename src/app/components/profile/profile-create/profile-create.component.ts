@@ -11,11 +11,11 @@ interface Create {
 })
 export class ProfileCreateComponent {
 
-    pushNotifacitons: boolean =false;
-    
-    emailNotifications: boolean =false;
+    pushNotifacitons: boolean = false;
 
-    smsNotifications: boolean =false;
+    emailNotifications: boolean = true;
+
+    smsNotifications: boolean = true;
 
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([

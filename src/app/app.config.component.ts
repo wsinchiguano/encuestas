@@ -1,7 +1,8 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {AppLayoutComponent} from './app.layout.component';
-import {ConfigService} from 'src/app/service/app.config.service';
-import {AppConfig} from 'src/app/api/appconfig';
+import {AppMainComponent} from './app.main.component';
+import {AppComponent} from './app.component';
+import {ConfigService} from './demo/service/app.config.service';
+import {AppConfig} from './demo/domain/appconfig';
 import {Subscription} from 'rxjs';
 @Component({
     selector: 'app-config',
@@ -12,19 +13,19 @@ import {Subscription} from 'rxjs';
         <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <h5>Menu Type</h5>
             <div class="field-radiobutton">
-                <p-radioButton name="menuMode" value="static" [(ngModel)]="appMain.menuMode" inputId="mode1"></p-radioButton>
+                <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
                 <label for="mode1">Static</label>
             </div>
             <div class="field-radiobutton">
-                <p-radioButton name="menuMode" value="overlay" [(ngModel)]="appMain.menuMode" inputId="mode2"></p-radioButton>
+                <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
                 <label for="mode2">Overlay</label>
             </div>
             <div class="field-radiobutton">
-                <p-radioButton name="menuMode" value="slim" [(ngModel)]="appMain.menuMode" inputId="mode3"></p-radioButton>
+                <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode3"></p-radioButton>
                 <label for="mode3">Slim</label>
             </div>
             <div class="field-radiobutton">
-                <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="appMain.menuMode" inputId="mode4"></p-radioButton>
+                <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="mode4"></p-radioButton>
                 <label for="mode4">Horizontal</label>
             </div>
 
@@ -32,15 +33,15 @@ import {Subscription} from 'rxjs';
 
             <h5>Color Scheme</h5>
             <div class="field-radiobutton">
-                <p-radioButton name="colorScheme" value="dark" [(ngModel)]="appMain.colorScheme" inputId="theme1" (onClick)="changeColorScheme('dark')"></p-radioButton>
+                <p-radioButton name="colorScheme" value="dark" [(ngModel)]="app.colorScheme" inputId="theme1" (onClick)="changeColorScheme('dark')"></p-radioButton>
                 <label for="theme1">Dark</label>
             </div>
             <div class="field-radiobutton">
-                <p-radioButton name="colorScheme" value="dim" [(ngModel)]="appMain.colorScheme" inputId="theme2" (onClick)="changeColorScheme('dim')"></p-radioButton>
+                <p-radioButton name="colorScheme" value="dim" [(ngModel)]="app.colorScheme" inputId="theme2" (onClick)="changeColorScheme('dim')"></p-radioButton>
                 <label for="theme2">Dim</label>
             </div>
             <div class="field-radiobutton">
-                <p-radioButton name="colorScheme" value="light" [(ngModel)]="appMain.colorScheme" inputId="theme3" (onClick)="changeColorScheme('light')"></p-radioButton>
+                <p-radioButton name="colorScheme" value="light" [(ngModel)]="app.colorScheme" inputId="theme3" (onClick)="changeColorScheme('light')"></p-radioButton>
                 <label for="theme3">Light</label>
             </div>
 
@@ -48,28 +49,28 @@ import {Subscription} from 'rxjs';
 
             <h5>Input Style</h5>
             <div class="field-radiobutton">
-                <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="appMain.inputStyle" inputId="inputStyle1"></p-radioButton>
+                <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="app.inputStyle" inputId="inputStyle1"></p-radioButton>
                 <label for="inputStyle1">Outlined</label>
             </div>
             <div class="field-radiobutton">
-                <p-radioButton name="inputStyle" value="filled" [(ngModel)]="appMain.inputStyle" inputId="inputStyle2"></p-radioButton>
+                <p-radioButton name="inputStyle" value="filled" [(ngModel)]="app.inputStyle" inputId="inputStyle2"></p-radioButton>
                 <label for="inputStyle2">Filled</label>
             </div>
 
             <hr />
 
             <h5>Ripple Effect</h5>
-			<p-inputSwitch [ngModel]="appMain.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
+			<p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
 
             <hr />
 
             <h5>Menu Themes</h5>
-            <div class="layout-themes" *ngIf="appMain.colorScheme === 'light'">
+            <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
                 <div *ngFor="let theme of menuThemes">
-                    <a style="cursor:pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [ngStyle]="{'background-color': theme.color}"></a>
+                    <a style="cursor: pointer" (click)="changeMenuTheme(theme.name, theme.logoColor, theme.componentTheme)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
-            <div *ngIf="appMain.colorScheme !== 'light'">
+            <div *ngIf="app.colorScheme !== 'light'">
                 <p>Menu themes are available in light mode and static, slim, overlay menu modes by design as large surfaces can emit too much brightness in dark mode.</p>
             </div>
 
@@ -78,7 +79,7 @@ import {Subscription} from 'rxjs';
             <h5>Component Themes</h5>
             <div class="layout-themes">
                 <div *ngFor="let theme of componentThemes">
-                    <a style="cursor:pointer" (click)="changeComponentTheme(theme.name)" [ngStyle]="{'background-color': theme.color}"></a>
+                    <a style="cursor: pointer" (click)="changeComponentTheme(theme.name)" [ngStyle]="{'background-color': theme.color}"></a>
                 </div>
             </div>
         </div>
@@ -98,7 +99,7 @@ export class AppConfigComponent implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
-    constructor(public appMain: AppLayoutComponent, public configService: ConfigService) {}
+    constructor(public app: AppComponent, public appMain: AppMainComponent, public configService: ConfigService) {}
 
     ngOnInit() {
         this.config = this.configService.config;
@@ -165,7 +166,7 @@ export class AppConfigComponent implements OnInit, OnDestroy {
     changeMenuTheme(name, logoColor, componentTheme) {
         this.tempMenuColor = name;
         this.tempLogoColor = logoColor;
-        this.appMain.menuTheme = 'layout-sidebar-' + name;
+        this.app.menuTheme = 'layout-sidebar-' + name;
         this.changeStyleSheetsColor('theme-css', componentTheme, 2);
 
         const appLogoLink: HTMLImageElement = document.getElementById('app-logo') as HTMLImageElement;
@@ -242,7 +243,7 @@ export class AppConfigComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        if (this.subscription) {
+        if(this.subscription){
             this.subscription.unsubscribe();
         }
     }

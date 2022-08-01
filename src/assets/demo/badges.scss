@@ -22,24 +22,6 @@
     }
 }
 
-.product-badge-text {
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .3px;
-
-    &.status-instock {
-        color: var(--green-500);
-    }
-
-    &.status-outofstock {
-        color: var(--pink-500);
-    }
-
-    &.status-lowstock {
-        color: var(--yellow-500);
-    }
-}
-
 .customer-badge {
     border-radius: var(--border-radius);
     padding: .25em .5rem;

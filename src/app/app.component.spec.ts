@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { AppLayoutComponent } from './app.layout.component';
+import { AppMainComponent } from './app.main.component';
 import { AppConfigComponent } from './app.config.component';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
@@ -14,11 +14,11 @@ describe('AppComponent', () => {
             imports: [NoopAnimationsModule, RouterTestingModule],
             declarations: [
                 AppComponent,
-                AppLayoutComponent,
+                AppMainComponent,
                 AppConfigComponent,
                 AppTopBarComponent,
                 AppMenuComponent,
-                AppFooterComponent
+                AppFooterComponent,
             ]
         }).compileComponents();
     }));

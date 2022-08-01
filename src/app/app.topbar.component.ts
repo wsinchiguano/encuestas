@@ -1,6 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
-import { AppLayoutComponent } from './app.layout.component';
-import {BreadcrumbService} from 'src/app/service/app.breadcrumb.service';
+import { AppComponent } from './app.component';
+import { AppMainComponent } from './app.main.component';
+import { BreadcrumbService } from './app.breadcrumb.service';
 import { Subscription } from 'rxjs';
 import { MenuItem } from 'primeng/api';
 
@@ -14,7 +15,7 @@ export class AppTopBarComponent implements OnDestroy{
 
     items: MenuItem[];
 
-    constructor(public breadcrumbService: BreadcrumbService,  public appMain: AppLayoutComponent) {
+    constructor(public breadcrumbService: BreadcrumbService, public app: AppComponent, public appMain: AppMainComponent) {
         this.subscription = breadcrumbService.itemsHandler.subscribe(response => {
             this.items = response;
         });

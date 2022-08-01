@@ -8,7 +8,7 @@
         <ng-template ngFor let-item let-last="last" [ngForOf]="items">
             <span class="viewname" style="text-transform: uppercase">{{item.label}}</span>
         </ng-template>
-        <img id="logo-mobile" class="mobile-logo" [src]="'assets/layout/images/logo-'+ (appMain.colorScheme === 'light' ? 'dark' : 'white') + '.svg'" alt="diamond-layout" />
+        <img id="logo-mobile" class="mobile-logo" [src]="'assets/layout/images/logo-'+ (app.colorScheme === 'light' ? 'dark' : 'white') + '.svg'" alt="diamond-layout" />
     </div>
 
     <app-menu></app-menu>
@@ -18,7 +18,7 @@
     <div class="topbar-right">
         <ul class="topbar-menu">
             <li class="search-item">
-                <a tabindex="0" (click)="appMain.onSearchClick()">
+                <a tabindex="0" (click)="appMain.onSearchClick($event)">
                     <i class="pi pi-search"></i>
                 </a>
             </li>

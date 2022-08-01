@@ -1,5 +1,5 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
-import {AppLayoutComponent} from './app.layout.component';
+import {AppMainComponent} from './app.main.component';
 import {animate, state, style, transition, trigger, AnimationEvent} from '@angular/animations';
 
 @Component({
@@ -33,7 +33,7 @@ export class AppSearchComponent {
 
     @ViewChild('input') inputElement: ElementRef;
 
-    constructor(public appMain: AppLayoutComponent) {}
+    constructor(public appMain: AppMainComponent) {}
 
     onAnimationEnd(event: AnimationEvent) {
         if (event.toState === 'visible') {
@@ -46,7 +46,7 @@ export class AppSearchComponent {
 
         // escape, tab and enter
         if (key === 27 || key === 9 || key === 13) {
-            this.appMain.onSearchHide();
+            this.appMain.onSearchHide(event);
         }
     }
 }

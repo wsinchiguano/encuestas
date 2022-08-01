@@ -1,5 +1,10 @@
 # Changelog
 
+## 14.1.0
+**Fixed bugs:**
+
+- Fixed typo causes build failure in variables for dark theme.
+
 ## 14.0.0
 **Migration Guide**
 - Upgrade to PrimeNG 14

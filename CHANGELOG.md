@@ -1,5 +1,9 @@
 # Changelog
 
+## 14.1.1
+**Fixed bugs:**
+- Fixed a bug causes menu malfunction in menu service.
+
 ## 14.1.0
 **Fixed bugs:**
 

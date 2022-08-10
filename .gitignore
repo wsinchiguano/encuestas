@@ -1,34 +1,18 @@
-build
-dist
-node_modules
-.DS_Store
-.idea
-sassdoc
-
-src/assets/theme/*/*.css
-src/assets/layout/css/*.css
-src/assets/sass/theme/designer
-src/assets/sass/theme/extensions
-src/assets/demo/badges.css
-src/assets/demo/documentation.css
-src/assets/demo/editor.css
-src/assets/demo/table.css
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# Compiled output
 /dist
 /tmp
 /out-tsc
+/bazel-out
 
-# dependencies
+# Node
 /node_modules
-
-# profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
+npm-debug.log
+yarn-error.log
 
 # IDEs and editors
-/.idea
+.idea/
 .project
 .classpath
 .c9/
@@ -36,31 +20,26 @@ speed-measure-plugin.json
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# Visual Studio Code
+.vscode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.history/*
 
-# misc
+# Miscellaneous
 /.angular/cache
-/.sass-cache
+.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
-# System Files
+# System files
 .DS_Store
 Thumbs.db
 
 # Compiled files
 theme.css
-layout_light.css
-layout_dark.css
-layout_dim.css
+layout.css
 src/assets/layout/styles/theme/designer
+src/assets/layout/styles/layout/*css

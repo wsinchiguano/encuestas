@@ -146,15 +146,14 @@ export class AppMenuComponent implements OnInit &#123;
 
     <p>Here are the variables required to create a theme.</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
-$primaryColor: #3B82F6 !default;
-$primaryLightColor: #BFDBFE !default;
-$primaryDarkColor: #2563eb !default;
-$primaryDarkerColor: #1D4ED8 !default;
-$primaryTextColor: #ffffff !default;
-$primary500:#3B82F6 !default;
+$primaryColor: #2196F3;
+$primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
+$primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
+$primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
+$primaryTextColor: #ffffff;
 
-$highlightBg: #EFF6FF !default;
-$highlightTextColor: $primaryDarkerColor !default;
+$highlightBg: #E3F2FD;
+$highlightTextColor: #495057;
 
 @import '../_variables';
 @import '../../designer/_components';

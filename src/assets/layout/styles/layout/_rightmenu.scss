@@ -1,0 +1,37 @@
+.timeline {
+    .timeline-event {
+        padding: 0 1rem 1rem 1rem;
+        border-left: 1px solid $dividerColor;
+        position: relative;
+        margin-left: .5rem;
+    }
+
+    .timeline-event-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-50%);
+        color: $textSecondaryColor;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        color: #ffffff;
+        text-align: center;
+
+        i {
+            line-height: inherit;
+        }
+    }
+
+    .timeline-event-title {
+        font-weight: 600;
+        margin: 0 0 .5rem .5rem;
+    }
+
+    .timeline-event-detail {
+        font-size: .875rem;
+        color: $textSecondaryColor;
+        margin-left:.5rem;
+    }
+}

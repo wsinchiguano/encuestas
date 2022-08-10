@@ -57,3 +57,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Compiled files
+theme.css
+layout_light.css
+layout_dark.css
+layout_dim.css
+src/assets/layout/styles/theme/designer

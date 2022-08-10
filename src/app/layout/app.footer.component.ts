@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { LayoutService } from './service/app.layout.service';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './app.footer.component.html'
+    selector: 'app-footer',
+    templateUrl: './app.footer.component.html'
 })
-export class AppFooterComponent implements OnInit {
+export class AppFooterComponent {
 
-  constructor() { }
+    constructor(public layoutService: LayoutService) { }
 
-  ngOnInit(): void {
-  }
+    get logo() {
+        return this.layoutService.config.colorScheme === 'light' ? 'dark' : 'white';
+    }
 
 }

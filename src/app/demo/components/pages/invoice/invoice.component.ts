@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
     selector: 'app-invoice',
@@ -6,10 +7,14 @@ import { Component } from '@angular/core';
 })
 export class InvoiceComponent {
 
-    constructor() { }
+    constructor(public layoutService: LayoutService) { }
 
     print() {
         window.print();
+    }
+
+    get logo() {
+        return this.layoutService.config.colorScheme === 'light' ? 'dark' : 'white';
     }
 
 }

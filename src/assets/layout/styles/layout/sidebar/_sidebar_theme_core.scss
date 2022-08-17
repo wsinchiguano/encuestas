@@ -50,6 +50,7 @@
             }
 
             > ul {
+                z-index: 1;
                 > li.active-menuitem {
                     background: $menuitemActiveBg;
                 }

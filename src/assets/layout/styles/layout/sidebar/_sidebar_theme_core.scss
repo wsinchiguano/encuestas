@@ -79,6 +79,27 @@
             }
         }
     }
+    &.layout-compact {
+        .layout-sidebar {
+            .layout-menu {
+                .layout-root-menuitem {
+                    > ul {
+                        background: $sidebarBgColor;
+                        background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
+                        left: 4rem;
+                    }
+                }
+
+                ul {
+                    a {
+                        &.active-route {
+                            background: $menuitemActiveBg;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: $tabletBreakpoint + 1) {

@@ -64,23 +64,28 @@ export class AppTopbarComponent implements OnInit {
         this.userMenuItems = [
             {
                 icon: 'pi pi-user',
-                label: 'Profile'
+                label: 'Profile',
+                styleClass: 'border-round overflow-hidden'
             },
             {
                 icon: 'pi pi-cog',
-                label: 'Settings'
+                label: 'Settings',
+                styleClass: 'border-round overflow-hidden'
             },
             {
                 icon: 'pi pi-calendar',
-                label: 'Calendar'
+                label: 'Calendar',
+                styleClass: 'border-round overflow-hidden'
             },
             {
                 icon: 'pi pi-inbox',
-                label: 'Inbox'
+                label: 'Inbox',
+                styleClass: 'border-round overflow-hidden'
             },
             {
                 icon: 'pi pi-power-off',
-                label: 'Logout'
+                label: 'Logout',
+                styleClass: 'border-round overflow-hidden'
             }
         ];
     }
@@ -118,8 +123,8 @@ export class AppTopbarComponent implements OnInit {
         return this.layoutService.state.userMenuVisible;
     }
 
-    get notificationMenuVisible(): boolean{
+    get notificationMenuVisible(): boolean {
         return this.layoutService.state.notificationMenuVisible;
     }
-    
+
 }

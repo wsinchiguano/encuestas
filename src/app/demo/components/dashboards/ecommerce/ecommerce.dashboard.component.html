@@ -27,7 +27,7 @@
                 <p-menu #menu [popup]="true" [model]="items"></p-menu>
 
                 <div class="grid">
-                    <div class="col-3 relative hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="New Orders" data-fill="rgba(100, 181, 246, 0.2)" data-stroke="#BBDEFB">
+                    <div class="col-3 relative hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="New Orders" data-index="0" data-fill="rgba(100, 181, 246, 0.2)" data-stroke="#BBDEFB">
                         <span class="flex align-items-center"><i class="pi pi-plus-circle mr-1"></i> New</span>
                         <img src="assets/demo/images/dashboard/graph-new.svg" class="absolute w-11" style="left: 5%; bottom: 0">
                     </div>

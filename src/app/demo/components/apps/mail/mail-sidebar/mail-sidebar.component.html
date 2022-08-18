@@ -6,7 +6,9 @@
                 [ngClass]="{'surface-hover' : url === item.routerLink, 'hover:surface-hover': url !== item.routerLink}" (click)="navigate(item)">
                 <i [class]="item.icon || ''" class="md:mr-3  transition-duration-150 text-lg text-color"></i>
                 <span class=" font-medium hidden md:inline text-color">{{item.label}}</span>
-                <span *ngIf="item.badge" class="ml-auto text-sm font-semibold bg-primary text-primary-900 px-2 py-1 hidden md:inline" style="border-radius: 2rem">{{item.badge}}</span>
+                <div *ngIf="item.badge" class="ml-auto align-items-center justify-content-center hidden md:flex bg-primary border-round-2xl" style=" min-width: 1.75rem; height: 1.75rem">
+                    <span class="text-sm font-semibold">{{item.badge}}</span>
+                </div>
             </li>
         </ul>
     </div>

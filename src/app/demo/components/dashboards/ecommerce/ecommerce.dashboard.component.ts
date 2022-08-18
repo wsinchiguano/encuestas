@@ -29,6 +29,8 @@ export class EcommerceDashboardComponent implements OnInit, OnDestroy {
 
     revenueChart: any;
 
+    revenueChartOptions: any;
+
     cols: any[] = [];
 
     config!: AppConfig;
@@ -44,7 +46,7 @@ export class EcommerceDashboardComponent implements OnInit, OnDestroy {
     constructor(private productService: ProductService, private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
             this.config = config;
-            this.updateChartOptions();
+            this.initCharts();
         });
     }
 
@@ -155,6 +157,10 @@ export class EcommerceDashboardComponent implements OnInit, OnDestroy {
     }
 
     initCharts() {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('--text-color');
+        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
         this.ordersChart = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{
@@ -176,16 +182,33 @@ export class EcommerceDashboardComponent implements OnInit, OnDestroy {
             plugins: {
                 legend: {
                     display: true,
+                    labels: {
+                        color: textColor
+                    }
                 }
             },
             hover: {
                 mode: 'index'
             },
             scales: {
+                x:{
+                    ticks: {
+                        color: textColorSecondary
+                    },
+                    grid: {
+                        color:[surfaceBorder],
+                        drawBorder: false
+                    }
+                },
                 y: {
                     ticks: {
+                        color: textColorSecondary,
                         min: 0,
                         max: 20
+                    },
+                    grid: {
+                        color:[surfaceBorder],
+                        drawBorder: false
                     }
                 }
             }
@@ -195,9 +218,21 @@ export class EcommerceDashboardComponent implements OnInit, OnDestroy {
             labels: ['Direct', 'Promoted', 'Affiliate'],
             datasets: [{
                 data: [40, 35, 25],
-                backgroundColor: ['#64B5F6', '#7986CB', '#4DB6AC']
+                backgroundColor: ['#64B5F6', '#7986CB', '#4DB6AC'],
+                borderColor: [surfaceBorder]
             }]
         };
+
+        this.revenueChartOptions = {
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: textColor
+                    }
+                }
+            }
+        }
 
     }
     

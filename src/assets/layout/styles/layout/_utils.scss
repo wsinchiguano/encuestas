@@ -37,3 +37,34 @@
         top: 70px;
     }
 }
+
+
+.cdk-drag {
+    .p-progressbar {
+        height: 0.5rem;
+        
+        .p-progressbar-value {
+            border-radius: 6px;
+        }
+    }
+
+    .p-inplace {
+        .p-inplace-content {
+            .p-inputtext {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+    
+            .p-button {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+
+        .p-inplace-display {
+            padding: 0;
+        }    
+    }
+}

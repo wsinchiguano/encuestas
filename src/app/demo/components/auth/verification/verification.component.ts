@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { DomHandler } from 'primeng/dom';
 
 @Component({
     templateUrl: './verification.component.html'
@@ -14,10 +14,7 @@ export class VerificationComponent {
     
     val4!: number;
 
-	// constructor(private layoutService: LayoutService) {}
-
-	// get dark(): boolean {
-	// 	return this.layoutService.config.colorScheme !== 'light';
-	// }
-    
+    focusOnNext(inputEl) {
+        DomHandler.getFocusableElements(inputEl.el.nativeElement)[0].focus();
+    }
 }

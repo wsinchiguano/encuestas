@@ -9,8 +9,15 @@ export class AppSidebarComponent {
 
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
-    get logo() {
-        const logo = this.layoutService.config.menuTheme === 'white' || this.layoutService.config.menuTheme === 'orange' ? 'dark' : 'white';
+    get logoColor() {
+        let logo;
+        
+        if(this.layoutService.config.colorScheme == 'light'){
+            logo = (this.layoutService.config.menuTheme === 'white' || this.layoutService.config.menuTheme === 'orange') ? 'dark' : 'white';
+        } 
+        else {
+            logo = 'dark';
+        }
         return logo;
     }
 

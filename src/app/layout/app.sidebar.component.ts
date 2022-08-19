@@ -1,11 +1,11 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnDestroy } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 
 @Component({
     selector: 'app-sidebar',
     templateUrl: './app.sidebar.component.html'
 })
-export class AppSidebarComponent {
+export class AppSidebarComponent implements OnDestroy {
 
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
@@ -21,4 +21,13 @@ export class AppSidebarComponent {
         return logo;
     }
 
+    resetOverlay() {
+        if(this.layoutService.state.overlayMenuActive) {
+            this.layoutService.state.overlayMenuActive = false;
+        }
+    }
+
+    ngOnDestroy() {
+        this.resetOverlay();
+    }
 }

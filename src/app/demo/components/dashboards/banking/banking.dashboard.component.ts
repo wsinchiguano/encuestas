@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
@@ -25,6 +26,8 @@ export class BankingDashboardComponent implements OnInit, OnDestroy {
     barOptions: any;
 
     subscription!: Subscription;
+
+    items: MenuItem[];
 
     constructor(private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
@@ -142,6 +145,18 @@ export class BankingDashboardComponent implements OnInit, OnDestroy {
             },
         ];
 
+        this.items = [
+            {
+                label: 'View Details'
+            },
+            {
+                label: 'Print Receipt'
+            },
+            {
+                label: 'Hide'
+            }
+        ];
+
         this.initChart();
     }
 
@@ -162,7 +177,7 @@ export class BankingDashboardComponent implements OnInit, OnDestroy {
                     data: [65, 59, 80, 81, 56, 55, 40]
                 },
                 {
-                    label: 'Profit',
+                    label: 'Expenses',
                     backgroundColor: '#FAB918',
                     barThickness: 12,
                     borderRadius: 12,

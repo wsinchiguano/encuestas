@@ -2,7 +2,7 @@
     .layout-wrapper {
         &.layout-compact {
             .layout-topbar {
-                width: calc(100% - 6rem);
+                width: calc(100% - $compactSidebarWidth);
                 margin-left: $compactSidebarWidth;
 
                 .topbar-left {

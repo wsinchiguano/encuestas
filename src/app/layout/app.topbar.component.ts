@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
-import { AppSidebarComponent } from './app.sidebar.component';
 
 @Component({
     selector: 'app-topbar',
@@ -13,9 +12,7 @@ export class AppTopbarComponent implements OnInit {
 
     userMenuItems: MenuItem[] = [];
 
-    @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
-
-    constructor(public layoutService: LayoutService, public el: ElementRef) { }
+    constructor(public layoutService: LayoutService) { }
 
     ngOnInit(): void {
         this.notificationMenuItems = [

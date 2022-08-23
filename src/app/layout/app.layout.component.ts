@@ -15,7 +15,7 @@ export class AppLayoutComponent implements OnDestroy {
 
     menuOutsideClickListener: any;
 
-    @ViewChild(AppTopbarComponent) appTopbar!: AppTopbarComponent;
+    @ViewChild(AppTopbarComponent) menu!: AppTopbarComponent;
 
     constructor(private menuService: MenuService, public layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
@@ -23,28 +23,22 @@ export class AppLayoutComponent implements OnDestroy {
             if (!this.menuOutsideClickListener) {
                 this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
 
-                    const isOutsideClicked = !(this.appTopbar.appSidebar.el.nativeElement.isSameNode(event.target) || this.appTopbar.appSidebar.el.nativeElement.contains(event.target)
+                    const isOutsideClicked = !(this.menu.appSidebar.el.nativeElement.isSameNode(event.target) || this.menu.appSidebar.el.nativeElement.contains(event.target)
                         || event.target.classList.contains('p-trigger') || event.target.parentNode.classList.contains('p-trigger'));
                     if (isOutsideClicked) {
-                        this.layoutService.state.overlayMenuActive = false;
-                        this.layoutService.state.staticMenuMobileActive = false;
-                        this.layoutService.state.menuHoverActive = false;
-                        this.menuService.reset();
-                        this.menuOutsideClickListener();
-                        this.menuOutsideClickListener = null;
-                        this.unblockBodyScroll();
-                    }
-                    else {
-                        if (this.layoutService.state.staticMenuMobileActive) {
-                            this.blockBodyScroll();
-                        }
+                        this.hideMenu();
                     }
                 });
+            }
+
+            if (this.layoutService.state.staticMenuMobileActive) {
+                this.blockBodyScroll();
             }
         });
 
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(() => {
+                this.hideMenu();
                 this.unblockBodyScroll();
             });
     }
@@ -66,6 +60,18 @@ export class AppLayoutComponent implements OnDestroy {
             document.body.className = document.body.className.replace(new RegExp('(^|\\b)' +
                 'blocked-scroll'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         }
+    }
+
+    hideMenu() {
+        this.layoutService.state.overlayMenuActive = false;
+        this.layoutService.state.staticMenuMobileActive = false;
+        this.layoutService.state.menuHoverActive = false;
+        this.menuService.reset();
+        if (this.menuOutsideClickListener) {
+            this.menuOutsideClickListener();
+            this.menuOutsideClickListener = null;
+        }
+        this.unblockBodyScroll();
     }
 
     get containerClass() {

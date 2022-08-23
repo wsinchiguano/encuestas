@@ -12,7 +12,7 @@
     @include flex-align-center();
     @include flex-justify-between();
     color: $topbarTextColor;
-    transition: margin-left $animationDuration $animationTimingFunction;
+    transition: transform $animationDuration $animationTimingFunction;
 
     .topbar-left {
         @include flex();

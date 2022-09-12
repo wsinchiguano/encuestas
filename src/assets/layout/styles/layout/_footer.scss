@@ -1,8 +1,8 @@
 .layout-footer {
-    background: $footerBg;
+    background: var(--surface-card);
     height: 4rem;
-    border-top: $footerBorder;
-    border-bottom: $footerBorder;
+    border-top: 1px solid var(--surface-border);
+    border-bottom: 1px solid var(--surface-border);
     padding: 0 2rem;
     @include flex();
     @include flex-align-center();
@@ -27,6 +27,6 @@
     
     .copyright {
         font-size: .875rem;
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }

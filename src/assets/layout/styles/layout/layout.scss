@@ -1,4 +1,9 @@
-@import './variables/layout_light';
+$scale:14px !default;
+$tabletBreakpoint:992px !default;
+$phoneBreakpoint:576px !default;
+$sidebarShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+
+/*@import './variables/layout_light';*/
 @import './_mixins';
 @import './_fonts';
 @import './_utils';

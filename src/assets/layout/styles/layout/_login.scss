@@ -1,6 +1,6 @@
 .login-body {
-    background: $bodyBg;
-    color: $textColor;
+    background: var(--surface-ground);
+    color: var(--text-color);
 
     .login-wrapper {
         @include flex();
@@ -27,11 +27,10 @@
                 > p {
                     font-weight: 600;
                     margin: 0;
-                    color:$textSecondaryColor;
+                    color:var(--text-color-secondary);
                     margin-bottom: 32px;
 
                     > a {
-                        color: $linkColor;
                         cursor: pointer;
                     }
                 }
@@ -51,11 +50,7 @@
             p {
                 font-weight: 600;
                 margin: 0;
-                color:$textSecondaryColor;
-
-                > a {
-                    color: $linkColor;
-                }
+                color:var(--text-color-secondary);
             }
         }
 
@@ -110,7 +105,7 @@
                         @include flex();
                         @include flex-align-center();
                         @include flex-justify-center();
-                        transition: opacity $transitionDuration;
+                        transition: opacity var(--transition-duration);
                         background: #ffffff;
                         opacity: .7;
 
@@ -130,7 +125,7 @@
             .login-image {
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-image: url("../../layout/images/pages/bg-login.jpg");
+                background-image: url("../../images/pages/bg-login.jpg");
             }
         }
     }

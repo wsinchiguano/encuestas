@@ -3,7 +3,7 @@
         &.layout-slim {
             .layout-topbar {
                 width: calc(100% - 6rem);
-                margin-left: $slimSidebarWidth;
+                margin-left: 7rem;
 
                 .topbar-left {
                     .horizontal-logo {
@@ -21,7 +21,7 @@
             }
 
             .layout-sidebar {
-                width: $slimSidebarWidth;
+                width: 7rem;
                 overflow: visible;
                 z-index: 999;
 
@@ -40,7 +40,7 @@
             }
 
             .layout-content-wrapper {
-                margin-left: $slimSidebarWidth;
+                margin-left: 7rem;
             }
 
             .layout-menu {
@@ -56,7 +56,7 @@
 
                 .layout-root-menuitem {
                     position: relative;
-                    border-radius: $borderRadius;
+                    border-radius: var(--border-radius);
 
                     > .layout-menuitem-root-text {
                         display: none;
@@ -65,11 +65,11 @@
                     > a {
                         display: block;
                         text-align: center;
-                        border-radius: $borderRadius;
+                        border-radius: var(--border-radius);
                         padding: .5rem 0;
                         cursor: pointer;
                         outline: none;
-                        transition: background-color $transitionDuration;
+                        transition: background-color var(--transition-duration);
 
                         .layout-submenu-toggler {
                             display: none;
@@ -91,13 +91,13 @@
                         left: 6rem;
                         top: 0;
                         min-width: 15rem;
-                        border: $overlayBorder;
-                        box-shadow: $overlayShadow;
-                        border-top-right-radius: $borderRadius;
-                        border-bottom-right-radius: $borderRadius;
+                        border: var(--surface-border);
+                        box-shadow: $sidebarShadow;
+                        border-top-right-radius: var(--border-radius);
+                        border-bottom-right-radius: var(--border-radius);
                         padding: 1rem;
-                        animation-duration: $animationDuration;
-                        animation-timing-function: $animationTimingFunction;
+                        animation-duration: .4s;
+                        animation-timing-function: cubic-bezier(.05,.74,.2,.99);
                     }
                 }
             }

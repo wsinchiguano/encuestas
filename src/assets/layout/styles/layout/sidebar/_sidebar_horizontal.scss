@@ -104,7 +104,7 @@
 
                 .layout-root-menuitem {
                     position: relative;
-                    border-radius: $borderRadius;
+                    border-radius: var(--border-radius);
 
                     > .layout-menuitem-root-text {
                         display: none;
@@ -114,10 +114,10 @@
                         display: flex;
                         align-items: center;
                         padding: .75rem;
-                        border-radius: $borderRadius;
+                        border-radius: var(--border-radius);
                         cursor: pointer;
                         outline: none;
-                        transition: background-color $transitionDuration;
+                        transition: background-color var(--transition-duration);
 
                         .layout-submenu-toggler {
                             display: block;
@@ -143,10 +143,10 @@
                         left: 0;
                         top: 2.75rem;
                         min-width: 15rem;
-                        border: $overlayBorder;
-                        box-shadow: $overlayShadow;
+                        border: var(--surface-border);
+                        box-shadow: $sidebarShadow;
                         padding: 1rem;
-                        border-radius: $borderRadius;
+                        border-radius: var(--border-radius);
                     }
                 }
             }

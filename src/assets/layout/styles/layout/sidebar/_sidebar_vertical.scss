@@ -1,15 +1,15 @@
 .layout-sidebar {
-    width: $sidebarWidth;
+    width: 16rem;
     height: 100%;
     position: fixed;
     left: 0;
     top: 0;
     overflow: hidden;
-    box-shadow: $overlayShadow;
+    box-shadow: $sidebarShadow;
     @include flex();
     @include flex-direction-column();
     user-select: none;
-    transition: transform $animationDuration $animationTimingFunction;
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
 
     .logo {
         text-align: center;
@@ -19,7 +19,7 @@
         padding: 1rem;
         margin-left: 1rem;
         margin-right: 1rem;
-        transition: background-color $transitionDuration, box-shadow $transitionDuration;
+        transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
     }
 
     .logo-image {
@@ -79,10 +79,10 @@
             position: relative;
             padding: .5rem;
             font-size: 1rem;
-            border-radius: $borderRadius;
+            border-radius: var(--border-radius);
             outline: 0 none;
             cursor: pointer;
-            transition: background-color $transitionDuration, box-shadow $transitionDuration;
+            transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
 
             .layout-menuitem-icon {
                 margin-right: .5rem;
@@ -91,7 +91,7 @@
             .layout-submenu-toggler {
                 font-size: 75%;
                 margin-left: auto;
-                transition: transform $transitionDuration;
+                transition: transform var(--transition-duration);
             }
 
             &.rotated-icon {
@@ -107,7 +107,7 @@
 
         li {
             &.active-menuitem {
-                border-radius: $borderRadius;
+                border-radius: var(--border-radius);
 
                 > a {
                     .layout-submenu-toggler {
@@ -119,7 +119,7 @@
 
         ul {
             overflow: hidden;
-            border-radius: $borderRadius;
+            border-radius: var(--border-radius);
 
             li {
                 a {

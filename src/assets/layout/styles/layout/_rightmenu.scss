@@ -1,7 +1,7 @@
 .timeline {
     .timeline-event {
         padding: 0 1rem 1rem 1rem;
-        border-left: 1px solid $dividerColor;
+        border-left: 1px solid var(--surface-border);
         position: relative;
         margin-left: .5rem;
     }
@@ -11,7 +11,7 @@
         left: 0;
         top: 0;
         transform: translateX(-50%);
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
         border-radius: 50%;
         width: 2rem;
         height: 2rem;
@@ -31,7 +31,7 @@
 
     .timeline-event-detail {
         font-size: .875rem;
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
         margin-left:.5rem;
     }
 }

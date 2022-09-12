@@ -3,11 +3,11 @@
         &.layout-static {
             .layout-topbar {
                 width: calc(100% - 16rem);
-                margin-left: $sidebarWidth;
+                margin-left: 16rem;
             }
 
             .layout-content-wrapper {
-                margin-left: $sidebarWidth;
+                margin-left: 16rem;
             }
         }
         
@@ -61,7 +61,7 @@
             &.layout-overlay-active {
                 .layout-sidebar {
                     transform: translateX(0);
-                    box-shadow: $overlayShadow;
+                    box-shadow: $sidebarShadow;
                 }
             }
         }
@@ -87,7 +87,7 @@
                 width: 100%;
                 padding: .5rem 0;
                 @include flex-justify-between();
-                border-bottom: 1px solid $dividerColor;
+                border-bottom: 1px solid var(--surface-border);
 
                 .horizontal-logo {
                     display: none;

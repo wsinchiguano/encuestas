@@ -1,8 +1,8 @@
 .layout-topbar {
-    background: $topbarBg;
+    background: var(--surface-overlay);
     min-height: 4rem;
     padding: 0 2rem;
-    border-bottom: $topbarBottomBorder;
+    border-bottom: var(--surface-border);
     position: fixed;
     width: 100%;
     top: 0;
@@ -11,8 +11,8 @@
     @include flex();
     @include flex-align-center();
     @include flex-justify-between();
-    color: $topbarTextColor;
-    transition: transform $animationDuration $animationTimingFunction;
+    color: var(--text-color);
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
 
     .topbar-left {
         @include flex();
@@ -28,21 +28,21 @@
         height: 2.5rem;
         line-height: 2.5rem;
         text-align: center;
-        color: $topbarTextColor;
+        color: var(--text-color);
         overflow: hidden;
-        border-radius: $borderRadius;
-        background: $topbarIconBg;
-        transition: background-color $transitionDuration, box-shadow $transitionDuration;
+        border-radius: var(--border-radius);
+        background: var(--surface-ground);
+        transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
         display: block;
         cursor: pointer;
         outline: 0 none;
 
         &:hover {
-            background: $topbarIconHoverBg;
+            background: var(--surface-hover);
         }
 
         &:focus {
-            box-shadow: $focusShadow;
+            box-shadow: var(--focus-ring);
         }
 
         i {
@@ -54,7 +54,7 @@
     .topbar-separator {
         display: block;
         width: 1px;
-        border-left: 1px solid $dividerColor;
+        border-left: 1px solid var(--surface-border);
         align-self: stretch;
         margin: 0 1rem;
     }
@@ -85,8 +85,8 @@
 
             &.profile-item {
                 padding: 0 1rem 0 1rem;
-                border-left: 1px solid $dividerColor;
-                border-right: 1px solid $dividerColor;
+                border-left: 1px solid var(--surface-border);
+                border-right: 1px solid var(--surface-border);
 
                 > a {
                     width: auto;
@@ -107,7 +107,7 @@
 
             &.right-sidebar-item {
                 > a {
-                    background: $topbarIconBg;
+                    background: var(--surface-ground);
                 }
             }
 
@@ -116,10 +116,10 @@
                 height: 2.5rem;
                 line-height: 2.5rem;
                 text-align: center;
-                color: $topbarTextColor;
+                color: var(--text-color);
                 overflow: hidden;
-                border-radius: $borderRadius;
-                transition: background-color $transitionDuration, box-shadow $transitionDuration;
+                border-radius: var(--border-radius);
+                transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
                 display: block;
                 position: relative;
                 cursor: pointer;
@@ -127,11 +127,11 @@
                 outline: 0 none;
 
                 &:hover {
-                    background: $topbarIconHoverBg;
+                    background: var(--surface-hover);
                 }
 
                 &:focus {
-                    box-shadow: $focusShadow;
+                    box-shadow: var(--focus-ring);;
                 }
 
                 i {
@@ -150,8 +150,8 @@
                     font-size: .714rem;
                     border-radius: 50%;
                     font-weight: 600;
-                    background: $accentColor;
-                    color: $accentTextColor;
+                    background: var(--primary-color);
+                    color: var(--primary-color-text);
                 }
             }
         }

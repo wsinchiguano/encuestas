@@ -148,15 +148,15 @@
                         }
 
                         .topbar-badge {
-                            background: $accentColor;
-                            color: $accentTextColor;
+                            background: var(--primary-color);
+                            color: var(--primary-color-text);
                         }
                     }
 
                     > ul {
                         background: $sidebarBgColor;
-                        border: $overlayBorder;
-                        box-shadow: $overlayShadow;
+                        border: var(--surface-border);
+                        box-shadow: $sidebarShadow;
 
                         li {
                             a {

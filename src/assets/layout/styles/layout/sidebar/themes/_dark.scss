@@ -2,10 +2,10 @@
     $sidebarBgColor:#1e1e1e;
     $sidebarBgColorAlt:#1e1e1e;
     $sidebarBorder:1px solid #383838;
-    $appNameColor:$textColor;
+    $appNameColor:var(--text-color);
     $menuSeparatorBorder: 1px solid #383838;
-    $menuitemRootTextColor: $textSecondaryColor;
-    $menuitemTextColor: $textColor;
+    $menuitemRootTextColor: var(--text-color-secondary);
+    $menuitemTextColor: var(--text-color);
     $menuitemHoverBg: rgba(255,255,255,.03);
     $menuitemActiveBg: #2b2b2b;
     $menuitemTextActiveColor: #ffffff;

@@ -119,23 +119,11 @@ export class AppConfigComponent implements OnInit {
         const currentColorScheme = 'theme-' + this.layoutService.config.colorScheme;
         const newColorScheme = 'theme-' + colorScheme;
         const newHref = themeLinkHref!.replace(currentColorScheme, newColorScheme);
-        
-        this.changeLayout(colorScheme);
 
         this.replaceThemeLink(newHref, 'theme-link', () => {
             this.layoutService.config.colorScheme = colorScheme;
             this.layoutService.onConfigUpdate();
         });
-    }
-
-    changeLayout(colorScheme: string) {
-        const layoutLink = <HTMLLinkElement>document.getElementById('layout-css');
-        const layoutLinkHref = layoutLink.getAttribute('href');
-        const currentLayout = 'layout_' + this.layoutService.config.colorScheme;
-        const newLayout = 'layout_' + colorScheme;
-        const newHref = layoutLinkHref!.replace(currentLayout, newLayout);
-
-        this.replaceThemeLink(newHref, 'layout-css');
     }
 
     changeComponentTheme(theme: string) {

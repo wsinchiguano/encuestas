@@ -36,7 +36,7 @@
             color: #ffffff;
             transition: background-color .2s;
             background-color: rgba(255,255,255,0.1);
-            border-radius: $borderRadius;
+            border-radius: var(--border-radius);
 
             &:hover {
                 background-color: rgba(255,255,255,0.2);

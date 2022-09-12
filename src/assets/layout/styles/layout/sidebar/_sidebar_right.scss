@@ -1,19 +1,19 @@
 .layout-sidebar-right {
-    width: $rightSidebarWidth;
+    width: 16rem;
     height: 100%;
     position: fixed;
     right: 0;
     top: 0;
     padding: 1rem;
     overflow: auto;
-    background: $rightSidebarBg;
+    background: var(--surface-overlay);
     z-index: 999;
-    border-left: $overlayBorder;
+    border-left: var(--surface-border);
     transform: translateX(100%);
-    transition: transform $animationDuration $animationTimingFunction;
+    transition: transform .4s cubic-bezier(.05,.74,.2,.99);
 
     &.layout-sidebar-right-active {
-        box-shadow: $overlayShadow;
+        box-shadow: $sidebarShadow;
         transform: translateX(0);
     }
 }

@@ -828,12 +828,6 @@ $imagePreviewActionIconFontSize:1.5rem !default;
 $imagePreviewActionIconBorderRadius:50% !default;
 
 :root {
-    --surface-a:#{$shade000};
-    --surface-b:#{$shade100};
-    --surface-c:#{$shade200};
-    --surface-d:#{$shade300};
-    --surface-e:#{$shade000};
-    --surface-f:#{$shade000};
     --text-color:#{$shade700};
     --text-color-secondary:#{$shade600};
     --primary-color:#{$primaryColor};
@@ -869,6 +863,8 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --surface-overlay:#ffffff;
     --surface-border:#dee2e6;
     --surface-hover: #e9ecef;
-    --maskbg: #{$maskBg};
     --focus-ring: #{$focusShadow};
+    --maskbg: #{$maskBg};
+    --transition-duration: #{$transitionDuration};
+    color-scheme: dark;
 }

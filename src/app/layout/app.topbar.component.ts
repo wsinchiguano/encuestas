@@ -13,6 +13,8 @@ export class AppTopbarComponent implements OnInit {
 
     userMenuItems: MenuItem[] = [];
 
+    @ViewChild('menubutton') menuButton!: ElementRef;
+
     @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
 
     constructor(public layoutService: LayoutService, public el: ElementRef) { }

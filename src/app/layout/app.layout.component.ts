@@ -15,15 +15,15 @@ export class AppLayoutComponent implements OnDestroy {
 
     menuOutsideClickListener: any;
 
-    @ViewChild(AppTopbarComponent) menu!: AppTopbarComponent;
+    @ViewChild(AppTopbarComponent) appTopbar!: AppTopbarComponent;
 
     constructor(private menuService: MenuService, public layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
             
             if (!this.menuOutsideClickListener) {
                 this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
-                    const isOutsideClicked = !(this.menu.appSidebar.el.nativeElement.isSameNode(event.target) || this.menu.appSidebar.el.nativeElement.contains(event.target)
-                        || event.target.classList.contains('p-trigger') || event.target.parentNode.classList.contains('p-trigger'));
+                    const isOutsideClicked = !(this.appTopbar.appSidebar.el.nativeElement.isSameNode(event.target) || this.appTopbar.appSidebar.el.nativeElement.contains(event.target)
+                    || this.appTopbar.menuButton.nativeElement.isSameNode(event.target) || this.appTopbar.menuButton.nativeElement.contains(event.target));
                     if (isOutsideClicked) {
                         this.hideMenu();
                     }

@@ -3,7 +3,6 @@ $tabletBreakpoint:992px !default;
 $phoneBreakpoint:576px !default;
 $sidebarShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 
-/*@import './variables/layout_light';*/
 @import './_mixins';
 @import './_fonts';
 @import './_utils';
@@ -12,8 +11,29 @@ $sidebarShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1p
 @import './_loader';
 @import './_main';
 @import './_topbar';
-@import './sidebar/_sidebar_light';
-@import './sidebar/_sidebar_right';
+
+@import './sidebar/_sidebar_vertical';
+@import './sidebar/_sidebar_slim';
+@import './sidebar/_sidebar_horizontal';
+@import './sidebar/_sidebar_compact';
+@import './sidebar/_sidebar_theme_core';
+@import './sidebar/themes/_blue';
+@import './sidebar/themes/_bluegray';
+@import './sidebar/themes/_brown';
+@import './sidebar/themes/_cyan';
+@import './sidebar/themes/_green';
+@import './sidebar/themes/_indigo';
+@import './sidebar/themes/_deeppurple';
+@import './sidebar/themes/_orange';
+@import './sidebar/themes/_pink';
+@import './sidebar/themes/_purple';
+@import './sidebar/themes/_teal';
+@import './sidebar/themes/_white';
+@import './sidebar/themes/_darkgray';
+@import './sidebar/themes/_dark';
+@import './sidebar/themes/_dim';
+
+@import './sidebar/_sidebar_right';     //TODO: use p-sidebar
 @import './_content';
 @import './_footer';
 @import './_responsive';
@@ -22,5 +42,7 @@ $sidebarShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1p
 @import './_invoice';
 @import './_help';
 @import './_exception';
-@import './_config';
+
+@import './_config';                    //TODO: use p-sidebar
+
 @import './_rightmenu';

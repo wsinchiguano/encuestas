@@ -41,4 +41,5 @@ Thumbs.db
 # Compiled files
 theme.css
 layout.css
+*.map
 src/assets/layout/styles/theme/designer

@@ -1,15 +1,13 @@
 .layout-sidebar-orange {
-    $sidebarBgColor:#F57C00;
-    $sidebarBgColorAlt:#EF6C00;
-    $sidebarBorder:0 none;
-    $appNameColor:rgba(0,0,0,0.8);
-    $menuSeparatorBorder: 1px solid rgba(0,0,0,0.1);
-    $menuitemRootTextColor: rgba(0,0,0,0.6);
-    $menuitemTextColor: rgba(0,0,0,0.8);
-    $menuitemHoverBg: rgba(255,255,255,0.1);
-    $menuitemActiveBg: rgba(255,255,255,0.1);
-    $menuitemTextActiveColor: rgba(0,0,0,0.9);
-    $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
-
-    @import '../_sidebar_theme_core';
+    --d-sidebar-bg-color:#F57C00;
+    --d-sidebar-bg-color-alt:#EF6C00;
+    --d-sidebar-border:0 none;
+    --d-app-name-color:rgba(0,0,0,0.8);
+    --d-menu-separator-border: 1px solid rgba(0,0,0,0.1);
+    --d-menuitem-root-text-color: rgba(0,0,0,0.6);
+    --d-menuitem-text-color: rgba(0,0,0,0.8);
+    --d-menuitem-hover-bg: rgba(255,255,255,0.1);
+    --d-menuitem-active-bg: rgba(255,255,255,0.1);
+    --d-menuitem-text-active-color: rgba(0,0,0,0.9);
+    --d-menuitem-focus-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 }

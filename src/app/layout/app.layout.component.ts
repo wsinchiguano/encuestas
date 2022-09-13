@@ -74,8 +74,7 @@ export class AppLayoutComponent implements OnDestroy {
     }
 
     get containerClass() {
-
-        return  {
+        return {
             'layout-overlay': this.layoutService.config.menuMode === 'overlay',
             'layout-static': this.layoutService.config.menuMode === 'static',
             'layout-slim': this.layoutService.config.menuMode === 'slim',
@@ -87,13 +86,12 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
             'p-ripple-disabled': !this.layoutService.config.ripple,
-            'p-input-filled': this.layoutService.config.inputStyle === 'filled',
+            'p-input-filled': this.layoutService.config.inputStyle === 'filled'
         }
     }
 
     get sidebarClass() {
-        const color = this.layoutService.config.menuTheme;
-        return `layout-sidebar-${color}`;
+        return this.layoutService.config.colorScheme === 'light' ? `layout-sidebar-${this.layoutService.config.menuTheme}` : null;
     }
 
     ngOnDestroy() {

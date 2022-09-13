@@ -1,58 +1,58 @@
 .layout-sidebar {
-    background: $sidebarBgColor;
-    border-right: $sidebarBorder;
-    background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
+    background: var(--d-sidebar-bg-color);
+    border-right: var(--d-sidebar-border);
+    background-image: linear-gradient(180deg,var(--d-sidebar-bg-color) 10%, var(--d-sidebar-bg-color-alt) 100%);
 
     .logo {
-        border-bottom: $menuSeparatorBorder;
+        border-bottom: var(--d-menu-separator-border);
 
         &:focus {
-            box-shadow: $menuitemFocusShadow;
+            box-shadow: var(--d-menuitem-focus-shadow);
         }
     }
 
     .app-name {
-        color: $appNameColor;
+        color: var(--d-app-name-color);
     }
 
     .layout-menu {
         .menu-separator {
-            border-top: $menuSeparatorBorder;
+            border-top: var(--d-menu-separator-border);
         }
 
         li {
             &.active-menuitem {
                 > a {
-                    color: $menuitemTextActiveColor;
+                    color: var(--d-menuitem-text-active-color);
                 }
             }
 
             a {
-                color: $menuitemTextColor;
+                color: var(--d-menuitem-text-color);
 
                 &:hover {
-                    background: $menuitemHoverBg;
+                    background: var(--d-menuitem-hover-bg);
                 }
 
                 &:focus {
-                    box-shadow: $menuitemFocusShadow;
+                    box-shadow: var(--d-menuitem-focus-shadow);
                 }
             }
         }
 
         .layout-root-menuitem {
             .layout-menuitem-root-text {
-                color: $menuitemRootTextColor;
+                color: var(--d-menuitem-root-text-color);
             }
 
             &.active-menuitem {
-                background: $menuitemActiveBg;
+                background: var(--d-menuitem-active-bg);
             }
 
             > ul {
                 z-index: 1;
                 > li.active-menuitem {
-                    background: $menuitemActiveBg;
+                    background: var(--d-menuitem-active-bg);
                 }
             }
         }
@@ -60,41 +60,43 @@
 }
 
 @media screen and (min-width: $tabletBreakpoint + 1) {
-    &.layout-slim {
-        .layout-sidebar {
-            .layout-menu {
-                .layout-root-menuitem {
-                    > ul {
-                        background: $sidebarBgColor;
-                        background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
+    .layout-wrapper {
+        &.layout-slim {
+            .layout-sidebar {
+                .layout-menu {
+                    .layout-root-menuitem {
+                        > ul {
+                            background: var(--d-sidebar-bg-color);
+                            background-image: linear-gradient(180deg,var(--d-sidebar-bg-color) 10%,var(--d-sidebar-bg-color-alt) 100%);
+                        }
                     }
-                }
-
-                ul {
-                    a {
-                        &.active-route {
-                            background: $menuitemActiveBg;
+    
+                    ul {
+                        a {
+                            &.active-route {
+                                background: var(--d-menuitem-active-bg);
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    &.layout-compact {
-        .layout-sidebar {
-            .layout-menu {
-                .layout-root-menuitem {
-                    > ul {
-                        background: $sidebarBgColor;
-                        background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
-                        left: 4rem;
+        &.layout-compact {
+            .layout-sidebar {
+                .layout-menu {
+                    .layout-root-menuitem {
+                        > ul {
+                            background: var(--d-sidebar-bg-color);
+                            background-image: linear-gradient(180deg,var(--d-sidebar-bg-color) 10%,var(--d-sidebar-bg-color-alt) 100%);
+                            left: 4rem;
+                        }
                     }
-                }
-
-                ul {
-                    a {
-                        &.active-route {
-                            background: $menuitemActiveBg;
+    
+                    ul {
+                        a {
+                            &.active-route {
+                                background: var(--d-menuitem-active-bg);
+                            }
                         }
                     }
                 }
@@ -104,95 +106,98 @@
 }
 
 @media screen and (min-width: $tabletBreakpoint + 1) {
-    &.layout-horizontal {
-        .layout-topbar {
-            background: $sidebarBgColor;
-            color: $menuitemTextColor;
+    .layout-wrapper {
 
-            .topbar-separator {
-                border-left: $menuSeparatorBorder;
-            }
-
-            .topbar-menu {
-
-                > li {
-                    &.profile-item {
-                        border-left: $menuSeparatorBorder;
-                        border-right: $menuSeparatorBorder;
-                    }
-
-                    &.right-sidebar-item {
-                        > a {
-                            background: transparent;
-                            color: $menuitemTextColor;
-
-                            &:hover {
-                                background: $menuitemHoverBg;
-                            }
-
-                            &:focus {
-                                box-shadow: $menuitemFocusShadow;
-                            }
+        &.layout-horizontal {
+            .layout-topbar {
+                background: var(--d-sidebar-bg-color);
+                color: var(--d-menuitem-text-color);
+    
+                .topbar-separator {
+                    border-left: var(--d-menu-separator-border);
+                }
+    
+                .topbar-menu {
+    
+                    > li {
+                        &.profile-item {
+                            border-left: var(--d-menu-separator-border);
+                            border-right: var(--d-menu-separator-border);
                         }
-                    }
-
-                    > a {
-                        color: $menuitemTextColor;
-
-                        &:hover {
-                            background: $menuitemHoverBg;
-                        }
-
-                        &:focus {
-                            box-shadow: $menuitemFocusShadow;
-                        }
-
-                        .topbar-badge {
-                            background: var(--primary-color);
-                            color: var(--primary-color-text);
-                        }
-                    }
-
-                    > ul {
-                        background: $sidebarBgColor;
-                        border: var(--surface-border);
-                        box-shadow: $sidebarShadow;
-
-                        li {
-                            a {
-                                color: $menuitemTextColor;
-
+    
+                        &.right-sidebar-item {
+                            > a {
+                                background: transparent;
+                                color: var(--d-menuitem-text-color);
+    
                                 &:hover {
-                                    background: $menuitemHoverBg;
+                                    background: var(--d-menuitem-hover-bg);
+                                }
+    
+                                &:focus {
+                                    box-shadow: var(--d-menuitem-focus-shadow);
                                 }
                             }
                         }
-
-                        &.notifications-menu {
-                            .notification-detail {
-                                color: $menuitemRootTextColor;
+    
+                        > a {
+                            color: var(--d-menuitem-text-color);
+    
+                            &:hover {
+                                background: var(--d-menuitem-hover-bg);
+                            }
+    
+                            &:focus {
+                                box-shadow: var(--d-menuitem-focus-shadow);
+                            }
+    
+                            .topbar-badge {
+                                background: var(--primary-color);
+                                color: var(--primary-color-text);
+                            }
+                        }
+    
+                        > ul {
+                            background: var(--d-sidebar-bg-color);
+                            border: var(--surface-border);
+                            box-shadow: $sidebarShadow;
+    
+                            li {
+                                a {
+                                    color: var(--d-menuitem-text-color);
+    
+                                    &:hover {
+                                        background: var(--d-menuitem-hover-bg);
+                                    }
+                                }
+                            }
+    
+                            &.notifications-menu {
+                                .notification-detail {
+                                    color: var(--d-menuitem-root-text-color);
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-
-        .layout-sidebar {
-            background-image: none;
-
-            .layout-menu {
-                .layout-root-menuitem {
-                    > ul {
-                        background: $sidebarBgColor;
-                        background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
+    
+            .layout-sidebar {
+                background-image: none;
+    
+                .layout-menu {
+                    .layout-root-menuitem {
+                        > ul {
+                            background: var(--d-sidebar-bg-color);
+                            background-image: linear-gradient(180deg,var(--d-sidebar-bg-color) 10%,var(--d-sidebar-bg-color-alt) 100%);
+                        }
                     }
-                }
-
-                ul {
-                    a {
-                        &.active-route {
-                            background: $menuitemActiveBg;
+    
+                    ul {
+                        a {
+                            &.active-route {
+                                background: var(--d-menuitem-active-bg);
+                            }
                         }
                     }
                 }

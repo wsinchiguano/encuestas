@@ -1,15 +1,13 @@
 .layout-sidebar-pink {
-    $sidebarBgColor:#C2185B;
-    $sidebarBgColorAlt:#AD1457;
-    $sidebarBorder:0 none;
-    $appNameColor:#ffffff;
-    $menuSeparatorBorder: 1px solid rgba(255,255,255,0.2);
-    $menuitemRootTextColor: rgba(255,255,255,0.4);
-    $menuitemTextColor: rgba(255,255,255,0.8);
-    $menuitemHoverBg: rgba(255,255,255,0.1);
-    $menuitemActiveBg: rgba(255,255,255,0.1);
-    $menuitemTextActiveColor: #ffffff;
-    $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
-
-    @import '../_sidebar_theme_core';
+    --d-sidebar-bg-color:#C2185B;
+    --d-sidebar-bg-color-alt:#AD1457;
+    --d-sidebar-border:0 none;
+    --d-app-name-color:#ffffff;
+    --d-menu-separator-border: 1px solid rgba(255,255,255,0.2);
+    --d-menuitem-root-text-color: rgba(255,255,255,0.4);
+    --d-menuitem-text-color: rgba(255,255,255,0.8);
+    --d-menuitem-hover-bg: rgba(255,255,255,0.1);
+    --d-menuitem-active-bg: rgba(255,255,255,0.1);
+    --d-menuitem-text-active-color: #ffffff;
+    --d-menuitem-focus-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 }

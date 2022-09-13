@@ -1,15 +1,13 @@
 .layout-sidebar-green {
-    $sidebarBgColor:#388E3C;
-    $sidebarBgColorAlt:#388E3C;
-    $sidebarBorder:0 none;
-    $appNameColor:#ffffff;
-    $menuSeparatorBorder: 1px solid rgba(255,255,255,0.2);
-    $menuitemRootTextColor: rgba(255,255,255,0.4);
-    $menuitemTextColor: rgba(255,255,255,0.8);
-    $menuitemHoverBg: rgba(255,255,255,0.1);
-    $menuitemActiveBg: rgba(255,255,255,0.1);
-    $menuitemTextActiveColor: #ffffff;
-    $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
-
-    @import '../_sidebar_theme_core';
+    --d-sidebar-bg-color:#388E3C;
+    --d-sidebar-bg-color-alt:#388E3C;
+    --d-sidebar-border:0 none;
+    --d-app-name-color:#ffffff;
+    --d-menu-separator-border: 1px solid rgba(255,255,255,0.2);
+    --d-menuitem-root-text-color: rgba(255,255,255,0.4);
+    --d-menuitem-text-color: rgba(255,255,255,0.8);
+    --d-menuitem-hover-bg: rgba(255,255,255,0.1);
+    --d-menuitem-active-bg: rgba(255,255,255,0.1);
+    --d-menuitem-text-active-color: #ffffff;
+    --d-menuitem-focus-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 }

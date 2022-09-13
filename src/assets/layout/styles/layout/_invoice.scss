@@ -2,8 +2,8 @@
     padding: 2rem;
 
     .invoice-header {
-        @include flex();
-        @include flex-justify-between();
+        display: flex;
+        justify-content: space-between; 
     }
 
     .invoice-company {
@@ -30,8 +30,8 @@
 
     .invoice-details {
         width: 15rem;
-        @include flex();
-        @include flex-wrap(wrap);
+        display: flex;
+        flex-wrap: wrap;
 
         > div {
             width: 50%;
@@ -94,8 +94,8 @@
     }
 
     .invoice-summary {
-        @include flex();
-        @include flex-justify-between();
+        display: flex;
+        justify-content: space-between; 
         margin-top: 2.5rem;
         padding-top: 2.5rem;
 

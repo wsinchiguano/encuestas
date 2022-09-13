@@ -40,7 +40,7 @@
 
     .status-bars {
         margin-top: 1rem;
-        @include flex();
+        display: flex;
 
         .status-bar {
             flex: 1 1 0;
@@ -66,8 +66,8 @@
 
     .status-bar-footer {
         padding: 1rem 0 0 0;
-        @include flex();
-        @include flex-justify-between();
+        display: flex;
+        justify-content: space-between; 
     }
 
     .blog-post {

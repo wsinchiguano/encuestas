@@ -1,7 +1,7 @@
 .search-container {
     background: var(--surface-overlay);
-    @include flex();
-    @include flex-align-center();
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     padding: 2rem;
     border-radius: var(--border-radius);

@@ -76,7 +76,7 @@
     .layout-wrapper {
         .layout-topbar {
             height: 7.125rem;
-            @include flex-wrap(wrap);
+            flex-wrap: wrap;
             position: fixed;
             left: 0;
             top: 0;
@@ -86,7 +86,7 @@
             .topbar-left {
                 width: 100%;
                 padding: .5rem 0;
-                @include flex-justify-between();
+                justify-content: space-between; 
                 border-bottom: 1px solid var(--surface-border);
 
                 .horizontal-logo {
@@ -120,7 +120,7 @@
             }
 
             .topbar-menu {
-                @include flex-justify-between();
+                justify-content: space-between; 
 
                 > li {
                     margin-left: 0;

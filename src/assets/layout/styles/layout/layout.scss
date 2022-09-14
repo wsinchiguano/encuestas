@@ -32,14 +32,12 @@ $sidebarShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1p
 @import './sidebar/themes/_dark';
 @import './sidebar/themes/_dim';
 
-@import './sidebar/_sidebar_right';     //TODO: use p-sidebar
+@import './sidebar/_sidebar_right';
 @import './_content';
 @import './_footer';
 @import './_responsive';
 @import './_search';
-@import './_invoice';
 
-
-@import './_config';                    //TODO: use p-sidebar
+@import './_config';
 
 @import './_rightmenu';

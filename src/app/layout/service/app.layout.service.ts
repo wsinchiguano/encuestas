@@ -18,8 +18,6 @@ interface LayoutState {
     configSidebarVisible: boolean;
     staticMenuMobileActive: boolean;
     menuHoverActive: boolean;
-    userMenuVisible: boolean;
-    notificationMenuVisible: boolean;
     searchBarActive: boolean;
 }
 
@@ -45,8 +43,6 @@ export class LayoutService {
         configSidebarVisible: false,
         staticMenuMobileActive: false,
         menuHoverActive: false,
-        userMenuVisible: false,
-        notificationMenuVisible: false,
         searchBarActive: false
     };
 
@@ -89,14 +85,6 @@ export class LayoutService {
 
     showConfigSidebar() {
         this.state.configSidebarVisible = true;
-    }
-
-    showUserMenu() {
-        this.state.userMenuVisible = true;
-    }
-
-    showNotificationMenu() {
-        this.state.notificationMenuVisible = true;
     }
 
     toggleSearchBar() {

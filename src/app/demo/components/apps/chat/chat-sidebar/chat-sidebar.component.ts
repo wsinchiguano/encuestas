@@ -27,7 +27,7 @@ export class ChatSidebarComponent implements OnInit {
         let filtered: User[] = [];
         for (let i = 0; i < this.users.length; i++) {
             let user = this.users[i];
-            if (user.name.toLowerCase().indexOf(this.searchValue.toLowerCase()) == 0) {
+            if (user.name.toLowerCase().includes(this.searchValue.toLowerCase())) {
                 filtered.push(user)
             }
         }

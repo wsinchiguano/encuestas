@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AccessdeniedRoutingModule } from './accessdenied-routing.module';
 import { AccessdeniedComponent } from './accessdenied.component';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
     declarations: [
@@ -10,7 +11,8 @@ import { AccessdeniedComponent } from './accessdenied.component';
     ],
     imports: [
         CommonModule,
-        AccessdeniedRoutingModule
+        AccessdeniedRoutingModule,
+        ButtonModule
     ]
 })
 export class AccessdeniedModule { }

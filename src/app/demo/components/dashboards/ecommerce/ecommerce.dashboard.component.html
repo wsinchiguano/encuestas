@@ -60,22 +60,22 @@
 
                 <p>Your sales activity over time.</p>
 
-				<p-table [value]="products" [paginator]="true" [rows]="5" styleClass="p-datatable-customers">
+				<p-table [value]="products" [paginator]="true" [rows]="5" responsiveLayout="scroll">
 					<ng-template pTemplate="header">
 						<tr>
-							<th pSortableColumn="id">ID
+							<th pSortableColumn="id" style="width:10%;min-width:6rem;">ID
 								<p-sortIcon field="id"></p-sortIcon>
 							</th>
-							<th pSortableColumn="category">Category
+							<th pSortableColumn="category" style="width:30%;min-width:10rem;">Category
 								<p-sortIcon field="category"></p-sortIcon>
 							</th>
-							<th pSortableColumn="price">Price
+							<th pSortableColumn="price" style="width:20%;min-width:10rem;">Price
 								<p-sortIcon field="price"></p-sortIcon>
 							</th>
-							<th pSortableColumn="inventoryStatus">Status
+							<th pSortableColumn="inventoryStatus" style="width:30%;min-width:10rem;">Status
 								<p-sortIcon field="inventoryStatus"></p-sortIcon>
 							</th>
-							<th></th>
+							<th style="width:10%;min-width:6rem;"></th>
 						</tr>
 					</ng-template>
 					<ng-template pTemplate="body" let-product>

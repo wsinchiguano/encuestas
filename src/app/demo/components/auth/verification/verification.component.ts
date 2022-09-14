@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { DomHandler } from 'primeng/dom';
+import { InputNumber } from 'primeng/inputnumber';
 
 @Component({
     templateUrl: './verification.component.html'
@@ -14,7 +15,7 @@ export class VerificationComponent {
     
     val4!: number;
 
-    focusOnNext(inputEl) {
-        DomHandler.getFocusableElements(inputEl.el.nativeElement)[0].focus();
+    focusOnNext(inputEl: InputNumber) {
+        inputEl.input.nativeElement.focus();
     }
 }

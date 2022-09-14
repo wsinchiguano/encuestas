@@ -91,7 +91,7 @@ export class AppLayoutComponent implements OnDestroy {
     }
 
     get sidebarClass() {
-        return this.layoutService.config.colorScheme === 'light' ? `layout-sidebar-${this.layoutService.config.menuTheme}` : null;
+        return this.layoutService.config.colorScheme === 'light' ? `layout-sidebar-${this.layoutService.config.menuTheme}` : '';
     }
 
     ngOnDestroy() {

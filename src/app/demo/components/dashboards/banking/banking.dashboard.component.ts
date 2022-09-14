@@ -27,7 +27,7 @@ export class BankingDashboardComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    items: MenuItem[];
+    items: MenuItem[] = [];
 
     constructor(private layoutService: LayoutService) {
         this.subscription = this.layoutService.configUpdate$.subscribe(config => {
@@ -219,7 +219,7 @@ export class BankingDashboardComponent implements OnInit, OnDestroy {
                 },
                 y: {
                     ticks: {
-                        callback(value, index){
+                        callback(value: number) {
                             return '$' + value + 'k';
                         },
                         color: textColorSecondary

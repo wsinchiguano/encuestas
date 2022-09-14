@@ -1,4 +1,4 @@
-@media screen and (min-width: $tabletBreakpoint + 1) {
+@media screen and (min-width: $breakpoint) {
     .layout-wrapper {
         &.layout-static {
             .layout-topbar {
@@ -68,7 +68,7 @@
     }
 }
 
-@media screen and (max-width: $tabletBreakpoint) {
+@media screen and (max-width: $breakpoint - 1) {
     .blocked-scroll {
         overflow: hidden;
     }
@@ -144,10 +144,6 @@
                             display: none;
                         }
                     }
-
-                    > ul {
-                        top: 2.75rem;
-                    }
                 }
             }
         }
@@ -180,26 +176,6 @@
         .layout-search {
             .search-container {
                 width: 75vw;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: $phoneBreakpoint) {
-    .layout-wrapper {
-        .layout-topbar {
-            .topbar-menu {
-                > li {
-                    position: static;
-                    
-                    > ul {
-                        position: fixed;
-                        top: 7.125rem;
-                        left: 0;
-                        width: 100%;
-                        right: auto;
-                    }
-                }
             }
         }
     }

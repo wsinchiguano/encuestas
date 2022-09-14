@@ -59,7 +59,7 @@
     }
 }
 
-@media screen and (min-width: $tabletBreakpoint + 1) {
+@media screen and (min-width: $breakpoint) {
     .layout-wrapper {
         &.layout-slim {
             .layout-sidebar {
@@ -105,7 +105,7 @@
     }
 }
 
-@media screen and (min-width: $tabletBreakpoint + 1) {
+@media screen and (min-width: $breakpoint) {
     .layout-wrapper {
 
         &.layout-horizontal {
@@ -206,7 +206,7 @@
     }
 }
 
-@media screen and (max-width: $tabletBreakpoint + 1) {
+@media screen and (max-width: $breakpoint - 1) {
     .layout-sidebar {
         .layout-menu {
             .layout-root-menuitem {

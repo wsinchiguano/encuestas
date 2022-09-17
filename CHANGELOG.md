@@ -1,5 +1,14 @@
 # Changelog
 
+## 14.2.0
+**Implemented New Features and Enhancements:**
+- Introduced next-gen implementation based on LayoutService
+- New sample apps
+- New authentication pages
+- New banking dashboard
+- New compact menu
+- Optimized assets
+
 ## 14.1.1
 **Fixed bugs:**
 - Fixed a bug causes menu malfunction in menu service.

@@ -80,32 +80,32 @@ export class AppConfigComponent implements OnInit {
     ngOnInit() {
 
         this.componentThemes = [
-            {name: 'blue', color: '#42A5F5'},
-            {name: 'green', color: '#66BB6A'},
-            {name: 'lightgreen', color: '#9CCC65'},
-            {name: 'purple', color: '#AB47BC'},
-            {name: 'deeppurple', color: '#7E57C2'},
-            {name: 'indigo', color: '#5C6BC0'},
-            {name: 'orange', color: '#FFA726'},
-            {name: 'cyan', color: '#26C6DA'},
-            {name: 'pink', color: '#EC407A'},
-            {name: 'teal', color: '#26A69A'}
+            {name: 'blue', color: '#2196F3'},
+            {name: 'green', color: '#4CAF50'},
+            {name: 'lightgreen', color: '#8BC34A'},
+            {name: 'purple', color: '#9C27B0'},
+            {name: 'deeppurple', color: '#673AB7'},
+            {name: 'indigo', color: '#3F51B5'},
+            {name: 'orange', color: '#FF9800'},
+            {name: 'cyan', color: '#00BCD4'},
+            {name: 'pink', color: '#E91E63'},
+            {name: 'teal', color: '#009688'}
         ];
 
         this.menuThemes = [
             {name: 'white', color: '#ffffff', logoColor: 'dark', componentTheme: null},
             {name: 'darkgray', color: '#343a40', logoColor: 'white', componentTheme: null},
-            {name: 'blue', color: '#1976d2', logoColor: 'white', componentTheme: 'blue'},
+            {name: 'blue', color: '#2196F3', logoColor: 'white', componentTheme: 'blue'},
             {name: 'bluegray', color: '#455a64', logoColor: 'white', componentTheme: 'lightgreen'},
             {name: 'brown', color: '#5d4037', logoColor: 'white', componentTheme: 'cyan'},
-            {name: 'cyan', color: '#0097a7', logoColor: 'white', componentTheme: 'cyan'},
-            {name: 'green', color: '#388e3C', logoColor: 'white', componentTheme: 'green'},
-            {name: 'indigo', color: '#303f9f', logoColor: 'white', componentTheme: 'indigo'},
-            {name: 'deeppurple', color: '#512da8', logoColor: 'white', componentTheme: 'deeppurple'},
-            {name: 'orange', color: '#F57c00', logoColor: 'dark', componentTheme: 'orange'},
-            {name: 'pink', color: '#c2185b', logoColor: 'white', componentTheme: 'pink'},
-            {name: 'purple', color: '#7b1fa2', logoColor: 'white', componentTheme: 'purple'},
-            {name: 'teal', color: '#00796b', logoColor: 'white', componentTheme: 'teal'},
+            {name: 'cyan', color: '#00BCD4', logoColor: 'white', componentTheme: 'cyan'},
+            {name: 'green', color: '#4CAF50', logoColor: 'white', componentTheme: 'green'},
+            {name: 'indigo', color: '#3F51B5', logoColor: 'white', componentTheme: 'indigo'},
+            {name: 'deeppurple', color: '#673AB7', logoColor: 'white', componentTheme: 'deeppurple'},
+            {name: 'orange', color: '#FF9800', logoColor: 'dark', componentTheme: 'orange'},
+            {name: 'pink', color: '#E91E63', logoColor: 'white', componentTheme: 'pink'},
+            {name: 'purple', color: '#9C27B0', logoColor: 'white', componentTheme: 'purple'},
+            {name: 'teal', color: '#009688', logoColor: 'white', componentTheme: 'teal'},
         ];
     }
 

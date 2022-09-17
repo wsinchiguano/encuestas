@@ -36,11 +36,3 @@ a {
     animation-timing-function: cubic-bezier(.05,.74,.2,.99);
     animation-fill-mode: forwards;
 }
-
-.layout-ajax-loader-icon {
-    position: fixed;
-    right: 2rem;
-    bottom: 2rem;
-    font-size: 2rem;
-    color: var(--text-color-secondary);
-}

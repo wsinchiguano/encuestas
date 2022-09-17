@@ -26,20 +26,20 @@
                 </div>
                 <p-menu #menu [popup]="true" [model]="items"></p-menu>
 
-                <div class="grid">
-                    <div class="col-3 relative hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="New Orders" data-index="0" data-fill="rgba(100, 181, 246, 0.2)" data-stroke="#BBDEFB">
+                <div class="grid mt-3">
+                    <div class="col-6 md:col-3 relative transition-all transition-duration-300 hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="New Orders" data-index="0" data-fill="rgba(100, 181, 246, 0.2)" data-stroke="#BBDEFB">
                         <span class="flex align-items-center"><i class="pi pi-plus-circle mr-1"></i> New</span>
                         <img src="assets/demo/images/dashboard/graph-new.svg" class="absolute w-11" style="left: 5%; bottom: 0">
                     </div>
-                    <div class="col-3 relative hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()"  data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9" data-fill="rgba(121, 134, 203, 0.2)">
+                    <div class="col-6 md:col-3  relative transition-all transition-duration-300 hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()"  data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9" data-fill="rgba(121, 134, 203, 0.2)">
                         <span class="flex align-items-center"><i class="pi pi-check-circle mr-1"></i> Completed</span>
                         <img src="assets/demo/images/dashboard/graph-completed.svg" class="absolute w-11" style="left: 5%; bottom: 0">
                     </div>
-                    <div class="col-3 relative hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB" data-fill="rgba(224, 242, 241, 0.5)">
+                    <div class="col-6 md:col-3  relative transition-all transition-duration-300 hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB" data-fill="rgba(224, 242, 241, 0.5)">
                         <span class="flex align-items-center"><i class="pi pi-refresh mr-1"></i> Refunded</span>
                         <img src="assets/demo/images/dashboard/graph-refunded.svg" class="absolute w-11" style="left: 5%; bottom: 0">
                     </div>
-                    <div class="col-3 relative hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2" data-fill="rgba(224, 247, 250, 0.5)">
+                    <div class="col-6 md:col-3  relative transition-all transition-duration-300 hover:shadow-3 cursor-pointer h-5rem" (click)="changeDataset($event); chart.reinit()" data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2" data-fill="rgba(224, 247, 250, 0.5)">
                         <span class="flex align-items-center"><i class="pi pi-times-circle mr-1"></i> Cancelled</span>
                         <img src="assets/demo/images/dashboard/graph-cancelled.svg" class="absolute w-11" style="left: 5%; bottom: 0">
                     </div>
@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="flex justify-content-between">
                     <h4>Recent Sales</h4>
-                    <p-dropdown [options]="orderWeek" [(ngModel)]="selectedOrderWeek" optionLabel="name" (onChange)="recentSales($event)" styleClass="w-8rem"> </p-dropdown>
+                    <p-dropdown [options]="orderWeek" [(ngModel)]="selectedOrderWeek" optionLabel="name" (onChange)="recentSales($event)" styleClass="w-9rem"> </p-dropdown>
                 </div>
 
                 <p>Your sales activity over time.</p>

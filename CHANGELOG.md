@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.2.1
+**Fixed bugs:**
+- Fixed issue where double click is necessary to hide a kanban card overlay menu.
+- Fixed color-scheme on light themes
+- Fixed background image loading issue on landing page
+
 ## 14.2.0
 **Implemented New Features and Enhancements:**
 - Introduced next-gen implementation based on LayoutService

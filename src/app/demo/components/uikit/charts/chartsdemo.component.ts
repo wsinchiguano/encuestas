@@ -67,7 +67,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        color: textColor
+                        fontColor: textColor
                     }
                 }
             },
@@ -80,7 +80,7 @@ export class ChartsDemoComponent implements OnInit {
                         }
                     },
                     grid: {
-                        color:[surfaceBorder],
+                        display: false,
                         drawBorder: false
                     }
                 },
@@ -110,8 +110,7 @@ export class ChartsDemoComponent implements OnInit {
                         documentStyle.getPropertyValue('--indigo-400'),
                         documentStyle.getPropertyValue('--purple-400'),
                         documentStyle.getPropertyValue('--teal-400')
-                    ],
-                    borderColor: [surfaceBorder]
+                    ]
                 }]
         };
 
@@ -152,7 +151,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        color: textColor
+                        fontColor: textColor
                     }
                 }
             },
@@ -162,7 +161,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: textColorSecondary
                     },
                     grid: {
-                        color: [surfaceBorder],
+                        color: surfaceBorder,
                         drawBorder: false
                     }
                 },
@@ -171,7 +170,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: textColorSecondary
                     },
                     grid: {
-                        color: [surfaceBorder],
+                        color: surfaceBorder,
                         drawBorder: false
                     }
                 },
@@ -247,18 +246,14 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        color: textColor
+                        fontColor: textColor
                     }
                 }
             },
             scales: {
                 r: {
-                    pointLabels: {
-                        color: textColor
-                    },
                     grid: {
-                        color:[surfaceBorder],
-                        drawBorder: false
+                        color: textColorSecondary
                     }
                 }
             }
@@ -270,4 +265,5 @@ export class ChartsDemoComponent implements OnInit {
             this.subscription.unsubscribe();
         }
     }
+    
 }

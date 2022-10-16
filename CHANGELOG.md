@@ -1,5 +1,9 @@
 # Changelog
 
+## 14.2.2
+- Updated UI kit demos
+- Updated PrimeNG
+
 ## 14.2.1
 **Fixed bugs:**
 - Fixed issue where double click is necessary to hide a kanban card overlay menu.

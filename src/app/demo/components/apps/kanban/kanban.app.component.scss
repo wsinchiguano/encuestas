@@ -1,0 +1,62 @@
+:host {
+    ::-webkit-scrollbar {
+        height: 6px;              
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--gray-500);
+        border-radius: 20px;
+    }
+}
+
+:host ::ng-deep {
+    .p-button-label {
+        flex: 0;
+        white-space: nowrap;
+    }
+
+    .p-progressbar {
+        height: 0.5rem;
+        
+        .p-progressbar-value {
+            border-radius: 6px;
+        }
+    }
+
+    .p-inplace {
+        .p-inplace-content {
+            .p-inputtext {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+    
+            .p-button {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+
+        .p-inplace-display {
+            padding: 0;
+        }    
+    }
+}
+
+.p-kanban-list {
+    cursor: pointer;
+    height: min-content;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0.25;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

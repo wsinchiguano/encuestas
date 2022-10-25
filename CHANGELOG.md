@@ -3,6 +3,7 @@
 ## 14.2.2
 - Updated UI kit demos
 - Updated PrimeNG
+- Enabled lint
 
 ## 14.2.1
 **Fixed bugs:**

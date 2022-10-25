@@ -3,7 +3,7 @@ import { User } from 'src/app/demo/api/user';
 import { ChatService } from '../service/chat.service';
 
 @Component({
-    selector: 'chat-sidebar',
+    selector: 'app-chat-sidebar',
     templateUrl: './chat-sidebar.component.html'
 })
 export class ChatSidebarComponent implements OnInit {
@@ -27,7 +27,7 @@ export class ChatSidebarComponent implements OnInit {
         let filtered: User[] = [];
         for (let i = 0; i < this.users.length; i++) {
             let user = this.users[i];
-            if (user.name.toLowerCase().includes(this.searchValue.toLowerCase())) {
+            if (user.name.toLowerCase().indexOf(this.searchValue.toLowerCase()) == 0) {
                 filtered.push(user)
             }
         }

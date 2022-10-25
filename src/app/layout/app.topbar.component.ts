@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { AppSidebarComponent } from './app.sidebar.component';
 
@@ -6,7 +6,7 @@ import { AppSidebarComponent } from './app.sidebar.component';
     selector: 'app-topbar',
     templateUrl: './app.topbar.component.html'
 })
-export class AppTopbarComponent implements OnInit {
+export class AppTopbarComponent {
 
     @ViewChild('menubutton') menuButton!: ElementRef;
 
@@ -14,9 +14,6 @@ export class AppTopbarComponent implements OnInit {
 
     constructor(public layoutService: LayoutService, public el: ElementRef) { }
 
-    ngOnInit(): void {
-
-    }
 
     onMenuButtonClick() {
         this.layoutService.onMenuToggle();

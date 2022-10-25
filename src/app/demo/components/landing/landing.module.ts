@@ -8,7 +8,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { AnimateEnter } from './animateenter.directive'; 
+import { AnimateEnterDirective } from './animateenter.directive'; 
 
 @NgModule({
     imports: [
@@ -21,6 +21,6 @@ import { AnimateEnter } from './animateenter.directive';
         InputTextareaModule,
         AppConfigModule,
     ],
-    declarations: [LandingComponent, AnimateEnter]
+    declarations: [LandingComponent, AnimateEnterDirective]
 })
 export class LandingModule { }

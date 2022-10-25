@@ -4,7 +4,7 @@ import { Mail } from 'src/app/demo/api/mail';
 import { MailService } from '../service/mail.service';
 
 @Component({
-    selector: 'mail-reply',
+    selector: 'app-mail-reply',
     templateUrl: './mail-reply.component.html',
 })
 export class MailReplyComponent {
@@ -34,7 +34,7 @@ export class MailReplyComponent {
     constructor(private messageService: MessageService, private mailService: MailService) { }
 
     sendMail() {
-        let { image, from, title } = this.content;
+        let { image, from, title } = this.content
         this.newMail = { ...this.newMail, to: from, title: title, image: image };
         this.mailService.onSend(this.newMail);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Mail sent' });

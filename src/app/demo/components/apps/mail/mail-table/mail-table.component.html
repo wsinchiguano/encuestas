@@ -30,7 +30,7 @@
                 </span>
             </td>
             <td style="min-width: 4rem">
-                <p-avatar [image]="mail.image ? 'assets/demo/images/avatar/' + mail.image : 'assets/demo/images/avatar/circle/avatar-f-1.png'"></p-avatar>
+                <p-avatar [image]="mail.image ? 'assets/demo/images/avatar/' + mail.image : 'assets/layout/images/avatar.png'"></p-avatar>
             </td>
             <td style="min-width: 12rem" class="text-900 font-semibold">
                 {{mail.from || mail.to}}
@@ -57,5 +57,5 @@
 </p-table>
 
 <p-dialog [(visible)]="dialogVisible" (onHide)="dialogVisible = false" [closable]="true" header="New Message" [modal]="true" styleClass="mx-3 sm:mx-0 sm:w-full md:w-8 lg:w-6" contentStyleClass="border-round-bottom border-top-1 surface-border p-0">
-    <mail-reply [content]="mail" (hide)="dialogVisible = false"></mail-reply>
+    <app-mail-reply [content]="mail" (hide)="dialogVisible = false"></app-mail-reply>
 </p-dialog>

@@ -1,6 +1,6 @@
 <div>
     <div class="card">
-        <h4>Frequently Asked Questions</h4>
+        <div class="text-900 font-bold text-xl mb-3">Frequently Asked Questions</div>
         <p class="text-600 line-height-3">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
     </div>
 
@@ -9,9 +9,9 @@
             <div class="text-900 block font-bold mb-3">Categories</div>
             <ul class="list-none m-0 p-0">
                 <li pRipple *ngFor="let item of items; let i = index" (click)="changeItem(i)" class="mb-2 ">
-                    <a class="flex align-items-center cursor-pointer select-none p-3 transition-colors transition-duration-150 border-round" [ngClass]="{'surface-hover': (activeIndex === i), 'hover:surface-hover': (activeIndex !== i)}">
-                        <i [class]="item.icon" class="mr-2 text-lg text-color"></i>
-                        <span class="text-color">{{item.label}}</span>
+                    <a class="flex align-items-center cursor-pointer select-none p-3 transition-colors transition-duration-150 border-round" [ngClass]="{'bg-primary': (activeIndex === i), 'hover:surface-hover': (activeIndex !== i)}">
+                        <i [class]="item.icon" class="mr-2 text-lg"></i>
+                        <span>{{item.label}}</span>
                     </a>
                 </li>
             </ul>

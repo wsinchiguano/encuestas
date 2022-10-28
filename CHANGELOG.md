@@ -1,5 +1,8 @@
 # Changelog
 
+## 14.2.3
+- Tooltips for slim menu
+
 ## 14.2.2
 - Updated UI kit demos
 - Updated PrimeNG

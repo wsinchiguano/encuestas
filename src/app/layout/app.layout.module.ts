@@ -15,6 +15,7 @@ import { RippleModule } from 'primeng/ripple';
 import { DividerModule } from 'primeng/divider';
 import { DialogModule } from 'primeng/dialog';
 import { MenuModule } from 'primeng/menu';
+import { TooltipModule } from 'primeng/tooltip';
 import { StyleClassModule } from 'primeng/styleclass';
 import { AppConfigModule } from './config/app.config.module';
 import { AppLayoutComponent } from './app.layout.component';
@@ -50,6 +51,7 @@ import { AppFooterComponent } from './app.footer.component';
         RadioButtonModule,
         InputSwitchModule,
         ButtonModule,
+        TooltipModule,
         RippleModule,
         MenuModule,
         RouterModule,

@@ -1,10 +1,3 @@
-/* Utils */
-.clearfix:after {
-    content:" ";
-    display:block;
-    clear:both;
-}
-
 .card {
     background: var(--surface-card);
     padding: 1.25rem;
@@ -15,18 +8,6 @@
     &:last-child {
         margin-bottom: 0;
     }
-
-    .card-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; 
-    }
-
-    .card-subtitle {
-        color: var(--text-color-secondary);
-        font-weight: 600;
-        margin: -1rem 0 1rem 0;
-    }
 }
 
 .p-toast {
@@ -34,36 +15,5 @@
     &.p-toast-top-left,
     &.p-toast-top-center {
         top: 70px;
-    }
-}
-
-
-.cdk-drag {
-    .p-progressbar {
-        height: 0.5rem;
-        
-        .p-progressbar-value {
-            border-radius: 6px;
-        }
-    }
-
-    .p-inplace {
-        .p-inplace-content {
-            .p-inputtext {
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-    
-            .p-button {
-                border-top-left-radius: 0px;
-                border-bottom-left-radius: 0px;
-                width: 3rem;
-                height: 3rem;
-            }
-        }
-
-        .p-inplace-display {
-            padding: 0;
-        }    
     }
 }

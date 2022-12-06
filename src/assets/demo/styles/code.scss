@@ -4,9 +4,9 @@ pre.app-code {
     padding: 0;
     border-radius: var(--border-radius);
     overflow: auto;
-    color: var(--surface-900);
-
+    
     code {
+        color: var(--surface-900);
         padding: 1rem;
         line-height: 1.5;
         display: block;

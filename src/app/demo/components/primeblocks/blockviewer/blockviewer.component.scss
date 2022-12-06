@@ -86,6 +86,10 @@
         background-color: var(--surface-card) !important;
         padding-bottom: 1rem !important;
         margin-bottom: 0 !important;
+
+        code {
+            padding: 1rem 2.5rem;
+        }
     }
 }
 

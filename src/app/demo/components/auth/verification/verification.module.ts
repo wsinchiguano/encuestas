@@ -7,6 +7,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { AppConfigModule } from 'src/app/layout/config/app.config.module';
+import { InputTextModule } from 'primeng/inputtext';
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 @NgModule({
     imports: [
@@ -16,7 +18,10 @@ import { AppConfigModule } from 'src/app/layout/config/app.config.module';
         InputNumberModule,
         ButtonModule,
         RippleModule,
-        AppConfigModule
+        AppConfigModule,
+        InputTextModule,
+        KeyFilterModule
+
     ],
     declarations: [VerificationComponent]
 })

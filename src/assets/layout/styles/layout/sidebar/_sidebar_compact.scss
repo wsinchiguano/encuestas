@@ -38,7 +38,11 @@
                 }
 
                 .layout-menu-container {
-                    overflow: visible;
+                    overflow: auto;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
                 }
             }
 
@@ -64,7 +68,6 @@
 
                 .layout-root-menuitem {
                     margin-bottom: 1rem;
-                    position: relative;
                     border-radius: var(--border-radius);
 
                     > .layout-menuitem-root-text {

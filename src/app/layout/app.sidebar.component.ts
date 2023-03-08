@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppSidebarComponent implements OnDestroy {
 
+    @ViewChild('menuContainer') menuContainer!: ElementRef;
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
     get logoColor() {

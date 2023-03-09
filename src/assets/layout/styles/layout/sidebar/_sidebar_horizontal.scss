@@ -22,7 +22,7 @@
                     }
                 }
                 .layout-topbar-menu-section{
-                    width: calc(100% - 250px);
+                    width: calc(100% - 287.38px);
                 }
 
                 .topbar-right {
@@ -48,9 +48,9 @@
             }
 
             .layout-sidebar {
-                width: 100%;
+                width: auto;
                 top: 0;
-                z-index: 999;
+                z-index: 1;
                 overflow: visible;
                 flex-direction: row;
                 position: relative;

@@ -80,13 +80,17 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-slim': this.layoutService.config.menuMode === 'slim',
             'layout-horizontal': this.layoutService.config.menuMode === 'horizontal',
             'layout-compact': this.layoutService.config.menuMode === 'compact',
+            'layout-reveal': this.layoutService.config.menuMode === 'reveal',
+            'layout-drawer': this.layoutService.config.menuMode === 'drawer',
             'layout-sidebar-dim': this.layoutService.config.colorScheme === 'dim',
             'layout-sidebar-dark': this.layoutService.config.colorScheme === 'dark',
             'layout-overlay-active': this.layoutService.state.overlayMenuActive || this.layoutService.state.staticMenuMobileActive,
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
             'p-ripple-disabled': !this.layoutService.config.ripple,
-            'p-input-filled': this.layoutService.config.inputStyle === 'filled'
+            'p-input-filled': this.layoutService.config.inputStyle === 'filled',
+            'layout-sidebar-active': this.layoutService.state.sidebarActive,
+            'layout-sidebar-anchored': this.layoutService.state.anchored
         }
     }
 

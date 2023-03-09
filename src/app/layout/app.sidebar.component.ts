@@ -6,7 +6,7 @@ import { LayoutService } from './service/app.layout.service';
     templateUrl: './app.sidebar.component.html'
 })
 export class AppSidebarComponent implements OnDestroy {
-
+    timeout: any = null;
     @ViewChild('menuContainer') menuContainer!: ElementRef;
     constructor(public layoutService: LayoutService, public el: ElementRef) {}
 
@@ -21,11 +21,32 @@ export class AppSidebarComponent implements OnDestroy {
         }
         return logo;
     }
+    onMouseEnter() {
+        if (!this.layoutService.state.anchored) {
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+                this.timeout = null;
+            }
+            this.layoutService.state.sidebarActive = true;
+        }
+    }
+
+    onMouseLeave() {
+        if (!this.layoutService.state.anchored) {
+            if (!this.timeout) {
+                this.timeout = setTimeout(() => (this.layoutService.state.sidebarActive = false), 300);
+            }
+        }
+    }
 
     resetOverlay() {
         if(this.layoutService.state.overlayMenuActive) {
             this.layoutService.state.overlayMenuActive = false;
         }
+    }
+
+    anchor() {
+        this.layoutService.state.anchored = !this.layoutService.state.anchored;
     }
 
     ngOnDestroy() {

@@ -23,7 +23,6 @@ export class AppBreadcrumbComponent {
             const root = this.router.routerState.snapshot.root;
             const breadcrumbs: Breadcrumb[] = [];
             this.addBreadcrumb(root, [], breadcrumbs);
-
             this._breadcrumbs$.next(breadcrumbs);
         });
     }
@@ -31,9 +30,10 @@ export class AppBreadcrumbComponent {
     private addBreadcrumb(route: ActivatedRouteSnapshot, parentUrl: string[], breadcrumbs: Breadcrumb[]) {
         const routeUrl = parentUrl.concat(route.url.map(url => url.path));
         const breadcrumb = route.data['breadcrumb'];
-        const parentBreadcrumb = route.parent && route.parent.data ? route.parent.data['breadcrumb'] : null;
-
+        const parentBreadcrumb = route.parent && route.parent!.data ? route.parent.data['breadcrumb'] : null;
+   
         if (breadcrumb && breadcrumb !== parentBreadcrumb) {
+            console.log(breadcrumb)
             breadcrumbs.push({
                 label: route.data['breadcrumb'],
                 url: '/' + routeUrl.join('/')

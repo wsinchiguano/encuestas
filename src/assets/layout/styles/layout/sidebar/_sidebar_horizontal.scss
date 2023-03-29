@@ -1,6 +1,12 @@
 @media screen and (min-width: $breakpoint) {
     .layout-wrapper {
         &.layout-horizontal {
+            .layout-content{
+                .layout-breadcrumb {
+                    display: flex;
+                    margin-bottom: 1rem;
+                }
+            }
             .layout-topbar {
                 .topbar-left {
                     .horizontal-logo {
@@ -19,6 +25,10 @@
 
                     .topbar-separator {
                         display: block;
+                    }
+
+                    .layout-breadcrumb{
+                        display: none;
                     }
                 }
                 .layout-topbar-menu-section{

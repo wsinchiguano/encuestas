@@ -42,6 +42,11 @@
     padding: 1rem;
 }
 
+.layout-content{
+    .layout-breadcrumb {
+        display: none;
+    }
+}
 .layout-menu {
     margin: 0;
     padding: 0;

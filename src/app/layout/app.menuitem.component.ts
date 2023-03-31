@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IsActiveMatchOptions, NavigationEnd, Router } from '@angular/router';
 import { animate, state, style, transition, trigger,AnimationEvent } from '@angular/animations';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
 import { LayoutService } from './service/app.layout.service';
 import { AppSidebarComponent } from './app.sidebar.component';
+import {DomHandler} from 'primeng/dom';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
@@ -55,7 +56,7 @@ import { AppSidebarComponent } from './app.sidebar.component';
         <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
     </a>
 
-    <ul *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation" (@children.done)="onSubmenuAnimated($event)">
+    <ul #submenu *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation" (@children.done)="onSubmenuAnimated($event)">
     <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
         <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
     </ng-template>
@@ -89,6 +90,8 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     @Input() @HostBinding('class.layout-root-menuitem') root!: boolean;
 
     @Input() parentKey!: string;
+
+    @ViewChild('submenu') submenu!: ElementRef;
 
     active = false;
 
@@ -137,6 +140,12 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         }
     }
 
+    ngAfterViewChecked() {
+        if (this.root && this.active && this.layoutService.isDesktop() && (this.layoutService.isHorizontal() || this.layoutService.isSlim()|| this.layoutService.isCompact())) {
+            this.calculatePosition(this.submenu?.nativeElement, this.submenu?.nativeElement.parentElement);
+        }
+    }
+
     updateActiveStateFromRoute() {
         let activeRoute = this.router.isActive(this.item.routerLink[0], (<IsActiveMatchOptions> this.item.routerLinkActiveOptions || { paths: 'exact', queryParams: 'ignored', matrixParams: 'ignored', fragment: 'ignored' }));
 
@@ -146,21 +155,30 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     onSubmenuAnimated(event: AnimationEvent) {
-        if (event.toState === 'visible' && this.layoutService.isDesktop() && (this.layoutService.isHorizontal() || this.layoutService.isSlim)) {
+        if (event.toState === 'visible' && this.layoutService.isDesktop() && (this.layoutService.isHorizontal() || this.layoutService.isSlim()|| this.layoutService.isCompact())) {
             const el = <HTMLUListElement> event.element;
-            const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
+            const elParent = <HTMLUListElement> el.parentElement;
+            this.calculatePosition(el, elParent);
+        }
+    }
 
+    calculatePosition(overlay: HTMLElement, target: HTMLElement) {
+        if (overlay) {
+            const { left, top } = target.getBoundingClientRect();
+            const [vWidth, vHeight] = [window.innerWidth, window.innerHeight];
+            const [oWidth, oHeight] = [overlay.offsetWidth, overlay.offsetHeight];
+            const scrollbarWidth = DomHandler.calculateScrollbarWidth();
+            // reset
+            overlay.style.top = '';
+            overlay.style.left = '';
+      
             if (this.layoutService.isHorizontal()) {
-                el.style.removeProperty('top');
-                const scrollLeft = container.scrollLeft;
-                const offsetLeft = el.parentElement?.offsetLeft || 0;
-                el.style.left = (offsetLeft - scrollLeft) + 'px';
-            }
-            else if (this.layoutService.isSlim()|| this.layoutService.isCompact()) {
-                el.style.removeProperty('left');
-                const scrollTop = container.scrollTop;
-                const offsetTop = el.parentElement?.offsetTop || 0;
-                el.style.top = (offsetTop - scrollTop) + 'px';
+                const width = left + oWidth + scrollbarWidth;
+                overlay.style.left = vWidth < width ? `${left - (width - vWidth)}px` : `${left}px`;
+            } else if ( this.layoutService.isSlim() || this.layoutService.isCompact()) {
+                const height = top + oHeight;
+                overlay.style.top = vHeight < height ? `${top - (height - vHeight)}px` : `${top}px`;
+                console.log('top',top,'vHeight',vHeight,'oHeight',oHeight,'height',height);
             }
         }
     }

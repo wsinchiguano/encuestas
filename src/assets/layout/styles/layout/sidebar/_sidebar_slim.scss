@@ -89,7 +89,7 @@
 
                     > ul {
                         position: absolute;
-                        left: 6rem;
+                        left: 7rem;
                         top: 0;
                         min-width: 15rem;
                         border: var(--surface-border);
@@ -99,6 +99,8 @@
                         padding: 1rem;
                         animation-duration: .4s;
                         animation-timing-function: cubic-bezier(.05,.74,.2,.99);
+                        max-height: 20rem;
+                        overflow: auto;
                     }
                 }
             }

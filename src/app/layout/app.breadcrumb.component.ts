@@ -33,7 +33,6 @@ export class AppBreadcrumbComponent {
         const parentBreadcrumb = route.parent && route.parent!.data ? route.parent.data['breadcrumb'] : null;
    
         if (breadcrumb && breadcrumb !== parentBreadcrumb) {
-            console.log(breadcrumb)
             breadcrumbs.push({
                 label: route.data['breadcrumb'],
                 url: '/' + routeUrl.join('/')

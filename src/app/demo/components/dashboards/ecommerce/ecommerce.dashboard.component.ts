@@ -255,7 +255,7 @@ export class EcommerceDashboardComponent implements OnInit, OnDestroy {
 
     }
 
-    recentSales(event: KeyboardEvent) {
+    recentSales(event: any) {
         if ((event.target as HTMLInputElement).value === '0') {
             this.products = this.productsThisWeek;
         } else {

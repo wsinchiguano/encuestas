@@ -1,0 +1,14 @@
+<div class="grid -mt-5">
+    <div class="col-12">
+        <p-tabView (onChange)="handleChange($event)" [activeIndex]="crearEncuestaService.indexTabSignal()">
+            <p-tabPanel header="CONSULTA ENCUESTA" >
+                <app-consultar-encuesta></app-consultar-encuesta>
+            </p-tabPanel>
+            <p-tabPanel header="PREGUNTAS-RESPUESTAS"  [disabled]="crearEncuestaService.estadoTabsSignal()[0]">
+                <app-pregunta-encuesta></app-pregunta-encuesta>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>
+
+<!-- <pre>ok {{ crearEncuestaService.estadoTabsSignal()| json }}</pre> -->

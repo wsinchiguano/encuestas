@@ -1,0 +1,49 @@
+
+<div class="p-grid">
+    <div
+        class="p-col-12 mt-2"
+        *ngFor="let bloque of ingresarEncuestaService.bloquesListSignal()"
+    >
+        <p-card header="{{ bloque.blo_nombre }}">
+            <div class="col-12" *ngFor="let pregunta of bloque.preguntas">
+                <h5>{{ pregunta.pre_nombre }}</h5>
+                <div class="flex flex-column gap-3">
+                    <div
+                        *ngFor="let respuesta of pregunta.respuestas"
+                        class="field-checkbox"
+                    >
+                        <p-radioButton
+                            [name]="respuesta.pre_id.toString()"
+                            [value]="respuesta"
+                            [(ngModel)] = "pregunta.valor"
+                        ></p-radioButton>
+                        <label [for]="respuesta.pre_id" class="ml-2">{{
+                            respuesta.res_etiqueta
+                        }}</label>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div class="flex mt-2 h-2rem md:w-10">
+        <button
+            pButton
+            pRipple
+            label="Regresar"
+            class="p-button-info mr-2 border-round"
+            icon="pi pi-fw pi-angle-left"
+            pTooltip="Regresar"
+            (click)="regresar()"
+        ></button>
+        <button
+            pButton
+            pRipple
+            label="Guardar"
+            class="p-button-info mr-2 border-round"
+            icon="pi pi-fw pi-save"
+            pTooltip="Guardar"
+            (click)="guardar()"
+        ></button>
+    </div>
+</div>
+

@@ -1,0 +1,153 @@
+<div class="grid -mt-3">
+    <div class="card col-12 sm:col-12 md:col-4 p-fluid">
+        <h3>{{ encuestadosService.nombreTituloSignal() }}</h3>
+
+        <div class="field -mt-2">
+            <div class="p-inputgroup w-full">
+                <label class="mt-2">Seleccionar encuestado: </label>
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-plus"
+                    class="p-button-rounded p-button-info"
+                    (click)="verEncuestadosDialog()"
+                ></button>
+            </div>
+        </div>
+
+        <div class="card -mt-2 col-12 sm:col-9 md:col-12">
+            <div class="table-responsive">
+                <p-table
+                    [autoLayout]="true"
+                    [rowHover]="true"
+                    #dt
+                    [value]="encuestadosService.asignadosListSignal()"
+                    styleClass="p-datatable-sm"
+                    [scrollable]="true"
+                    responsiveLayout="stack"
+                    [responsive]="true"
+                    [showCurrentPageReport]="true"
+                >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width:40%">NOMBRE</th>
+                            <th style="width:40%">CARGO</th>
+                            <th style="width:20%">ELIMINAR</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template
+                        pTemplate="body"
+                        let-item
+                        let-columns="columns"
+                    >
+                        <tr class="h-2rem">
+                            <td style="width: 20%; min-width: 10rem">
+                                {{ item.asig_nombre }}
+                            </td>
+                            <td style="width: 40%; min-width: 10rem">
+                                {{ item.asig_cargo }}
+                            </td>
+
+                            <td style="width: 20%; min-width: 10rem">
+                                <div class="flex">
+                                    <button
+                                        pButton
+                                        pRipple
+                                        icon="pi pi-times"
+                                        class="p-button-rounded p-button-danger p-button-sm"
+                                        pTooltip="Eliminar"
+                                        tooltipPosition="bottom"
+                                        size="small"
+                                        (click)="deleteAsign(item)"
+                                    ></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+
+        <div class="flex mt-2 h-2rem md:w-10">
+            <button
+                pButton
+                pRipple
+                label="Regresar"
+                class="p-button-info mr-2 border-round"
+                icon="pi pi-fw pi-angle-left"
+                pTooltip="Regresar"
+                (click)="regresar()"
+            ></button>
+            <button
+                pButton
+                pRipple
+                label="Asignar"
+                class="p-button-info mr-2 border-round"
+                icon="pi pi-fw pi-save"
+                pTooltip="Guardar"
+                (click)="guardar()"
+            ></button>
+        </div>
+    </div>
+</div>
+
+<!-- BUSQUEDA PERFIL -->
+<p-dialog
+    header="BUSQUEDA DE ENCUESTADOS"
+    [(visible)]="busquedaPersonaDialog"
+    [style]="{ width: '650px' }"
+    [modal]="true"
+    class="p-fluid"
+>
+    <ng-template pTemplate="content">
+        <input
+            #txtBusqueda
+            pInputText
+            type="text"
+            placeholder="Nombres, usuario"
+            (keyup.enter)="onTxtPerfilKey(txtBusqueda.value)"
+            autocomplete="off"
+        />
+        <div class="card">
+            <p-table
+                #dt
+                [value]="encuestadosService.encuestadosAsignarListSignal()"
+                [scrollable]="true"
+                responsiveLayout="scroll"
+                [paginator]="false"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:40%">CEDULA</th>
+                        <th style="width:40%">NOMBRE</th>
+                        <th style="width:20%">SELECCIONAR</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-columns="columns">
+                    <tr>
+                        <td>
+                            {{ item.per_cedula }}
+                        </td>
+                        <td>
+                            {{ item.per_nombre }}
+                        </td>
+
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button
+                                    (click)="addEncuestado(item)"
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-check"
+                                    class="p-button-rounded p-button-success mr-2"
+                                ></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- <pre> ok {{ encuestadosService.asignadosListSignal() | json }}</pre> -->

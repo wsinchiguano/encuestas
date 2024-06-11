@@ -1,0 +1,71 @@
+<h5>GRUPO ENCUESTA: {{grupoEncuestasService.grupoEncuestasSelectedSignal()?.gru_nombre}}</h5>
+
+
+<div class="card col-12 md:col-6 ">
+    <p-fileUpload #fileUploader name="demo[]" accept=".xlsx, .xls" chooseLabel="Seleccionar plantilla"
+        (onUpload)="onFileSelect($event)" [customUpload]="true" [multiple]="false" (onSelect)="onFileSelect($event)"
+        [showUploadButton]="true" [showCancelButton]="false" [auto]="true" (onRemove)="eliminarArchivo()">
+
+    </p-fileUpload>
+</div>
+
+<div class="card -mt-4 col-12 sm:col-12 md:col-12">
+    <div class="table-responsive">
+        <p-table [value]="grupoEncuestasService.plantillaExcel()" [autoLayout]="true" [rowHover]="true" #dt
+            styleClass="p-datatable-sm" [scrollable]="true" responsiveLayout="stack" [responsive]="true" [rows]="10"
+            [paginator]="true" [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>CEDULA</th>
+                    <th>CORREO</th>
+                    <th>CARGO</th>
+                    <th>COMPETENCIAS</th>
+                    <th>NIVEL DE COMPETENCIA REQUERIDO</th>
+                    <th>DEPARTAMENTO</th>
+                    <th>AREA</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-columns="columns">
+                <tr class="h-2rem">
+                    <td>
+                        {{ item.nombre_empleado }}
+                    </td>
+                    <td>
+                        {{ item.cedula }}
+                    </td>
+
+                    <td>
+                        {{ item.correo }}
+                    </td>
+                    <td>
+                        {{ item.cargo }}
+                    </td>
+                    <td>
+                        {{ item.competencias }}
+                    </td>
+                    <td>
+                        {{ item.nivel_de_competencia_requerido }}
+                    </td>
+                    <td>
+                        {{ item.departamento }}
+                    </td>
+                    <td>
+                        {{ item.area }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="flex mt-2 h-2rem md:w-10">
+        <button pButton pRipple label="Continuar" [disabled]="grupoEncuestasService.plantillaExcel().length <= 0"
+            class="p-button-info mr-2 border-round" icon="pi pi-fw pi-angle-right" pTooltip="Continuar"
+            (click)="continuar()"></button>
+
+    </div>
+</div>
+
+
+<pre>{{ grupoEncuestasService.plantillaExcel()| json }}</pre>

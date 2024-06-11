@@ -1,0 +1,58 @@
+<form autocomplete="off" [formGroup]="frmCargo">
+    <div class="grid -mt-3">
+        <div class="card col-12 sm:col-12 md:col-4 p-fluid">
+            <h3>{{ cargosService.nombreTituloSignal() }}</h3>
+
+            <div class="field">
+                <label for="nombre">Nombre:</label>
+                <div class="p-inputgroup md:w-10 h-2rem">
+                    <input
+                        formControlName="nombre"
+                        id="nombre"
+                        type="text"
+                        pInputText
+                    />
+                </div>
+            </div>
+            <div class="md:field mt-1">
+                <label for="estado" class="md:block">Estado: </label>
+                <div class="md:w-10">
+                    <p-dropdown
+                        id="estado"
+                        formControlName="estado"
+                        [options]="itemsEstado"
+                        placeholder="Selecciona una opción"
+                    ></p-dropdown>
+                </div>
+            </div>
+        
+
+            <div class="flex mt-2 h-2rem md:w-10">
+                <button
+                    pButton
+                    pRipple
+                    label="Regresar"
+                    class="p-button-info mr-2 border-round"
+                    icon="pi pi-fw pi-angle-left"
+                    pTooltip="Regresar"
+                    (click)="regresar()"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    [label]="
+                        cargosService.esNuevoSignal()
+                            ? 'Guardar'
+                            : 'Editar'
+                    "
+                    class="p-button-info mr-2 border-round"
+                    icon="pi pi-fw pi-save"
+                    pTooltip="Guardar"
+                    (click)="guardar()"
+                ></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <pre> ok {{ itemsPerfil | json }}</pre> -->
+</form>

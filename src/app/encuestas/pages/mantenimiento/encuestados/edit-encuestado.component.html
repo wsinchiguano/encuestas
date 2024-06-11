@@ -1,0 +1,162 @@
+<form autocomplete="off" [formGroup]="frmEncuestado">
+    <div class="grid -mt-3">
+        <div class="card col-12 sm:col-12 md:col-4 p-fluid">
+            <h3>{{ encuestadosService.nombreTituloSignal() }}</h3>
+
+            <div class="field">
+                <label for="cedula">Identificación:</label>
+                <div class="p-inputgroup md:w-10 h-2rem">
+                    <input
+                        formControlName="cedula"
+                        id="cedula"
+                        type="text"
+                        pInputText
+                    />
+                </div>
+            </div>
+            <div class="field">
+                <label for="nombre">Nombre:</label>
+                <div class="p-inputgroup md:w-10 h-2rem">
+                    <input
+                        formControlName="nombre"
+                        id="nombre"
+                        type="text"
+                        pInputText
+                    />
+                </div>
+            </div>
+
+            <div class="md:field -mt-2">
+                <label for="cargo" class="md:block">Cargo: </label>
+                <div class="md:w-10">
+                    <p-dropdown
+                        id="cargo"
+                        formControlName="cargo"
+                        [options]="itemsCargo"
+                        optionValue="car_id"
+                        optionLabel="car_nombre"
+                        placeholder="Selecciona una opción"
+                    ></p-dropdown>
+                </div>
+            </div>
+            <div class="md:field mt-1">
+                <label for="linea" class="md:block">Línea de negocio: </label>
+                <div class="md:w-10">
+                    <p-dropdown
+                        id="linea"
+                        formControlName="linea"
+                        [options]="itemsLinea"
+                        placeholder="Selecciona una opción"
+                    ></p-dropdown>
+                </div>
+            </div>
+            <div class="md:field mt-1">
+                <label for="estado" class="md:block">Estado: </label>
+                <div class="md:w-10">
+                    <p-dropdown
+                        id="estado"
+                        formControlName="estado"
+                        [options]="itemsEstado"
+                        placeholder="Selecciona una opción"
+                    ></p-dropdown>
+                </div>
+            </div>
+        
+
+            <!-- <div class="field -mt-2">
+                <div class="p-inputgroup w-full">
+                    <label class="mt-2">AGREGAR PERFIL: </label>
+                    <button
+                        pButton
+                        pRipple
+                        icon="pi pi-plus"
+                        class="p-button-rounded p-button-info"
+                        (click)="seleccionarPerfil()"
+                    ></button>
+                </div>
+            </div>
+
+            <div class="card -mt-2 col-12 sm:col-9 md:col-12">
+                <div class="table-responsive">
+                    <p-table
+                        [autoLayout]="true"
+                        [rowHover]="true"
+                        #dt
+                        styleClass="p-datatable-sm"
+                        [value]="itemsPerfil"
+                        [scrollable]="true"
+                        responsiveLayout="stack"
+                        [responsive]="true"
+                        [showCurrentPageReport]="true"
+                    >
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>ID</th>
+                                <th>PERFIL</th>
+                                <th>ELIMINAR</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template
+                            pTemplate="body"
+                            let-item
+                            let-columns="columns"
+                        >
+                            <tr class="h-2rem">
+                                <td>
+                                    {{ item.id }}
+                                </td>
+                                <td>
+                                    {{ item.nombre }}
+                                </td>
+
+                                <td style="width: 14%; min-width: 10rem">
+                                    <div class="flex">
+                                        <button
+                                            pButton
+                                            pRipple
+                                            icon="pi pi-times"
+                                            class="p-button-rounded p-button-danger p-button-sm"
+                                            pTooltip="Eliminar"
+                                            tooltipPosition="bottom"
+                                            size="small"
+                                            (click)="deletePerfil(item)"
+                                        ></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div> -->
+
+            <div class="flex mt-2 h-2rem md:w-10">
+                <button
+                    pButton
+                    pRipple
+                    label="Regresar"
+                    class="p-button-info mr-2 border-round"
+                    icon="pi pi-fw pi-angle-left"
+                    pTooltip="Regresar"
+                    (click)="regresar()"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    [label]="
+                        encuestadosService.esNuevoSignal()
+                            ? 'Guardar'
+                            : 'Editar'
+                    "
+                    class="p-button-info mr-2 border-round"
+                    icon="pi pi-fw pi-save"
+                    pTooltip="Guardar"
+                    (click)="guardar()"
+                ></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <pre> ok {{ itemsPerfil | json }}</pre> -->
+</form>
+
+<!-- <pre> ok {{ encuestadosService.encuestadoEditSignal() | json }}</pre> -->

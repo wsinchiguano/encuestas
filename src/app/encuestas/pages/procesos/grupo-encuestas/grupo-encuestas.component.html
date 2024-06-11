@@ -1,0 +1,21 @@
+<div class="grid -mt-5">
+    <div class="col-12">
+        <p-tabView (onChange)="handleChange($event)" [activeIndex]="grupoEncuestaService.indexTabSignal()">
+            <p-tabPanel header="CONSULTA GRUPO ENCUESTA">
+                <app-consulta-grupo-encuestas></app-consulta-grupo-encuestas>
+            </p-tabPanel>
+            <p-tabPanel header="SUBIR PLANTILLA ENCUESTADOS" [disabled]="grupoEncuestaService.estadoTabsSignal()[0]">
+                <app-encuestados-grupo-encuestas></app-encuestados-grupo-encuestas>
+            </p-tabPanel>
+            <p-tabPanel header="ASIGNAR FORMULARIOS A CARGOS" [disabled]="grupoEncuestaService.estadoTabsSignal()[1]">
+                <app-cargos-formularios-grupo-encuestas></app-cargos-formularios-grupo-encuestas>
+            </p-tabPanel>
+            <p-tabPanel header="MALLA EVALUADORES" [disabled]="grupoEncuestaService.estadoTabsSignal()[2]">
+                <app-malla-grupo-encuestas></app-malla-grupo-encuestas>
+            </p-tabPanel>
+            <p-tabPanel header="PLANTILLA EMAIL" [disabled]="grupoEncuestaService.estadoTabsSignal()[3]">
+                <app-plantilla-email-grupo-encuestas></app-plantilla-email-grupo-encuestas>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

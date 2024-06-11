@@ -1,0 +1,69 @@
+<div class="grid">
+
+    <div class="col" [hidden]="ingresarFormularioService.visualizarEncuestadosSignal()" >
+        <div class="flex justify-content-center mt-5">
+            <p class="text-5xl w-10">Bienvenid@: {{ingresarFormularioService.evaluadorSelectedSignal().per_nombre}}</p>
+        </div>
+        <p-card >
+
+            <div class="card  col-12 sm:col-12 md:col-9 ">
+
+
+                <div class="table-responsive">
+                    <p-table [autoLayout]="true" [rowHover]="true" #dt styleClass="p-datatable-sm" [scrollable]="true"
+                        responsiveLayout="stack" [responsive]="true" [rows]="20"
+                        [value]="ingresarFormularioService.evaluadosList()" [paginator]="true"
+                        [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>NOMBRE</th>
+                                <th>CARGO</th>
+                                <th>EVALUAR</th>
+
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-item let-columns="columns">
+                            <tr class="h-2rem">
+                                <td>
+                                    {{ item.asig_nombre }}
+                                </td>
+                                <td>
+                                    {{ item.asig_cargo }}
+                                </td>
+
+                                <td style="width: 14%; min-width: 10rem">
+                                    <div class="flex">
+                                        <button pButton pRipple icon="pi pi-check"
+                                            class="p-button-rounded p-button-success p-button-sm" pTooltip="Seleccionar"
+                                            tooltipPosition="bottom" size="small" (click)="evaluar(item)"></button>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+
+        </p-card>
+
+    </div>
+
+    <div class="col" [hidden]="!ingresarFormularioService.visualizarEncuestadosSignal()">
+        <div class="flex justify-content-center mt-5">
+            <p class="text-5xl w-10">NO EXISTE REGISTROS PARA ESTE CODIGO</p>
+        </div>
+        <div class="flex justify-content-center">
+            <p class="text-3xl w-10">Consulte con el administrador</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<pre> ok {{ ingresarFormularioService.evaluadosList()| json }}</pre>
+
+<app-config [minimal]="true"></app-config>

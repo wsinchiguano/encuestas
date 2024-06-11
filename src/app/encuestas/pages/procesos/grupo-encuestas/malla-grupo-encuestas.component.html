@@ -1,0 +1,126 @@
+<h5>GRUPO ENCUESTA: {{grupoEncuestasService.grupoEncuestasSelectedSignal()?.gru_nombre}}</h5>
+
+<div class="card -mt-4 col-12 sm:col-12 md:col-12">
+    <div class="table-responsive">
+        <p-table [value]="grupoEncuestasService.plantillaExcel()" [autoLayout]="true" [rowHover]="true" #dt
+            styleClass="p-datatable-sm" [scrollable]="true" responsiveLayout="stack" [responsive]="true" [rows]="10"
+            [paginator]="true" [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>CEDULA</th>
+                    <th>NOMBRE</th>
+                    <th>CARGO</th>
+                    <th>EVALUADORES</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-columns="columns">
+                <tr class="h-2rem">
+                    <td>
+                        {{ item.cedula }}
+                    </td>
+                    <td>
+                        {{ item.nombre_empleado }}
+                    </td>
+                    <td>
+                        {{ item.cargo }}
+                    </td>
+
+                    <td>
+                        <div class="flex  justify-content-center">
+                            <i class="pi pi-check" style="font-size: 1rem" (click)="seleccionarEvaluado(item)"></i>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="flex mt-2 h-2rem md:w-10">
+        <button pButton pRipple label="Continuar" [disabled]="grupoEncuestasService.plantillaExcel().length <= 0"
+            class="p-button-info mr-2 border-round" icon="pi pi-fw pi-angle-right" pTooltip="Continuar"
+            (click)="iniciar()"></button>
+        <button pButton pRipple label="Exportar" [disabled]="grupoEncuestasService.plantillaExcel().length <= 0"
+            class="p-button-info mr-2 border-round" icon="pi pi-fw pi-file-excel" pTooltip="Exportar"
+            (click)="exportar()"></button>
+
+    </div>
+</div>
+
+<!-- DIALOGO -->
+<p-dialog header="Asignar evaluadores-relación" [modal]="true" [visible]="dlgAsignarEvaluadoresVisible">
+    <ng-template pTemplate="header">
+        <h5>EVALUADO: {{personaSelected.nombre_empleado}}</h5>
+    </ng-template>
+    <div class="card">
+        <form autocomplete="off" [formGroup]="frmEvaluadorRelacion">
+            <div class="flex flex-row flex-wrap">
+                <div class="flex align-items-center justify-content-center ">
+                    <label class="font-semibold w-6rem">Evaluadores</label>
+                    <p-dropdown formControlName="evaluador" placeholder="Selecccionar evaluador" appendTo="body"
+                        [options]="grupoEncuestasService.plantillaExcel()" optionLabel="nombre_empleado"
+                        filterBy="nombre_empleado" [filter]="true">
+                    </p-dropdown>
+                </div>
+                <div class="flex align-items-center justify-content-center ml-2 ">
+                    <label class="font-semibold w-6rem">Relación</label>
+                    <p-dropdown formControlName="relacion" placeholder="Selecccionar relación" appendTo="body"
+                        [options]="relacionList" optionLabel="label">
+                    </p-dropdown>
+                </div>
+                <div class="flex align-items-center justify-content-center ">
+                    <button (click)="asignarEvaluador()" pButton pTooltip="ASIGNAR" severity="secondary"
+                        icon="pi pi-arrow-circle-down"></button>
+                </div>
+            </div>
+        </form>
+
+        <!-- tabla con la cedula, nombre, cargo, relacion , id -->
+
+    </div>
+
+
+    <div class="table-responsive">
+        <p-table [value]="evaluadoresRelacionList" [autoLayout]="true" [rowHover]="true" #dt styleClass="p-datatable-sm"
+            [scrollable]="true" responsiveLayout="stack" [responsive]="true" [rows]="10" [paginator]="true"
+            [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>CEDULA</th>
+                    <th>NOMBRE</th>
+                    <th>RELACION</th>
+                    <th>ELIMINAR</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-columns="columns">
+                <tr class="h-2rem">
+                    <td>
+                        {{ item.cedula }}
+                    </td>
+                    <td>
+                        {{ item.nombre_empleado }}
+                    </td>
+                    <td>
+                        {{ item.relacion_nombre }}
+                    </td>
+
+                    <td>
+                        <div class="flex  justify-content-center">
+                            <i class="pi pi-trash" style="font-size: 1rem" (click)="eliminarEvaluador(item)"></i>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div class="flex justify-content-end gap-2">
+        <p-button label="Cancel" severity="secondary" (click)="dlgAsignarEvaluadoresVisible = false" />
+        <p-button label="Asignar" (onClick)="guardarEvaluador()" />
+    </div>
+
+</p-dialog>
+
+<pre>{{ grupoEncuestasService.plantillaExcel()| json }}</pre>

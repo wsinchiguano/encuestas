@@ -1,0 +1,34 @@
+<p-card>
+    <ng-template pTemplate="header">
+
+        <p-toolbar>
+            <div class="p-toolbar-group-start">
+                {{pregunta.pre_nombre ? pregunta.pre_nombre : 'Untitled'}}
+            </div>
+            <div class="p-toolbar-group-center">
+
+            </div>
+            <div class="p-toolbar-group-end">
+                <button pButton pRipple type="button" icon="pi pi-times"
+                    class="p-button-rounded p-button-text p-button-secondary p-trigger"
+                    (click)="elimnarPregunta(pregunta)"></button>
+            </div>
+        </p-toolbar>
+
+    </ng-template>
+
+    <div *ngIf="pregunta.pre_tipo.match('O')">
+        <div *ngFor="let respuesta of pregunta.opciones" class="field-checkbox">
+            <p-radioButton [disabled]="true" [value]="respuesta" [(ngModel)]="respuesta.opc_valor"></p-radioButton>
+            <label [for]="respuesta.opc_uuid" class="ml-2">{{
+                respuesta.opc_nombre
+                }}</label>
+        </div>
+    </div>
+
+    <div *ngIf="pregunta.pre_tipo.match('T')">
+        <input type="text"  pInputText class="w-full sm:w-15rem h-3rem text-900 text-lg" >
+    </div>
+
+
+</p-card>

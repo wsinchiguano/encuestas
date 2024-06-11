@@ -1,0 +1,22 @@
+<h5>GRUPO ENCUESTA: {{grupoEncuestasService.grupoEncuestasSelectedSignal()?.gru_nombre}}</h5>
+
+<div class="-section grid md:border-1 border-round">
+    <form autocomplete="off" [formGroup]="frmPlantillaEmail">
+        <div class="col-12 field">
+            <label for="asunto" class="text-900 font-semibold">Asunto</label>
+            <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                <i class="pi pi-pencil" style="left: 1.5rem;"></i>
+                <input formControlName="asuntoEmail" id="subject" type="text" pInputText placeholder="Asunto"
+                    class="w-full pl-7 text-900 font-semibold" style="height: 3.5rem" />
+            </span>
+        </div>
+        <div class="col-12 field">
+            <p-editor [style]="{'height':'250px'}" formControlName="cuerpoEmail"></p-editor>
+        </div>
+        <div class="col-12 flex column-gap-3 justify-content-end">
+            <button pButton pRipple type="button" class="p-button-primary h-3rem w-full sm:w-auto" icon="pi pi-send"
+                label="Enviar encuesta" (click)="enviarEncuesta()" ></button>
+        </div>
+    </form>
+  
+</div>

@@ -1,0 +1,40 @@
+<h5>GRUPO ENCUESTA: {{grupoEncuestasService.grupoEncuestasSelectedSignal()?.gru_nombre}}</h5>
+
+
+<!-- listado de cargos  -->
+<div class="grid ">
+    <div class="card  col-12 sm:col-12 md:col-6">
+        <div class="table-responsive">
+            <p-table [value]="grupoEncuestasService.cargoFormularioListSignal()" [autoLayout]="true" [rowHover]="true"
+                #dt styleClass="p-datatable-sm" [scrollable]="true" responsiveLayout="stack" [responsive]="true"
+                [rows]="10" [paginator]="true" [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>CARGO</th>
+                        <th>FORMULARIO</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-columns="columns">
+                    <tr class="h-2rem">
+                        <td>
+                            {{ item.nombre_cargo }}
+                        </td>
+                        <td>
+                            <p-dropdown appendTo="body" [options]="crearEncuestaService.formulariosListSignal()" [(ngModel)]="item.id_formulario"
+                                optionLabel="enc_nombre" placeholder="Selecccionar formulario"></p-dropdown>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="flex mt-2 h-2rem md:w-10">
+            <button pButton pRipple label="Continuar" [disabled]="grupoEncuestasService.cargoFormularioListSignal().length <= 0"
+                class="p-button-info mr-2 border-round" icon="pi pi-fw pi-angle-right" pTooltip="Continuar"
+                (click)="continuar()"></button>
+    
+        </div>
+    </div>
+</div>
+
+<pre>ok {{grupoEncuestasService.cargoFormularioListSignal()| json }}</pre>

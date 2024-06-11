@@ -1,0 +1,111 @@
+<div class="grid -mt-2">
+    <div class="card col-12 sm:col-12 md:col-9">
+        <h5>BUSCAR</h5>
+        <form autocomplete="off" [formGroup]="frmBusqueda">
+            <div class="p-inputgroup md:w-3 -mt-3 h-2rem">
+                <input placeholder="nombre formulario" id="float-input" type="text" pInputText
+                    formControlName="formulario" />
+            </div>
+        </form>
+        <!-- botones de buscar nuevo y limpiar -->
+        <div class="flex mt-2 h-2rem">
+            <button pButton pRipple label="Buscar" class="p-button-info mr-2 border-round" icon="pi pi-fw pi-search"
+                pTooltip="Buscar" (click)="buscar()"></button>
+
+            <button pButton pRipple label="Limpiar" class="p-button-success  mr-2 border-round"
+                icon="pi pi-fw pi-refresh" pTooltip="Limpiar" (click)="reset()"></button>
+
+            <button pButton pRipple label="Nuevo" class="p-button-success border-round" icon="pi pi-fw pi-plus"
+                pTooltip="Nuevo" (click)="mostrarDlgNuevoMormulario()"></button>
+        </div>
+    </div>
+
+    <div class="card -mt-4 col-12 sm:col-12 md:col-9">
+        <div class="table-responsive">
+            <p-table [value]="crearEncuestaService.formulariosListSignal()" [autoLayout]="true" [rowHover]="true" #dt
+                styleClass="p-datatable-sm" [scrollable]="true" responsiveLayout="stack" [responsive]="true" [rows]="10"
+                [paginator]="true" [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>FORMULARIO</th>
+                        <th>ESTADO</th>
+                        <th>EDITAR</th>
+                        <th>COPIAR</th>
+                        <th>SELECCIONAR</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-columns="columns">
+                    <tr class="h-2rem">
+                        <td>
+                            {{ item.enc_id }}
+                        </td>
+                        <td>
+                            {{ item.enc_nombre }}
+                        </td>
+                        <td>
+                            {{ item.enc_estado }}
+                        </td>
+
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex  justify-content-center">
+                                <i class="pi pi-pencil" (click)="verEditarDlgFormulario(item)"
+                                    style="font-size: 1rem"></i>
+                            </div>
+                        </td>
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex  justify-content-center">
+                                <i class="pi pi-clone" (click)="cloneFormulario(item)" style="font-size: 1rem"></i>
+                            </div>
+                        </td>
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex  justify-content-center">
+                                <i class="pi pi-check" (click)="selectFormulario(item)" style="font-size: 1rem"></i>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+</div>
+
+<p-dialog header="Nuevo Formulario" [modal]="true" [(visible)]="dlgNuevoFormularioVisible">
+    <form autocomplete="off" [formGroup]="frmNuevoFormulario">
+
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="txtNombreFormulario" class="font-semibold w-6rem">Nombre:</label>
+            <input pInputText id="txtNombreFormulario" formControlName="txtNombreFormulario" class="flex-auto"
+                autocomplete="off" />
+        </div>
+
+        <div class="flex justify-content-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="dlgNuevoFormularioVisible = false" />
+            <p-button label="Save" (click)="guardarDlgNuevoFormulario()" />
+        </div>
+    </form>
+</p-dialog>
+<p-dialog header="Editar Formulario" [modal]="true" [(visible)]="dlgEditarFormularioVisible">
+    <form autocomplete="off" [formGroup]="frmEditarFormulario">
+
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="txtNombreFormulario" class="font-semibold w-6rem">Nombre:</label>
+            <input pInputText id="txtNombreFormulario" formControlName="txtNombreFormulario" class="flex-auto"
+                autocomplete="off" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="estado" class="font-semibold w-6rem">Nombre:</label>
+            <p-dropdown formControlName="estado" [options]="itemsEstado" appendTo="body"
+                placeholder="Selecciona una opción"></p-dropdown>
+        </div>
+
+        <div class="flex justify-content-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="dlgEditarFormularioVisible = false" />
+            <p-button label="Save" (click)="editarDlgFormulario()" />
+        </div>
+    </form>
+</p-dialog>
+
+<!-- <pre>ok {{ crearEncuestaService.formulariosListSignal()| json }}</pre> -->

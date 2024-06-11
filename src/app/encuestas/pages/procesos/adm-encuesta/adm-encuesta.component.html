@@ -1,0 +1,111 @@
+<div class="grid -mt-5">
+    <div class="card col-12 sm:col-9 md:col-12">
+        <h5>BUSCAR</h5>
+        <form autocomplete="off" [formGroup]="frmBusqueda">
+            <div class="p-inputgroup md:w3 -mt-3 h-2rem">
+                <input placeholder="nombre" type="text" pInputText formControlName="argBusqueda" />
+            </div>
+        </form>
+        <div class="flex mt-2 h-2rem">
+            <button pButton pRipple label="Buscar" class="p-button-info mr-2 border-round" icon="pi pi-fw pi-search"
+                pTooltip="Buscar" (click)="consultar()"></button>
+
+            <button pButton pRipple label="Limpiar" class="p-button-success border-round" icon="pi pi-fw pi-refresh"
+                pTooltip="Limpiar" (click)="reset()"></button>
+            &nbsp;
+            <button pButton pRipple label="Nuevo" class="p-button-success border-round" icon="pi pi-fw pi-plus"
+                pTooltip="Nuevo" (click)="nuevo()"></button>
+        </div>
+    </div>
+
+    <div class="card -mt-4 col-12 sm:col-9 md:col-12">
+        <div class="table-responsive">
+            <p-table [autoLayout]="true" [rowHover]="true" #dt styleClass="p-datatable-sm" [scrollable]="true"
+                responsiveLayout="stack" [responsive]="true" [rows]="10" [value]="grupoEncuestasList" [paginator]="true"
+                [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>ESTADO</th>
+                        <th>RESULTADO</th>
+                        <th>AVANCE</th>
+                        <th>CONFIG</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-columns="columns">
+                    <tr class="h-2rem">
+                        <td>
+                            {{ item.gru_id }}
+                        </td>
+                        <td>
+                            {{ item.gru_nombre }}
+                        </td>
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-play"
+                                    [disabled]="item.gru_estado === 'A' ? true : item.gru_estado === 'P' ? false : true "
+                                    class="p-button-rounded p-button-info P-button-sm" pTooltip="Iniciar"
+                                    tooltipPosition="bottom" size="small" (click)="cambiarEstado(item)"></button>
+                                &nbsp;
+                                <button pButton pRipple icon="pi pi-pause "
+                                    [disabled]="item.gru_estado === 'A' ? false: item.gru_estado == 'P' ? true : true "
+                                    class="p-button-rounded p-button-warning P-button-sm" pTooltip="Pausar"
+                                    tooltipPosition="bottom" size="small" (click)="cambiarEstado(item)"></button>
+                                &nbsp;
+                                <button pButton pRipple icon="pi pi-stop"
+                                    [disabled]="item.gru_estado == 'A' ? false: item.gru_estado == 'P' ? true : true "
+                                    class="p-button-rounded p-button-danger P-button-sm" pTooltip="Parar"
+                                    tooltipPosition="bottom" size="small" (click)="cambiarEstado(item)"></button>
+                            </div>
+                        </td>
+
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-file-excel"
+                                    class="p-button-rounded p-button-success p-button-sm" pTooltip="Resultados"
+                                    tooltipPosition="bottom" size="small" (click)="resultados(item)"></button>
+                            </div>
+                        </td>
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-file-excel"
+                                    class="p-button-rounded p-button-success p-button-sm" pTooltip="Avance"
+                                    tooltipPosition="bottom" size="small" (click)="avance(item)"></button>
+                            </div>
+                        </td>
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-cog"
+                                    class="p-button-rounded p-button-info P-button-sm" pTooltip="Configuración"
+                                    tooltipPosition="bottom" size="small" (click)="avance(item)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <!-- <pre> ok {{ grupoEncuestasList | json }}</pre> -->
+</div>
+
+<!-- Ingresar nueva grupo encuesta -->
+<form autocomplete="off" [formGroup]="frmNuevaGrupoEncuesta">
+    <p-dialog header="INGRESAR ENCUESTA" [(visible)]="nuevaGrupoEncuestaDialog" [modal]="true">
+        <div class="grid mt-2">
+            <div class="card ">
+                <div class="field">
+                    <label for="nombre">Nombre:</label>
+                    <div class="p-inputgroup md:w-10 h-2rem">
+                        <input id="nombre" formControlName="nombre" type="text" pInputText />
+                    </div>
+                </div>
+                <div class="flex mt-2 h-2rem md:w-10">
+                    <button pButton pRipple label="Guardar" class="p-button-info mr-2 border-round"
+                        icon="pi pi-fw pi-save" pTooltip="Guardar" (click)="guardar()"></button>
+                </div>
+            </div>
+        </div>
+    </p-dialog>
+</form>

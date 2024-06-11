@@ -1,0 +1,42 @@
+<form autocomplete="off" [formGroup]="frmEncabezado">
+    <p class="text-5xl w-10">{{crearEncuestaService.formularioSelectedSignal()?.enc_nombre}}</p>
+    <button (click)="saveSeccionPreguntasOpciones()" pButton pRipple label="GUARDAR FORMULARIO"
+        icon="pi pi-save font-semibold"
+        class="py-3 justify-content-center font-semibold  border-round p-button-success"></button>
+    <div class="flex mt-2 mb-3">
+
+        <div class="flex">
+            <textarea placeholder="Ingresar encabezado de la encuesta" formControlName="encabezado" rows="2" cols="100"
+                pInputTextarea>
+            </textarea>
+        </div>
+    </div>
+</form>
+<!-- <p class="text-5xl w-10">{{crearEncuestaService.formularioSelectedSignal()?.enc_nombre}}</p>
+<button (click)="saveSeccionPreguntasOpciones()" pButton pRipple label="GUARDAR FORMULARIO"
+    icon="pi pi-save font-semibold"
+    class="py-3 justify-content-center font-semibold  border-round p-button-success"></button>
+<div class="flex mt-2 mb-3">
+
+    <div class="flex">
+        <textarea placeholder="Ingresar encabezado de la encuesta"
+            [ngModel]="crearEncuestaService.formularioSelectedSignal()?.enc_descripcion" rows="2" cols="100"
+            pInputTextarea>
+        </textarea>
+    </div>
+</div> -->
+<div id="kanban-wrapper" cdkDropList cdkDropListOrientation="horizontal"
+    class="grid grid-nogutter w-full flex-column md:flex-row flex-nowrap gap-5 lg:overflow-y-hidden overflow-x-auto">
+
+    <app-seccion-list-encuesta *ngFor="let seccion of crearEncuestaService.seccionListSignal(); let i = index"
+        [seccion]="seccion" cdkDrag cdkDragHandle class="p-kanban-list"></app-seccion-list-encuesta>
+
+
+    <div class="px-3 py-1 mb-3 md:w-25rem flex-shrink-0">
+        <button pButton pRipple label="AGREGAR SECCION" icon="pi pi-plus font-semibold"
+            class="py-3 justify-content-center font-semibold w-full border-round" (click)="addSeccion()"></button>
+    </div>
+</div>
+
+<pre>
+ok {{ crearEncuestaService.formularioSelectedSignal() | json  }}</pre>

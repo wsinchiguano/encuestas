@@ -1,0 +1,46 @@
+<!-- Encabezado de la pregunta -->
+<p-inplace #inplace [closable]="false" closeIcon="pi pi-check" styleClass="h-auto">
+    <ng-template pTemplate="display">
+        <span class="block text-900 font-semibold  pl-2 text-lg" pTooltip="Click to edit"
+            style="word-break: break-word;" tooltipPosition="top">{{ preguntaSelected.pre_nombre }}</span>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <input #inputEl type="text" [value]="preguntaSelected.pre_nombre" [(ngModel)]="preguntaSelected.pre_nombre" pInputText
+            (keydown.enter)="inplace.deactivate()" />
+    </ng-template>
+</p-inplace>
+
+<!-- es opcion -->
+<div *ngIf="preguntaSelected.pre_tipo.match('O')">
+    <div class="flex overflow-hidden" *ngFor="let opcion of preguntaSelected.opciones; let i = index">
+        <div class="border-500 border-bottom-2  flex-none flex align-items-center">
+            <i class="pi pi-check-circle my-2" style="font-size: 1.5rem"></i>
+        </div>
+        <div class="border-500 border-bottom-2 flex-grow-1 flex align-items-center justify-content-between  pl-5 ">
+            <p-inplace #inplace [closable]="false" closeIcon="pi pi-check">
+                <ng-template pTemplate="display">
+                    <span>{{ opcion.opc_nombre }}</span>
+                </ng-template>
+                <ng-template pTemplate="content">
+                    <input type="text" [(ngModel)]="opcion.opc_nombre"
+                        (ngModelChange)="saveOption(preguntaSelected, i, $event)" pInputText
+                        (keydown.enter)="inplace.deactivate()" />
+                </ng-template>
+            </p-inplace>
+
+        </div>
+        <div class="border-500 border-bottom-2 flex-none flex align-items-center  ">
+            <i (click)="eliminarOpcion(opcion)" class="pi pi-trash my-2" style="font-size: 1.5rem"></i>
+        </div>
+    </div>
+    <i class="pi pi-plus my-2" (click)="agregarOpcion()" style="font-size: 1.5rem"></i>
+</div>
+
+
+
+<!-- es texto -->
+<div *ngIf="preguntaSelected.pre_tipo.match('T')">
+    <input pInputText />
+</div>
+
+<!-- es n tipo de pregunta.... -->

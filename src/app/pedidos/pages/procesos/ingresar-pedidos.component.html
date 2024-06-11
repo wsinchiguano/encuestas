@@ -1,0 +1,38 @@
+<!-- <div class="content">
+    <div class="row">
+        <div *ngFor="let table of tables" class="col">
+            <div class="card {{table.color}}">
+                <div class="card-header">{{table.name}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">Estado: {{table.estado}}</h5>
+                </div>
+                <div class="card-footer">
+                    <button type="button" icon="pi pi-check" class="btn btn-primary">Seleccionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- 
+<div class="grid">
+    <div *ngFor="let table of tables" class="col-12 sm:col-3 md:col-2 lg:col-1">
+        
+    </div>
+</div> -->
+
+<div class="flex flex-wrap ">
+    <div *ngFor="let table of ingresarPedidosService.mesasEstadoListSignal()" class="flex  m-1 border-round ">
+
+        <div (click)="seleccionar()" class="card {{table.color}} text-white cursor-pointer "
+            style="min-width: 200px; min-height: 100px">
+
+            <div class="card-body">
+
+                <p>{{table.nombre_mesa}} </p>
+                <p class="text-sm">Estado: {{table.estado}} </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pre> ok {{ ingresarPedidosService.mesasEstadoListSignal()| json }}</pre>

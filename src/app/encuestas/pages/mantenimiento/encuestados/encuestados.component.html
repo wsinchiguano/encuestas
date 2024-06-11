@@ -1,0 +1,126 @@
+<div class="grid -mt-5">
+    <div class="card col-12 sm:col-9 md:col-12">
+        <h5>BUSCAR</h5>
+        <form autocomplete="off" [formGroup]="frmBusqueda">
+            <div class="p-inputgroup md:w3 -mt-3 h-2rem">
+                <input
+                    placeholder="cédula, nombre"
+                    type="text"
+                    pInputText
+                    formControlName="argBusqueda"
+                />
+            </div>
+        </form>
+        <div class="flex mt-2 h-2rem">
+            <button
+                pButton
+                pRipple
+                label="Buscar"
+                class="p-button-info mr-2 border-round"
+                icon="pi pi-fw pi-search"
+                pTooltip="Buscar"
+                (click)="consultar()"
+            ></button>
+            <button
+                pButton
+                pRipple
+                label="Nuevo"
+                class="p-button-info mr-2 border-round"
+                icon="pi pi-fw pi-plus"
+                pTooltip="Nuevo"
+                (click)="nuevo()"
+            ></button>
+            <button
+                pButton
+                pRipple
+                label="Limpiar"
+                class="p-button-success border-round"
+                icon="pi pi-fw pi-refresh"
+                pTooltip="Limpiar"
+                (click)="reset()"
+            ></button>
+        </div>
+    </div>
+
+    <div class="card -mt-4 col-12 sm:col-9 md:col-12">
+        <div class="table-responsive">
+            <p-table
+                [autoLayout]="true"
+                [rowHover]="true"
+                #dt
+                styleClass="p-datatable-sm"
+                [scrollable]="true"
+                responsiveLayout="stack"
+                [responsive]="true"
+                [rows]="10"
+                [value]="encuestadosService.encuestadosListSignal()"
+                [paginator]="true"
+                [rowsPerPageOptions]="[10, 20, 30]"
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>CEDULA</th>
+                        <th>NOMBRES</th>
+                        <th>CARGO</th>
+                        <th>LINEA</th>
+                        <th>SELECCIONAR</th>
+                        <th>ASIGNAR</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-columns="columns">
+                    <tr class="h-2rem">
+                        <td>
+                            {{ item.per_id }}
+                        </td>
+                        <td>
+                            {{ item.per_cedula }}
+                        </td>
+                        <td>
+                            {{ item.per_nombre }}
+                        </td>
+                        <td>
+                            {{ item.per_cargo }}
+                        </td>
+                        <td>
+                            {{ item.per_linea }}
+                        </td>
+
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-check"
+                                    class="p-button-rounded p-button-success p-button-sm"
+                                    pTooltip="Seleccionar"
+                                    tooltipPosition="bottom"
+                                    size="small"
+                                    (click)="editar(item)"
+                                ></button>
+                            </div>
+                        </td>
+                        <td style="width: 14%; min-width: 10rem">
+                            <div class="flex">
+                                <button
+                                    pButton
+                                    pRipple
+                                    icon="pi pi-check"
+                                    class="p-button-rounded p-button-warning p-button-sm"
+                                    pTooltip="Asignar"
+                                    tooltipPosition="bottom"
+                                    size="small"
+                                    (click)="asignar(item)"
+                                ></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <!-- <pre> ok {{ encuestadosService.encuestadosListSignal() | json }}</pre> -->
+</div>

@@ -1,0 +1,58 @@
+<div class="grid">
+    <div class="col">
+        <div class="flex justify-content-center mt-5">
+            <p class="text-5xl w-10">Evaluado@: {{ingresarFormularioService.evaluadoSelectedSignal().asig_nombre}}</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-12 mt-2" *ngFor="let seccion of ingresarFormularioService.formularioSignal()?.secciones">
+        <p-card header="{{ seccion.sec_nombre }}">
+            <div class="col-12" *ngFor="let pregunta of seccion.preguntas">
+                <h5>{{ pregunta.pre_nombre }}</h5>
+                <div class="flex  flex-row flex-wrap">
+                    <!-- si es tipo opcion -->
+                    <div class="flex" *ngIf="pregunta.pre_tipo.match('O')">
+                        <div *ngFor="let opcion of pregunta.opciones" class="field-checkbox">
+                            <p-radioButton [name]="opcion.opc_id.toString()" [value]="opcion"
+                                [(ngModel)]="pregunta.valor"></p-radioButton>
+                            <label [for]="opcion.opc_id" class="mr-5">{{
+                                opcion.opc_nombre
+                                }}</label>
+                        </div>
+                    </div>
+
+                    <!-- si es tipo texto -->
+                    <div *ngIf="pregunta.pre_tipo.match('T')">
+                        <input type="text"  [(ngModel)]="pregunta.valor" pInputText class="w-full sm:w-15rem h-3rem text-900 text-lg">
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+    <div class="flex mt-2 h-2rem md:w-10">
+        <button pButton pRipple label="Regresar" class="p-button-info mr-2 border-round" icon="pi pi-fw pi-angle-left"
+            pTooltip="Regresar" (click)="regresar()"></button>
+        <button pButton pRipple label="Guardar" class="p-button-info mr-2 border-round" icon="pi pi-fw pi-save"
+            pTooltip="Guardar" (click)="guardar()"></button>
+    </div>
+</div>
+
+
+<pre> ok {{ ingresarFormularioService.formularioSignal()| json }}</pre>
+<!-- 
+ <div *ngIf="pregunta.pre_tipo.match('O')">
+        <div *ngFor="let respuesta of pregunta.opciones" class="field-checkbox">
+            <p-radioButton [disabled]="true" [value]="respuesta" [(ngModel)]="respuesta.opc_valor"></p-radioButton>
+            <label [for]="respuesta.opc_uuid" class="ml-2">{{
+                respuesta.opc_nombre
+                }}</label>
+        </div>
+    </div>
+
+    <div *ngIf="pregunta.pre_tipo.match('T')">
+        <input type="text"  pInputText class="w-full sm:w-15rem h-3rem text-900 text-lg" >
+    </div>
+-->

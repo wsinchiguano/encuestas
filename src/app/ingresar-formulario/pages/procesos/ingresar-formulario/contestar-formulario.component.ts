@@ -77,12 +77,16 @@ export class ContestarFormularioComponent implements OnInit {
     });
 
 
-   // console.log(respuesta);
+   //  console.log(respuesta);
     let resultado = await this.ingresarFormularioService.guardarFormularioContestado(respuesta);
 
     //si resultao es 1 redirecciona al inicio
+    console.log('ok', resultado);
+    
     if (resultado == 1) {
-      this.ingresarFormularioService.getAEvaluar(this.ingresarFormularioService.uuidSignal());
+      await this.ingresarFormularioService.getAEvaluar(this.ingresarFormularioService.uuidSignal());
+      console.log(this.ingresarFormularioService.uuidSignal());
+      
       this.router.navigate([`/ingresarFormulario/${this.ingresarFormularioService.uuidSignal()}`]);
     }
 

@@ -47,8 +47,15 @@ export class IngresarFormularioService {
             this.appService.executePublic(JSON.stringify(arg)).subscribe({
                 next: (data) => {
                     //existe algun error
-                    if (data.data[0].valor == -1) {
-                        resolve(-1);
+                    console.log('ok', data.data);
+                    //let existeValor = typeof data.data[0]?.valor !== undefined;
+                    
+                    console.log('ok', data.data[0]?.valor);
+                   // console.log('ok', existeValor);
+                    if ( data.data[0]?.valor) {
+                        if (data.data[0].valor == -1) {
+                            resolve(-1);
+                        }
                     }
 
                     this.evaluadosList.set([...data.data]);

@@ -22,9 +22,13 @@ export class ConsultaGrupoEncuestasComponent {
     argumento: [, [Validators.required]]
   });
 
+  frmNuevoGrupo: FormGroup = this.fb.group({
+    argumento: [, [Validators.required]]
+  });
+
 
   //mostrar dialogos
-  //mostrarDlgNuevoGrupo: boolean = false;
+  dlgNuevoGrupoVisible: boolean = false;
 
 
   pararGrupoEncuesta(event: Event, item: GrupoEncuestaInterface) {
@@ -97,13 +101,18 @@ export class ConsultaGrupoEncuestasComponent {
   }
 
   seleccionarGrupoEncuestas(item: GrupoEncuestaInterface) {
-    if (item.gru_estado == 'P' ) { 
+    if (item.gru_estado == 'P') {
       this.grupoEncuestasService.indexTabSignal.set(1);
       this.grupoEncuestasService.estadoTabsSignal.set([false, true, true, true]);
       this.grupoEncuestasService.grupoEncuestasSelectedSignal.set(item);
     }
   }
-  mostrarDlgNuevoGrupo() {
 
+  mostrarDlgNuevoGrupo() {
+    this.dlgNuevoGrupoVisible = true;
+  }
+
+  guardarDlgNuevoFormulario(){
+    
   }
 }

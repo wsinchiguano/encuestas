@@ -386,4 +386,53 @@ export class GrupoEncuestasService {
             });
         });
     }
+
+    guardarGrupoEncuestas(nombreGrupo: string, fechaInicio: Date, fechaFin: Date):Promise<number> {
+        let arg ={
+            codigo: 36,
+            usuario: this.authService.usuario.usu_usuario,
+            parametros: {
+                nombre: nombreGrupo,
+                fecha_ini: fechaInicio,
+                fecha_fin: fechaFin,
+            },
+        };
+        return new Promise<number>((resolve, reject) =>{
+            this.appService.execute(JSON.stringify(arg)).subscribe({
+                next: (data) => {
+                    if (data.data[0].valor == 1) {
+                        this.mensajesService.msgs(
+                            'Exito!',
+                            data.data[0].mensaje,
+                            'success',
+                            'OK'
+                        );
+                        this.getGrupoEncuestas(nombreGrupo);
+                        resolve(1);
+                    } else {
+                        this.mensajesService.msgs(
+                            'Advertencia!',
+                            data.data[0].mensaje,
+                            'warning',
+                            'OK'
+                        );
+                        resolve(-1);
+                    }
+                },
+                error: (error) => {
+                    this.mensajesService.msgs(
+                        'Advertencia!',
+                        error.error.message,
+                        'warning',
+                        'OK'
+                    );
+                    console.log('error: ', error);
+                    reject(error);
+                },
+                complete: () => {
+                    //aqui van los logs
+                },
+            });
+        });
+    }
 }

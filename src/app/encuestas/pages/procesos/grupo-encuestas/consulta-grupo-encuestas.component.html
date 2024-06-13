@@ -65,7 +65,7 @@
                                     <i class="pi pi-play" style="font-size: 1rem"></i>
                                 </div>
                                 <div [hidden]="item.gru_estado == 'T' ? true : item.gru_estado == 'I' ? false: true ">
-                                   
+
                                     <i class="pi pi-stop" style="font-size: 1rem"
                                         (click)="pararGrupoEncuesta($event, item)"></i>
                                 </div>
@@ -100,9 +100,18 @@
     <form autocomplete="off" [formGroup]="frmNuevoGrupo">
 
         <div class="flex align-items-center gap-3 mb-3">
-            <label for="txtNombreFormulario" class="font-semibold w-6rem">Nombre:</label>
-            <input pInputText id="txtNombreGrupo" formControlName="txtNombreGrupo" class="flex-auto"
+            <label for="nombre" class="font-semibold w-6rem">Nombre:</label>
+            <input pInputText id="nombreGrupo" formControlName="nombreGrupo" class="flex-auto"
                 autocomplete="off" />
+        </div>
+
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="fechaInicio" class="font-semibold w-6rem">Fecha inicio:</label>
+            <p-calendar formControlName="fechaInicio" appendTo="body" [showIcon]="true" [showOnFocus]="false" inputId="fechaInicio" dateFormat="dd/mm/yy" />
+        </div>
+        <div class="flex align-items-center gap-3 mb-3">
+            <label for="fechaFin" class="font-semibold w-6rem">Fecha inicio:</label>
+            <p-calendar formControlName="fechaFin" appendTo="body" [showIcon]="true" [showOnFocus]="false" inputId="fechaFin" dateFormat="dd/mm/yy" />
         </div>
 
         <div class="flex justify-content-end gap-2">

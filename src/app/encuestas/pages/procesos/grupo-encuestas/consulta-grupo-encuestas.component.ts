@@ -23,7 +23,10 @@ export class ConsultaGrupoEncuestasComponent {
   });
 
   frmNuevoGrupo: FormGroup = this.fb.group({
-    argumento: [, [Validators.required]]
+    nombreGrupo: [, [Validators.required]],
+    fechaInicio: [, [Validators.required]],
+    fechaFin: [, [Validators.required]],
+
   });
 
 
@@ -112,7 +115,60 @@ export class ConsultaGrupoEncuestasComponent {
     this.dlgNuevoGrupoVisible = true;
   }
 
-  guardarDlgNuevoFormulario(){
-    
+  guardarDlgNuevoFormulario() {
+    const { nombreGrupo, fechaInicio, fechaFin } = this.frmNuevoGrupo.value;
+
+    if (!nombreGrupo || nombreGrupo.trim() == '') {
+      this.mensajesService.msgs(
+        'Advertencia!',
+        'Ingresar nombre grupo',
+        'warning',
+        'OK'
+      );
+      this.dlgNuevoGrupoVisible = false;
+      this.frmNuevoGrupo.reset();
+      return;
+    }
+    // console.log('ok', fechaInicio);
+
+    if (!fechaInicio) {
+      this.mensajesService.msgs(
+        'Advertencia!',
+        'Ingresar fecha Inicio',
+        'warning',
+        'OK'
+      );
+      this.dlgNuevoGrupoVisible = false;
+      this.frmNuevoGrupo.reset();
+      return;
+    }
+    if (!fechaInicio) {
+      this.mensajesService.msgs(
+        'Advertencia!',
+        'Ingresar fecha Fin',
+        'warning',
+        'OK'
+      );
+      this.dlgNuevoGrupoVisible = false;
+      this.frmNuevoGrupo.reset();
+      return;
+    }
+
+    if (fechaInicio > fechaFin) {
+      this.mensajesService.msgs(
+        'Advertencia!',
+        'Fecha inicio debe se mayor a fecha fin',
+        'warning',
+        'OK'
+      );
+      this.dlgNuevoGrupoVisible = false;
+      this.frmNuevoGrupo.reset();
+      return;
+    }
+
+    let resultado = this.grupoEncuestasService.guardarGrupoEncuestas(nombreGrupo, fechaInicio, fechaFin);
+    this.dlgNuevoGrupoVisible = false;
+    this.frmNuevoGrupo.reset();
   }
+
 }
